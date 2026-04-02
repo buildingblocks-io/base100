@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact the BASE-100 Institute. Reach us for accreditation, governance contributions, or general inquiries.">
+    <meta name="author" content="BASE-100 Institute">
+    <title>Contact | BASE-100 Institute</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script>window.BASE_URL = '../../';</script>
+</head>
+<body class="flex flex-col min-h-screen bg-white text-slate-900">
+
+    <div id="header-container"></div>
+
+    <main class="flex-grow">
+
+        <!-- Page Header -->
+        <section class="bg-white pt-32 pb-16 px-6 border-b border-slate-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-xs font-mono text-slate-500 mb-4 uppercase tracking-widest">Contact</div>
+                <h1 class="text-5xl font-bold text-slate-900 mb-4 tracking-tight" style="font-family:'Space Grotesk',sans-serif">Contact the Institute.</h1>
+                <p class="text-xl text-slate-600 max-w-2xl leading-relaxed">
+                    For accreditation requests, governance contributions, press enquiries, or general questions — reach us directly.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Grid -->
+        <section class="py-24 px-6 bg-slate-50">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-8 tracking-tight" style="font-family:'Space Grotesk',sans-serif">Send a Message</h2>
+
+                    <!-- PHP action: replace action attribute with your form handler on the server -->
+                    <form id="contact-form" action="../../contact-handler.php" method="POST" novalidate class="space-y-5">
+                        <!-- Honeypot (spam protection) -->
+                        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="cf-name" class="block text-xs font-mono uppercase tracking-widest text-slate-500 mb-2">Full Name <span class="text-[#ff4d00]">*</span></label>
+                                <input type="text" id="cf-name" name="name" required placeholder="Jan Janssen"
+                                    class="w-full px-4 py-3 border border-slate-200 bg-white text-sm focus:outline-none focus:border-slate-900 transition-colors">
+                            </div>
+                            <div>
+                                <label for="cf-org" class="block text-xs font-mono uppercase tracking-widest text-slate-500 mb-2">Organisation</label>
+                                <input type="text" id="cf-org" name="organisation" placeholder="Acme Corp"
+                                    class="w-full px-4 py-3 border border-slate-200 bg-white text-sm focus:outline-none focus:border-slate-900 transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="cf-email" class="block text-xs font-mono uppercase tracking-widest text-slate-500 mb-2">Work Email <span class="text-[#ff4d00]">*</span></label>
+                            <input type="email" id="cf-email" name="email" required placeholder="jan@company.be"
+                                class="w-full px-4 py-3 border border-slate-200 bg-white text-sm focus:outline-none focus:border-slate-900 transition-colors">
+                        </div>
+
+                        <div>
+                            <label for="cf-subject" class="block text-xs font-mono uppercase tracking-widest text-slate-500 mb-2">Subject <span class="text-[#ff4d00]">*</span></label>
+                            <select id="cf-subject" name="subject" required
+                                class="w-full px-4 py-3 border border-slate-200 bg-white text-sm focus:outline-none focus:border-slate-900 transition-colors appearance-none">
+                                <option value="" disabled selected>Select a topic</option>
+                                <option value="accreditation">Accreditation &amp; Certification</option>
+                                <option value="governance">Governance &amp; Contribution</option>
+                                <option value="press">Press &amp; Media</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="general">General Enquiry</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="cf-message" class="block text-xs font-mono uppercase tracking-widest text-slate-500 mb-2">Message <span class="text-[#ff4d00]">*</span></label>
+                            <textarea id="cf-message" name="message" required rows="6" placeholder="Your message..."
+                                class="w-full px-4 py-3 border border-slate-200 bg-white text-sm focus:outline-none focus:border-slate-900 transition-colors resize-none"></textarea>
+                        </div>
+
+                        <div id="contact-message" class="hidden text-sm py-3 px-4 border"></div>
+
+                        <button type="submit"
+                            class="w-full px-8 py-4 bg-slate-900 text-white text-xs font-bold uppercase tracking-wide hover:bg-[#ff4d00] transition-colors">
+                            Send Message <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="fade-in" style="animation-delay:0.1s">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-8 tracking-tight" style="font-family:'Space Grotesk',sans-serif">Institute Details</h2>
+                    <div class="space-y-8">
+                        <div class="border-t border-slate-200 pt-6">
+                            <div class="text-xs font-mono text-[#ff4d00] uppercase tracking-widest mb-2">Location</div>
+                            <p class="text-slate-700">Flanders, Belgium<br><span class="text-slate-400 text-sm">Part of the Marqui Research Group</span></p>
+                        </div>
+                        <div class="border-t border-slate-200 pt-6">
+                            <div class="text-xs font-mono text-[#ff4d00] uppercase tracking-widest mb-2">Standard Revision</div>
+                            <p class="text-slate-700">BASE-100 Rev. 2026 — Active<br><span class="text-slate-400 text-sm">Next scheduled assembly: Brussels</span></p>
+                        </div>
+                        <div class="border-t border-slate-200 pt-6">
+                            <div class="text-xs font-mono text-[#ff4d00] uppercase tracking-widest mb-2">Accreditation</div>
+                            <p class="text-slate-700 text-sm leading-relaxed">Accreditation is open to practitioners, consultants, and organisations that adopt the BASE-100 standard. Contact us to begin the process.</p>
+                        </div>
+                        <div class="border-t border-slate-200 pt-6">
+                            <div class="text-xs font-mono text-[#ff4d00] uppercase tracking-widest mb-3">Quick Actions</div>
+                            <div class="space-y-3">
+                                <a href="../discovery/" class="flex items-center gap-3 text-sm text-slate-700 hover:text-[#ff4d00] transition-colors group">
+                                    <i class="fa-solid fa-magnifying-glass text-slate-400 group-hover:text-[#ff4d00] transition-colors"></i>
+                                    Take the Self-Assessment
+                                </a>
+                                <a href="../grid/" class="flex items-center gap-3 text-sm text-slate-700 hover:text-[#ff4d00] transition-colors group">
+                                    <i class="fa-solid fa-th text-slate-400 group-hover:text-[#ff4d00] transition-colors"></i>
+                                    Explore the BASE-100 Grid
+                                </a>
+                                <a href="../../publications/whitepaper/BASE100_EBOOK-rev2026.pdf" target="_blank" class="flex items-center gap-3 text-sm text-slate-700 hover:text-[#ff4d00] transition-colors group">
+                                    <i class="fa-solid fa-file-pdf text-slate-400 group-hover:text-[#ff4d00] transition-colors"></i>
+                                    Download Whitepaper (PDF)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script>
+        // Client-side contact form handling
+        (function () {
+            const form = document.getElementById('contact-form');
+            const msg = document.getElementById('contact-message');
+
+            function showMsg(text, type) {
+                msg.textContent = text;
+                msg.className = type === 'success'
+                    ? 'text-sm py-3 px-4 border border-emerald-200 bg-emerald-50 text-emerald-700'
+                    : 'text-sm py-3 px-4 border border-red-200 bg-red-50 text-red-700';
+            }
+
+            form.addEventListener('submit', async function (e) {
+                // On file:// protocol, just show a friendly info message
+                if (window.location.protocol === 'file:') {
+                    e.preventDefault();
+                    showMsg('Form submission works on the live server. Open this page via a web server to test.', 'error');
+                    return;
+                }
+                // On a real server, the form submits normally to PHP handler.
+                // Optionally intercept here for AJAX submission.
+            });
+        }());
+    </script>
+</body>
+</html>
+

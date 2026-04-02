@@ -1,0 +1,254 @@
+<!-- Newsletter Subscribe Component -->
+<!-- Usage: Include this file and use data-subscribe="inline" or data-subscribe="popup" -->
+
+<style>
+    /* Subscribe Component Styles */
+    .subscribe-container {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    /* INLINE VARIATION */
+    .subscribe-inline {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 12px;
+        padding: 32px;
+        color: white;
+        margin: 40px 0;
+    }
+
+    .subscribe-inline h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0 0 12px 0;
+    }
+
+    .subscribe-inline p {
+        font-size: 14px;
+        opacity: 0.95;
+        margin: 0 0 24px 0;
+        line-height: 1.5;
+    }
+
+    .subscribe-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .subscribe-form input,
+    .subscribe-form textarea {
+        padding: 12px 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-family: inherit;
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
+    }
+
+    .subscribe-form input::placeholder,
+    .subscribe-form textarea::placeholder {
+        color: #999;
+    }
+
+    .subscribe-form textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+
+    .subscribe-form button {
+        padding: 12px 24px;
+        background: white;
+        color: #667eea;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .subscribe-form button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .subscribe-form button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .subscribe-message {
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        margin-top: 12px;
+        display: none;
+    }
+
+    .subscribe-message.success {
+        background: rgba(34, 197, 94, 0.2);
+        color: #22c55e;
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        display: block;
+    }
+
+    .subscribe-message.error {
+        background: rgba(239, 68, 68, 0.2);
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        display: block;
+    }
+
+    /* POPUP VARIATION */
+    .subscribe-popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9998;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .subscribe-popup-overlay.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .subscribe-popup {
+        background: white;
+        border-radius: 16px;
+        padding: 40px;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        position: relative;
+        animation: slideUp 0.3s ease;
+    }
+
+    .subscribe-popup-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #999;
+        transition: color 0.2s;
+    }
+
+    .subscribe-popup-close:hover {
+        color: #333;
+    }
+
+    .subscribe-popup h2 {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0 0 12px 0;
+        color: #333;
+    }
+
+    .subscribe-popup .subtitle {
+        font-size: 14px;
+        color: #666;
+        margin: 0 0 24px 0;
+        line-height: 1.5;
+    }
+
+    .subscribe-popup .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 20px;
+        padding: 12px;
+        background: #f5f5f5;
+        border-radius: 8px;
+    }
+
+    .subscribe-popup .trust-badge svg {
+        width: 16px;
+        height: 16px;
+        color: #22c55e;
+    }
+
+    /* Honeypot field - hidden from users */
+    .subscribe-honeypot {
+        display: none;
+    }
+
+    @media (max-width: 640px) {
+        .subscribe-inline {
+            padding: 24px;
+        }
+
+        .subscribe-popup {
+            padding: 24px;
+        }
+
+        .subscribe-popup h2 {
+            font-size: 24px;
+        }
+    }
+</style>
+
+<!-- INLINE VARIATION -->
+<div class="subscribe-container" data-subscribe="inline">
+    <div class="subscribe-inline">
+        <h3>Stay Informed</h3>
+        <p>Get updates on BASE-100 progress, new insights, and framework improvements. We're a non-profit open institute—no spam, just valuable content.</p>
+        <form class="subscribe-form" data-form="inline">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="remarks" placeholder="What interests you most? (optional)"></textarea>
+            <input type="text" name="website" class="subscribe-honeypot" style="display:none;">
+            <button type="submit" disabled>Subscribe</button>
+            <div class="subscribe-message"></div>
+        </form>
+    </div>
+</div>
+
+<!-- POPUP VARIATION -->
+<div class="subscribe-popup-overlay" data-subscribe="popup">
+    <div class="subscribe-popup">
+        <button class="subscribe-popup-close" aria-label="Close">&times;</button>
+        <h2>Stay Informed</h2>
+        <p class="subtitle">Get updates on BASE-100 progress, new insights, and framework improvements.</p>
+        <div class="trust-badge">
+            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Non-profit open institute • No spam • Unsubscribe anytime
+        </div>
+        <form class="subscribe-form" data-form="popup">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="remarks" placeholder="What interests you most? (optional)"></textarea>
+            <input type="text" name="website" class="subscribe-honeypot" style="display:none;">
+            <button type="submit" disabled>Subscribe</button>
+            <div class="subscribe-message"></div>
+        </form>
+    </div>
+</div>
+

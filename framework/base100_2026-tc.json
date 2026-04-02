@@ -1,0 +1,257 @@
+{
+  "id": "TC",
+  "name": "Talent & Culture",
+  "purpose": "Build and maintain the human system that allows the company to operate, grow, and endure beyond any individual.",
+  "cxo_persona": "Chief People Officer",
+  "description": "How the company defines roles, recruits people consistently, onboards them effectively, measures and develops their performance, builds an intentional culture, and creates leadership depth that reduces dependence on any single person. A mature talent and culture domain means the company attracts and retains the right people systematically, develops leaders from within, and maintains a culture that does not depend on the founder's presence to hold together.",
+  "direction": {
+    "name": "People and Culture Strategy",
+    "purpose": "Define how the company attracts, develops, and retains the people required to achieve its mission, and how the culture is deliberately built and maintained as the company grows.",
+    "required_outputs": [
+      "role_definition_model",
+      "hiring_criteria_and_process",
+      "employee_onboarding_program",
+      "company_values_and_behavioral_standards",
+      "performance_management_system",
+      "leadership_development_model",
+      "compensation_framework",
+      "people_review_rhythm"
+    ],
+    "primary_owner": "Chief People Officer",
+    "contributors": ["CEO", "operations_lead", "department_heads"],
+    "minimum_standard": "One documented people strategy exists covering role definitions, hiring standards, onboarding, performance expectations, and the intended company culture, reviewed at least quarterly.",
+    "review_frequency": 4,
+    "questions_to_answer": [
+      "What type of person thrives in this company, described in observable behavioral terms rather than personality adjectives?",
+      "What behaviors define the culture the company wants, and what behaviors are incompatible with it regardless of performance?",
+      "What does the voluntary attrition rate reveal about whether the company is retaining the right people?",
+      "Which current team members have the potential to lead a function in 12 to 24 months, and what is being done to prepare them?",
+      "What does the company do when a high performer consistently violates the stated values?",
+      "Is the current compensation structure attracting and retaining the quality of people the company needs, and how does it compare to the market?",
+      "What would happen to each core function if the person currently running it left this week?",
+      "What would a new employee conclude about the company culture from their first 30 days, without anyone telling them what it is supposed to be?"
+    ]
+  },
+  "levels": [
+    {
+      "level": 1,
+      "headline": "Roles Defined",
+      "plain_english": "Every person in the company has a written description of what their role is for, what they are responsible for, and what good performance looks like.",
+      "observation": "At Level 1, a role definition exists for every current position. Each one states the purpose of the role, its five to eight key responsibilities, the reporting line, and what the role is expected to produce. Before any new hire begins, their role definition exists in writing. Nobody joins the company without a clear written answer to the question of what they are there to do.",
+      "why_it_matters": "A job title without a role definition is a label. It tells someone what they are called but not what they own, what they are responsible for producing, or how their work connects to the company's goals. Without role definitions, overlap and gaps are inevitable. People either duplicate effort or leave work undone, each assuming it belongs to someone else. The role definition is the first act of making expectations explicit.",
+      "audit_binary": "Does every current employee have a written role definition covering purpose, key responsibilities, reporting line, and the primary output the role is expected to produce, reviewed within the past 12 months?",
+      "evidence": "Role Definition Library",
+      "evidence_example": "A set of written role definitions, one per current employee or role type, each covering: role purpose in one sentence, five to eight key responsibilities, reporting line, and the primary measurable output. Last reviewed within 12 months.",
+      "example": "A company with eight employees has eight role cards in a shared document. Each lists: what the role exists to achieve, what the person does weekly, who they report to, and what the most important thing they produce is. When a role changes significantly, the card is updated before the person is told about the change. Every new hire reads their role card on day one.",
+      "false_positive_signals": [
+        "Job titles and reporting lines exist in an org chart but no written description of responsibilities or expected outputs accompanies them.",
+        "Role definitions were written during the company's founding and have not been updated since, meaning they describe the original vision of each role rather than what people actually do today."
+      ],
+      "failure_signals": [
+        "Employees frequently ask who is responsible for specific decisions or tasks because the boundaries between roles are unclear.",
+        "Performance conversations are difficult or avoided because there is no written reference point for what the role is supposed to produce."
+      ],
+      "prerequisite": "LD.3",
+      "review_frequency": 2,
+      "weights": {"impact": 9, "complexity": 2, "time_to_implement": 2, "direct_cost": 1}
+    },
+    {
+      "level": 2,
+      "headline": "People Information Organized",
+      "plain_english": "All information about the company's people lives in one place that any authorized team member can access without hunting.",
+      "observation": "At Level 2, there is a central people repository. It holds everything the company needs to manage its workforce: role definitions, employment records, contracts, compensation information, performance history, training and development records, and leave and availability data. An HR question about any employee can be answered in under five minutes without emailing the founder or searching through multiple tools. The information is current, organized, and in one place.",
+      "why_it_matters": "People information scattered across email threads, personal drives, and memory is not actually available to the company. It is available to the individuals who hold it. When a manager needs to review someone's employment history, check their current salary against their performance, or confirm their notice period before a difficult conversation, that information needs to be findable in seconds. Organized people information is the foundation of professional HR management and of any people decision that needs to be made under time pressure.",
+      "audit_binary": "Is there a single people information repository containing current records for every employee covering role definition, employment terms, performance history, and training records, accessible to authorized team members and updated within the past 90 days?",
+      "evidence": "People Information Repository",
+      "evidence_example": "A shared HR system, folder, or equivalent containing current records for every employee with at minimum: role definition, contract or employment terms summary, most recent performance review, and any training or development activities completed. Updated within 90 days.",
+      "example": "A shared HR folder organized by employee with six standard documents per person: role definition, contract summary, most recent performance review, a training log, a compensation record, and a one-page onboarding completion record. Updated when anything changes. A manager preparing for a performance conversation can pull the complete history for any team member in under three minutes without asking anyone.",
+      "false_positive_signals": [
+        "Employee records exist across a payroll system, a separate performance tool, a Google Drive folder, and the founder's email, with no single location that is considered the authoritative source.",
+        "A people repository exists but records for some employees have not been updated in more than six months, making it a partial picture rather than a complete and current one."
+      ],
+      "failure_signals": [
+        "When a difficult HR conversation needs to happen, the manager has to spend time reconstructing the employee's history before they can have it, because the information is not organized or accessible.",
+        "An employment dispute arises and the company cannot quickly produce a complete and accurate record of the relevant history because no organized repository exists."
+      ],
+      "prerequisite": "TC.1",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 2, "time_to_implement": 3, "direct_cost": 2}
+    },
+    {
+      "level": 3,
+      "headline": "People Function Owned and Hiring Criteria Defined",
+      "plain_english": "One person is accountable for talent and culture outcomes, and every role has written hiring criteria that any interviewer can apply consistently.",
+      "observation": "At Level 3, two things are true. One named person owns the people function and can answer, at any moment, what the current team looks like, which roles are open, who is performing well, and who is at risk of leaving. And for every role in the company, a set of hiring criteria exists in writing: the skills, experience, and behavioral qualities a successful candidate must demonstrate, described specifically enough that two different interviewers evaluating the same candidate reach the same conclusion.",
+      "why_it_matters": "Hiring without written criteria is pattern-matching to whoever hired last. Interviewers unconsciously favor candidates who remind them of existing team members, or who are personally likeable, regardless of whether those qualities predict job performance. Written criteria replace subjective impression with structured evaluation. Over time, consistent criteria produce a more diverse, higher-performing team than gut-feel hiring does. And a named people owner means that talent and culture have an accountable steward rather than being everyone's informal responsibility.",
+      "audit_binary": "Is there one named person accountable for the talent and culture function who can produce a current people health summary without gathering information from others, and do written hiring criteria exist for every current role type that two interviewers could apply independently to reach the same hiring decision?",
+      "evidence": "People Ownership Assignment with People Health Summary and Hiring Criteria Documents",
+      "evidence_example": "A written ownership assignment naming the people owner and their accountability. A current people health summary showing team composition, open roles, and performance status. Hiring criteria documents for every role type currently filled or being recruited for.",
+      "example": "The HR lead is named in the accountability chart as owner of talent and culture outcomes. They produce a quarterly people health summary showing: current headcount by function, open roles and days open, average tenure, and a traffic light rating for each team member based on performance and engagement signals. Hiring criteria for Account Manager include: demonstrated experience managing a B2B sales pipeline with documented conversion data, can describe a structured discovery process they use, has worked in a company with fewer than 50 staff, and displays specific behaviors in the interview such as preparing questions about the role and following up within 24 hours. Each criterion is rated yes, partial, or no in the post-interview debrief form.",
+      "false_positive_signals": [
+        "Hiring decisions are made by whichever manager has the open role, with no shared criteria and no central visibility into the overall hiring picture across the company.",
+        "Hiring criteria exist for some roles but not others, and are written at a level of abstraction such as must be a team player that cannot be consistently evaluated across interviewers."
+      ],
+      "failure_signals": [
+        "New hires frequently fail to meet performance expectations within the first 90 days, suggesting the hiring criteria are not predicting job performance accurately.",
+        "When leadership asks about the state of the team, nobody can answer comprehensively without spending time gathering information from multiple managers."
+      ],
+      "prerequisite": "TC.2",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 3, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 4,
+      "headline": "Standardized Hiring, Onboarding, and Values",
+      "plain_english": "Every candidate goes through the same hiring process, every new employee follows the same onboarding program, and the company's values are written as observable behaviors that are used in hiring and performance decisions.",
+      "observation": "At Level 4, three standards govern how people enter the company and understand what it stands for. Hiring: every candidate for a given role goes through the same stages in the same order, is evaluated against the same written criteria, and the hiring decision is recorded with a rationale. Onboarding: every new employee follows the same program in their first 30 days covering company direction, role expectations, tools and systems, and the key relationships they need to build. Values: the company's values are written as specific observable behaviors, not abstract nouns, and are actively used in both the hiring evaluation and the performance review rather than living only on a wall or a website.",
+      "why_it_matters": "Standardizing hiring, onboarding, and values together is what creates a coherent culture rather than a collection of individual subcultures shaped by whoever manages each team. When the same values are used to evaluate candidates at the front door and to evaluate performance quarterly, culture becomes a system rather than an aspiration. An employee who joined six months ago and one who joined six years ago should both be able to describe the company's values through the same concrete behaviors, because they experienced those values being applied consistently from day one.",
+      "audit_binary": "Does every candidate go through a documented hiring process with a written decision record, does every new employee complete the same 30-day onboarding program with a signed completion checklist, and are the company's values written as observable behaviors actively used in the most recent round of hiring evaluations and the most recent performance reviews?",
+      "evidence": "Hiring Process Document with Decision Records, Employee Onboarding Program with Completion Checklists, and Values Document with Active Usage Evidence",
+      "evidence_example": "A hiring process document showing stages and evaluation criteria. Decision records for the last three hires showing the rationale. An onboarding program document with the 30-day schedule. Signed completion checklists from the last three new hires. A values document with behavioral descriptions, plus evidence that values criteria appeared in the last hiring evaluation form and the last round of performance reviews.",
+      "example": "Hiring process: application review, a 30-minute values and culture call, a structured skills interview using the written criteria, a practical task, and a final decision debrief. Every decision is recorded with a score per criterion and a written rationale. Onboarding: week one covers company direction, the accountability chart, and tool access. Week two includes shadowing at least two colleagues in different functions. Week three covers the role's first 90-day deliverable. A 30-day check-in with the manager closes the program. Values: three company values written as behaviors. Ownership means: when you say you will do something, you do it, and if something changes you communicate before the deadline, not after. Used in the interview debrief rubric and in the quarterly performance review under each employee's name.",
+      "false_positive_signals": [
+        "Company values are displayed on the website and in the office but cannot be found on any hiring evaluation form or performance review template, revealing they are decoration rather than an operating standard.",
+        "Onboarding exists in principle but varies significantly between managers and between departments, meaning some new hires receive a structured introduction and others figure things out by asking colleagues."
+      ],
+      "failure_signals": [
+        "Employees who have been with the company for six months describe the company's values differently from each other, revealing that the values were communicated inconsistently during onboarding.",
+        "A hiring decision is challenged internally because different interviewers applied different standards, revealing that the hiring process is not standardized in practice."
+      ],
+      "prerequisite": "TC.3",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 5, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 5,
+      "headline": "Performance Measured",
+      "plain_english": "Every employee has a numeric performance target, receives a structured quarterly review, and the company tracks four people metrics monthly including voluntary attrition rate.",
+      "observation": "At Level 5, performance is measured rather than felt. Every role has a scorecard with at least one numeric KPI linked to the role's primary output. Quarterly reviews happen for all employees using a standard format: results against the scorecard, behavioral feedback referenced against the values, one development goal, and the priorities for the next quarter. Four people metrics are tracked monthly: voluntary attrition rate, time-to-hire for open roles, eNPS where feasible, and internal promotion rate over a rolling 12-month window.",
+      "why_it_matters": "Voluntary attrition rate is the people equivalent of churn rate in customer success. A company losing 25% of its team annually through voluntary departures is rebuilding a quarter of itself every year, at enormous cost in hiring, onboarding, and lost institutional knowledge. Tracking it monthly means the trend is visible before it becomes structural. eNPS answers the question that attrition answers too late: would your team recommend working here? Internal promotion rate measures whether the company is developing people or consuming them.",
+      "audit_binary": "Does every employee have a numeric performance target reviewed quarterly using a standard format, are four people metrics including voluntary attrition rate tracked monthly, and has a metric declining for two consecutive months triggered a documented people investigation in the past six months?",
+      "evidence": "Performance Scorecard Library with Quarterly Review Records and People Metrics Dashboard",
+      "evidence_example": "Written scorecards for every current employee with at least one numeric KPI. Quarterly review records for all employees in the past 12 months. A monthly people metrics report for at least three consecutive months showing voluntary attrition rate, time-to-hire, eNPS or equivalent, and internal promotion rate.",
+      "example": "Every role has a scorecard. Account Manager scorecard: primary KPI is closed revenue per month with a target of 40,000 euros, secondary KPI is pipeline stage accuracy with a target of 90% of deals correctly staged. Quarterly reviews use a standard four-section form: KPI results, values rating with specific behavioral examples, development goal agreed for next quarter, and top three priorities. Monthly people metrics: voluntary attrition rate 12% annualized, target below 15%. Time-to-hire for last three roles: 28 days average, target below 35 days. eNPS from last quarterly pulse: 31, target above 20. Internal promotion rate over 12 months: 2 of 4 leadership openings filled internally, target above 50%.",
+      "false_positive_signals": [
+        "Annual performance reviews happen but quarterly check-ins are informal and unrecorded, meaning performance conversations happen too infrequently to catch and correct problems before they become serious.",
+        "People metrics such as headcount and open roles are tracked but voluntary attrition rate is not calculated separately from total departures, hiding whether the company is losing people by choice or by necessity."
+      ],
+      "failure_signals": [
+        "Voluntary attrition is above 20% annualized with no documented investigation into why people are leaving or what pattern exists across departures.",
+        "Employees report in exit interviews that they were unclear about their performance expectations and had not received useful feedback, revealing that the review process is happening on paper without being meaningful in practice."
+      ],
+      "prerequisite": "LD.5",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 5, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 6,
+      "headline": "Proactive Talent Development",
+      "plain_english": "High-potential employees have structured development plans and are being tested in expanded roles, and the company maintains relationships with candidates for key positions before those positions become vacant.",
+      "observation": "At Level 6, talent development is proactive rather than reactive. High-potential employees are formally identified in the annual talent review, given a written development plan showing the target role, the timeline, and the specific activities that will prepare them, and tested through meaningful expanded responsibilities rather than just theoretical training. Separately, the company maintains a candidate pipeline for its two or three most critical and frequently hired roles, with active relationships that can be activated when a vacancy opens rather than starting from zero.",
+      "why_it_matters": "Reactive talent development means the company promotes people when positions open rather than when they are ready. The result is consistently promoted-too-soon leaders who struggle at the next level and drag their teams down with them. Proactive development means the company knows who its next leaders are, is actively preparing them, and has tested their readiness before they are needed. The candidate pipeline matters for the same reason: a company that starts recruiting from zero when a role opens consistently makes worse hires under time pressure than one that activates existing relationships.",
+      "audit_binary": "Are at least two high-potential employees formally identified with a written development plan showing a target role, timeline, and specific activities, tested in at least one expanded responsibility in the past 90 days, and does an active candidate pipeline exist for at least two key roles with at least three candidates per role contacted within the past 90 days?",
+      "evidence": "Leadership Development Plans with Expanded Role Records and Candidate Pipeline Log",
+      "evidence_example": "Written development plans for at least two identified high-potential employees, each showing target role, timeline, development activities, and evidence of at least one expanded responsibility completed in the past 90 days. A candidate pipeline log for at least two key roles showing at least three candidates per role with last contact date within 90 days.",
+      "example": "Annual talent review identified two high-potential employees. First: operations coordinator identified as potential operations manager in 18 months. Development plan: lead the monthly operations review for the next two quarters, complete one external management training program, shadow the current operations manager on all cross-domain integration activities. Already leading the monthly review independently for three months. Second: senior account manager identified as potential sales lead in 24 months. Development plan: manage two junior salespeople, lead the weekly pipeline review, produce the monthly sales metrics report. Candidate pipeline: for the account manager role, six candidates are tracked in a CRM. Three have been contacted in the past 60 days with a warm message. When the next vacancy opens, the first call is to these six rather than posting a job advertisement.",
+      "false_positive_signals": [
+        "High-potential employees are informally recognized in management conversations but no written development plan exists and they have not been given any expanded responsibility to test their readiness.",
+        "A candidate pipeline is described as existing but consists of LinkedIn connections rather than active relationships with people who have been contacted and have expressed interest."
+      ],
+      "failure_signals": [
+        "When a leadership role becomes vacant, the company has no internal candidate ready and spends 60 to 90 days searching externally under time pressure, often making a compromise hire.",
+        "A talented employee leaves the company citing lack of growth opportunity, revealing that their potential was recognized informally but never translated into a structured development plan or timeline."
+      ],
+      "prerequisite": "TC.5",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 6, "time_to_implement": 6, "direct_cost": 3}
+    },
+    {
+      "level": 7,
+      "headline": "Cross-Domain People Integration",
+      "plain_english": "The people function formally connects to leadership, sales, operations, and customer success through shared artifacts that are used in real decisions every quarter.",
+      "observation": "At Level 7, the people function does not operate in isolation. Four integration points exist. Leadership receives a current succession matrix showing who is being developed for every key role and their readiness level, updated at least twice per year. Sales receives new hire ramp records showing how long it took each recent hire to reach their performance target, informing future hiring and onboarding decisions. Operations receives a skill coverage map showing which critical delivery tasks are covered by more than one trained person and which represent single-point-of-failure risk. Customer success receives a development plan for every customer-facing team member aligned to the skills that drive customer outcomes.",
+      "why_it_matters": "People decisions affect every domain but are rarely made with input from every domain. A hiring decision made without understanding operational skill coverage can create a new gap while filling an old one. A development plan built without understanding what skills drive customer outcomes can invest in the wrong capabilities. Cross-domain people integration converts the people function from an administrative support role into a strategic contributor that shapes organizational capability across the whole company.",
+      "audit_binary": "Do documented integration artifacts connect TC to LD, RS, OD, and CS, with evidence that each artifact was used to inform a decision in the past quarter?",
+      "evidence": "Cross-Domain People Integration Artifacts: Succession Matrix for Leadership, Ramp Performance Records for Sales, Skill Coverage Map for Operations, and Customer-Facing Development Plans for Customer Success",
+      "evidence_example": "Four artifacts, each with evidence of use in the past quarter: a succession matrix shared with leadership showing readiness levels for all key roles, ramp performance records shared with the sales lead showing time-to-quota for recent hires, a skill coverage map shared with the operations lead showing single-point-of-failure risks, and development plans for customer-facing team members aligned to CS outcome drivers.",
+      "example": "LD integration: the succession matrix is reviewed in the Q3 leadership strategy session. Last quarter it revealed that the finance function has no internal successor, prompting the decision to include a finance management module in the operations lead's development plan. RS integration: ramp records for the last four sales hires show an average of 52 days to reach 80% of quota. Shared with the sales lead, who used this to set a formal 60-day ramp target and adjust the onboarding program. OD integration: the skill coverage map shows that only one person is trained to conduct the technical discovery session. Shared with the operations lead, who scheduled cross-training for a second team member. CS integration: the development plan for the customer success lead includes training in renewal conversation facilitation after CS data showed renewal conversations as the function's weakest performance area.",
+      "false_positive_signals": [
+        "HR communicates with other departments about people matters informally and responsively, but no structured artifacts exist and people intelligence does not formally feed decisions in other domains.",
+        "A succession matrix exists and is maintained by HR but is never shared with leadership or used in the strategic planning process."
+      ],
+      "failure_signals": [
+        "A key operational team member leaves and the company discovers too late that they were the only person trained for a critical delivery task, a risk the skill coverage map would have surfaced.",
+        "Sales ramp times are consistently longer than expected but the onboarding program has not been updated because no formal feedback loop exists between sales performance and people program design."
+      ],
+      "prerequisite": "TC.6",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 3}
+    },
+    {
+      "level": 8,
+      "headline": "Systematic People Improvement",
+      "plain_english": "The company measures culture through regular employee surveys, analyzes every voluntary departure, and benchmarks compensation against the market, with findings used to update people programs quarterly.",
+      "observation": "At Level 8, the people function improves through three systematic cycles. Culture measurement: a quarterly pulse survey and annual eNPS generate data on how the team experiences the company. The results are reviewed by the people owner, shared with leadership, and used to identify and address cultural gaps before they drive attrition. Departure analysis: every voluntary departure is analyzed within two weeks to understand the reason, the point at which the employee began disengaging, and whether an early signal was missed. Compensation benchmarking: market compensation data for every key role is reviewed annually and the company's compensation structure is adjusted where gaps threaten retention.",
+      "why_it_matters": "Culture is the sum of what people actually experience at work, not the sum of what the company says it values. The only way to know whether the experienced culture matches the intended culture is to measure it. Departure analysis is the equivalent of churn analysis: each voluntary departure is a lesson. If it is analyzed and the lesson is applied, the same departure reason becomes less likely to recur. Compensation benchmarking prevents the slow drain of losing high performers to competitors offering 20% more for equivalent work, not because the company did not value those people, but because nobody checked.",
+      "audit_binary": "Is a culture pulse survey conducted at least quarterly with results reviewed by leadership and at least two documented people program updates made as a result in the past six months, has every voluntary departure been analyzed within two weeks with findings documented, and has compensation been benchmarked against market data in the past 12 months with adjustments made where gaps were identified?",
+      "evidence": "Culture Survey Results with Leadership Review Records and Program Update Log, Departure Analysis Log, and Compensation Benchmarking Report",
+      "evidence_example": "Quarterly culture survey results for at least two consecutive quarters with leadership review records and at least two documented program updates. A departure analysis log with an entry for every voluntary departure in the past six months. A compensation benchmarking report from the past 12 months showing market comparison by role and any adjustments made.",
+      "example": "Culture pulse survey sent every quarter with 10 questions covering clarity, autonomy, recognition, growth, and management quality. Last quarter: average score 6.8 out of 10, down from 7.2. Two lowest scores: recognition and growth opportunity. Leadership reviewed the results. Two program updates: a monthly peer recognition message added to the all-hands meeting, and a biannual career conversation added to the performance review cycle. Departure analysis: three voluntary departures in the past six months. Common theme in two of three: the employees felt their growth path was unclear. Finding applied: career pathing conversation added to the onboarding program at the 90-day mark. Compensation benchmarking: all roles benchmarked against market data in January. Two roles found to be more than 15% below market. Salaries adjusted in the Q2 compensation review.",
+      "false_positive_signals": [
+        "An annual engagement survey is conducted but results are shared with leadership once and then archived, with no documented program changes made as a result.",
+        "Departure conversations happen informally but findings are not documented and no pattern analysis is conducted, meaning each departure is treated as a one-off event rather than a data point."
+      ],
+      "failure_signals": [
+        "Voluntary attrition has been above target for two consecutive quarters but no root cause analysis has been conducted, no departure pattern has been identified, and no program has been changed in response.",
+        "The company has lost two or three high performers in the past 12 months who cited compensation as a reason for leaving, but no market benchmarking has been conducted to understand whether the pattern will continue."
+      ],
+      "prerequisite": "TC.7",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 4}
+    },
+    {
+      "level": 9,
+      "headline": "Independent People Leadership",
+      "plain_english": "A dedicated people leader owns hiring, development, culture, and retention without founder involvement, and a current succession matrix covers every key role in the company.",
+      "observation": "At Level 9, a named people leader owns the full talent and culture function independently. They make hiring decisions, approve exits, manage the performance review cycle, run culture surveys, maintain the candidate pipeline, and update the succession matrix without routing decisions through the founder. The founder reviews the quarterly people health summary and the annual people governance report, but is not involved in individual people decisions. The succession matrix is current, names a trained candidate for every key role, and is reviewed at least twice per year.",
+      "why_it_matters": "Founder involvement in individual people decisions is one of the most subtle forms of founder dependency, and one of the hardest to remove. When team members know that the founder is the real decision-maker on who gets hired, promoted, or let go, they bypass the people function and go directly to the founder. That defeats the purpose of having a people function entirely. True independence means the people leader has real authority, the team respects it, and the founder's involvement is governance-level rather than operational.",
+      "audit_binary": "Has the people leader made at least four significant people decisions in the past two quarters without founder involvement, is the succession matrix current with a named and partially developed candidate for every key role, and has the voluntary attrition rate been within target for at least two consecutive quarters under independent people leadership?",
+      "evidence": "People Leadership Independence Record with Decision Log, Current Succession Matrix, and Attrition Performance Record",
+      "evidence_example": "A decision log showing at least four significant people decisions made by the people leader independently in the past two quarters with no founder involvement. A current succession matrix reviewed within the past six months. Attrition rate records for the past two quarters showing performance within the defined target.",
+      "example": "The Head of People made four independent decisions in the past two quarters: hired a new project manager from the candidate pipeline without founder interview, approved an exit process for an underperforming team member, adjusted the compensation for two roles following the benchmarking exercise, and launched a leadership development cohort for three identified high-potential employees. The founder was informed of each decision through the quarterly people health summary but was not consulted beforehand. Succession matrix: reviewed in June and December. Every key role has a named candidate with a readiness level and at least one development activity completed. Voluntary attrition: 11% annualized in Q2, 9% in Q3, both within the 15% target.",
+      "false_positive_signals": [
+        "A Head of People holds the title and runs HR operations independently, but every hiring decision above a certain level and every exit decision still requires the founder's approval before proceeding.",
+        "The succession matrix names candidates for key roles but nobody has been given any expanded responsibility or tested in a meaningful way, making the matrix aspirational rather than evidence-based."
+      ],
+      "failure_signals": [
+        "Team members bypass the people leader and go directly to the founder for career conversations, compensation questions, and role change requests, revealing that the founder is still the real decision-maker in people matters.",
+        "A key role has been vacant for more than 60 days because the hiring process requires founder involvement at multiple stages and the founder's schedule is the bottleneck."
+      ],
+      "prerequisite": "LD.9",
+      "review_frequency": 2,
+      "weights": {"impact": 9, "complexity": 8, "time_to_implement": 8, "direct_cost": 5}
+    },
+    {
+      "level": 10,
+      "headline": "Institutional Talent System",
+      "plain_english": "The company runs a self-sustaining people system with stable or improving culture metrics, voluntary attrition below target, and more than half of leadership openings filled internally, governed and reviewed annually by an external party.",
+      "observation": "At Level 10, all people systems are running together and producing compound results. Roles are defined. People information is organized. Hiring and onboarding are standardized. Values are lived rather than stated. Performance is reviewed quarterly. Leadership is being developed from within. Culture is measured and improving. Compensation is benchmarked annually. Cross-domain integration is active. People leadership is independent. And the results are documented in an annual people governance report reviewed by an external party, confirming that the human system of the company is as reliable and as transferable as any other operating system.",
+      "why_it_matters": "The talent system is the company's compounding human asset. Each person hired well, onboarded consistently, developed deliberately, and retained long enough to contribute meaningfully adds to an organizational capability that is harder to replicate than any product or process. An acquirer evaluating this company does not just see headcount. They see a system that reliably produces capable, culturally aligned people at every level. An internal promotion rate above 50% is the most concrete evidence that this system is working: the company is not consuming people, it is developing them.",
+      "audit_binary": "Has the people system operated without founder involvement for at least four consecutive quarters, with voluntary attrition within target, eNPS above a defined threshold, and more than 50% of leadership openings filled internally, documented in an annual people governance report reviewed by at least one external party?",
+      "evidence": "Annual People Governance Report with External Review Record",
+      "evidence_example": "An annual report showing: quarterly voluntary attrition rate, quarterly eNPS or equivalent, internal vs. external hire ratio for leadership roles, succession matrix readiness scores, departure analysis findings and program updates made, compensation benchmarking outcomes, and a record of founder non-involvement across all four quarters. Reviewed by at least one external HR advisor, board member, or organizational consultant.",
+      "example": "Annual people governance report. Voluntary attrition: Q1 11%, Q2 9%, Q3 10%, Q4 8%, all within the 15% target and showing an improving trend. eNPS: Q1 28, Q2 31, Q3 34, Q4 37, improving every quarter. Leadership openings filled in the past year: four openings, three filled internally from the development pipeline, one filled externally for a specialist skill not available internally. Internal rate: 75%. Succession matrix: all six key roles have a candidate at readiness level 2 or above. Departure analysis: eight voluntary departures, five analyzed, two common patterns found, two program updates made. Compensation benchmarked in February, two adjustments made. Founder involvement in people decisions: zero in the past 12 months. Report reviewed by an independent HR advisor who recommended formalizing the career pathing conversation into a bi-annual structured session. Added to the people calendar for Q2.",
+      "false_positive_signals": [
+        "People metrics are positive and the system appears mature, but most leadership positions are still filled externally because the internal development program has not yet produced candidates who are ready when openings arise.",
+        "An annual people report is produced and reviewed internally but has never been presented to an external party, meaning there is no independent validation of the data or the conclusions."
+      ],
+      "failure_signals": [
+        "Voluntary attrition has risen above target for two consecutive quarters with no documented root cause analysis, no departure pattern identified, and no program changes made in response.",
+        "An external review of the people function identifies that the culture described in the governance report differs materially from what employees report experiencing, revealing a gap between the documented system and the lived reality."
+      ],
+      "prerequisite": "TC.9",
+      "review_frequency": 1,
+      "weights": {"impact": 10, "complexity": 9, "time_to_implement": 9, "direct_cost": 7}
+    }
+  ]
+}

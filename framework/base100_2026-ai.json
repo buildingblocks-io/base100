@@ -1,0 +1,257 @@
+{
+  "id": "AI",
+  "name": "Assets & IP",
+  "purpose": "Convert the company's operational output into durable assets that increase enterprise value independently of the people who created them.",
+  "cxo_persona": "Chief Executive Officer",
+  "description": "How the company identifies, documents, protects, and develops the intellectual property, brand equity, proprietary data, and institutional knowledge that give it lasting competitive advantage. This is the domain that separates a business from a person with a business. Every other domain creates value through activity. This domain captures that value and converts it into something the company owns permanently. A mature assets and IP domain means an acquirer can assess and price the company's value from its documented assets alone, without needing the founder to explain what makes the company worth buying.",
+  "direction": {
+    "name": "Asset and IP Strategy",
+    "purpose": "Define how the company transforms operational output into long-term assets that increase enterprise value, protect competitive advantage, and make the company genuinely transferable.",
+    "required_outputs": [
+      "institutional_knowledge_base",
+      "asset_catalogue",
+      "ip_protection_strategy",
+      "process_asset_library",
+      "proprietary_data_strategy",
+      "brand_asset_compounding_plan",
+      "asset_valuation_framework",
+      "asset_review_rhythm"
+    ],
+    "primary_owner": "Chief Executive Officer",
+    "contributors": ["product_lead", "technology_lead", "finance_lead", "marketing_lead"],
+    "minimum_standard": "One documented understanding exists of which company outputs should become long-term assets, which assets are currently protected, and how the asset base is being deliberately developed.",
+    "review_frequency": 4,
+    "questions_to_answer": [
+      "What knowledge or systems does this company own that a well-funded competitor could not replicate in 12 months?",
+      "Which outputs of the company's daily operations are becoming assets, and which are evaporating as soon as they are produced?",
+      "What proprietary data does the company collect that competitors do not have, and is it being organized and protected?",
+      "If the founder left tomorrow, which assets would stay with the company and which would effectively leave with them?",
+      "What legal protections exist for the company's core brand, methodology, and intellectual property, and when do they expire?",
+      "What is the company's brand worth independently of the founder's personal reputation, and is that number growing?",
+      "What would an acquirer value most in this company beyond the revenue it generates, and is that thing documented, protected, and measurably growing?",
+      "How does the company systematically capture the learning from every delivery, every client, and every operational improvement as a permanent asset rather than a temporary benefit?"
+    ]
+  },
+  "levels": [
+    {
+      "level": 1,
+      "headline": "Institutional Knowledge Documented",
+      "plain_english": "The knowledge that would walk out the door with the founder is written down and stored where the company can access it.",
+      "observation": "At Level 1, the company has begun converting founder knowledge into company knowledge. This is not process documentation, which belongs in operations, and it is not product documentation, which belongs in product. It is the institutional knowledge that exists only in the founder's experience: why key strategic decisions were made, what the company has learned about its market and customers that is not obvious to outsiders, the reasoning behind the current positioning, and the lessons from the most significant failures and successes. A new leader joining the company could read this knowledge base and understand the company's accumulated intelligence without a series of conversations with the founder.",
+      "why_it_matters": "Every hour of founder knowledge that is not written down is an asset the company does not own. It belongs to the founder personally. When they leave, retire, or step back, it leaves with them. Documenting institutional knowledge is not about bureaucracy. It is about converting a personal asset into a company asset, one document at a time. This is where enterprise value begins to separate from personal value.",
+      "audit_binary": "Is there a written institutional knowledge base containing at least the reasoning behind the company's top five strategic decisions, the most important customer and market insights accumulated to date, and the key lessons from significant operational failures or pivots, updated within the past six months?",
+      "evidence": "Institutional Knowledge Base",
+      "evidence_example": "A document or wiki section containing: the reasoning behind at least five major strategic decisions with the context at the time and the outcome, at least 10 customer and market insights not available from public sources, and at least three documented lessons from significant failures or changes in direction. Updated within six months.",
+      "example": "A knowledge base section called Company Intelligence containing three chapters. Strategic decisions: why the company moved from a retainer model to a project model in 2022, including the client conversations that prompted the change and what happened to retention afterward. Market insights: seven observations about how the target market buys, including which triggers indicate readiness to buy and which concerns always appear before a decision. Lessons learned: three pivots, each documented with the original assumption, what the data showed, what changed, and what would be done differently.",
+      "false_positive_signals": [
+        "Process documents and SOPs exist in operations but the strategic reasoning, market insights, and accumulated experience of the founder have never been written down anywhere.",
+        "A knowledge base was started during a documentation sprint two years ago and contains three articles that were never added to, making it a folder rather than a functioning resource."
+      ],
+      "failure_signals": [
+        "When the founder takes a holiday, new strategic questions arise that nobody else can answer because the context and reasoning behind past decisions exists only in the founder's memory.",
+        "A new senior hire spends their first three months asking the founder questions about the market, the positioning, and past decisions that should all be findable in writing."
+      ],
+      "prerequisite": "OD.3",
+      "review_frequency": 2,
+      "weights": {"impact": 7, "complexity": 3, "time_to_implement": 4, "direct_cost": 1}
+    },
+    {
+      "level": 2,
+      "headline": "Asset Catalogue Organized",
+      "plain_english": "Every asset the company owns is listed in one catalogue: brand assets, IP registrations, proprietary documents, content, data, and tools.",
+      "observation": "At Level 2, a complete asset catalogue exists. It covers every category of company-owned asset: brand assets including logo files, domain names, and social media profiles; any registered trademarks or filed patents; proprietary documents including methodologies, frameworks, and templates; the content library of published articles, case studies, and whitepapers; proprietary data collected through operations; and any software or automation tools the company has built. A new owner looking at this catalogue would know what they are buying beyond the revenue stream. Nothing is assumed to be obvious.",
+      "why_it_matters": "An asset catalogue is what separates a business from a person who runs a business. A person with a business has skills, relationships, and experience. A business has documented, catalogued assets that belong to the legal entity. The catalogue itself changes how leadership thinks about the company. When assets are listed, their value becomes visible. When their value is visible, their development becomes intentional. When they are not listed, they are invisible, unprotected, and likely to be undervalued at any transaction.",
+      "audit_binary": "Is there a current asset catalogue covering at minimum brand assets, any registered IP, proprietary documents and frameworks, content library, proprietary data, and any company-built tools, updated within the past six months and accessible to leadership without requesting it?",
+      "evidence": "Company Asset Catalogue",
+      "evidence_example": "A structured document listing assets by category, each with: asset name, description, legal owner, location or registration number where applicable, and last reviewed date. Updated within six months.",
+      "example": "Asset catalogue with six categories. Brand assets: primary and secondary logo in vector and raster formats, three domain names, LinkedIn company page, and two social media handles. IP registrations: trademark application filed for the company name in the Benelux, pending. Proprietary documents: the delivery methodology in 12 stages, four client diagnostic frameworks, eight proposal templates, and three pricing calculators. Content library: 47 published articles, six case studies, two whitepapers, and one research report. Data: a customer outcome dataset covering 214 completed engagements with anonymized input and output metrics. Tools: one custom reporting automation built internally. All listed with location and access information.",
+      "false_positive_signals": [
+        "The company has many of these assets but they exist in different locations across different tools and nobody has ever compiled a complete list, making the total asset base invisible.",
+        "An asset catalogue was created for a pitch or a due diligence process and has not been updated since, meaning it reflects the asset base at a point in time rather than the current state."
+      ],
+      "failure_signals": [
+        "During a potential acquisition conversation, the founder struggles to list what the company actually owns beyond its client list and its team, because no asset catalogue exists.",
+        "The company discovers that a domain name or social media handle it considers core to the brand has expired or been taken by a third party because no one was tracking the renewal schedule."
+      ],
+      "prerequisite": "AI.1",
+      "review_frequency": 2,
+      "weights": {"impact": 7, "complexity": 3, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 3,
+      "headline": "Named Asset Owner and Basic IP Protection",
+      "plain_english": "One person is accountable for the company's asset and IP portfolio, core brand trademarks are filed, and all employees and contractors have signed IP assignment agreements.",
+      "observation": "At Level 3, two things are true. One named person owns the asset and IP function. They can answer, at any moment, what the company owns, what is protected, and what is at risk. And the basic legal protection layer is in place: trademark applications have been filed for the core brand name and logo in the company's primary markets, every employee and full-time contractor has signed a contract containing an IP assignment clause transferring any work they produce for the company to the company, and any third party who accesses proprietary information has signed an NDA before receiving it.",
+      "why_it_matters": "IP assignment clauses in employment contracts cost almost nothing to implement and are catastrophically expensive to add retroactively after a dispute arises. Without them, a developer who built a core tool, a consultant who created a key methodology, or a marketer who designed the brand identity may have a credible claim to partial ownership of those assets. The NDA policy matters for the same reason: proprietary information shared without protection is no longer protectable. The named asset owner ensures these protections do not drift back into informality as the company grows.",
+      "audit_binary": "Is there one named person accountable for asset and IP management, have trademark applications been filed for the core brand name and logo in at least the primary operating market, and do all current employees and contractors have signed contracts containing an IP assignment clause?",
+      "evidence": "Asset Ownership Assignment, Trademark Application Records, and IP Assignment Clause Confirmation",
+      "evidence_example": "A written ownership assignment naming the asset and IP owner. Trademark application records showing filings for the core brand name and logo. A confirmation from the people function that all current employees and contractors have signed contracts containing an IP assignment clause, with a record of the clause template used.",
+      "example": "The CEO is named as asset and IP owner in the accountability chart. Trademark: the company name and primary logo are registered trademarks in the Benelux, registration number and renewal date recorded in the asset catalogue. IP assignment: all employee contracts include a standard IP assignment clause transferring any work produced in the scope of employment to the company. The clause template was reviewed by an IP attorney two years ago. Confirmed by the HR lead that all nine current employees and three active contractors have signed contracts containing this clause. NDA policy: any external party accessing proprietary methodology, pricing, or customer data receives an NDA before the first material sharing.",
+      "false_positive_signals": [
+        "The founder believes the company owns its brand, tools, and methodology because the company paid for them, without realizing that without IP assignment clauses, the legal position may be more complex.",
+        "A trademark application was discussed and a budget was allocated but the filing has been delayed for six months because nobody owns the action and it keeps being deprioritized."
+      ],
+      "failure_signals": [
+        "A former employee or contractor claims ownership of or rights to something they built while working for the company, and the company cannot produce an IP assignment agreement to counter the claim.",
+        "A competitor begins using a brand name or visual identity that is confusingly similar to the company's, and the company has no trademark registration to use as the basis for a legal response."
+      ],
+      "prerequisite": "AI.2",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 4, "time_to_implement": 4, "direct_cost": 3}
+    },
+    {
+      "level": 4,
+      "headline": "Standardized Asset Creation",
+      "plain_english": "Operational experience is systematically captured as reusable assets through a defined process, and a content creation process converts company knowledge into published intellectual capital.",
+      "observation": "At Level 4, the company creates assets deliberately rather than accidentally. Two standard processes exist. A process library workflow defines how operational experience becomes a reusable asset: after every significant engagement, delivery, or project, a defined review extracts the learnings and either creates a new template, updates an existing framework, or adds to the knowledge base. A content creation process defines how company knowledge becomes published thought leadership: who can propose topics, how they are reviewed and approved, how they are produced, and how they are published and catalogued. Both processes run on a regular cycle rather than only when someone has time.",
+      "why_it_matters": "Every delivery the company completes contains learnings. Every client conversation surfaces insights. Every operational problem that gets solved creates knowledge. Without a defined process for capturing that learning as an asset, it evaporates at the same pace it is created. The company that implements this process gets smarter with every engagement. The company that does not keeps relearning the same lessons at the same cost indefinitely. Content as intellectual capital matters for a related reason: published knowledge attracts clients, builds authority, and compounds into brand equity in a way that operational excellence alone never does.",
+      "audit_binary": "Is there a defined process library workflow that has produced at least three new reusable assets in the past quarter, and a content creation process that has published at least four pieces of intellectual capital in the past 60 days, each catalogued in the asset catalogue?",
+      "evidence": "Process Library with Creation Log and Content Creation Process with Publication Archive",
+      "evidence_example": "A process library document showing at least 10 reusable assets and a creation log showing at least three new or updated assets in the past quarter. A content creation process document and a publication archive showing at least four pieces published in the past 60 days, each catalogued with its location and the date added to the asset catalogue.",
+      "example": "Process library: the workflow requires a 30-minute post-project review after every engagement above 10,000 euros. The review extracts: one reusable template or checklist, one addition to the knowledge base, and one update to the relevant SOP if a better method was found. Last quarter: a new client diagnostic questionnaire created after three projects revealed the same gap in the current version, two SOP updates based on delivery improvements, and one new pricing calculator built from a particularly effective estimation method. Content creation: a monthly content review proposes topics from the market intelligence repository, the knowledge base, and recent client conversations. Topics approved by the CEO. Produced by the author, reviewed by one senior team member, published to the company blog and LinkedIn, and catalogued. Last 60 days: four articles published on topics sourced from recent client conversations, all catalogued with their publication date and platform.",
+      "false_positive_signals": [
+        "Post-project reviews happen informally in team conversations but nothing is written down and no new asset results from the review, meaning learning evaporates at the same rate it is created.",
+        "Content is produced and published when someone has inspiration or time, but no defined process exists and the publication rate varies from four pieces per month to zero depending on the team's workload."
+      ],
+      "failure_signals": [
+        "The same mistake recurs across engagements because no process exists to capture the lesson from the first occurrence as a permanent asset.",
+        "The company's content output has been zero for more than 30 days because the content creation process depends on the founder's personal time and initiative rather than a defined team workflow."
+      ],
+      "prerequisite": "AI.3",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 5, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 5,
+      "headline": "Asset Value Measured",
+      "plain_english": "The company tracks at least four asset value metrics quarterly, including brand reach growth, IP portfolio coverage, process library size, and data asset depth.",
+      "observation": "At Level 5, the company measures its assets rather than simply possessing them. Four metrics are tracked quarterly at minimum. Brand reach: the growth in the primary channel audience size, content engagement rate, and inbound lead volume attributable to brand authority. IP portfolio: the number of registered trademarks, the geographic coverage, and the renewal schedule compliance. Process library: the number of reusable assets, the quarterly addition rate, and the documented time-saving or quality improvement attributed to the library. Data asset: the volume, uniqueness, and decision-making utility of the proprietary dataset. All four have targets. All are reviewed quarterly.",
+      "why_it_matters": "An asset you cannot measure is an asset you cannot develop intentionally. Without metrics, the asset base grows or shrinks based on whatever activity happens to produce or erode it. With metrics, the company can set targets, identify which assets are compounding and which are decaying, and make deliberate investment decisions about where to focus asset development effort. Asset measurement is also what makes the company's value legible to any external party: an investor or acquirer who sees measured, growing assets assigns a multiple to them. One who sees undescribed, unmeasured assets discounts them.",
+      "audit_binary": "Are at least four asset value metrics covering brand reach, IP portfolio coverage, process library growth, and data asset depth tracked quarterly with defined targets, reviewed by leadership, and showing a trend over at least two consecutive quarters?",
+      "evidence": "Asset Value Metrics Report with Quarterly Review Records",
+      "evidence_example": "A quarterly asset metrics report for at least two consecutive quarters showing at least four metrics with targets, actuals, and trend. A record of leadership review of the report.",
+      "example": "Q3 asset metrics. Brand reach: LinkedIn audience 4,800 followers, up from 4,100 in Q2. Content engagement rate 3.4%, target above 2.5%. Inbound leads attributable to content: 9 of 21 total leads this quarter cited a piece of published content as the first point of contact. IP portfolio: two registered trademarks, both renewal dates confirmed more than 12 months out. No geographic coverage gaps identified for current operating markets. Process library: 34 reusable assets, up from 29 in Q2. New assets added this quarter: five. Time saving attributed to library use: estimated 12 hours per month across the delivery team. Data asset: 241 completed engagement records in the outcome dataset, up from 214 in Q2. Uniqueness confirmed: no comparable dataset exists in the public domain for this market segment.",
+      "false_positive_signals": [
+        "Assets exist and are used but no metrics have ever been defined to track whether they are growing or declining, meaning the company cannot tell an investor whether its assets are more or less valuable than they were a year ago.",
+        "Brand metrics such as follower count are tracked in marketing but are not connected to the asset framework and have no target tied to brand equity development."
+      ],
+      "failure_signals": [
+        "When asked how much the company's brand is worth, leadership can only reference revenue or client count because no brand equity metrics have ever been tracked.",
+        "The process library has not grown in two consecutive quarters despite multiple completed projects, revealing that the asset creation process from Level 4 is not running consistently."
+      ],
+      "prerequisite": "FR.5",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 5, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 6,
+      "headline": "Proactive Asset Development",
+      "plain_english": "The company actively builds two asset categories that competitors cannot easily replicate: a proprietary dataset and a compounding brand authority strategy.",
+      "observation": "At Level 6, asset development is proactive rather than incidental. Two strategies operate. Proprietary data: the company has identified what unique data it collects through normal operations and has a documented strategy for organizing, enriching, and protecting it as a competitive asset. This is not data collected for compliance or operational necessity. It is data collected because competitors do not have it and because its accumulation creates a growing advantage. Brand compounding: a documented strategy defines how each content and visibility action builds on the last, creating a flywheel where published authority generates speaking opportunities, speaking generates media mentions, media generates inbound trust, and inbound trust generates referrals and content topics.",
+      "why_it_matters": "Proprietary data is the asset class that most companies collect and fewest companies deliberately protect and develop. A company that has three years of anonymized customer outcome data for a specific market segment owns something that a new competitor cannot buy at any price. Brand authority compounds in the same way: a brand that has published 200 relevant articles, spoken at 15 industry events, and been cited in six media pieces is not three times as valuable as one that has done a third of that. It is ten times as valuable, because the authority is self-reinforcing. Both strategies require intention. Neither happens by accident.",
+      "audit_binary": "Is there a written proprietary data strategy defining what data is collected, how it is organized, and how it creates competitive advantage, and a written brand compounding strategy defining how each visibility action builds toward the next, with evidence that both have produced measurable asset growth in the past two quarters?",
+      "evidence": "Proprietary Data Strategy Document and Brand Compounding Strategy with Growth Evidence",
+      "evidence_example": "A proprietary data strategy document defining: what data is collected, the collection mechanism, how it is organized and stored, and the competitive advantage it creates. A brand compounding strategy document defining the flywheel and the planned sequence of asset actions. Growth evidence showing measurable increase in both the data asset and brand authority indicators over the past two quarters.",
+      "example": "Proprietary data strategy: the company collects anonymized input and output data from every completed engagement. Inputs include company size, founder working hours, and team structure at engagement start. Outputs include the same metrics 90 days after completion. No competitor in this market segment has access to this pre-post dataset because they do not deliver structured engagements with defined outcome measurements. The dataset now covers 241 engagements and is growing by approximately 25 per quarter. Brand compounding strategy: the flywheel runs in this sequence. Published articles generate speaking invitations. Speaking invitations produce recorded talks. Recorded talks are repurposed as content. Content generates media interview requests. Media interviews generate inbound inquiries that become content topics. Three full cycles of the flywheel have been completed in the past 18 months.",
+      "false_positive_signals": [
+        "Customer data is collected as part of normal operations but is stored in a way that makes it impossible to analyze at a portfolio level, meaning the data exists but the asset does not.",
+        "A content strategy exists but is designed around lead generation rather than authority compounding, meaning each piece of content is isolated rather than part of a building flywheel."
+      ],
+      "failure_signals": [
+        "A competitor launches with a similar methodology and the company has no proprietary data advantage that makes its approach demonstrably more effective, because the data was collected but never organized as an asset.",
+        "Despite years of content production, the company has no measurable brand authority in its market because the content has been reactive and isolated rather than strategic and compounding."
+      ],
+      "prerequisite": "AI.5",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 6, "time_to_implement": 6, "direct_cost": 3}
+    },
+    {
+      "level": 7,
+      "headline": "Cross-Domain Asset Capture",
+      "plain_english": "Every domain produces assets that are formally captured, catalogued, and protected, converting the company's operational output into a growing portfolio of permanent intellectual property.",
+      "observation": "At Level 7, the assets and IP function formally captures the output of every other domain. Leadership and direction produces governance documents and decision frameworks that become institutional IP. Product and innovation produces proprietary methodologies and product data that become protected intellectual property. Brand and market produces content, case studies, and brand assets that are catalogued and legally protected. Revenue and sales produces a sales playbook and customer intelligence that are owned by the company. Operations and delivery produces SOPs and delivery playbooks that form the process asset library. Customer success produces outcome data that grows the proprietary dataset. Talent and culture produces a people methodology and culture framework. Technology produces automation tools and data infrastructure. Finance produces financial models and unit economics that constitute intellectual capital. In each case, a formal capture step converts operational output into a permanent company-owned asset.",
+      "why_it_matters": "Most companies produce valuable intellectual capital every day and convert almost none of it into owned assets. Insights from client conversations stay in the consultant's notes. Operational improvements stay in the practitioner's head. Financial models that took months to build are rebuilt from scratch for every new planning cycle. The cross-domain asset capture function is what changes that. It is the institutional mechanism that says: when this domain produces something of lasting value, that thing gets captured, catalogued, and protected. Over time, this mechanism is what makes the company's cumulative knowledge more valuable than any individual team member's knowledge.",
+      "audit_binary": "Is there a documented asset capture process for at least six domains, with evidence that at least one new or updated asset was captured from each of those domains in the past quarter and added to the asset catalogue?",
+      "evidence": "Cross-Domain Asset Capture Process with Quarterly Capture Records",
+      "evidence_example": "A written asset capture process for at least six domains, each defining what type of asset is captured, when, and by whom. A quarterly asset capture log showing at least one new or updated asset captured from each of those domains in the past quarter.",
+      "example": "Asset capture process for seven domains. LD: governance documents and decision frameworks reviewed annually and added to the institutional knowledge base. PI: product methodology and experiment findings reviewed after each major experiment and added to the IP library. BM: all published content catalogued within 48 hours of publication. RS: sales playbook updated quarterly from win and loss analysis. OD: delivery SOPs updated after every improvement cycle and version-controlled in the process library. CS: customer outcome data added to the proprietary dataset after every completed engagement. FR: financial models and unit economics updated quarterly. Last quarter capture log: six assets captured or updated across seven domains. One domain, TC, produced no new asset this quarter. Flagged for review.",
+      "false_positive_signals": [
+        "Good work is produced across all domains but no formal capture step exists, meaning the value of that work contributes to current operational quality but does not accumulate as a permanent asset.",
+        "Assets are captured informally when someone thinks to document something, but no systematic process ensures that every domain contributes to the asset catalogue on a regular cycle."
+      ],
+      "failure_signals": [
+        "A senior team member leaves and their departure reveals that a significant portion of the company's operational methodology existed only in their personal documents and memory, because no cross-domain capture process extracted it as a company asset while they were present.",
+        "The asset catalogue grows only through deliberate documentation projects rather than through continuous capture from normal operations, meaning the company's asset base is always behind its operational capability."
+      ],
+      "prerequisite": "AI.6",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 7, "time_to_implement": 7, "direct_cost": 3}
+    },
+    {
+      "level": 8,
+      "headline": "Systematic Asset Portfolio Management",
+      "plain_english": "The company conducts an annual asset portfolio review that produces a development plan identifying which assets to grow, protect, renew, and retire.",
+      "observation": "At Level 8, the asset base is managed as a portfolio rather than accumulated as a collection. An annual asset portfolio review examines every asset category: What is growing and should be invested in further? What is stagnating and needs renewal or retirement? What legal protections are expiring and need renewal? What new asset types should be developed? What is the estimated enterprise value contribution of each category? The review produces a written asset development plan covering the following 12 months, with specific investments, timelines, and named owners for each initiative.",
+      "why_it_matters": "Assets decay if they are not managed. A trademark not renewed is a trademark lost. A content library not updated becomes irrelevant. A methodology not refined becomes outdated. A proprietary dataset not enriched becomes less unique as the market generates more data independently. Portfolio management is what converts asset accumulation into asset compounding. The annual review is also the moment when the company looks at its asset base through the eyes of an external buyer: what would they value most, what would they discount, and what gap needs to be closed before the next valuation conversation?",
+      "audit_binary": "Has an annual asset portfolio review been conducted in the past 12 months producing a written asset development plan with specific initiatives, owners, and timelines, and has at least two initiatives from the prior year's plan been completed and their impact documented?",
+      "evidence": "Annual Asset Portfolio Review Report and Asset Development Plan with Prior Year Completion Records",
+      "evidence_example": "An annual asset portfolio review report assessing each asset category for growth, health, and legal status. A 12-month asset development plan with specific initiatives, named owners, timelines, and success criteria. Records of at least two initiatives from the prior year's plan that were completed with their impact documented.",
+      "example": "Annual portfolio review conducted in January. Findings by category. Brand assets: growing, primary channel audience up 38% year over year. Initiative: expand geographic trademark coverage to France and Germany before market entry planned for Q3. IP registrations: two trademarks current, one expiring in eight months, renewal filed. Process library: 34 assets, growth rate slowing. Initiative: introduce a quarterly asset sprint to produce six new assets per quarter. Proprietary data: 241 records, quality high, coverage limited to one service line. Initiative: extend data collection to two additional service lines by Q3. Development plan: four initiatives with named owners and quarterly milestones. Prior year completion: the methodology trademark was filed as planned and is now registered. The case study series was completed and produced three pieces that together generated 14 qualified inbound leads.",
+      "false_positive_signals": [
+        "An asset review is conducted during an annual strategy day as one agenda item among many, producing a discussion but no written development plan with specific owners and timelines.",
+        "A development plan exists on paper but no review was conducted of the prior year's plan, meaning the company does not know whether the previous year's asset investments produced results."
+      ],
+      "failure_signals": [
+        "A significant legal protection, such as a trademark or domain name, expires without renewal because no systematic review process was monitoring the renewal schedule.",
+        "The company's proprietary dataset has not grown in two quarters because the data collection mechanism broke and nobody detected it, because no portfolio review was monitoring the data asset's health."
+      ],
+      "prerequisite": "AI.7",
+      "review_frequency": 1,
+      "weights": {"impact": 9, "complexity": 7, "time_to_implement": 7, "direct_cost": 4}
+    },
+    {
+      "level": 9,
+      "headline": "Founder-Independent Asset Compounding",
+      "plain_english": "The company's asset base grows and compounds without founder involvement, and no material asset is personally associated with or dependent on the founder.",
+      "observation": "At Level 9, the asset base compounds on its own. The process library is maintained and extended by the team, not by the founder. The proprietary dataset grows through the systematic capture process, not through founder curation. The content engine publishes and builds authority under the company brand, not the founder's personal profile. The IP portfolio is reviewed and renewed by the IP attorney on a scheduled basis, not triggered by the founder remembering. The brand authority metrics are improving on a trajectory that does not require the founder's personal participation. An informed observer watching the company's asset base for six months would see it growing, and they would not be able to attribute that growth to any single individual.",
+      "why_it_matters": "The test for asset independence is simple: would the asset base continue growing if the founder was removed from the company tomorrow? If the brand is primarily the founder's personal reputation, the answer is no. If the content engine runs on a team-managed system, the answer is yes. If the proprietary data grows through a process, the answer is yes. If it grows because the founder personally selects and curates what gets added, the answer is no. Every material asset that is personally associated with the founder is a liability in a transaction and a vulnerability in a succession. Every asset that belongs unambiguously to the company compounds its value.",
+      "audit_binary": "Is there evidence that the primary asset categories, specifically the process library, proprietary dataset, brand authority metrics, and IP portfolio, have all grown or been maintained in the past two quarters without documented founder involvement in any of the growth activities?",
+      "evidence": "Asset Independence Record with Growth Evidence Across Primary Asset Categories",
+      "evidence_example": "Asset growth records for the past two quarters showing improvement in at least four asset categories, with evidence that each growth activity was driven by the team or by systematic processes rather than by founder involvement.",
+      "example": "Past two quarters without founder involvement in asset activities. Process library: four new assets added through the quarterly asset sprint process, run by the operations lead. No founder involvement in creation or review. Proprietary dataset: 47 new records added through the standard post-engagement data capture process. The founder did not review or approve any submissions. Brand: 21 pieces of content published under the company brand by three different team members. The founder did not write or approve any content. Engagement metrics improved: audience up 8%, inbound leads from content up 14%. IP portfolio: trademark renewal filed by the IP attorney on schedule under standing instructions. Founder was notified after filing, not before.",
+      "false_positive_signals": [
+        "The company's asset metrics are growing but nearly all of the content is written by the founder, meaning the brand authority is the founder's personal brand dressed in company colors.",
+        "The process library is maintained but only when the founder or a specific senior team member initiates a documentation sprint, meaning the growth is person-dependent rather than process-dependent."
+      ],
+      "failure_signals": [
+        "When the founder takes a month offline, the content publication rate drops to near zero and no new process assets are created, revealing that asset development is personally rather than systematically driven.",
+        "The primary inbound trust signal the company has in its market is the founder's personal LinkedIn following, meaning a leadership transition would visibly reduce the company's market presence before the transition is even announced."
+      ],
+      "prerequisite": "AI.8",
+      "review_frequency": 2,
+      "weights": {"impact": 10, "complexity": 8, "time_to_implement": 9, "direct_cost": 4}
+    },
+    {
+      "level": 10,
+      "headline": "Sovereign Enterprise Asset",
+      "plain_english": "The company functions as a transferable and durable asset. Every material asset is legally owned by the entity, independently operable, measurably growing, and assessed by an external party as ready for transfer.",
+      "observation": "At Level 10, the company has crossed the threshold from a founder-led business into a sovereign enterprise. All material assets are legally owned by the legal entity, not by the founder personally. Every asset category is documented, protected, valued, and compounding. Leadership and operations are governed by a constitution rather than by an individual. The cumulative asset base has been assessed by an external party, whether an M&A advisor, a strategic investor, or an independent valuer, and confirmed as ready for transfer to a new owner without disruption to the assets' value or trajectory. An acquirer evaluating this company can assess and price every material asset from the documentation alone.",
+      "why_it_matters": "Every level of the BASE100 framework builds toward this point. A sovereign enterprise asset is a company whose value exists independently of the people who created it. The revenue is predictable because the systems that generate it are documented and governed. The brand authority is compounding because an institutional system maintains it. The IP is protected and renewals are managed. The proprietary data is organized and growing. The process library is maintained and extended. The governance constitution ensures continuity through any leadership change. An acquirer pays a premium for a sovereign enterprise because they are buying certainty, not hope. They are paying for the company, not the person.",
+      "audit_binary": "Has an external party, whether an M&A advisor, strategic investor, or independent valuer, assessed the company's asset base and enterprise value in the past 24 months and confirmed that all material assets are legally owned by the entity, independently operable, and ready for transfer, with any identified gaps documented and resolved?",
+      "evidence": "Enterprise Value Assessment Report with External Party Confirmation and Gap Resolution Records",
+      "evidence_example": "A formal enterprise value assessment report from an external party conducted within the past 24 months, identifying the company's material assets by category, confirming legal ownership, assessing transferability, and noting any gaps. Records confirming that all identified gaps have been resolved or have a documented resolution timeline.",
+      "example": "Enterprise value assessment conducted by an M&A advisory firm in Q2. Findings: all material assets legally owned by the entity. Brand trademarks registered and current in four markets. Proprietary dataset assessed as a meaningful competitive differentiator with 241 records covering a market segment where no comparable dataset exists publicly. Process library assessed as institutionally maintained, not founder-dependent. Governance constitution confirmed as operational with three documented independent governance decisions in the past 12 months. Technology infrastructure documented and assessed as transferable. Two gaps identified: one trademark had not been filed in a market the company plans to enter. One key supplier contract had no assignment clause. Both resolved within 60 days of the report. Assessed enterprise value range: 6.5 to 7.8 times trailing EBITDA, with the asset quality cited as a primary driver of the multiple above the sector average of 4.5 times.",
+      "false_positive_signals": [
+        "The company has strong operations and financials but the primary brand asset is the founder's personal reputation, meaning any transaction would require a buyer to manage the risk of the founder's departure reducing the brand value they paid for.",
+        "An enterprise value assessment was conducted but identified significant gaps in IP ownership or asset documentation that have not been resolved, meaning the assessment confirmed risk rather than readiness."
+      ],
+      "failure_signals": [
+        "A potential acquirer's due diligence reveals that several assets the company considers core to its value are not legally owned by the entity, or are personally associated with the founder in a way that creates transfer risk.",
+        "The enterprise value multiple offered in a transaction is materially below what the company's financial performance would suggest, with the discount attributed to founder dependency and undocumented or unprotected assets."
+      ],
+      "prerequisite": "LD.10",
+      "review_frequency": 1,
+      "weights": {"impact": 10, "complexity": 10, "time_to_implement": 10, "direct_cost": 8}
+    }
+  ]
+}

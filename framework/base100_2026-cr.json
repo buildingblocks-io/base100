@@ -1,0 +1,257 @@
+{
+  "id": "CS",
+  "name": "Customer Success & Retention",
+  "purpose": "Ensure every customer achieves the promised outcome, stays long-term, and becomes a source of growth.",
+  "cxo_persona": "Chief Customer Officer",
+  "description": "How the company defines customer success, onboards new customers effectively, monitors health across the customer base, intervenes before problems become churn, and converts satisfied customers into advocates and expansion revenue. A mature customer success domain means retention is a managed outcome rather than a hoped-for result, and the metric that proves it is Net Revenue Retention consistently above 100%.",
+  "direction": {
+    "name": "Customer Success Model",
+    "purpose": "Define how the company ensures every customer achieves the promised outcome, remains a long-term client, and contributes to growth through retention, expansion, and advocacy.",
+    "required_outputs": [
+      "customer_success_outcome_definition",
+      "customer_onboarding_model",
+      "customer_health_framework",
+      "early_warning_intervention_protocol",
+      "retention_and_expansion_strategy",
+      "customer_feedback_system",
+      "advocacy_and_referral_model",
+      "customer_success_review_rhythm"
+    ],
+    "primary_owner": "Chief Customer Officer",
+    "contributors": ["CEO", "product_lead", "operations_lead", "revenue_lead", "marketing_lead"],
+    "minimum_standard": "One documented customer success model exists describing how customers are onboarded, how their health is monitored, how problems are detected early, and how retention is actively managed.",
+    "review_frequency": 4,
+    "questions_to_answer": [
+      "What specific outcome should a customer have achieved 90 days after purchase, described in measurable terms?",
+      "At what point in the customer journey is churn most likely to begin, and what signal reliably predicts it?",
+      "What is the current Net Revenue Retention rate, and is it above or below 100%?",
+      "What percentage of customers are actively achieving the promised outcome, and what is preventing the others from doing so?",
+      "How does the company currently detect an unhappy customer before they decide to cancel?",
+      "Which customers are candidates for expansion, and does the company have a structured process for identifying and approaching them?",
+      "What do churned customers have in common, and has the company changed anything as a result of analyzing them?",
+      "How are satisfied customers currently contributing to new revenue through referrals, testimonials, or advocacy?"
+    ]
+  },
+  "levels": [
+    {
+      "level": 1,
+      "headline": "Customer Success Outcome Defined",
+      "plain_english": "The company has a written definition of what a successful customer looks like, with a specific result and a specific timeframe.",
+      "observation": "Ask anyone in this company what a successful customer looks like six months after purchase. At Level 1, they all give the same answer, and they can show it in writing. The definition names a specific, measurable result and a specific timeframe. It is used in sales conversations to set expectations, in delivery to guide execution, and in customer success to measure whether it was achieved. Vague satisfaction is not a success definition. A before-and-after with a timeframe is.",
+      "why_it_matters": "Customer success cannot be managed without a definition of what success means. A company that cannot describe what a successful customer looks like cannot measure whether customers are succeeding, cannot identify who is at risk, and cannot make a credible case for renewal when the time comes. The success definition is the foundation that every customer success activity is built on.",
+      "audit_binary": "Is there a written customer success definition stating the specific measurable outcome a customer should achieve and the timeframe in which they should achieve it, agreed by sales, delivery, and leadership, and used consistently across sales conversations and customer reviews?",
+      "evidence": "Customer Success Outcome Definition",
+      "evidence_example": "A written definition stating: who the customer is, what specific result they should achieve, by when after purchase, and how that result will be measured or verified. Used in sales proposals, onboarding documents, and customer review conversations.",
+      "example": "Within 90 days of purchase, an agency founder with 5 to 15 staff should have an accountability chart in place, a weekly leadership meeting running, and at least two department SOPs documented. They should be able to report working 10 fewer hours per week in delivery. This definition appears in the sales proposal, the onboarding welcome document, and the 90-day review template. Any sales team member can recite it.",
+      "false_positive_signals": [
+        "Customer success is described as the customer being happy or satisfied, without any specific measurable result or timeframe that could be verified.",
+        "A success definition exists in the product documentation but is not used in sales conversations or customer reviews, making it a theoretical statement rather than an operational standard."
+      ],
+      "failure_signals": [
+        "Different team members describe a successful customer differently when asked, revealing no shared definition exists in practice.",
+        "Renewal conversations are awkward because neither the company nor the customer has a clear reference point for whether the promised value was delivered."
+      ],
+      "prerequisite": "PI.1",
+      "review_frequency": 2,
+      "weights": {"impact": 10, "complexity": 2, "time_to_implement": 2, "direct_cost": 1}
+    },
+    {
+      "level": 2,
+      "headline": "Customer Information Organized",
+      "plain_english": "All customer information lives in one place that any team member can use to pick up a customer relationship without asking anyone.",
+      "observation": "At Level 2, there is a central customer repository. It holds the record for every customer: contact information, purchase history, current status, open issues, communication history, and progress toward their success outcome. A team member covering for a colleague who is sick or on leave can pick up any customer relationship within minutes without calling the founder or the absent colleague. The information is in the system, not in someone's head or inbox.",
+      "why_it_matters": "A customer relationship that exists only in one team member's memory or email is a relationship the company does not actually own. It belongs to that individual. When they are unavailable, the customer waits or goes without contact. When they leave the company, the relationship leaves with them. Centralizing customer information is the first act of converting individual customer relationships into company-owned assets.",
+      "audit_binary": "Is there a single central system containing a current record for every customer with contact information, purchase history, current status, open issues, and success outcome progress, accessible to every customer-facing team member and updated within the past 30 days for every active customer?",
+      "evidence": "Customer Information Repository",
+      "evidence_example": "A CRM or equivalent system with a current record for every active customer, each updated within 30 days, showing contact details, purchase history, current engagement status, any open support issues, and a note on where they are in their success journey.",
+      "example": "A CRM with a record for each of 47 active clients. Every record shows: primary contact and backup contact, contract value and renewal date, current phase of the engagement, any open support tickets, the last communication date, and a one-line status note updated monthly by the CS team. A team member covering for a colleague can read any record and know exactly where that client stands within five minutes.",
+      "false_positive_signals": [
+        "Customer information is spread across the CRM, a separate support tool, a billing system, and individual team members' email inboxes, with no single location that gives a complete picture.",
+        "A CRM exists but records are updated only when something urgent happens, meaning the status information is months out of date for most clients."
+      ],
+      "failure_signals": [
+        "When a team member is away, their clients receive slower or less informed responses because the covering team member cannot reconstruct the relationship context without calling the absent colleague.",
+        "Leadership asks for a summary of the customer base and receives a spreadsheet that someone has to assemble manually because no organized system exists."
+      ],
+      "prerequisite": "CS.1",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 2, "time_to_implement": 3, "direct_cost": 2}
+    },
+    {
+      "level": 3,
+      "headline": "Named Customer Success Owner",
+      "plain_english": "One person is accountable for customer outcomes across the whole base and can report on the health of every client relationship at any moment.",
+      "observation": "At Level 3, one named person owns the customer success function and its outcomes. They do not need to be a dedicated CS manager in a small company. What matters is that one person has a clear view of every customer relationship, knows which clients are healthy and which are at risk, and is accountable for the overall retention result. When a client is struggling, this person knows about it. When the team asks how customers are doing, this person can answer immediately.",
+      "why_it_matters": "Customer success without a named owner defaults to whoever has time or whoever the client contacts most often. That means the customer base is managed reactively and unevenly. Some clients get excellent attention because they are demanding. Others who are quietly struggling receive none because they never complain. A named owner converts customer success from a reactive activity into an accountable function with a clear owner who can see the whole picture.",
+      "audit_binary": "Is there one named person accountable for customer success outcomes who can produce a current health summary of every active customer relationship without gathering information from other team members, and who has made at least three documented customer success decisions in the past 90 days?",
+      "evidence": "CS Ownership Assignment with Customer Health Summary and Decision Records",
+      "evidence_example": "A written ownership assignment naming the CS owner and their accountability. A current one-page health summary of the customer base showing the status of every active relationship. A decision log showing at least three CS decisions made by that person in the past 90 days.",
+      "example": "The customer success lead is named in the accountability chart as owner of retention and customer outcomes. They produce a monthly customer health summary showing every client's status: green for on track, amber for needs attention, red for at risk. Last quarter they made three documented decisions: escalated a struggling client to a senior consultant after two consecutive amber ratings, paused the expansion conversation with another client until their onboarding milestone was met, and approved a complimentary session for a client who experienced a delivery delay.",
+      "false_positive_signals": [
+        "Customer success is listed as a shared responsibility between the delivery team and the account team, meaning no single person has a complete view of the customer base or owns the retention outcome.",
+        "A CS team member exists but spends most of their time on reactive support rather than owning proactive customer outcomes."
+      ],
+      "failure_signals": [
+        "When leadership asks how customers are doing overall, nobody can answer without spending time gathering information from multiple people.",
+        "A client has been struggling for two months but no one on the team identified it as a risk because no single person was watching the whole base."
+      ],
+      "prerequisite": "CS.2",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 3, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 4,
+      "headline": "Standardized Onboarding and Support",
+      "plain_english": "Every new customer follows the same onboarding sequence, and every customer request for help reaches a defined channel with a written response time commitment.",
+      "observation": "At Level 4, two standard methods exist for serving customers. Onboarding: a written sequence of steps guides every new customer from purchase to first value, with a named owner for each step and a defined completion milestone. Every customer goes through the same sequence. Support: a defined channel exists for customer questions and problems, with a written response time commitment that the team consistently meets. Customers know how to reach the company, and the company knows when it has responded.",
+      "why_it_matters": "The onboarding period is when most customers decide whether they made the right purchase decision. A structured sequence that gets every customer to first value quickly is the single highest-leverage retention investment a company can make. Support reliability is the floor of customer trust. A company that responds to some customers within hours and leaves others waiting for days is building inconsistency into the relationship from the start. Both standards are required to give every customer an equal chance of success.",
+      "audit_binary": "Is there a written onboarding sequence followed consistently for every new customer with defined steps, a named owner per step, and a completion milestone, and is there a defined support channel with a written response time commitment met for at least 90% of requests in the past 90 days?",
+      "evidence": "Customer Onboarding Process Document and Support Channel Response Time Records",
+      "evidence_example": "A written onboarding sequence showing every step, the owner, the timeline, and the completion milestone. Support channel records from the past 90 days showing response times against the commitment, with at least 90% of requests meeting the standard.",
+      "example": "Onboarding sequence: kickoff call within 48 hours of purchase, setup and configuration completed by day five, first use guided session in week two, 30-day check-in call, and 60-day milestone review. Each step has a named owner and a defined output. Every new client receives the same sequence. Support channel: a dedicated email address monitored by the CS team. Written commitment: urgent issues responded to within four hours, standard requests within one business day. Last quarter: 94% of requests met the commitment. Six that did not were all on the same day due to a public holiday, noted in the support log.",
+      "false_positive_signals": [
+        "Onboarding varies significantly depending on which team member handles the new client, meaning some clients receive a structured experience and others receive an informal introduction.",
+        "A support email exists but response times are not tracked and the commitment is verbal rather than written, making it impossible to know whether the standard is being met."
+      ],
+      "failure_signals": [
+        "Early churn is concentrated in the first 60 days, suggesting that the onboarding period is not successfully establishing the value of the product before clients start questioning their decision.",
+        "Clients contact multiple people in the company to get help because there is no designated support channel, creating inconsistency and gaps in the support record."
+      ],
+      "prerequisite": "CS.3",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 4, "time_to_implement": 4, "direct_cost": 2}
+    },
+    {
+      "level": 5,
+      "headline": "Customer Health Metrics",
+      "plain_english": "The company tracks at least three customer health metrics monthly covering retention, satisfaction, and outcome achievement, and monitors Net Revenue Retention as the primary indicator of customer base health.",
+      "observation": "At Level 5, customer health is measured across three categories. Retention: the monthly churn rate and renewal rate. Satisfaction: NPS or CSAT score and outcome achievement rate, meaning the percentage of customers who have reached the defined success outcome from Level 1. Engagement: a signal such as product usage frequency, support ticket volume, or communication response rate that indicates how actively customers are using and engaging with the product. Net Revenue Retention is also calculated and tracked: it captures the full picture of whether the existing customer base is growing, stable, or shrinking when expansion and contraction are combined with churn.",
+      "why_it_matters": "NRR is the most important metric in customer success. An NRR above 100% means that even with zero new customers, the business would grow. An NRR below 100% means the company is running a leaky bucket: new customer acquisition is filling the top while churn empties the bottom. At 90% NRR, the company loses 10% of its revenue base every year from existing customers alone, and growth requires new sales simply to stay flat. Knowing this number at Level 5 allows the company to address the leak before it becomes structural.",
+      "audit_binary": "Are at least three customer health metrics covering retention, satisfaction, and outcome achievement tracked monthly with numeric targets, is NRR calculated and reviewed monthly, and has a metric declining for two consecutive months triggered a documented investigation in the past six months?",
+      "evidence": "Customer Health Dashboard with Monthly Review Records, NRR Calculation, and Investigation Log",
+      "evidence_example": "Monthly customer health reports for at least three consecutive months showing at least three metrics with targets, actuals, and trend. A monthly NRR calculation showing the formula inputs and result. At least one documented investigation triggered by a metric declining for two consecutive months.",
+      "example": "Monthly metrics reviewed on the first Monday of each month. Churn rate: 3.2%, target below 3.5%. NPS: 41, target above 40. Outcome achievement rate: 68%, target 75%, declined for two consecutive months. Investigation opened: CS lead reviewed outcome data for all clients who had not reached the milestone, found that seven of ten were stuck at the same point in the process, specifically the implementation of the accountability chart. Onboarding session added at that point. NRR this month: starting MRR 124,000 euros, plus expansion 8,000 euros, minus contraction 3,000 euros, minus churn 4,000 euros, equals 125,000 euros. NRR: 101%. Target: above 100%.",
+      "false_positive_signals": [
+        "Customer satisfaction is measured through NPS but no metric exists for whether customers are actually achieving the promised outcome, meaning the company knows how customers feel but not whether they are succeeding.",
+        "NRR has never been calculated. The company tracks new revenue and gross churn separately but has never combined expansion, contraction, and churn into a single customer base health metric."
+      ],
+      "failure_signals": [
+        "NRR is below 100% and has been for more than two consecutive quarters with no documented investigation or response plan. The customer base is shrinking faster than new sales can compensate.",
+        "The outcome achievement rate has never been measured, meaning the company has no evidence that customers are actually reaching the success outcome that was promised at sale."
+      ],
+      "prerequisite": "TI.5",
+      "review_frequency": 12,
+      "weights": {"impact": 9, "complexity": 5, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 6,
+      "headline": "Proactive Retention",
+      "plain_english": "The company detects unhappy customers through defined warning signals and intervenes before they decide to cancel.",
+      "observation": "At Level 6, the company does not wait for a cancellation notice to discover that a customer is unhappy. A set of early warning thresholds is defined: when NPS drops below a certain score, when a customer has not engaged with the product in a defined number of days, when support ticket volume spikes above a threshold, or when a customer misses a milestone, a proactive contact is triggered within a defined timeframe. Every intervention is logged. The CS owner reviews the intervention log monthly and adjusts thresholds when they are missing signals.",
+      "why_it_matters": "Most churn decisions are made weeks or months before the cancellation is communicated. By the time a customer says they are leaving, the decision is usually already made and the chance of reversal is low. An early warning system catches the signal before the decision. Reaching a dissatisfied customer at the right moment, with the right offer of help, converts a probable churner into a retained client at a fraction of the cost of acquiring a replacement. The intervention log is what makes this a system rather than an instinct.",
+      "audit_binary": "Are at least three early warning thresholds defined in writing, each with a trigger condition and a required intervention within a defined timeframe, and has every triggered intervention been logged with its outcome in the past 90 days?",
+      "evidence": "Early Warning Protocol with Intervention Log",
+      "evidence_example": "A written early warning protocol listing at least three threshold conditions, the intervention required for each, the timeframe, and the owner. An intervention log from the past 90 days showing every trigger, the action taken, and the outcome.",
+      "example": "Three early warning thresholds. First: NPS response below 7, intervention is a personal call from the CS lead within two business days to understand the issue. Second: no client login or engagement for 21 consecutive days for a SaaS product, or no response to two consecutive check-in messages for a service business, intervention is a re-engagement message within one business day. Third: client misses a defined onboarding milestone by more than 14 days, intervention is a milestone recovery session offered within five business days. Last quarter: 11 interventions triggered, nine completed within the required timeframe, two delayed due to team capacity. Seven of the 11 clients were retained after the intervention. Four churned anyway. All logged with outcome notes.",
+      "false_positive_signals": [
+        "The team is attentive to customers and picks up on unhappiness intuitively, but no written thresholds exist and interventions happen inconsistently depending on which team member is paying attention.",
+        "An early warning system is described in the CS playbook but threshold triggers are not connected to any system that automatically flags them, meaning they rely on someone manually reviewing data and noticing."
+      ],
+      "failure_signals": [
+        "Churn consistently surprises the team. Clients cancel without any prior warning signal having been detected, because the detection mechanism does not exist or is not working.",
+        "Intervention is triggered after a client emails to say they want to cancel rather than before they reach that decision, revealing that the system is reactive rather than proactive."
+      ],
+      "prerequisite": "CS.5",
+      "review_frequency": 12,
+      "weights": {"impact": 9, "complexity": 6, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 7,
+      "headline": "Cross-Domain Customer Success Integration",
+      "plain_english": "Customer success formally connects to product, sales, marketing, and operations through shared artifacts that are used in real decisions every quarter.",
+      "observation": "At Level 7, customer success does not operate in isolation. Four integration points exist. Product receives outcome achievement data and early warning patterns that feed directly into the product roadmap, so that product decisions reflect what is actually preventing customers from succeeding. Sales receives a structured report on expansion opportunities and churn risk, allowing the revenue team to act on existing customer intelligence rather than only pursuing new logo acquisition. Marketing receives a pipeline of satisfied customers who are candidates for testimonials, case studies, and referrals. Operations receives early warning signals that trace back to delivery quality issues, enabling the root cause to be fixed rather than just the symptom.",
+      "why_it_matters": "Customer success data is the most underused intelligence in most companies. The CS function sits closest to the customer and sees what is working, what is not, and who is thriving. Without formal integration points, that intelligence stays inside the CS function. With them, it improves the product, fuels the sales pipeline, powers the marketing engine, and fixes operational problems. A satisfied customer base that never becomes a marketing or sales asset is value left on the table.",
+      "audit_binary": "Do documented integration artifacts connect CS to PI, RS, BM, and OD, with evidence that each artifact was used to inform a decision in the past quarter?",
+      "evidence": "Cross-Domain CS Integration Artifacts: Outcome Data Report for Product, Expansion and Churn Signal Report for Sales, Advocacy Pipeline for Marketing, and Delivery Quality Signal for Operations",
+      "evidence_example": "Four artifacts, each with evidence of use in the past quarter: an outcome achievement report shared with the product owner showing which milestones customers are failing to reach, an expansion and churn signal report shared with the sales lead listing clients ready for expansion and clients at elevated churn risk, an advocacy pipeline record showing clients nominated for testimonials or referrals, and a delivery quality signal report shared with the operations lead linking specific CS issues to delivery problems.",
+      "example": "PI integration: a quarterly outcome data report showing the three milestones where most clients stall, shared with the product owner before the roadmap review. Last quarter this report led to the addition of a guided session at the stall point. RS integration: a monthly one-page report to the sales lead listing three clients who have hit their success milestone and expressed satisfaction, flagged as expansion candidates, and two clients in the amber zone, flagged as churn risks to avoid approaching for upsell. BM integration: a quarterly advocacy session identifying all clients with NPS above 8 and tenure above six months. Four enrolled in the testimonial program last quarter, two agreed to be reference customers. OD integration: a monthly note to the operations lead flagging any CS issue where the root cause appears to trace back to delivery rather than product or relationship, so that the operations improvement cycle can address it.",
+      "false_positive_signals": [
+        "Customer success shares information with other teams informally and occasionally, but no structured artifacts exist and the information does not reliably reach the people who could act on it.",
+        "Satisfied clients are known to the CS team and occasionally mentioned in marketing conversations, but no pipeline or process exists to systematically convert their satisfaction into advocacy."
+      ],
+      "failure_signals": [
+        "The product team is adding features based on sales requests and founder intuition while customer outcome data showing where clients are actually failing sits unused in the CS function.",
+        "The sales team is pursuing expansion with clients that the CS lead knows are at churn risk, because no signal process connects CS intelligence to sales targeting."
+      ],
+      "prerequisite": "CS.6",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 2}
+    },
+    {
+      "level": 8,
+      "headline": "Systematic Churn Analysis and Customer Advocacy",
+      "plain_english": "Every churned customer is analyzed to find the pattern, findings update the CS system, and satisfied customers are enrolled in a structured program that turns their loyalty into growth.",
+      "observation": "At Level 8, two improvement cycles operate. First, churn analysis: every churned customer above a defined contract value is reviewed within 30 days of cancellation to identify why they left, at what point in the journey they disengaged, and what signal preceded the churn that the early warning system missed. Findings update the early warning thresholds, the onboarding process, or the integration artifact sent to product. Second, customer advocacy: a structured program identifies satisfied clients meeting defined criteria, invites them to participate in testimonials, case studies, or referrals, tracks their participation, and attributes any resulting revenue to the program.",
+      "why_it_matters": "Churn analysis is the improving mechanism that makes the early warning system more accurate over time. Each churned customer is a lesson. If the lesson is documented and applied, the same churn pattern becomes harder to repeat. Without churn analysis, the early warning thresholds are set once based on assumption and never refined. Customer advocacy matters because a satisfied customer who refers one new client has contributed more to revenue than any marketing campaign the company could run at equivalent cost, and most companies never ask them.",
+      "audit_binary": "Has every churned customer above a defined contract value been analyzed within 30 days, with findings documented and at least two updates made to the CS system in the past six months as a result, and is there a structured advocacy program with at least five active participants in the past quarter?",
+      "evidence": "Churn Analysis Log with System Update Records and Customer Advocacy Program Record",
+      "evidence_example": "A churn analysis log with an entry for every churned customer above the defined threshold in the past six months, each showing why they left, where they disengaged, and what signal was missed. At least two documented updates to the early warning protocol or onboarding process made as a result. An advocacy program record showing at least five clients who participated in testimonials, case studies, or referrals in the past quarter.",
+      "example": "Churn analysis from the past two quarters: seven clients analyzed. Three common patterns found. Pattern one: clients who did not complete the 60-day milestone review churned at four times the rate of those who did. Response: 60-day review now required rather than optional, and a reminder is triggered automatically 10 days before the scheduled date. Pattern two: clients who raised more than two support tickets in month one churned at higher rates. Response: a new early warning threshold added for two support tickets in the first 30 days. Advocacy program: eight clients enrolled this quarter meeting the criteria of NPS above 8 and tenure above six months. Three case studies published, two reference calls provided to sales, four referrals submitted of which two converted to paying clients.",
+      "false_positive_signals": [
+        "Churned clients are occasionally discussed in team meetings and their departure is noted, but no structured analysis is conducted and no system update results from the conversation.",
+        "Satisfied clients are occasionally asked for a testimonial when a team member thinks of it, but no structured program exists to identify, invite, track, or attribute advocacy activity."
+      ],
+      "failure_signals": [
+        "The same churn pattern appears repeatedly in the customer base without any change to the early warning thresholds or onboarding process, revealing that churn analysis is happening without producing any learning.",
+        "The company has clients who would happily refer new business but has never systematically asked them, leaving a growth channel entirely untapped."
+      ],
+      "prerequisite": "CS.7",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 3}
+    },
+    {
+      "level": 9,
+      "headline": "Independent Customer Success Leadership",
+      "plain_english": "A dedicated CS leader owns retention and NRR targets, manages interventions and expansions independently, and the company's most important client relationships are not personally dependent on the founder.",
+      "observation": "At Level 9, a named CS leader owns the retention rate, NRR target, intervention decisions, and expansion conversations without founder involvement. They run the monthly CS review, manage the early warning system, lead the advocacy program, and make commercial decisions such as offering a retention incentive or approving a complimentary session. The three most important client relationships are not personally dependent on the founder. If the founder left the company, those clients would remain because the relationship belongs to the company, not to an individual.",
+      "why_it_matters": "Founder-dependent customer relationships are a valuation risk that is easy to overlook. A company can have excellent CS metrics while those metrics depend entirely on the founder knowing every key client personally. If the founder steps back, those relationships are at risk. An acquirer will identify this immediately during due diligence and discount accordingly. True CS independence means the retention rate would hold under a leadership change because the system, not the personality, is retaining customers.",
+      "audit_binary": "Is there a named CS leader with documented authority over retention targets, intervention decisions, and expansion offers who has run the monthly CS review without founder involvement for at least two consecutive quarters, and is there evidence that the three largest client relationships are not personally dependent on the founder?",
+      "evidence": "CS Leadership Authority Document with Independent Review Records and Client Relationship Audit",
+      "evidence_example": "A written role description granting CS authority, records of at least six consecutive monthly CS reviews without founder attendance, a decision log showing at least three retention or expansion decisions made independently, and a client relationship audit confirming the three largest clients have a primary relationship with a CS team member rather than the founder.",
+      "example": "The Head of Customer Success owns the 95% monthly retention target and the NRR target of 102% or above. They have run the monthly CS review for eight consecutive months without the founder. Last quarter independent decisions: approved a complimentary strategy session for a client at churn risk, offered a two-month payment plan to a client facing cash flow difficulties, and initiated an expansion conversation with a client who reached their 90-day milestone ahead of schedule. Client relationship audit: the three largest clients by contract value each have their primary relationship with the CS lead or a senior CS team member. The founder has not spoken directly with any of them in six months.",
+      "false_positive_signals": [
+        "A CS leader exists and runs the operational aspects of the function independently, but the three most important client relationships still run through the founder personally.",
+        "The CS function is independent operationally but the founder is still consulted before any retention incentive is offered or any expansion conversation is initiated."
+      ],
+      "failure_signals": [
+        "A key client threatens to leave and the first instinct of the CS team is to call the founder to manage the relationship, revealing that the real retention mechanism is still the founder's personal relationship.",
+        "NRR has been below 100% for two consecutive quarters with no documented intervention plan, suggesting that ownership of the NRR target is nominal rather than real."
+      ],
+      "prerequisite": "TC.6",
+      "review_frequency": 2,
+      "weights": {"impact": 9, "complexity": 8, "time_to_implement": 7, "direct_cost": 5}
+    },
+    {
+      "level": 10,
+      "headline": "Institutional Customer Success Engine",
+      "plain_english": "The company runs a self-sustaining customer success system with NRR consistently above 100% for at least four consecutive quarters, governed and reviewed annually by an external party.",
+      "observation": "At Level 10, all CS systems are running together and producing compound results. Customer outcomes are defined and measured. Health is monitored across three metric categories. Early warning interventions are active and improving through churn analysis. Cross-domain integrations are live. The advocacy program is producing referrals. Leadership is independent. And the whole system is documented in an annual CS governance report reviewed by an external party. NRR has been above 100% for at least four consecutive quarters, meaning the existing customer base is growing on its own, and each new client acquired adds to a compounding asset rather than replacing one that left.",
+      "why_it_matters": "NRR above 100% for four consecutive quarters is not just a retention metric. It is proof that the company has built something customers want to keep and expand. It means the revenue engine has two cylinders: new customer acquisition and organic growth from the existing base. Companies with sustained NRR above 110% are valued at fundamentally different multiples than those with NRR below 100%, because their revenue is more predictable, more durable, and less dependent on continuous acquisition spend.",
+      "audit_binary": "Has the customer success system operated without founder involvement for at least four consecutive quarters, with NRR above 100% in each quarter, all three health metric categories stable or improving, and has the system been documented in an annual CS governance report reviewed by at least one external party?",
+      "evidence": "Annual Customer Success Governance Report with External Review Record",
+      "evidence_example": "An annual report showing: quarterly NRR for four quarters, quarterly churn rate, NPS and outcome achievement rate trends, early warning intervention volume and outcomes, churn analysis findings and system updates, advocacy program results including referrals generated and revenue attributed, and a record of founder non-involvement across all four quarters. Reviewed and noted by at least one external advisor or board member.",
+      "example": "Annual CS governance report. NRR: Q1 103%, Q2 101%, Q3 104%, Q4 106%, all above the 100% target. Churn rate: average 2.8% per month, stable across all four quarters. Outcome achievement rate: improved from 68% to 79% over the year following onboarding updates from churn analysis. Early warning system: 38 interventions triggered across four quarters, 29 clients retained. Churn analysis: eight clients analyzed, four system updates made. Advocacy program: 12 clients participated, seven referrals generated, four converted to new clients representing 96,000 euros in new contract value. Founder involvement: zero CS decisions in the past 12 months. Reviewed by an independent advisor who recommended expanding the early warning thresholds to include payment delay as a churn predictor. Threshold added.",
+      "false_positive_signals": [
+        "NRR is above 100% but is driven almost entirely by a few large clients expanding, while the majority of the customer base is churning at an elevated rate. Aggregate NRR masks a fragile underlying distribution.",
+        "CS metrics are strong and the system appears institutional, but the two or three largest clients still have their primary relationship with the founder personally, making the retention of those clients founder-dependent."
+      ],
+      "failure_signals": [
+        "NRR has dropped below 100% for two consecutive quarters with no documented corrective plan. The customer base is now shrinking even before churn from new clients is considered.",
+        "A prospective acquirer identifies that the majority of retained revenue depends on personal founder relationships or on one or two key CS team members whose departure would put those relationships at risk."
+      ],
+      "prerequisite": "CS.9",
+      "review_frequency": 1,
+      "weights": {"impact": 10, "complexity": 9, "time_to_implement": 9, "direct_cost": 6}
+    }
+  ]
+}

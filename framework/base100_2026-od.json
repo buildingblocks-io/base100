@@ -1,0 +1,257 @@
+{
+  "id": "OD",
+  "name": "Operations & Delivery",
+  "purpose": "Deliver the product or service reliably, consistently, and at any scale without depending on individual heroics.",
+  "cxo_persona": "Chief Operating Officer",
+  "description": "How the company produces and delivers its product, maintains quality, manages capacity, and builds a delivery system that any trained person can run. A mature operations and delivery domain means customers receive a consistent experience regardless of who handles their work, and the founder can step away from delivery entirely without quality declining.",
+  "direction": {
+    "name": "Operational Model",
+    "purpose": "Define how the company consistently delivers its product or service with quality, efficiency, and the ability to scale without proportional increases in cost or founder involvement.",
+    "required_outputs": [
+      "core_delivery_process",
+      "operational_responsibility_matrix",
+      "standard_operating_procedures",
+      "quality_standards_and_check_protocol",
+      "operational_metrics_framework",
+      "capacity_model",
+      "operational_risk_register",
+      "operations_review_rhythm"
+    ],
+    "primary_owner": "Chief Operating Officer",
+    "contributors": ["CEO", "product_lead", "customer_success_lead", "technology_lead", "finance_lead"],
+    "minimum_standard": "One documented operational model exists describing how the company delivers value to customers, including defined steps, quality standards, named owners, and the capacity to deliver without founder involvement.",
+    "review_frequency": 4,
+    "questions_to_answer": [
+      "What are the exact steps required to deliver the product or service from signed contract to completed delivery, and who owns each step?",
+      "What does a good delivery look like, described specifically enough that anyone can check whether the standard was met?",
+      "What is the maximum volume the current delivery system can handle before quality or speed degrades, and how much headroom exists today?",
+      "What are the three most likely things that could disrupt delivery in the next 90 days, and what is the contingency for each?",
+      "Which delivery steps currently depend on a single person, and what happens to delivery if that person is unavailable for two weeks?",
+      "How do operational quality failures get detected, root-caused, and prevented from recurring?",
+      "How does the cost of delivery change as volume increases, and is the unit economics improving or deteriorating?",
+      "What would an acquirer discover about delivery reliability and consistency if they spent a week inside the operations function?"
+    ]
+  },
+  "levels": [
+    {
+      "level": 1,
+      "headline": "Delivery Process Documented",
+      "plain_english": "The steps required to deliver the product or service are written down in the right order.",
+      "observation": "Ask someone in this company to explain how delivery works from start to finish. At Level 1, they can show you a written document rather than describing it from memory. The document lists the steps in sequence, what happens at each step, and roughly how long each step takes. It does not need to be a manual. A one-page workflow that gives a new team member the shape of delivery is enough.",
+      "why_it_matters": "Delivery that exists only in people's heads leaves the company when those people do. It cannot be trained, improved, or delegated. Writing the process down is not about bureaucracy. It is the first act of converting founder knowledge into company knowledge, and it is the foundation that every other operational capability is built on.",
+      "audit_binary": "Is there a written delivery process document listing every step from accepted contract to completed delivery in sequence, with a named role and an approximate duration for each step, reviewed within the past six months?",
+      "evidence": "Delivery Process Document",
+      "evidence_example": "A written document, flowchart, or checklist showing every delivery step in sequence with a named role and approximate duration per step. Updated within the past six months to reflect how delivery actually works today.",
+      "example": "A service firm documents its delivery in seven steps: kickoff call on day one, discovery session in week one, draft deliverable by week three, internal review in week three, client review in week four, revision by week five, and final sign-off in week six. Each step lists the role responsible and the standard duration. A new team member reads this on their first day and immediately understands the shape of every client engagement.",
+      "false_positive_signals": [
+        "A delivery process document was created during the company's early days and has not been updated since, meaning it describes how delivery used to work rather than how it works today.",
+        "The process exists as a verbal description that the founder or most experienced team member gives during onboarding, but nothing written exists that a new hire could consult independently."
+      ],
+      "failure_signals": [
+        "Two team members describe the delivery process differently when asked to walk through it, revealing that the actual process varies by person rather than following a shared standard.",
+        "When a new team member joins, they spend their first two weeks watching other people work rather than reading a process document, because no written version exists."
+      ],
+      "prerequisite": "PI.4",
+      "review_frequency": 2,
+      "weights": {"impact": 10, "complexity": 2, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 2,
+      "headline": "Operational Information Organized",
+      "plain_english": "Everything the team needs to run delivery lives in one place that any team member can find without asking the founder.",
+      "observation": "At Level 2, there is a central operational repository. It holds the delivery process, the responsibility matrix, the templates and tools used in delivery, supplier and partner contacts, the quality standards, and records of past deliveries and their outcomes. A team member going on leave can hand off to a colleague in under an hour because everything that colleague needs is in one accessible location. Nobody needs to call the founder to find out where something is.",
+      "why_it_matters": "Operational knowledge scattered across personal drives, email threads, and memory is not really available to the company. It is available to the individuals who hold it. Every time a team member has to ask where something is, how something works, or who to contact, the company is paying a tax on disorganized information. Organizing operational knowledge in one place is the first concrete step toward a delivery function that can run without the founder.",
+      "audit_binary": "Is there a single operational repository containing the delivery process, responsibility matrix, delivery templates, supplier contacts, quality standards, and a record of at least five recent deliveries, accessible to every delivery team member and updated within the past 90 days?",
+      "evidence": "Operational Information Repository",
+      "evidence_example": "A shared folder, wiki, or system containing the six required components, each updated within 90 days. The delivery records section shows at least five recent completed deliveries with notes on any issues encountered.",
+      "example": "An operations wiki with six sections. Process: the step-by-step delivery workflow from Level 1. Responsibilities: a matrix showing who owns each step. Templates: the kickoff call agenda, the discovery session guide, the revision request form, and the sign-off checklist. Suppliers: contacts for three freelancers used for overflow capacity, with their rates and availability notes. Quality: the 12-point delivery checklist used before every client handover. Records: notes from the last eight deliveries showing what went well, what did not, and what was done differently.",
+      "false_positive_signals": [
+        "Operational information exists across a Google Drive folder, a Notion page, a Slack channel, and several email threads, with no single location that is considered authoritative.",
+        "An operational repository was set up but team members do not use it because it is not maintained, so they default to asking the founder or the most experienced team member instead."
+      ],
+      "failure_signals": [
+        "When a team member is absent, colleagues spend significant time trying to locate files, contacts, and context that should be in a central location but are not.",
+        "Delivery inconsistencies trace back to team members using different versions of the same template because no single authoritative source exists."
+      ],
+      "prerequisite": "OD.1",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 2, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 3,
+      "headline": "Delivery Ownership Assigned",
+      "plain_english": "Every step in the delivery process has one named person responsible for its outcome. One person also owns overall delivery quality.",
+      "observation": "At Level 3, a responsibility matrix exists showing one named person per delivery step. When something goes wrong at a specific step, there is no debate about whose responsibility it is. One person also holds overall ownership of delivery quality and can answer the question of how delivery is performing right now without needing to gather information from multiple people first.",
+      "why_it_matters": "A delivery step with no owner is a delivery step waiting to fail. Shared ownership means that everyone involved assumes someone else is monitoring the quality and timeline. One named owner per step does not mean that person does all the work. It means that person is accountable when the step does not happen or does not meet the standard. That accountability is what makes delegation real rather than nominal.",
+      "audit_binary": "Is there a responsibility matrix showing exactly one named owner per delivery step, with no shared entries, and is there one person who can report on overall delivery performance at any moment without having to gather information from multiple sources?",
+      "evidence": "Operational Responsibility Matrix",
+      "evidence_example": "A written responsibility matrix listing every delivery step with one named owner per step and no shared entries. A separate designation showing who owns overall delivery quality and performance visibility.",
+      "example": "A responsibility matrix for a seven-step delivery process. Project manager owns steps one, two, and seven. Senior consultant owns steps three and six. Client manager owns steps four and five. No step has two owners. The project manager also holds overall delivery quality ownership and presents a delivery performance summary at the monthly operations meeting. When a quality problem occurs at step three, the senior consultant owns the explanation and the corrective action without anyone needing to debate responsibility.",
+      "false_positive_signals": [
+        "A responsibility matrix exists but lists two or more people as owners of the same step, meaning accountability is shared and therefore diffuse.",
+        "Overall delivery quality ownership is assumed to belong to the founder rather than being explicitly assigned to an operational team member."
+      ],
+      "failure_signals": [
+        "When a delivery step fails, the team spends time debating whose fault it was rather than immediately knowing who owned it and who is responsible for the fix.",
+        "Leadership must ask multiple people to understand current delivery performance because no single person holds that visibility."
+      ],
+      "prerequisite": "OD.2",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 3, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 4,
+      "headline": "Standardized Delivery",
+      "plain_english": "Every critical delivery task has a written procedure, and every delivery passes a quality check before it reaches the customer.",
+      "observation": "At Level 4, two things are standardized. First, SOPs exist for every critical delivery task. A trained person can follow these procedures and produce work to an acceptable standard without supervision. Second, a quality standard defines what good delivery looks like, and a quality check step sits inside the delivery process before any work reaches the customer. Quality problems are caught internally, not discovered by clients.",
+      "why_it_matters": "SOPs and quality standards together address different failure modes. SOPs prevent inconsistency by ensuring that different people perform the same task the same way. Quality checks prevent delivery failures from reaching customers by catching problems at the last internal step. A company with SOPs but no quality check ships consistently mediocre work. A company with a quality check but no SOPs relies on one senior person's judgment for every review. Both are required for delivery to be reliably good at scale.",
+      "audit_binary": "Do written SOPs exist for every critical delivery task, and is there a quality check step in the delivery process with a written standard that every delivery must meet before it reaches the customer, applied consistently in the past 10 deliveries?",
+      "evidence": "SOP Library and Quality Standards Document with Quality Check Records",
+      "evidence_example": "A set of written SOPs for all critical delivery tasks, each listing the steps, the required inputs, and the acceptable output standard. A quality standards document defining the minimum bar per deliverable type. Quality check records from the past 10 deliveries confirming the check was applied.",
+      "example": "A web agency has SOPs for: project kickoff, client discovery, design handoff to development, pre-launch review, and client sign-off. Each SOP was written by the person who does the task best and reviewed by the project lead. Quality standard for every website delivery: 14-point checklist covering mobile responsiveness, page speed score, brand conformance, link integrity, and form functionality. Every site is checked against all 14 points before the client review call. Last 10 deliveries: 10 quality checks completed, two sites required internal revision before the check was passed. Neither issue reached the client.",
+      "false_positive_signals": [
+        "SOPs exist for minor or infrequent tasks but not for the most critical or complex delivery steps, which are still performed based on individual experience and judgment.",
+        "A quality checklist exists but is skipped under deadline pressure, with team members marking it complete without performing the checks."
+      ],
+      "failure_signals": [
+        "Clients regularly discover quality issues that an internal review step would have caught, indicating either no quality check exists or it is not being performed consistently.",
+        "New team members cannot perform critical delivery tasks to an acceptable standard without constant supervision because no SOP exists to guide them."
+      ],
+      "prerequisite": "OD.3",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 5, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 5,
+      "headline": "Operational Performance Measured",
+      "plain_english": "The company tracks at least three operational metrics monthly covering speed, quality, and capacity, and a declining metric triggers a documented investigation.",
+      "observation": "At Level 5, operational performance is measured across three categories. Speed: how long does delivery take versus the target? Quality: what percentage of deliveries pass the quality check on the first attempt, and what is the rework rate? Capacity: what percentage of the team's delivery capacity is currently utilized, and how close is the ceiling? All three categories have numeric targets. All are reviewed in a fixed monthly meeting. A metric declining for two consecutive months triggers a documented investigation rather than an informal conversation.",
+      "why_it_matters": "Measuring only one category creates blind spots. A company that tracks delivery speed but not quality can be delivering fast and badly simultaneously. A company that tracks quality but not capacity will discover it is overloaded only when deliveries start slipping. All three categories are needed to see the full operational picture. The investigation trigger is what converts measurement into management. Without it, metrics become reporting rather than accountability.",
+      "audit_binary": "Are at least three operational metrics, covering delivery speed, delivery quality, and capacity utilization, tracked monthly with numeric targets, reviewed in a fixed monthly meeting, and has a metric declining for two consecutive months triggered a documented investigation in the past six months?",
+      "evidence": "Operations Dashboard with Monthly Review Records and Investigation Log",
+      "evidence_example": "Monthly operational metrics reports for at least three consecutive months showing at least one metric per category, with targets, actuals, and trend. At least one documented investigation triggered by a metric declining for two consecutive months.",
+      "example": "Monthly metrics reviewed on the first Monday of each month. Speed: average delivery time 19 days, target 18 days. Quality: first-pass quality check rate 87%, target 90%, declined for two consecutive months. Investigation opened: project lead reviewed the 12 failed quality checks, found that six related to mobile responsiveness, specifically on a new device type not previously included in the standard. Quality checklist updated to include the new device. Rework rate returned to within target the following month. Capacity: 78% utilization, target range 70% to 85%. Within range, no action required.",
+      "false_positive_signals": [
+        "Delivery speed is tracked as the primary operational metric but quality and capacity are not measured, creating a system that can be optimizing for speed while quality degrades invisibly.",
+        "All three metrics are tracked and displayed on a dashboard but declining numbers have never triggered a documented investigation. Measurement exists without consequence."
+      ],
+      "failure_signals": [
+        "Client complaints about delivery quality appear before the team discovers the quality problem internally, revealing that the quality metric is either not tracked or not reviewed with enough frequency.",
+        "The team discovers it is significantly overloaded only when deliveries start slipping, because no capacity metric warned of the approaching ceiling."
+      ],
+      "prerequisite": "TI.5",
+      "review_frequency": 12,
+      "weights": {"impact": 9, "complexity": 5, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 6,
+      "headline": "Proactive Capacity and Risk Management",
+      "plain_english": "The company knows its delivery ceiling before it hits it, and has identified and mitigated the three most likely things that could disrupt delivery.",
+      "observation": "At Level 6, two proactive mechanisms operate. First, a capacity model shows current utilization, maximum theoretical capacity, and the projected gap at current growth rates. When a new sales opportunity would push capacity above 85%, the operations function is consulted before the deal is committed. Second, an operational risk register identifies the most likely delivery disruptions: key person absence, supplier failure, tool dependency, regulatory change, or demand spike. Each risk has a mitigation plan and a named owner. Both are reviewed monthly.",
+      "why_it_matters": "Reactive capacity management means the company discovers it is overloaded when quality starts declining or clients start waiting longer than promised. By then, the problem is already visible to customers. Capacity planning is not about forecasting demand perfectly. It is about knowing the ceiling before the company runs into it, so that sales, hiring, and client commitments can be made with accurate information. Risk management prevents the same disruptions from being surprises every time they occur.",
+      "audit_binary": "Is there a current capacity model showing utilization, maximum capacity, and projected gap at current growth rate, consulted before any new commitment that would push utilization above 85%, and is there an operational risk register with at least five identified risks, each with a mitigation plan and named owner, reviewed within the past 30 days?",
+      "evidence": "Capacity Model and Operational Risk Register with Monthly Review Record",
+      "evidence_example": "A capacity model document showing current team capacity in hours or units, current utilization rate, maximum sustainable capacity, and the projected utilization in 30, 60, and 90 days at current growth. An operational risk register with at least five risks, each listing the risk, likelihood, impact, mitigation action, and owner. Both reviewed within the past 30 days.",
+      "example": "Capacity model: current team handles a maximum of 48 active projects at full quality. Current load: 38 projects, 79% utilization. At current growth rate of three new projects per month, the ceiling is reached in approximately three months. Three new hires are planned for next quarter based on this data. Risk register: five risks identified. Key person risk: senior consultant is sole owner of the discovery SOP. Mitigation: second team member cross-trained by end of month. Tool dependency: project management software is single source of failure. Mitigation: monthly data export to backup location. Both reviewed in the monthly operations meeting last week.",
+      "false_positive_signals": [
+        "Capacity planning happens informally when the team feels busy, rather than through a model that provides objective visibility before the ceiling is reached.",
+        "A risk register was created six months ago and has not been reviewed since, making it a historical document rather than an active management tool."
+      ],
+      "failure_signals": [
+        "The company consistently discovers it is overloaded only when delivery timelines start slipping or client satisfaction drops, with no prior warning from a capacity measurement.",
+        "The same operational disruption, such as a key team member being unavailable, causes a delivery crisis every time it occurs because no mitigation plan was ever prepared."
+      ],
+      "prerequisite": "OD.5",
+      "review_frequency": 12,
+      "weights": {"impact": 8, "complexity": 6, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 7,
+      "headline": "Cross-Domain Operational Integration",
+      "plain_english": "Operations formally connects to sales, customer success, product, and finance through shared artifacts that are used in real decisions every quarter.",
+      "observation": "At Level 7, operations does not operate in isolation from the rest of the company. Four integration points exist. Sales delivers a completed handoff checklist to operations before any delivery begins, ensuring the delivery team knows exactly what was sold, what was promised, and who the key contacts are. Operations feeds quality and delivery signals to customer success, enabling early intervention when a delivery is at risk of producing a dissatisfied client. Product receives operational quality failure reports that indicate whether the product or offer definition is causing recurring delivery problems. Finance receives accurate cost-of-delivery data that makes unit economics calculations real rather than estimated.",
+      "why_it_matters": "The handoff from sales to operations is the single most underrated integration point in most companies. When sales sells something and operations delivers something different, the gap lands on the customer. That gap is not a delivery failure. It is a handoff failure. The other integrations prevent equally costly but less visible problems: customer success intervening too late because they did not know delivery was struggling, product making the same offer design mistake repeatedly because quality failures were not being reported back, and finance making hiring decisions based on estimated rather than actual delivery costs.",
+      "audit_binary": "Do documented integration artifacts connect OD to RS, CS, PI, and FR, with evidence that each artifact was used to inform a decision in the past quarter?",
+      "evidence": "Cross-Domain Operational Integration Artifacts: Sales Handoff Checklist, Delivery Quality Signal Report, Product Quality Failure Log, and Operational Cost Report",
+      "evidence_example": "Four artifacts, each with evidence of use in the past quarter: a completed sales-to-delivery handoff checklist for at least three recent clients, a delivery quality signal report shared with customer success showing at-risk deliveries, a product quality failure log showing recurring issues reported back to the product owner, and an operational cost report submitted to finance showing actual cost per delivery.",
+      "example": "RS integration: a 14-item handoff checklist completed by the sales lead and countersigned by the project manager before any project begins. Covers scope confirmed, promises made, key contacts, agreed timeline, and any special client requirements. Last quarter: two projects flagged during handoff because promised timelines did not match available capacity. Both timelines renegotiated before the kickoff call rather than after the client noticed. CS integration: a weekly at-risk delivery report shared with the customer success lead listing any project behind schedule or below quality target. Three clients received a proactive call from customer success last quarter based on this report. PI integration: a quarterly quality failure log sent to the product owner showing the five most common reasons deliveries fail the quality check. Last quarter this led to a revision of the discovery SOP after three failures traced to unclear client brief collection. FR integration: a monthly cost-of-delivery report showing total delivery labor hours, external costs, and cost per project, submitted to the finance lead for unit economics tracking.",
+      "false_positive_signals": [
+        "Sales and operations communicate about new clients but the communication is informal and verbal, meaning nothing about what was sold or promised is written down before delivery begins.",
+        "Operations shares occasional updates with customer success but no structured signal process exists, so customer success only learns about delivery problems when clients complain."
+      ],
+      "failure_signals": [
+        "Delivery teams regularly discover mid-project that the client's expectations differ from what operations was briefed on, because the handoff from sales was verbal rather than documented.",
+        "The same offer design problem causes delivery failures repeatedly because no mechanism exists to report quality failures back to the product owner."
+      ],
+      "prerequisite": "OD.6",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 2}
+    },
+    {
+      "level": 8,
+      "headline": "Systematic Operational Improvement",
+      "plain_english": "Every operational failure triggers a root cause analysis, a documented fix, and a verification that the fix worked. The same problem does not occur twice.",
+      "observation": "At Level 8, the operations function has a formal improvement cycle. When any delivery problem occurs, a structured root cause analysis is conducted to identify the system cause rather than attributing the failure to individual error. A fix is defined, assigned to an owner, and implemented by updating the relevant SOP or process step. In the following review cycle, the metrics confirm whether the fix worked. Every investigation, fix, and verification is documented. The goal is that the same operational error does not appear twice in the quality failure log.",
+      "why_it_matters": "The same operational error recurring twice is a system failure, not a people failure. When the first occurrence is investigated and fixed at the process level, the second occurrence should be prevented. When it is not investigated, the team corrects the individual instance but leaves the system unchanged, guaranteeing the error will occur again. A systematic improvement cycle converts operational experience into institutional learning and is what separates an operation that gets better from one that merely stays busy.",
+      "audit_binary": "Has every operational failure in the past six months been followed by a documented root cause analysis, a defined fix assigned to an owner, and a verification that the fix resolved the problem in the subsequent review cycle, with evidence that no single failure type has recurred more than once?",
+      "evidence": "Operational Improvement Log with Root Cause Analyses, Fix Records, and Verification Outcomes",
+      "evidence_example": "An improvement log with entries for every operational failure in the past six months, each showing: the problem, the root cause finding, the fix applied, the owner, and the verification outcome from the next review cycle. No single failure type appearing more than once in the log.",
+      "example": "Improvement log from the past two quarters. Entry 1: three consecutive deliveries ran two days over the target timeline. Root cause: discovery sessions consistently running 90 minutes over the two-hour allocation because the brief template did not cover technical requirements. Fix: brief template updated to include a technical requirements section, allocated an additional 30 minutes to discovery for technical products. Verification: the following eight deliveries all completed within the target timeline. Entry 2: two quality checks failed on mobile layout for a new screen size. Root cause: the quality checklist did not include the new device. Fix: checklist updated. Verification: all subsequent checks passed. Neither failure type has reappeared.",
+      "false_positive_signals": [
+        "Delivery problems are discussed in the monthly operations meeting and resolved on a case-by-case basis, but no root cause analysis is documented and the SOP or process is never updated as a result.",
+        "An improvement log exists but most entries describe what happened without a root cause or a defined fix, making it a record of events rather than a learning system."
+      ],
+      "failure_signals": [
+        "The same type of delivery failure appears in the quality log more than once across consecutive quarters, revealing that the first occurrence was corrected individually rather than fixed at the process level.",
+        "Team members describe recurring delivery problems as just how things go rather than as system failures requiring investigation, because no improvement cycle exists to challenge that assumption."
+      ],
+      "prerequisite": "OD.7",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 2}
+    },
+    {
+      "level": 9,
+      "headline": "Founder and Key-Person Independent Delivery",
+      "plain_english": "Delivery runs at full quality without the founder for at least 60 days, and no single team member owns more than 40% of delivery capacity.",
+      "observation": "At Level 9, two conditions are met. First, the company has completed a documented 60-day period where delivery ran at full quality and full capacity without any founder involvement. All escalations were handled by the team using documented protocols. All quality checks were performed and passed. No client noticed any difference. Second, delivery capacity is distributed across the team so that no single person handles more than 40% of active projects. If any one person were unavailable for two weeks, delivery would continue without a crisis.",
+      "why_it_matters": "Sixty days is the right benchmark for delivery independence because it covers a full delivery cycle for most service businesses, tests the team through at least two or three client escalations, and reveals whether the documented systems actually function without the founder or whether they relied on informal founder availability. Key-person independence is equally important. A delivery function that is founder-independent but collapses when the lead consultant is sick has the same structural fragility. Both conditions must hold for delivery to be genuinely independent.",
+      "audit_binary": "Is there documented evidence of delivery operating at full quality and full capacity for a continuous 60-day period without founder involvement, and does no single team member currently account for more than 40% of active delivery capacity?",
+      "evidence": "60-Day Delivery Independence Log and Delivery Capacity Distribution Report",
+      "evidence_example": "A log from a completed 60-day period showing: delivery metrics during the period, quality check results, escalations handled and how they were resolved, and explicit confirmation of zero founder involvement. A current capacity distribution report showing active project load per team member, with no individual above 40%.",
+      "example": "The founder took 60 days fully offline. Delivery log: 14 projects active during the period, all completed within target timelines, quality check pass rate 91%, three client escalations handled by the project manager using the documented escalation protocol, zero founder contact. Capacity distribution: project manager handling 32% of active projects, senior consultant handling 35%, two junior consultants handling 17% each. No individual above the 40% threshold. Dedicated operations lead produced a written post-absence summary confirming which systems were relied on and what, if anything, needed updating.",
+      "false_positive_signals": [
+        "The founder was officially offline for 60 days but remained reachable by phone and responded to operational questions, meaning the team was using founder availability as a safety net rather than the documented systems.",
+        "Delivery ran without the founder but relied heavily on one senior team member who informally became the decision-maker, simply transferring the key-person dependency from the founder to that individual."
+      ],
+      "failure_signals": [
+        "Delivery quality or timeline adherence declines measurably within two weeks of the founder stepping back, revealing that documented systems are not sufficient to maintain standards without founder oversight.",
+        "A single team member's two-week absence causes delivery disruption because no other team member has sufficient knowledge of that person's active projects to step in."
+      ],
+      "prerequisite": "TC.6",
+      "review_frequency": 2,
+      "weights": {"impact": 10, "complexity": 8, "time_to_implement": 9, "direct_cost": 4}
+    },
+    {
+      "level": 10,
+      "headline": "Institutional Delivery System",
+      "plain_english": "Operations runs through a fully documented, self-improving delivery system that maintains quality and efficiency at any volume, governed and reviewed annually by an external party.",
+      "observation": "At Level 10, all operational systems are running together and producing stable, measurable results. The delivery process is documented. Operational knowledge is organized. Ownership is assigned. SOPs and quality standards are enforced. Three metric categories are tracked monthly. Capacity planning and risk management are active. Cross-domain integrations are live. The improvement cycle is running. Leadership is independent. And the entire system is documented in an annual operational governance report reviewed by an external party, confirming that the delivery function would survive a complete change of ownership without disruption to quality or customer experience.",
+      "why_it_matters": "An acquirer evaluating this company does not just want to know that delivery works today. They want evidence that it will continue working after the transaction, when the current team may be distracted, some staff may leave, and new ownership brings different priorities. An institutional delivery system provides that evidence through documented processes, verified quality standards, consistent metrics, and an independent leadership structure. Operational predictability is one of the clearest signals of enterprise value.",
+      "audit_binary": "Has the delivery system operated without founder involvement for at least four consecutive quarters with stable or improving metrics across all three categories, is the system documented in an annual operational governance report, and has that report been reviewed by at least one external party in the past 12 months?",
+      "evidence": "Annual Operational Governance Report with External Review Record",
+      "evidence_example": "An annual report showing: quarterly delivery metrics across speed, quality, and capacity categories, improvement cycle activity and outcomes, capacity model status, risk register review history, cross-domain integration artifact status, and a record of founder non-involvement across all four quarters. Reviewed and noted by at least one external advisor, board member, or operational auditor.",
+      "example": "Annual operations report. Average delivery time: 17 days versus the 18-day target, improving. First-pass quality check rate: 91%, stable. Capacity utilization: 76% average, within the target range of 70% to 85%. Improvement cycle: eight root cause investigations conducted, eight fixes verified, zero recurring failure types in the past two quarters. Risk register: reviewed monthly, two new risks added, one risk retired after mitigation verified. Cross-domain integrations: all four artifacts current. Four consecutive quarters without founder involvement in delivery decisions. Report reviewed by an independent operational advisor who noted the capacity model assumptions and recommended stress-testing the ceiling at 95% utilization. Stress test scheduled for Q2.",
+      "false_positive_signals": [
+        "Delivery performs well and metrics are stable, but delivery quality depends on two or three senior individuals whose departure would significantly disrupt operations, revealing key-person dependency that the metrics alone do not show.",
+        "An annual operations report is produced and reviewed internally but has never been presented to or challenged by any external party, meaning there is no independent validation of the claims it contains."
+      ],
+      "failure_signals": [
+        "A prospective acquirer's operational due diligence identifies undocumented processes, unmeasured quality standards, or key-person dependencies as risks that reduce confidence in the reliability of future delivery.",
+        "Operational metrics have deteriorated for more than two consecutive quarters with no documented improvement cycle response, suggesting the system is reporting problems but not solving them."
+      ],
+      "prerequisite": "OD.9",
+      "review_frequency": 1,
+      "weights": {"impact": 10, "complexity": 9, "time_to_implement": 9, "direct_cost": 6}
+    }
+  ]
+}

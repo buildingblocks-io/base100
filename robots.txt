@@ -1,0 +1,27 @@
+# robots.txt for BASE-100 Institute
+# https://base100.org/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /assets/includes/
+
+# Sitemap location
+Sitemap: https://base100.org/sitemap.xml
+
+# Crawl-delay (optional, adjust as needed)
+Crawl-delay: 1
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+

@@ -1,0 +1,257 @@
+{
+  "id": "BM",
+  "name": "Brand & Market",
+  "purpose": "Build market awareness, establish authority, and generate consistent demand for the company's product.",
+  "cxo_persona": "Chief Marketing Officer",
+  "description": "How the company communicates its value to the right audience, builds a recognizable and trusted brand, and generates demand systematically rather than reactively. A mature brand and market domain means the company is visible to the right people before they are ready to buy, and the demand it generates does not depend on the founder's personal presence or activity.",
+  "direction": {
+    "name": "Market Positioning and Brand Strategy",
+    "purpose": "Define how the company wants to be perceived by the market, who it speaks to, what it says, which channels it uses, and how it builds compounding brand authority over time.",
+    "required_outputs": [
+      "target_audience_definition",
+      "brand_positioning_statement",
+      "core_message_and_proof_points",
+      "channel_strategy",
+      "content_strategy",
+      "brand_guidelines",
+      "marketing_metrics_framework",
+      "marketing_review_rhythm"
+    ],
+    "primary_owner": "Chief Marketing Officer",
+    "contributors": ["CEO", "product_lead", "sales_lead"],
+    "minimum_standard": "One written marketing direction exists defining the target audience, brand positioning, core message, and primary acquisition channel, reviewed at least quarterly.",
+    "review_frequency": 4,
+    "questions_to_answer": [
+      "What does the ideal customer currently believe about their problem before they find the company, and what belief must change for them to buy?",
+      "Who specifically should notice this company, described in observable terms that a media buyer or event organizer could act on immediately?",
+      "What is the single most important thing the market should associate with this brand in one year, and in five years?",
+      "Why would an ideal customer choose this company over doing nothing, and over the most credible alternative available to them?",
+      "Where do ideal customers go when they are actively looking for a solution like this one, and is the company visible there?",
+      "What content or signal builds the most trust with the specific audience before a sales conversation starts?",
+      "What is the one marketing metric that, if it doubled, would most directly drive revenue growth?",
+      "What would it take for this brand to become the default reference in its category, and what is the first concrete step toward that?"
+    ]
+  },
+  "levels": [
+    {
+      "level": 1,
+      "headline": "Problem Communicated Externally",
+      "plain_english": "Every external touchpoint leads with the customer's problem in their own words, not with the company's solution.",
+      "observation": "A stranger lands on the website, reads the company LinkedIn page, or picks up a pitch deck. Within 10 seconds, they know whether this company is describing their problem or someone else's. At Level 1, all primary external touchpoints open with the same customer problem, written in language the customer would use themselves. The company's name, history, and credentials come second.",
+      "why_it_matters": "Marketing cannot create demand for something the market does not recognize as solving their problem. The first job of any external communication is not to explain the product. It is to make the right person feel seen. When the problem description resonates, they lean in. When it does not, they move on within seconds and the company never knows they were there.",
+      "audit_binary": "Do all primary external touchpoints, including the website homepage, the company LinkedIn page, and the primary pitch or sales document, open with a description of the customer's problem in customer language, consistent with the agreed problem statement from the product domain?",
+      "evidence": "External Touchpoint Audit Record",
+      "evidence_example": "A documented review of at least three primary external touchpoints confirming each opens with or prominently features the customer problem in customer language, consistent with the PI.1 problem statement. Reviewed within the past six months.",
+      "example": "A consultancy's website headline reads: Most agency founders are the most expensive employee in their own business. The LinkedIn company page opens with the same framing. The pitch deck leads with a single slide showing that problem. A stranger reading any of the three knows within 10 seconds whether this is for them.",
+      "false_positive_signals": [
+        "The website homepage opens with the company name, a tagline about passion or excellence, or a description of the product rather than the customer's problem.",
+        "The problem is described in industry terminology the company uses internally but that a frustrated customer would not naturally say about their own situation."
+      ],
+      "failure_signals": [
+        "Visitors spend more than 10 seconds on the homepage looking for what the company actually does for them.",
+        "Sales teams regularly open discovery calls by explaining what the company does rather than asking about the customer's situation, because the external materials did not do that work already."
+      ],
+      "prerequisite": "PI.1",
+      "review_frequency": 2,
+      "weights": {"impact": 10, "complexity": 2, "time_to_implement": 2, "direct_cost": 1}
+    },
+    {
+      "level": 2,
+      "headline": "Market Intelligence Organized",
+      "plain_english": "All market-facing knowledge lives in one place: who the audience is, what they believe, where they spend time, and how competitors describe themselves.",
+      "observation": "At Level 2, there is a market intelligence repository. It is not the product knowledge base and it is not the sales CRM. It holds the information needed to make marketing decisions: a behavioral audience profile, a competitive positioning map, a customer language bank of exact phrases from interviews and reviews, a record of which channels the audience actually uses, and an archive of past campaign performance. Anyone can brief an agency or freelancer from this repository without a phone call.",
+      "why_it_matters": "Marketing decisions made without organized market intelligence are guesses dressed as strategy. Which channel should the company use? Whoever has the strongest opinion wins. What message should it lead with? Whatever the founder wrote on the last pitch. A market intelligence repository makes those decisions evidence-based and makes the marketing function transferable to anyone who joins the team.",
+      "audit_binary": "Is there a single market intelligence repository containing a behavioral audience profile, a competitive positioning overview, a customer language bank with at least 20 direct quotes, a channel research record, and a campaign performance archive, accessible to every marketing team member and updated within the past 90 days?",
+      "evidence": "Market Intelligence Repository",
+      "evidence_example": "A shared folder, wiki, or document containing the five required components, each updated within 90 days. The customer language bank shows direct quotes organized by theme. The campaign archive shows at least three past campaigns with their results.",
+      "example": "A marketing wiki with five sections. Audience: behavioral profile showing the target customer reads management newsletters, follows three specific thought leaders on LinkedIn, attends two regional business events per year, and is skeptical of consultants who have never run a business. Competitors: a positioning map showing how four competitors describe themselves, with a column for what they do not claim. Language bank: 34 phrases collected from client interviews and online reviews, organized under themes like freedom, control, and time. Channels: research showing LinkedIn and referral are where the audience discovers solutions like this one, based on 12 client intake surveys. Archive: results from the last four campaigns with conversion rates noted.",
+      "false_positive_signals": [
+        "A target audience document exists describing demographics but contains no behavioral data, no language bank, and no information about where the audience spends attention.",
+        "Market intelligence is scattered across a Google Drive folder, a Notion page, and several email threads, with no single authoritative location."
+      ],
+      "failure_signals": [
+        "Marketing decisions about channel, message, and format are made based on what competitors are doing or what feels right rather than organized audience research.",
+        "A new marketing hire or external agency has to interview the founder for two hours to understand the market before they can do any useful work."
+      ],
+      "prerequisite": "BM.1",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 3, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 3,
+      "headline": "Named Marketing Owner",
+      "plain_english": "One person is accountable for market awareness and lead generation, has visibility into channel performance, and can make messaging decisions without asking the founder.",
+      "observation": "At Level 3, there is a named marketing owner. They do not need to be a professional marketer or carry a CMO title. In a small company this might be a founder who has explicitly assigned themselves the role while they build the function. What matters is that one person owns the marketing outcomes, has access to channel performance data and the market intelligence repository, is accountable for a lead or awareness target, and can approve a new piece of content or a channel decision without routing it through the founder first.",
+      "why_it_matters": "Marketing owned by everyone is owned by no one. Without a named owner, content goes up when someone has time, campaigns run when someone has energy, and lead generation is an afterthought between client work. One accountable owner does not guarantee great marketing. It guarantees that marketing is treated as a real function with a real owner who can be held to a real result.",
+      "audit_binary": "Is there one named person accountable for a marketing target, with documented visibility into channel performance data, who made at least three marketing decisions in the past 90 days without founder approval?",
+      "evidence": "Marketing Ownership Assignment with Decision Records",
+      "evidence_example": "A written ownership assignment naming the marketing owner and their target, plus a decision log showing at least three marketing decisions made by that person in the past 90 days with a brief rationale for each.",
+      "example": "The marketing lead is named in the accountability chart with a target of 15 qualified conversations per month from marketing channels. They have access to the channel performance dashboard and the market intelligence repository. Last quarter they made three documented decisions: rejected a podcast sponsorship because the audience profile did not match the behavioral research, moved the content cadence from weekly to twice per week based on engagement data, and updated the LinkedIn company page description without asking the founder.",
+      "false_positive_signals": [
+        "A marketing manager holds the title but routes every content piece, channel decision, and campaign concept through the founder for approval before anything goes live.",
+        "The named marketing owner exists but has no access to channel performance data and no visibility into what is actually working."
+      ],
+      "failure_signals": [
+        "When the founder is busy or traveling, marketing output stops or slows to near zero because there is no one else with the authority or context to keep it moving.",
+        "Nobody can name the company's monthly qualified lead count from marketing without pulling the founder into the conversation."
+      ],
+      "prerequisite": "BM.2",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 3, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 4,
+      "headline": "Brand Identity System",
+      "plain_english": "Every piece of marketing output follows one visual and verbal standard, specific enough that an external designer can produce on-brand work without a briefing call.",
+      "observation": "At Level 4, a brand identity system exists and is actively used. It defines the visual rules, the verbal rules, and the boundaries. Visual: logo usage, color codes, typography specifications, and image style. Verbal: tone of voice, the core claim, the proof points, the language to use, and the language to avoid. The test is practical: hand the document to an external designer or a new team member and ask them to produce a LinkedIn post, a slide, and a one-page summary. All three should be recognizably from the same company without any additional guidance.",
+      "why_it_matters": "Brand identity is placed here, before channel execution and metrics, because it is a prerequisite for consistency, not a reward for scale. A company that runs campaigns before establishing a consistent identity creates fragmented impressions at every scale of activity. Recognition is built through repetition of the same stimulus. If the stimulus changes every time, there is nothing to remember.",
+      "audit_binary": "Is there a brand identity document specific enough that an external designer produced a conforming asset from it without verbal briefing in the past 12 months, and do all current primary external materials conform to the same visual and verbal standard?",
+      "evidence": "Brand Identity Document with External Supplier Conformance Record",
+      "evidence_example": "A brand identity document covering logo files and usage rules, primary and secondary color codes, typography specifications, image style description, tone of voice with do and do not examples, and the core claim. Plus evidence that at least one external supplier produced a conforming asset using it without revision in the past 12 months.",
+      "example": "A brand identity document containing: vector logo files with clear space rules, three color codes in HEX and CMYK, two typeface names with weight specifications, a five-sentence tone of voice description with three written examples showing the right and wrong version of the same sentence, and the core claim written out in full. Last quarter an event organizer produced a banner and a social card from this document without a briefing call. Both passed the brand review on first submission.",
+      "false_positive_signals": [
+        "Brand guidelines exist as a PDF but external suppliers and new team members still require a briefing call before producing anything because the guidelines are too abstract to apply without interpretation.",
+        "The website follows the brand system but social content, pitch decks, and event materials each look noticeably different from each other."
+      ],
+      "failure_signals": [
+        "External suppliers regularly return first drafts that require significant revision because the brand document does not give them enough to work from independently.",
+        "A visitor who follows the company on LinkedIn and then visits the website has a noticeable discontinuity in visual experience between the two."
+      ],
+      "prerequisite": "BM.3",
+      "review_frequency": 2,
+      "weights": {"impact": 7, "complexity": 5, "time_to_implement": 5, "direct_cost": 4}
+    },
+    {
+      "level": 5,
+      "headline": "Channel Performance Measured",
+      "plain_english": "Marketing results are tracked monthly with at least four metrics tied to lead generation, not audience size, and missing a target triggers a documented response.",
+      "observation": "At Level 5, marketing performance is measured by what it produces for the business, not by how much activity it generates. Four metrics are tracked monthly at minimum: qualified leads or conversations generated by channel, cost per qualified lead, lead-to-opportunity conversion rate, and one channel-specific engagement metric that has demonstrated a correlation with lead generation. All four have numeric targets. All four are reviewed in a fixed monthly meeting. A metric missing its target for two consecutive months triggers a documented root cause investigation.",
+      "why_it_matters": "Followers, impressions, and likes measure audience size and content engagement. They are not wrong to track but they are not marketing performance. Marketing performance is measured by what enters the sales pipeline. A company that tracks only vanity metrics can run an active, expensive marketing function and have no idea whether it is generating revenue or consuming budget. Metrics tied to lead generation make the investment defensible and the improvement cycle possible.",
+      "audit_binary": "Are at least four marketing metrics, including qualified leads generated by channel and cost per qualified lead, tracked monthly with numeric targets, reviewed in a fixed monthly meeting, and has a metric missing its target for two consecutive months triggered a documented investigation in the past six months?",
+      "evidence": "Marketing Metrics Dashboard with Monthly Review Records and Investigation Log",
+      "evidence_example": "Monthly marketing metrics reports for at least three consecutive months showing at least four metrics with targets, actuals, and trend. Plus at least one documented investigation triggered by a metric missing target for two consecutive months.",
+      "example": "Monthly metrics reviewed on the first Monday of each month. Qualified conversations from LinkedIn: 14, target 12. Cost per qualified lead: 58 euros, target 80 euros. Lead-to-opportunity conversion rate: 29%, target 32%, missed for two months. Investigation opened: discovery call recordings reviewed, pattern identified that leads from organic content convert at 41% while leads from direct outreach convert at 18%. Content strategy adjusted to prioritize inbound. Recontact cadence for outreach leads extended. Results to be reviewed in 60 days.",
+      "false_positive_signals": [
+        "Marketing reports show follower growth, post impressions, and engagement rates as the primary performance indicators, with no data on qualified leads or pipeline contribution.",
+        "A marketing dashboard exists and is well-designed but has never triggered any documented action because all metrics are treated as informational rather than accountable."
+      ],
+      "failure_signals": [
+        "Leadership cannot immediately state how many qualified leads marketing generated last month without pulling in the marketing owner for a briefing.",
+        "Marketing budget decisions are made based on what the company did last year or what competitors appear to be doing, rather than on current performance data."
+      ],
+      "prerequisite": "TI.5",
+      "review_frequency": 12,
+      "weights": {"impact": 9, "complexity": 5, "time_to_implement": 5, "direct_cost": 3}
+    },
+    {
+      "level": 6,
+      "headline": "Proactive Demand Generation",
+      "plain_english": "The company publishes educational content on a fixed schedule through one primary channel, building trust with the audience before they are ready to buy.",
+      "observation": "At Level 6, demand generation is proactive rather than reactive. A primary acquisition channel has been selected based on where the target audience actually spends attention, not where it is easiest to post. A content calendar governs what is published and when. Topics come from the market intelligence repository, specifically from real audience questions, sales conversation themes, and customer language, not from what the team finds interesting to write about. The content schedule does not stop when the team is busy. It runs because a system governs it.",
+      "why_it_matters": "Reactive demand generation means the company only reaches potential customers when it is actively prospecting. Proactive demand generation means potential customers encounter the company's thinking before they have a need, so when the need arises, the company is already familiar and credible. Content that educates builds the kind of trust that shortens sales cycles and makes pricing defensible. It compounds in a way that paid advertising does not.",
+      "audit_binary": "Is one primary acquisition channel designated based on documented audience research, and has the company published at least eight pieces of genuinely educational content through that channel in the past 60 days, each traceable to a real audience question, sales conversation theme, or customer language entry from the market intelligence repository?",
+      "evidence": "Primary Channel Strategy Document with Content Calendar and Published Content Archive",
+      "evidence_example": "A written channel strategy naming the primary channel and the audience research supporting the choice. A content calendar showing planned topics for the next four weeks. Links or screenshots of at least eight published pieces from the past 60 days, each with a source note linking it to the market intelligence repository.",
+      "example": "LinkedIn designated as primary channel based on intake survey data showing 11 of the last 14 clients discovered the company there. Content calendar built from the top 12 questions asked on discovery calls and the six most common objections in sales conversations. Published in the past 60 days: eight long-form posts on topics including why delegation fails without accountability structures, what a 30-day founder absence actually reveals about a business, and the meeting that replaces 20 individual check-ins. Each topic is tagged to its source in the market intelligence repository.",
+      "false_positive_signals": [
+        "Content is published consistently but topics are chosen by what the team wants to write or what performed well for a competitor, with no connection to documented audience questions or sales themes.",
+        "A primary channel is named but the company is simultaneously running regular activity on three other channels at comparable effort levels, meaning no channel receives focused execution."
+      ],
+      "failure_signals": [
+        "The company has gone more than 21 consecutive days without publishing on its primary channel because delivery work took priority.",
+        "Published content generates internal appreciation from the team but produces no measurable inbound leads or qualified conversations month after month."
+      ],
+      "prerequisite": "BM.5",
+      "review_frequency": 12,
+      "weights": {"impact": 8, "complexity": 5, "time_to_implement": 5, "direct_cost": 3}
+    },
+    {
+      "level": 7,
+      "headline": "Cross-Domain Marketing Integration",
+      "plain_english": "Marketing formally connects to sales, customer success, product, and finance through shared artifacts that are used in real decisions every quarter.",
+      "observation": "At Level 7, marketing does not operate in isolation. Four integration points exist and each is backed by an artifact used in the past quarter. Sales shares lead quality data showing which leads convert and why, which feeds back into channel and content decisions. Customer success provides satisfied clients who participate in testimonials and referrals, creating a structured advocacy pipeline. Product reviews the value proposition against what is actually converting, so the message stays accurate as the product evolves. Finance reviews marketing budget against pipeline contribution, making investment decisions evidence-based rather than intuition-based.",
+      "why_it_matters": "The most expensive marketing failures are cross-domain failures. Marketing generates leads that sales cannot close because the message attracted the wrong audience. Marketing claims something the product no longer delivers. Satisfied customers exist who would refer and advocate but nobody ever asks them. Each of these failures is preventable with a formal integration point. Without the integration, four functions optimize individually and produce outcomes none of them would have chosen deliberately.",
+      "audit_binary": "Do documented integration artifacts connect BM to RS, CS, PI, and FR, with evidence that each artifact was used to inform a marketing decision in the past quarter?",
+      "evidence": "Cross-Domain Marketing Integration Artifacts: Lead Quality Report, Customer Advocacy Pipeline Record, Value Proposition Validation Record, and Marketing Budget ROI Review",
+      "evidence_example": "Four artifacts, each with evidence of use in the past quarter: a lead quality report shared by sales showing conversion rates by source and lead type, a customer advocacy pipeline record showing at least three clients engaged for testimonials or referrals, a value proposition validation record showing the core marketing message was reviewed against conversion data, and a marketing budget ROI review conducted jointly with finance.",
+      "example": "RS integration: a monthly lead quality report from the sales lead showing conversion rates by channel and ICP match score. Last quarter this report caused the marketing owner to reduce direct outreach volume by 40% and increase content investment after showing that inbound leads convert at twice the rate of outbound leads. CS integration: a quarterly advocacy session identifying clients with NPS above 8 and inviting them to contribute a case study or referral. Three clients enrolled last quarter. PI integration: the core marketing claim reviewed against the past quarter's conversion data before the website copy was updated. One claim was retired because no client had cited it as a buying reason in 12 months. FR integration: a quarterly 30-minute meeting with the finance lead reviewing marketing spend against pipeline contribution, with a cost per qualified lead figure agreed as the primary budget efficiency measure.",
+      "false_positive_signals": [
+        "Marketing and sales have a good working relationship and speak regularly, but no structured lead quality artifact exists and conversion data does not formally feed marketing decisions.",
+        "The company has satisfied clients who would happily advocate but there is no pipeline or process for activating them, so advocacy happens occasionally by accident."
+      ],
+      "failure_signals": [
+        "Marketing is describing the product using language that the sales team recognizes as outdated or inaccurate, but no review process exists to catch and correct it.",
+        "Satisfied clients are never asked for a referral or testimonial because nobody owns the process of identifying and activating them."
+      ],
+      "prerequisite": "BM.6",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 3}
+    },
+    {
+      "level": 8,
+      "headline": "Systematic Marketing Improvement",
+      "plain_english": "Every major campaign is followed by a written retrospective, and findings are used to update the channel strategy, the message, or the audience definition.",
+      "observation": "At Level 8, marketing gets measurably better over time through a documented improvement cycle. Every significant campaign or channel initiative is followed within two weeks by a written retrospective covering what the hypothesis was, what the result was, what worked, what did not, and what changes for next time. Findings update the market intelligence repository. The audience definition is refined quarterly based on who actually converted rather than who the company hoped would. A second acquisition channel is added only after the primary channel has produced consistent results for at least three months.",
+      "why_it_matters": "A marketing function that does not learn from its campaigns is paying for the same education repeatedly. Campaign retrospectives convert marketing experience into institutional knowledge. Audience refinement based on actual conversion data is the mechanism that corrects the gap between the customer the company hoped to attract and the customer who actually buys. Multi-channel expansion built on evidence rather than ambition produces resilient demand rather than scattered effort.",
+      "audit_binary": "Has every major campaign in the past six months been followed by a written retrospective within two weeks, and have those retrospectives produced at least two documented changes to the channel strategy, message, or audience definition, with a second acquisition channel added only after the primary channel showed consistent results for at least three months?",
+      "evidence": "Campaign Retrospective Log with Improvement Decision Records and Multi-Channel Performance Report",
+      "evidence_example": "A retrospective log with entries for every major campaign in the past six months, each showing: the hypothesis, the result, what worked, what did not, and the change applied. Plus a record of at least two improvements made to strategy, message, or audience as a direct result. Plus, if a second channel exists, evidence it was added only after the primary channel showed three months of consistent results.",
+      "example": "Campaign retrospective for Q2 LinkedIn campaign: hypothesis was that posts about operational systems would outperform posts about founder mindset. Result: operational posts generated 2.3 times the qualified conversations. Change: content calendar shifted to 70% operational topics. Audience update: intake data from Q2 shows that clients with 8 to 20 staff convert at 3 times the rate of clients with 3 to 7 staff. ICP tightened in the market intelligence repository and in the BM direction document. Second channel: referral program added in Q3 after LinkedIn produced consistent results for five consecutive months. Referral program generated 8 qualified introductions in its first month.",
+      "false_positive_signals": [
+        "Campaign results are discussed informally in team meetings but no written retrospective exists and no documented change to strategy, message, or audience has resulted.",
+        "A second channel was launched because a competitor is using it or because the team was excited about it, before the primary channel had demonstrated consistent results."
+      ],
+      "failure_signals": [
+        "The same type of content or campaign consistently underperforms but the team keeps producing it because no retrospective process exists to surface the pattern.",
+        "The audience definition has not been updated in more than six months despite the company having conversion data that would refine it."
+      ],
+      "prerequisite": "BM.7",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 4}
+    },
+    {
+      "level": 9,
+      "headline": "Independent Marketing Leadership",
+      "plain_english": "A dedicated marketing leader runs the marketing function independently. Demand generation continues at the same rate when the founder is not involved.",
+      "observation": "At Level 9, a named marketing leader owns the content calendar, the channel strategy, and the marketing budget. They run the monthly marketing review without the founder in the room. They make channel decisions, content approvals, and budget allocations without routing them through the founder. The founder receives a monthly performance summary but does not attend marketing reviews or approve individual decisions. Remove the founder from all marketing activity for 90 days. At Level 9, the qualified lead volume stays the same.",
+      "why_it_matters": "Founder-led marketing creates a hard ceiling. Marketing output is limited by the founder's time, energy, and personal brand. A dedicated marketing leader decouples demand generation from the founder's schedule and, crucially, from the founder's identity. It signals to the market that the brand is a company asset rather than a personal platform. It also makes the company more attractive to investors and acquirers, who view founder-dependent marketing as a valuation risk.",
+      "audit_binary": "Is there a named marketing leader with documented authority over channel strategy, content calendar, and marketing budget who has run at least three consecutive monthly marketing reviews without founder attendance, and has qualified lead volume remained stable during any period in the past 12 months when the founder reduced their personal marketing activity?",
+      "evidence": "Marketing Leadership Authority Document with Independent Review Records and Lead Volume Stability Record",
+      "evidence_example": "A written role description granting marketing authority, records of at least three consecutive monthly marketing reviews without the founder present, a decision log showing at least two channel or content decisions made independently, and evidence that qualified lead volume held steady during a period when the founder's personal posting or activity was reduced.",
+      "example": "The Head of Marketing owns the content calendar, channel strategy, and a monthly marketing budget of 3,500 euros. The founder receives the monthly performance summary on the fifth of each month and has not attended a marketing review in five months. Last two independent decisions: exited Twitter entirely as an active channel after three months of zero qualified lead attribution, and shifted 25% of budget from paid promotion to event sponsorship based on attribution data. When the founder took four weeks offline in August, qualified lead volume held at 13 per month versus the 14 per month average for the prior quarter.",
+      "false_positive_signals": [
+        "A marketing manager holds the title but the founder's personal LinkedIn posting is still the primary source of inbound leads, meaning the brand is the founder's personal brand with a company page attached.",
+        "The marketing leader runs the reviews independently but calls the founder after every session for informal validation before implementing anything."
+      ],
+      "failure_signals": [
+        "Qualified lead volume drops measurably during any period when the founder reduces their personal posting or public activity, revealing that the demand engine is personal rather than institutional.",
+        "The company's market presence is primarily the founder's profile reach, meaning a change in founder visibility would directly and immediately impact pipeline."
+      ],
+      "prerequisite": "TC.6",
+      "review_frequency": 2,
+      "weights": {"impact": 9, "complexity": 8, "time_to_implement": 8, "direct_cost": 6}
+    },
+    {
+      "level": 10,
+      "headline": "Institutional Brand and Demand Engine",
+      "plain_english": "The company operates a self-sustaining marketing system that produces growing qualified demand and measurable brand authority year over year, independently of the founder.",
+      "observation": "At Level 10, all marketing systems run together and produce compound results. Brand authority is measurable and growing. Multi-channel demand generation is operating with at least two proven channels contributing consistent results. The content engine runs on a system, not on individual initiative. Marketing performance is documented and governed. The founder is not a dependency in any part of the marketing system. The brand exists independently of any individual, including the founder.",
+      "why_it_matters": "An institutional brand engine is a compounding asset. Each piece of content adds to a library. Each satisfied customer who shares their story adds to a reputation. Each year of consistent presence in the market adds to a brand that becomes progressively harder to displace. A company whose marketing depends on the founder's personal brand has a liability that is fully revealed the moment the founder steps back or the company changes hands. A company whose brand operates independently of any individual has built something that increases in value every year regardless of who is running it.",
+      "audit_binary": "Has the marketing system, covering brand governance, content production, channel performance measurement, cross-domain integration, and campaign retrospectives, operated without founder involvement for at least four consecutive quarters, with measurable year-over-year growth in both qualified lead volume and at least one brand authority indicator, documented in an annual marketing governance report?",
+      "evidence": "Annual Marketing Governance Report",
+      "evidence_example": "An annual report showing: qualified lead volume by quarter for four quarters with year-over-year comparison, at least one brand authority measure such as inbound-to-outbound ratio, branded search volume, share of voice, or primary channel audience size with year-over-year change, campaign retrospective completion record, cross-domain integration artifact status, and a record of founder non-involvement across all four quarters.",
+      "example": "Annual marketing report: qualified leads grew from an average of 12 per month to 21 per month year over year, a 75% increase. Inbound-to-outbound ratio shifted from 35% inbound to 58% inbound, indicating growing brand pull without proportional increase in outbound effort. LinkedIn audience grew from 2,100 to 4,800 followers with engagement rate stable at 3.2%. Content produced by a team of two without founder involvement. Four campaign retrospectives completed. All cross-domain integration artifacts current. Founder has not approved a piece of content, attended a marketing review, or been consulted on a channel decision in 16 months. Three enterprise clients in the past year cited the company's content as the reason they made first contact.",
+      "false_positive_signals": [
+        "Marketing results are strong and growing but are primarily driven by the founder's personal LinkedIn following. Remove the founder's posting and the inbound lead volume drops significantly.",
+        "Qualified lead volume is growing but the growth is driven by increasing paid spend rather than by improving brand authority, meaning the demand engine requires constant cash input rather than compounding."
+      ],
+      "failure_signals": [
+        "Qualified lead volume has been flat or declining for two consecutive quarters with no documented root cause investigation or response.",
+        "Brand authority indicators such as inbound ratio or channel audience are not growing year over year despite consistent content investment, suggesting the content is reaching people but not building the trust or recognition that drives inbound demand."
+      ],
+      "prerequisite": "BM.9",
+      "review_frequency": 1,
+      "weights": {"impact": 10, "complexity": 9, "time_to_implement": 9, "direct_cost": 8}
+    }
+  ]
+}

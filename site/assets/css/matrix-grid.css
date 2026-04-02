@@ -1,0 +1,105 @@
+/**
+ * BASE-100 Matrix Grid Component Styles
+ * Clean, solid grid with perfect alignment
+ */
+
+.matrix-grid-container {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+.matrix-grid-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background-color: #ffffff;
+    padding: 0;
+    aspect-ratio: 1 / 1; /* Perfect square */
+    width: 100%;
+}
+
+.matrix-row {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 2px;
+    flex: 1;
+    min-height: 0;
+}
+
+.matrix-cell {
+    position: relative;
+    background-color: #e2e8f0;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 3px;
+    transition: background-color 140ms ease-out, box-shadow 120ms ease-out;
+    aspect-ratio: 1 / 1;
+    border: none;
+}
+
+/* Inner bar = the "equalizer". Never scales the cell (no broken gutters). */
+.matrix-bar {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 100%;
+    background: var(--cell-color, var(--row-color, #64748b));
+    opacity: var(--bar-a, 0);
+    transform-origin: bottom;
+    transform: scaleY(var(--bar, 0));
+    will-change: transform, opacity;
+    transition:
+        transform 130ms cubic-bezier(0.2, 0.9, 0.2, 1),
+        opacity 220ms ease-out;
+}
+
+/* Little "fidget" reward on the selected cell (no height logic change; just a quick pulse) */
+.matrix-cell.is-cursor .matrix-bar {
+    opacity: 1;
+}
+
+.matrix-row.is-active .matrix-cell.is-cursor .matrix-bar {
+    animation: matrix-cursor-pulse 260ms ease-out 1;
+}
+
+@keyframes matrix-cursor-pulse {
+    0% { transform: scaleY(var(--bar, 0)); }
+    50% { transform: scaleY(var(--bar, 0)) scaleX(1.06); }
+    100% { transform: scaleY(var(--bar, 0)); }
+}
+
+/* Snappy while interacting */
+.matrix-row.is-active .matrix-bar {
+    transition-duration: 110ms, 160ms;
+}
+
+/* Cursor cell outline (consistent mouse position feedback) */
+.matrix-cell.is-cursor {
+    box-shadow: inset 0 0 0 2px rgba(15, 23, 42, 0.25);
+}
+
+/* Smooth transitions */
+.matrix-row {
+    transition: none;
+}
+
+/* No layout shift */
+.matrix-grid-container * {
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .matrix-grid-wrapper {
+        gap: 1px;
+    }
+
+    .matrix-row {
+        gap: 1px;
+    }
+
+    .matrix-cell {
+        border-radius: 2px;
+    }
+}
+

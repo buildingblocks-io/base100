@@ -1,0 +1,461 @@
+{
+  "framework": {
+    "id": "BASE-100",
+    "name": "BASE-100",
+    "full_name": "BASE-100 Global Standard for Business Maturity",
+    "revision": "2026.1",
+    "schema_version": "3.0",
+    "status": "draft",
+    "language": "en",
+    "copyright": "2026 BASE-100 Institute",
+    "authors": [
+      "BASE-100 Institute",
+      "Quinten 'Q' Marcelis"
+    ],
+    "about": "The Open Standard for Business Maturity"
+  },
+  "framework_description": {
+    "summary": "BASE-100 is an open, human-readable and machine-readable standard for measuring business maturity. It maps a company across 10 universal business domains and 11 maturity levels, from Level 0 to Level 10, creating a total score from 0 to 100.",
+    "purpose": "The purpose of BASE-100 is to help founders, operators, investors, advisors, and AI agents identify the current maturity of a business, detect its main constraint, and follow a clear path toward a more scalable, predictable, and transferable company.",
+    "core_thesis": "A business is not just a creative project. It is also an engineered system. Most of the work required to run a valuable company is universal, measurable, and improvable.",
+    "design_principle": "BASE-100 standardizes the universal operating core of a company so that leadership can focus on the differentiated edge where true market advantage is created.",
+    "what_it_is": [
+      "A universal maturity model",
+      "A scoring framework",
+      "An evidence-based operating standard",
+      "A business audit structure",
+      "A shared context layer for humans and AI"
+    ],
+    "what_it_is_not": [
+      "A substitute for product vision",
+      "A guarantee of product-market fit",
+      "A creative strategy generator",
+      "A software-specific implementation guide",
+      "A promise that every company becomes a unicorn"
+    ]
+  },
+  "positioning": {
+    "category": "Open business maturity standard",
+    "standard_type": "Reference model",
+    "intended_use": [
+      "Self-assessment",
+      "Advisory audits",
+      "Operational due diligence",
+      "Maturity benchmarking",
+      "Roadmap planning",
+      "AI operating context"
+    ],
+    "primary_outcome": "To transform a founder-dependent business into a scalable, governable, and transferable asset.",
+    "secondary_outcomes": [
+      "Increased clarity",
+      "Reduced operational fragility",
+      "Better delegation",
+      "Higher predictability",
+      "Improved valuation readiness"
+    ]
+  },
+  "governance_and_curation": {
+    "governance_model": "Annual revision by the BASE-100 Institute with expert review and public commentary.",
+    "expert_review": "Each milestone in the framework is reviewed against real-world operating practice, auditability, and relevance across multiple industries.",
+    "annual_revision_principle": "The standard is revised annually so that the required level of maturity reflects current business reality rather than outdated best practice.",
+    "change_control": {
+      "revision_cycle": "annual",
+      "proposal_sources": [
+        "Institute research",
+        "Operator feedback",
+        "Advisor feedback",
+        "Audit observations",
+        "Market and technology shifts"
+      ],
+      "backward_compatibility_goal": "High, unless a definition is no longer defensible or useful."
+    }
+  },
+  "philosophy": {
+    "operating_beliefs": [
+      "Maturity is not the same as size.",
+      "A larger company can be less mature than a smaller one.",
+      "A company becomes more valuable when it becomes less dependent on individual heroics.",
+      "The weakest important constraint limits the performance of the whole system.",
+      "Good judgment is strengthened by evidence, not replaced by opinion.",
+      "Standardization should reduce friction, not remove creativity.",
+      "A company becomes more transferable as its logic becomes more explicit."
+    ],
+    "design_goals": [
+      "Simple enough to understand",
+      "Strict enough to audit",
+      "Flexible enough for multiple industries",
+      "Useful for humans and machines",
+      "Aspirational but defensible"
+    ]
+  },
+  "scope": {
+    "applies_to": [
+      "Startups",
+      "SMEs",
+      "Service businesses",
+      "Software companies",
+      "Agencies",
+      "Product businesses",
+      "Industrial firms",
+      "Multi-entity companies"
+    ],
+    "not_limited_by": [
+      "Industry",
+      "Country",
+      "Headcount",
+      "Revenue model",
+      "Technology stack"
+    ],
+    "important_limits": [
+      "BASE-100 measures operational maturity, not market size.",
+      "BASE-100 does not replace legal, tax, regulatory, or industry-specific compliance frameworks.",
+      "BASE-100 does not determine whether the product is good enough to win its market.",
+      "BASE-100 is strongest when used together with operator judgment and market reality."
+    ]
+  },
+  "definitions": {
+    "business": "A legal and operational entity that creates and delivers value in exchange for money.",
+    "domain": "One of the 10 universal areas of business operation measured by the framework.",
+    "cell": "The intersection of one domain and one maturity level.",
+    "level": "A maturity state from 0 to 10 within a domain.",
+    "maturity": "The degree to which a business activity is designed, organized, measured, improved, and independent of specific individuals.",
+    "constraint": "The domain-level weakness currently limiting the performance, scalability, or transferability of the business.",
+    "evidence": "A verifiable artifact that proves a maturity claim is true.",
+    "audit": "The process of checking whether a maturity claim is supported by acceptable evidence.",
+    "artifact": "A document, system record, workflow log, dashboard, policy, template, or other observable proof.",
+    "operator": "A person responsible for running part or all of the business.",
+    "founder_dependence": "A condition in which important business activity requires direct founder intervention to function reliably.",
+    "transferable": "Able to continue operating successfully under a new owner or leadership structure.",
+    "product": "A repeatable unit of value delivered to a customer, whether physical, digital, or service-based.",
+    "offer": "A clearly defined commercial package combining product or service, target customer, scope, and pricing logic.",
+    "lead": "A documented prospect who has shown relevant commercial interest.",
+    "customer": "A person or entity that has already paid for an offer.",
+    "SOP": "A written standard operating procedure describing how a recurring task is completed.",
+    "KPI": "A numeric metric used to measure performance against an expected result.",
+    "command_center": "A live view of key business metrics across domains.",
+    "source_of_truth": "The approved system or document where the official current version of information lives.",
+    "review_frequency": "How often a cell should be checked to confirm it remains true."
+  },
+  "maturity_model": {
+    "scale_name": "BASE-100 maturity scale",
+    "level_range": {
+      "min": 0,
+      "max": 10
+    },
+    "total_possible_score": 100,
+    "scoring_unit": "One point per validated cell level per domain",
+    "interpretation": "Each domain is scored from 0 to 10. Total maturity is the sum of all 10 domain scores.",
+    "important_note": "A high total score does not cancel out a critical weakness in a core domain."
+  },
+  "universal_level_logic": {
+    "0": {
+      "name": "Designed",
+      "definition": "The domain has a written design, intent, and success definition."
+    },
+    "1": {
+      "name": "Defined",
+      "definition": "The core object, process, or rule exists in basic written form."
+    },
+    "2": {
+      "name": "Organized",
+      "definition": "Information is stored in one place with basic order and operational hygiene."
+    },
+    "3": {
+      "name": "Owned",
+      "definition": "A named person owns the domain outcome and visibility exists."
+    },
+    "4": {
+      "name": "Standardized",
+      "definition": "The work follows a defined method, template, or repeatable process."
+    },
+    "5": {
+      "name": "Measured",
+      "definition": "Numeric targets and regular reporting exist."
+    },
+    "6": {
+      "name": "Proactive",
+      "definition": "The business prevents problems through planning, forecasting, or structured intervention."
+    },
+    "7": {
+      "name": "Integrated",
+      "definition": "The domain works in sync with other domains through shared workflows, systems, or decision rules."
+    },
+    "8": {
+      "name": "Improving",
+      "definition": "The domain systematically improves through feedback loops and regular refinement."
+    },
+    "9": {
+      "name": "Independent",
+      "definition": "The domain continues performing with low key-person risk."
+    },
+    "10": {
+      "name": "Transferable",
+      "definition": "The domain is highly autonomous, governable, and ready for external transfer or institutional oversight."
+    }
+  },
+  "stage_model": {
+    "note": "Stages are descriptive groupings of typical business maturity, not hard requirements by size.",
+    "stages": {
+      "discovery": {
+        "stage_order": 1,
+        "base100_levels": "0-2",
+        "base100_score": "0-20",
+        "universal_terms": [
+          "Discovery",
+          "Search",
+          "Startup"
+        ],
+        "focus": "Problem-solution fit and initial business design",
+        "management_model": "Founder-led",
+        "primary_crisis": "Existence",
+        "typical_scale": {
+          "revenue": "$0-$500K",
+          "headcount": "1-5",
+          "profit_margin": "Negative to break-even",
+          "founder_role": "Builder / Operator"
+        }
+      },
+      "validation": {
+        "stage_order": 2,
+        "base100_levels": "3-4",
+        "base100_score": "21-40",
+        "universal_terms": [
+          "Validation",
+          "Early Stage",
+          "Market Validation"
+        ],
+        "focus": "Repeatable sales and basic operating control",
+        "management_model": "Founder-led organization",
+        "primary_crisis": "Leadership",
+        "typical_scale": {
+          "revenue": "$500K-$3M",
+          "headcount": "3-15",
+          "profit_margin": "0%-10%",
+          "founder_role": "Seller / Director"
+        }
+      },
+      "systemization": {
+        "stage_order": 3,
+        "base100_levels": "5-6",
+        "base100_score": "41-60",
+        "universal_terms": [
+          "Systemization",
+          "Growth Stage",
+          "Manager-led Company"
+        ],
+        "focus": "Documented management, repeatability, and proactive control",
+        "management_model": "Manager-led",
+        "primary_crisis": "Autonomy",
+        "typical_scale": {
+          "revenue": "$3M-$15M",
+          "headcount": "10-50",
+          "profit_margin": "10%-20%",
+          "founder_role": "Manager / Architect"
+        }
+      },
+      "scaling": {
+        "stage_order": 4,
+        "base100_levels": "7-8",
+        "base100_score": "61-80",
+        "universal_terms": [
+          "Scaling",
+          "Expansion",
+          "System-led Organization"
+        ],
+        "focus": "Integration, automation, and predictable growth",
+        "management_model": "System-led",
+        "primary_crisis": "Control",
+        "typical_scale": {
+          "revenue": "$15M-$100M",
+          "headcount": "40-250",
+          "profit_margin": "15%-30%",
+          "founder_role": "Strategist / Governor"
+        }
+      },
+      "institution": {
+        "stage_order": 5,
+        "base100_levels": "9-10",
+        "base100_score": "81-100",
+        "universal_terms": [
+          "Institution",
+          "Enterprise Platform",
+          "Transferable Asset"
+        ],
+        "focus": "Governance, resilience, and transferability",
+        "management_model": "Governed asset",
+        "primary_crisis": "Renewal",
+        "typical_scale": {
+          "revenue": "$100M+",
+          "headcount": "150+",
+          "profit_margin": "20%-40%",
+          "founder_role": "Owner / Steward"
+        }
+      }
+    }
+  },
+  "scoring_principles": {
+    "base_rule": "A cell is only counted when the evidence standard is met.",
+    "evidence_rule": "A verbal claim is not enough. A maturity claim must be supported by a current artifact.",
+    "freshness_rule": "Evidence should be current enough to prove the business still operates at that level.",
+    "constraint_rule": "A weak core domain can limit the practical value of strength in other domains.",
+    "anti-vanity_rule": "Activity is not maturity. A company does not score higher merely because it is busy or uses many tools.",
+    "copy_rule": "Buying software does not count unless the process is actually implemented and adopted.",
+    "inheritance_rule": "Higher levels should not contradict lower levels. If a lower foundational level has clearly collapsed, higher claims should be reviewed.",
+    "review_rule": "A maturity level must remain true over time, not only on the day of an audit."
+  },
+  "evidence_standards": {
+    "accepted_evidence_types": [
+      "Strategy document",
+      "Policy",
+      "SOP",
+      "Template",
+      "Checklist",
+      "Meeting minutes",
+      "Dashboard",
+      "System screenshot",
+      "System log",
+      "Report",
+      "Contract",
+      "Financial statement",
+      "Training record",
+      "Board record",
+      "Data room structure",
+      "Recorded workflow",
+      "Folder structure map"
+    ],
+    "minimum_evidence_quality": [
+      "Specific",
+      "Current",
+      "Verifiable",
+      "Relevant to the exact claim",
+      "Accessible to the people who use it"
+    ],
+    "non_evidence_examples": [
+      "A verbal explanation with no artifact",
+      "A blank template never used in practice",
+      "A document that exists but is outdated and ignored",
+      "A tool subscription with no implementation",
+      "A one-time action presented as a system"
+    ]
+  },
+  "audit_model": {
+    "audit_style": "Binary by cell, judgment by system",
+    "cell_result_types": [
+      "pass",
+      "fail",
+      "partial",
+      "not_applicable"
+    ],
+    "binary_rule": "Each cell should be written so the main audit question can be answered yes or no.",
+    "partial_use": "Partial may be used internally during drafting, but the published standard should aim for pass/fail clarity.",
+    "review_frequencies": {
+      "1": "Annual",
+      "2": "Twice per year",
+      "4": "Quarterly",
+      "12": "Monthly",
+      "52": "Weekly",
+      "250": "Per business day"
+    }
+  },
+  "cell_schema": {
+    "required_fields": [
+      "level",
+      "headline",
+      "plain_english",
+      "observation",
+      "why_it_matters",
+      "audit_binary",
+      "evidence",
+      "evidence_example",
+      "example",
+      "common_fake_good",
+      "failure_signal",
+      "prerequisite",
+      "review_frequency",
+      "weights"
+    ],
+    "field_definitions": {
+      "level": "Integer from 0 to 10.",
+      "headline": "Short name of the maturity milestone.",
+      "plain_english": "Simple explanation understandable by non-native operators.",
+      "observation": "The operating reality that should exist at this level.",
+      "why_it_matters": "Business reason this milestone increases quality, scalability, or transferability.",
+      "audit_binary": "Main yes/no question used to validate the level.",
+      "evidence": "Name of the required artifact.",
+      "evidence_example": "What acceptable evidence looks like in practice.",
+      "example": "A 90% best-practice implementation example that can be copied without naming brands.",
+      "common_fake_good": "A misleading version that looks mature but is not.",
+      "failure_signal": "Observable real-world sign that the level is not actually achieved.",
+      "prerequisite": "The cell or condition that should exist first, or null if none.",
+      "review_frequency": "Numeric review frequency code.",
+      "weights": "Relative implementation profile for prioritization."
+    },
+    "weights_schema": {
+      "impact": "1-10 impact on value, profit potential, or system strength",
+      "complexity": "1-10 implementation difficulty",
+      "time_to_implement": "1-10 expected effort duration",
+      "direct_cost": "1-10 direct financial cost"
+    }
+  },
+  "writing_rules": {
+    "rule_1": "Every cell must be understandable by a competent non-native English operator.",
+    "rule_2": "Every cell must describe a visible operating reality, not a vague aspiration.",
+    "rule_3": "Every audit question must be verifiable in a practical audit.",
+    "rule_4": "Every evidence field must name a concrete artifact.",
+    "rule_5": "Every example must be tool-agnostic and copyable.",
+    "rule_6": "Every failure signal must describe what broken reality looks like.",
+    "rule_7": "Every level must align with the universal level logic.",
+    "rule_8": "Avoid industry-specific assumptions unless clearly marked.",
+    "rule_9": "Avoid magic numbers unless they are broadly defensible or explicitly illustrative.",
+    "rule_10": "Level 10 should be aspirational but still defensible."
+  },
+  "implementation_guidance": {
+    "recommended_usage_order": [
+      "Score the current state honestly",
+      "Identify the main constraint",
+      "Prioritize the next few highest-leverage cells",
+      "Collect evidence as implementation progresses",
+      "Re-audit on the defined frequency",
+      "Use the framework as a roadmap, not just a score"
+    ],
+    "important_note": "Companies should not try to complete every possible improvement at once. The framework is most useful when it helps leadership focus on the next constraint."
+  },
+  "extensions": [
+    {
+      "name": "Industry Implementation Packs",
+      "description": "Optional guidance layers for sector-specific implementation without changing the core standard."
+    },
+    {
+      "name": "Audit Profiles",
+      "description": "Different audit depth levels for self-assessment, advisory review, lender review, or investor due diligence."
+    },
+    {
+      "name": "AI Context Profiles",
+      "description": "Structured operating context for AI agents working inside the business."
+    },
+    {
+      "name": "Benchmarking Layers",
+      "description": "Future comparative datasets by company type, maturity stage, and operating model."
+    }
+  ],
+  "known_limitations": [
+    "A mature company can still fail if the market is wrong.",
+    "A great product can still be run through immature operations.",
+    "Some industry-specific controls must be added outside the base standard.",
+    "The framework measures maturity, not genius, timing, or luck.",
+    "The framework is strongest when used repeatedly over time, not once."
+  ],
+  "future_domain_structure": {
+    "domain_count": 10,
+    "expected_domain_fields": [
+      "id",
+      "name",
+      "purpose",
+      "cxo_persona",
+      "description",
+      "levels"
+    ],
+    "placeholder": "Domains to be completed one by one in later revisions."
+  },
+  "domains": []
+}

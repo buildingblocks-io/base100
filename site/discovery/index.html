@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BASE-100 Strategic Audit - Assess your business maturity across 10 critical domains.">
+    <title>BASE-100: Strategic Command Center</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- BASE_URL for shared components -->
+    <script>window.BASE_URL = '../../';</script>
+
+    <!-- Chosen Palette: "Strategic Depth" -->
+    <!-- v1.5 FINAL: Full Data Restoration + Load Fixes -->
+
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f8fafc; }
+        
+        /* Custom Scrollbar */
+        .level-scroller::-webkit-scrollbar { width: 6px; }
+        .level-scroller::-webkit-scrollbar-track { background: #f1f5f9; }
+        .level-scroller::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .level-scroller::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Chart Containers */
+        .chart-container-radar {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            max-height: 45vh;
+        }
+        .chart-container-bar {
+            position: relative;
+            width: 100%;
+            height: 140px;
+        }
+
+        /* Interactions */
+        .dept-card { transition: all 0.2s ease; }
+        .dept-card:hover { transform: translateX(4px); }
+        .dept-card.active { border-left-width: 4px; border-color: #ff4d00; background-color: #f8fafc; }
+
+        .level-card { transition: all 0.2s ease; cursor: pointer; border: 1px solid #e2e8f0; }
+        .level-card:hover { border-color: #94a3b8; box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.08); }
+        .level-card.selected { background-color: #ffffff; border-color: #0f172a; border-width: 2px; box-shadow: 0 8px 24px -16px rgba(15, 23, 42, 0.35); }
+        .level-card.passed { opacity: 0.6; background-color: #f8fafc; }
+
+        /* Progress Bar */
+        .progress-bar-bg { background: #e2e8f0; height: 8px; border-radius: 4px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; border-radius: 4px; transition: width 1s ease-in-out, background-color 0.5s ease; }
+
+        /* Ghost/Blur State */
+        .blurred-content { filter: blur(6px); pointer-events: none; opacity: 0.6; transition: all 0.5s ease; }
+        .unblurred-content { filter: blur(0); pointer-events: auto; opacity: 1; transition: all 0.5s ease; }
+        .lock-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 10; background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* PRINT STYLES (EXECUTIVE REPORT MODE) */
+        @media print {
+            @page { margin: 0.5cm; size: landscape; }
+            body { background-color: white; height: auto; overflow: visible; }
+            #header-container, #footer-container, aside.w-72, section.max-w-2xl, .mt-auto.border-t, .print\:hidden { display: none !important; } /* Hide Nav, Picker, Header, Footer */
+            
+            /* Expand Main Content */
+            .flex-1.w-full { max-width: 100% !important; border: none !important; box-shadow: none !important; }
+            aside.lg\:min-w-\[480px\] { width: 100% !important; padding: 0 !important; overflow: visible !important; }
+            
+            /* Show a Print Header */
+            .print-only-header { display: block !important; margin-bottom: 20px; border-bottom: 2px solid #1e3a8a; padding-bottom: 10px; }
+            
+            /* Adjust Layout for Paper */
+            .chart-container-radar { height: 400px !important; margin-bottom: 20px; page-break-inside: avoid; }
+            #analyst-content p { font-size: 12pt !important; color: #000 !important; }
+            #exit-content-wrapper { break-inside: avoid; border: 1px solid #ddd; }
+            .lock-overlay { display: none !important; }
+            .blurred-content { filter: none !important; opacity: 1 !important; }
+            
+            /* Hide Buttons inside panels */
+            button { display: none !important; }
+        }
+        
+        .print-only-header { display: none; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Audit Header Bar -->
+    <div class="bg-white border-b border-slate-200 shrink-0 z-20 shadow-sm print:hidden">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <h1 class="text-xl font-bold tracking-tight text-slate-900">Strategic Audit</h1>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="shareAudit()" class="text-sm font-medium text-slate-600 hover:text-[#ff4d00] px-3 py-2 rounded hover:bg-slate-50 transition-colors">
+                    <i class="fa-solid fa-share-nodes mr-2"></i>Share
+                </button>
+                <button onclick="window.print()" class="text-sm font-medium text-slate-600 hover:text-[#ff4d00] px-3 py-2 rounded hover:bg-slate-50 transition-colors">
+                    <i class="fa-solid fa-print mr-2"></i>Print Report
+                </button>
+                <div class="h-6 w-px bg-slate-200 mx-2"></div>
+                <button onclick="resetAudit()" class="text-xs text-slate-400 hover:text-red-600 transition-colors mr-4">Reset</button>
+                <div class="text-right hidden sm:block">
+                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Overall Maturity</div>
+                    <div class="text-2xl font-bold text-slate-900" id="header-total-score">0 <span class="text-slate-400 text-lg">/ 100</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Workspace Container -->
+    <div class="flex-1 w-full max-w-[1600px] mx-auto bg-white shadow-2xl overflow-hidden flex border-x border-slate-200" style="min-height: calc(100vh - 200px);">
+        
+        <!-- COL 1: Navigation -->
+        <aside class="w-72 bg-white border-r border-slate-200 flex flex-col overflow-y-auto shrink-0 z-10">
+            <div class="p-4 bg-slate-50 border-b border-slate-200 sticky top-0 z-10 space-y-4">
+                <div>
+                    <h2 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Business context</h2>
+                    <div class="space-y-3">
+                        <div>
+                            <label for="goal-select" class="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">End-goal</label>
+                            <select id="goal-select" class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200">
+                                <option value="foundation">Build a foundation for sustained, controlled growth</option>
+                                <option value="autonomy">Run a business that performs without constant intervention</option>
+                                <option value="exit">Build a business others want to buy, that runs without you</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="constraint-select" class="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">Main constraint</label>
+                            <select id="constraint-select" class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200">
+                                <option value="balanced">Not sure yet</option>
+                                <option value="demand">Demand is the constraint</option>
+                                <option value="supply">Supply / delivery is the constraint</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="cash-select" class="block text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-1">Cash position</label>
+                            <select id="cash-select" class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200">
+                                <option value="stable">Stable</option>
+                                <option value="tight">Tight</option>
+                                <option value="critical">Critical</option>
+                            </select>
+                        </div>
+                        <p class="text-[11px] leading-relaxed text-slate-500">BASE-100 still fixes the weakest link first. These inputs only help choose between nearby priorities when the scores are close.</p>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-slate-200">
+                    <h2 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Departments</h2>
+                </div>
+            </div>
+            <nav id="dept-nav" class="flex-1 p-2 space-y-1">
+                <!-- Javascript populates this -->
+            </nav>
+        </aside>
+
+        <!-- COL 2: Level Picker -->
+        <section class="flex-1 bg-slate-50 flex flex-col min-w-[350px] max-w-2xl border-r border-slate-200">
+            <div class="p-6 bg-white border-b border-slate-200 shrink-0 sticky top-0 z-10 shadow-sm">
+                <div class="flex items-center gap-3 mb-2">
+                    <i id="active-icon" class="text-2xl text-slate-900"></i>
+                    <h2 id="active-title" class="text-2xl font-bold text-slate-900">Department</h2>
+                </div>
+                <p id="active-desc" class="text-sm text-slate-500">Description...</p>
+                <div class="mt-4 flex items-center justify-between bg-slate-100 p-2 rounded-lg">
+                    <span class="text-sm font-semibold text-slate-600">Current Maturity</span>
+                    <span id="active-score-display" class="text-lg font-bold text-slate-900">0 / 10</span>
+                </div>
+            </div>
+            
+            <div id="level-list" class="level-scroller flex-1 overflow-y-auto p-6 space-y-4">
+                <!-- Javascript populates level cards -->
+            </div>
+        </section>
+
+        <!-- COL 3: Visualization & Analysis -->
+        <aside class="flex-1 bg-white overflow-y-auto p-6 lg:min-w-[480px]">
+            
+            <!-- Print Header (Hidden normally) -->
+            <div class="print-only-header">
+                <h1 class="text-3xl font-bold text-slate-900">BASE-100 Strategic Audit Report</h1>
+                <p class="text-slate-500">Generated via Project Q Command Center</p>
+            </div>
+
+            <!-- Radar Chart -->
+            <div class="mb-6">
+                <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 border-l-4 border-slate-900 pl-3">Visual Profile</h3>
+                <div class="chart-container-radar mx-auto">
+                    <canvas id="radar-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- The Analyst Feedback -->
+            <div class="mb-6 rounded-2xl border border-slate-300 bg-white p-6 shadow-lg shadow-slate-200/60">
+                <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+                    <h3 class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-wider border-l-4 border-slate-900 pl-3">
+                        <i class="fa-solid fa-user-doctor text-slate-400"></i> The Analyst
+                    </h3>
+                    <a href="/grid/" class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-slate-600 transition hover:border-[#ff4d00] hover:text-[#ff4d00]">
+                        <i class="fa-solid fa-table-cells-large"></i> View 2026 Grid
+                    </a>
+                </div>
+                <div id="analyst-content" class="space-y-3 text-sm leading-relaxed text-slate-600">
+                    <!-- Dynamic Content Goes Here -->
+                    <p class="italic text-slate-400">Score departments to get personalized guidance on your highest leverage activities.</p>
+                </div>
+            </div>
+
+            <!-- Path to Your Goal -->
+            <div class="relative mb-6 overflow-hidden rounded-xl border border-slate-200 bg-white">
+
+                <!-- Lock Overlay -->
+                <div id="exit-lock-overlay" class="lock-overlay">
+                    <div class="bg-white p-4 rounded-full shadow-lg mb-2">
+                        <i class="fa-solid fa-lock text-slate-400 text-xl"></i>
+                    </div>
+                    <span id="exit-lock-message" class="text-sm font-bold text-slate-600">Score all 10 departments for complete analysis</span>
+                </div>
+
+                <!-- Content (Blurred initially) -->
+                <div id="exit-content-wrapper" class="p-6 blurred-content">
+                    <h3 class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 border-l-4 border-slate-900 pl-3">
+                        <i class="fa-solid fa-route text-slate-400"></i> Path to Your Goal
+                    </h3>
+                    
+                    <div class="mb-6 flex flex-wrap items-center gap-3 text-xs">
+                        <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-slate-500">
+                            Current stage
+                            <strong class="text-slate-900" id="val-multiplier-current">Early</strong>
+                        </span>
+                        <span class="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3 py-1.5 text-[#c2410c]">
+                            Goal
+                            <strong class="text-slate-900" id="val-multiplier-potential">Foundation</strong>
+                        </span>
+                    </div>
+
+                    <div class="space-y-5">
+                        <!-- Impact Progress -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-semibold text-slate-700">Impact</span>
+                                <span class="text-slate-600 font-bold" id="progress-impact">0%</span>
+                            </div>
+                            <div class="progress-bar-bg h-2">
+                                <div class="progress-bar-fill bg-slate-900" id="bar-impact" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Complexity Progress -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-semibold text-slate-700">Complexity</span>
+                                <span class="text-slate-600 font-bold" id="progress-complexity">0%</span>
+                            </div>
+                            <div class="progress-bar-bg h-2">
+                                <div class="progress-bar-fill bg-slate-900" id="bar-complexity" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Time Progress -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-semibold text-slate-700">Time to Implement</span>
+                                <span class="text-slate-600 font-bold" id="progress-time">0%</span>
+                            </div>
+                            <div class="progress-bar-bg h-2">
+                                <div class="progress-bar-fill bg-slate-900" id="bar-time" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Cost Progress -->
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-semibold text-slate-700">Direct Cost</span>
+                                <span class="text-slate-600 font-bold" id="progress-cost">0%</span>
+                            </div>
+                            <div class="progress-bar-bg h-2">
+                                <div class="progress-bar-fill bg-slate-900" id="bar-cost" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mx-auto mt-6 max-w-2xl text-center text-xs leading-relaxed text-slate-400">
+                        This is a directional estimate based on your lowest-scoring area, overall maturity, and selected business context.
+                        <span id="goal-journey-note">Complete all 10 departments for a more accurate estimate.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA Section (Hidden on Print) -->
+            <div class="mt-auto border-t border-slate-200 pt-8 pb-8 print:hidden">
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-end mb-8">
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">The Reality Check</h3>
+                        <p class="text-xs text-slate-500 mb-2">Effort to advance is exponential, not linear. Moving from Level 8 to 9 is 10x harder than 1 to 2.</p>
+                        <div class="chart-container-bar">
+                            <canvas id="effort-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-900 rounded-lg p-6 text-center text-white h-full flex flex-col justify-center shadow-lg">
+                        <h4 class="font-bold text-lg mb-2">Ready to fix the gap?</h4>
+                        <p class="text-slate-300 text-sm mb-4">Talk to us about your results and your next highest-leverage action.</p>
+                        <div>
+                            <a href="../contact/index.html" class="block bg-[#ff4d00] text-white hover:bg-[#ff6a2e] font-bold py-3 px-6 rounded shadow transition-colors w-full transform hover:-translate-y-0.5 text-sm">
+                                <i class="fa-solid fa-arrow-right mr-2"></i>Contact the Institute
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer Footer -->
+           <footer class="text-center py-4 border-t border-slate-200 text-[10px] text-slate-400 leading-tight px-4">
+               <p class="font-bold mb-1">DISCLAIMER: EDUCATIONAL PURPOSES ONLY</p>
+               <p>The BASE-100 Strategic Audit is a simulation tool designed to illustrate the concepts of the Universal Business Operating Model. The scores, priorities, readiness estimates, and timelines generated are theoretical estimates based on user inputs and generalized operating assumptions. They do not constitute financial, legal, or business advice. Real-world business valuations are complex and depend on market conditions, specific sectors, and audited financials. Do not use this tool as the sole basis for investment or management decisions.</p>
+           </footer>
+
+        </aside>
+
+    </div>
+
+    <script>
+        // Global utilities
+        window.resetAudit = function() {
+            if(confirm("Are you sure you want to reset this audit?")) {
+                localStorage.removeItem('base100_scores');
+                localStorage.removeItem('base100_context');
+                window.history.pushState({}, document.title, window.location.pathname);
+                location.reload();
+            }
+        };
+
+        window.shareAudit = function() {
+            const scores = JSON.parse(localStorage.getItem('base100_scores') || '[]');
+            if(scores.length === 0 || scores.every(s => s === null)) {
+                alert("Please score at least one department before sharing.");
+                return;
+            }
+            const savedContext = JSON.parse(localStorage.getItem('base100_context') || '{}');
+            const goal = ['foundation', 'autonomy', 'exit'].includes(savedContext.goal)
+                ? savedContext.goal
+                : (savedContext.goal === 'growth' ? 'foundation' : savedContext.goal === 'stability' ? 'autonomy' : 'foundation');
+            const constraint = ['balanced', 'demand', 'supply'].includes(savedContext.constraint)
+                ? savedContext.constraint
+                : (savedContext.pressure === 'delivery' ? 'supply' : 'balanced');
+            const cash = ['stable', 'tight', 'critical'].includes(savedContext.cash)
+                ? savedContext.cash
+                : (savedContext.pressure === 'cash' ? 'tight' : 'stable');
+            const scoreString = scores.join(',');
+            const params = new URLSearchParams({ s: scoreString, g: goal, c: constraint, k: cash });
+            const url = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+            
+            navigator.clipboard.writeText(url).then(() => {
+                alert("Unique Audit Link copied to clipboard!");
+            }).catch(() => {
+                prompt("Copy this link:", url);
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- PRIORITY ENGINE CONFIG ---
+            const defaultStrategicContext = { goal: 'foundation', constraint: 'balanced', cash: 'stable' };
+
+            const strategicGoals = {
+                foundation: {
+                    label: 'Build a foundation for sustained, controlled growth',
+                    shortLabel: 'Foundation',
+                    description: 'Strengthen the core engine so growth can happen without chaos.',
+                    engineKey: 'growth',
+                    targetAvg: 6,
+                    targetFloor: 5,
+                    pace: 3,
+                    destination: 'having a business ready for sustained, controlled growth'
+                },
+                autonomy: {
+                    label: 'Run a business that performs without constant intervention',
+                    shortLabel: 'Autonomy',
+                    description: 'Reduce founder dependency and make performance more self-managing.',
+                    engineKey: 'stability',
+                    targetAvg: 7,
+                    targetFloor: 6,
+                    pace: 4,
+                    destination: 'having a business that performs without constant intervention'
+                },
+                exit: {
+                    label: 'Build a business others want to buy, that runs without you',
+                    shortLabel: 'Exit',
+                    description: 'Increase transferability, buyer confidence, and clean handoffs.',
+                    engineKey: 'exit',
+                    targetAvg: 8,
+                    targetFloor: 7,
+                    pace: 5,
+                    destination: 'having a business others want to buy and run without you'
+                }
+            };
+
+            const constraintModes = {
+                balanced: {
+                    label: 'Not sure yet',
+                    description: 'Let BASE-100 read the weakest link first.',
+                    adjustments: {}
+                },
+                demand: {
+                    label: 'Demand is the constraint',
+                    description: 'Slightly favor market clarity, conversion, and revenue generation when scores are close.',
+                    adjustments: { sales: 0.18, brand: 0.14, innovation: 0.08, success: 0.05, operations: -0.05, assets: -0.05 }
+                },
+                supply: {
+                    label: 'Supply / delivery is the constraint',
+                    description: 'Slightly favor capacity, quality, and handoffs when scores are close.',
+                    adjustments: { operations: 0.18, talent: 0.12, success: 0.12, tech: 0.08, assets: 0.05, sales: -0.05, brand: -0.05 }
+                }
+            };
+
+            const cashModes = {
+                stable: {
+                    label: 'Stable',
+                    description: 'No urgent cash override.',
+                    adjustments: {}
+                },
+                tight: {
+                    label: 'Tight',
+                    description: 'Favor cash visibility, conversion, and retention when priorities are close.',
+                    adjustments: { finance: 0.18, sales: 0.12, success: 0.08, brand: 0.05, innovation: -0.03, assets: -0.04 }
+                },
+                critical: {
+                    label: 'Critical',
+                    description: 'Protect cash first and avoid long-payback bets until the business is steadier.',
+                    adjustments: { finance: 0.25, sales: 0.18, success: 0.12, operations: 0.08, brand: -0.08, innovation: -0.12, assets: -0.06 }
+                }
+            };
+
+            const priorityPlaybooks = {
+                leadership: {
+                    label: 'Clarify leadership cadence',
+                    tags: ['control', 'transfer'],
+                    weights: { stability: 1.12, growth: 1.05, exit: 1.18 },
+                    why: {
+                        stability: 'Without clear priorities and accountability, instability spreads into every other department.',
+                        growth: 'Growth stalls when decisions remain trapped with the founder or a small leadership bottleneck.',
+                        exit: 'Buyers discount businesses that rely on one person for direction, approvals, and momentum.'
+                    },
+                    tiers: { t1: "Set one company goal, one weekly leadership meeting, and one owner per key function.", t2: "Delegate one real decision right this quarter and review progress in a fixed cadence.", t3: "Run leadership from dashboards, not memory. Review KPIs weekly and assign owners.", t4: "Formalize governance rhythm and escalate fewer issues through the founder.", t5: "Focus leadership on capital allocation, succession depth, and culture durability." }
+                },
+                innovation: {
+                    label: 'Tighten the offer',
+                    tags: ['revenue', 'delivery'],
+                    weights: { stability: 0.96, growth: 1.18, exit: 1.0 },
+                    why: {
+                        stability: 'A weak offer creates custom work, margin leakage, and operational noise.',
+                        growth: 'Profitable growth depends on a clear offer that converts well and can be delivered repeatedly.',
+                        exit: 'A differentiated offer improves transferability, but only after the fundamentals are dependable.'
+                    },
+                    tiers: { t1: "Define one standard offer with clear scope and stop customizing for every lead.", t2: "Track gross margin by offer so you know which work is worth scaling.", t3: "Standardize the delivery model so most revenue comes from repeatable offers.", t4: "Prune low-leverage offers and double down on the most scalable winners.", t5: "Protect IP, product economics, and ecosystem advantages that compound over time." }
+                },
+                brand: {
+                    label: 'Sharpen market positioning',
+                    tags: ['revenue'],
+                    weights: { stability: 0.94, growth: 1.15, exit: 0.98 },
+                    why: {
+                        stability: 'Weak positioning creates inconsistent demand and more price pressure.',
+                        growth: 'Growth accelerates when the market clearly understands who you serve and why you win.',
+                        exit: 'A credible brand helps, but buyers care most when it supports predictable revenue quality.'
+                    },
+                    tiers: { t1: "Choose one audience, one message, and one channel to own for the next 30 days.", t2: "Install attribution basics so you know what creates qualified demand.", t3: "Automate nurture and follow-up so leads do not depend on manual chasing.", t4: "Invest in authority assets that improve trust and reduce sales friction.", t5: "Protect brand assets as durable value drivers, not just marketing output." }
+                },
+                sales: {
+                    label: 'Stabilize the revenue engine',
+                    tags: ['revenue'],
+                    weights: { stability: 0.95, growth: 1.22, exit: 1.02 },
+                    why: {
+                        stability: 'An unmanaged pipeline creates cash volatility and weak forecasting.',
+                        growth: 'Profitable growth usually requires stronger sales discipline before more top-of-funnel activity.',
+                        exit: 'Buyers value sales systems that work without heroics or founder dependency.'
+                    },
+                    tiers: { t1: "Create one deal pipeline and update it daily from a single source of truth.", t2: "Standardize qualification, stages, and close criteria so forecasting improves.", t3: "Document the sales playbook and train every seller the same way.", t4: "Connect sales, marketing, and handoff automation into one repeatable revenue system.", t5: "Move toward a leader-led commercial engine with forecast accuracy inside a narrow band." }
+                },
+                success: {
+                    label: 'Protect retention and expansion',
+                    tags: ['revenue', 'delivery', 'transfer'],
+                    weights: { stability: 1.12, growth: 1.08, exit: 1.1 },
+                    why: {
+                        stability: 'Poor retention quietly destroys cash flow, team morale, and trust in the system.',
+                        growth: 'Growth is more efficient when renewals, referrals, and expansion revenue are protected.',
+                        exit: 'Buyers pay more for businesses with durable clients, low churn, and visible customer health.'
+                    },
+                    tiers: { t1: "Create a shared support inbox or ticketing workflow with clear ownership.", t2: "Track response times and recurring issues so the same problems stop repeating.", t3: "Install a basic success cadence with check-ins, renewals, and documented ownership.", t4: "Use health signals and churn triggers to intervene before accounts slip.", t5: "Turn customer success into a measurable expansion and referral engine." }
+                },
+                talent: {
+                    label: 'Reduce key-person risk',
+                    tags: ['delivery', 'transfer'],
+                    weights: { stability: 1.05, growth: 1.02, exit: 1.08 },
+                    why: {
+                        stability: 'Fragile staffing creates execution risk, rework, and constant founder intervention.',
+                        growth: 'Growth slows when hiring, onboarding, and performance expectations are inconsistent.',
+                        exit: 'Transferable businesses need role clarity and bench strength beyond the current team.'
+                    },
+                    tiers: { t1: "Write role descriptions for current staff so ownership is visible and repeatable.", t2: "Standardize interviews and hiring criteria before the next role is opened.", t3: "Run quarterly reviews with documented expectations and development plans.", t4: "Build leadership redundancy and succession depth into key roles.", t5: "Ensure culture and performance standards survive individual personalities." }
+                },
+                operations: {
+                    label: 'Stabilize delivery operations',
+                    tags: ['control', 'delivery', 'transfer'],
+                    weights: { stability: 1.18, growth: 1.05, exit: 1.15 },
+                    why: {
+                        stability: 'Operational inconsistency creates chaos, missed promises, and margin erosion.',
+                        growth: 'You cannot scale demand safely if operations are already the bottleneck.',
+                        exit: 'Repeatable operations increase transferability and lower perceived execution risk.'
+                    },
+                    tiers: { t1: "Document the one recurring workflow that causes the most pain and use it every time.", t2: "Add simple quality control and peer review before work reaches the client.", t3: "Introduce capacity planning so delivery does not depend on constant heroics.", t4: "Automate handoffs and remove manual coordination where possible.", t5: "Design operations to self-correct through clear metrics and ownership." }
+                },
+                tech: {
+                    label: 'Make the stack support the business',
+                    tags: ['control', 'delivery', 'transfer'],
+                    weights: { stability: 1.06, growth: 1.03, exit: 1.1 },
+                    why: {
+                        stability: 'Weak systems create blind spots, duplicate work, and avoidable errors.',
+                        growth: 'Growth becomes expensive when data and workflows remain fragmented.',
+                        exit: 'Integrated systems and clean controls improve transparency and reduce transition friction.'
+                    },
+                    tiers: { t1: "Secure core logins and stop relying on shared passwords or scattered tools.", t2: "Connect key data sources so management can see one version of the truth.", t3: "Integrate core systems to remove re-keying and manual reporting.", t4: "Build real-time operational dashboards for the team, not just leadership.", t5: "Use automation and AI carefully where they reduce routine cognitive load." }
+                },
+                finance: {
+                    label: 'Strengthen financial control',
+                    tags: ['control', 'transfer'],
+                    weights: { stability: 1.2, growth: 1.0, exit: 1.18 },
+                    why: {
+                        stability: 'Weak financial control makes every decision feel reactive and increases cash risk.',
+                        growth: 'Growth is only healthy when unit economics and cash consequences are visible.',
+                        exit: 'Clean numbers, disciplined controls, and due diligence readiness directly affect buyer confidence.'
+                    },
+                    tiers: { t1: "Get a reliable monthly P&L and weekly cash view before making bigger operating bets.", t2: "Forecast cash for 90 days and review it every week until surprises reduce.", t3: "Track budget variance and decision economics monthly, not just bookkeeping outputs.", t4: "Prepare an organized data room with clean contracts and supporting records.", t5: "Optimize capital structure and diligence readiness long before a transaction starts." }
+                },
+                assets: {
+                    label: 'Systemize knowledge and IP',
+                    tags: ['control', 'transfer'],
+                    weights: { stability: 1.03, growth: 0.95, exit: 1.2 },
+                    why: {
+                        stability: 'Missing documentation keeps the business dependent on memory and workarounds.',
+                        growth: 'Documentation matters for scale, but it becomes valuable only when tied to real workflows.',
+                        exit: 'Documented systems, clean files, and institutional knowledge raise transferability and lower key-person risk.'
+                    },
+                    tiers: { t1: "Create one shared company structure so files and playbooks stop living in people’s heads.", t2: "Document the processes that would hurt most if one key person disappeared tomorrow.", t3: "Make SOPs easy to search, access, and use in daily work.", t4: "Link documentation to the tools and workflows people already use.", t5: "Treat documented systems as operating IP that increases transferability." }
+                }
+            };
+
+            // --- DATA MODEL ---
+            // Muted, professional colors — keyed by new JSON domain IDs
+            const DOMAIN_COLORS = {
+                LD: '#4f6fa8',
+                PI: '#6b5fa0',
+                BM: '#a4577d',
+                RS: '#2d7a5e',
+                OD: '#b05252',
+                CS: '#3d7fa0',
+                TC: '#a07730',
+                TI: '#5259a3',
+                FR: '#2e8070',
+                AI: '#7448a8'
+            };
+
+            const DASHBOARD_DOMAIN_META = {
+                LD: { legacyId: 'leadership', symbol: 'Ld', icon: 'fa-regular fa-compass' },
+                PI: { legacyId: 'innovation', symbol: 'Pi', icon: 'fa-solid fa-microchip' },
+                BM: { legacyId: 'brand',      symbol: 'Br', icon: 'fa-solid fa-bullhorn' },
+                RS: { legacyId: 'sales',      symbol: 'Rv', icon: 'fa-solid fa-chart-pie' },
+                CS: { legacyId: 'success',    symbol: 'Sc', icon: 'fa-solid fa-shield-halved' },
+                TC: { legacyId: 'talent',     symbol: 'Tl', icon: 'fa-solid fa-users' },
+                OD: { legacyId: 'operations', symbol: 'Od', icon: 'fa-solid fa-wrench' },
+                TI: { legacyId: 'tech',       symbol: 'Ti', icon: 'fa-solid fa-network-wired' },
+                FR: { legacyId: 'finance',    symbol: 'Fn', icon: 'fa-solid fa-clipboard-check' },
+                AI: { legacyId: 'assets',     symbol: 'As', icon: 'fa-solid fa-book-open' }
+            };
+
+            // Order uses new JSON domain IDs (PI replaces PR, OD replaces OP)
+            const DASHBOARD_DOMAIN_ORDER = ['LD', 'PI', 'BM', 'RS', 'CS', 'TC', 'OD', 'TI', 'FR', 'AI'];
+
+            function adaptDashboardLevel(level) {
+                return {
+                    level: level.level,
+                    headline: level.headline,
+                    action: level.observation || level.instruction || '',
+                    evidence: level.observation || level.audit_binary || level.evidence || '',
+                    audit_binary: level.audit_binary || '',
+                    observation: level.observation || '',
+                    milestone_evidence: level.evidence || '',
+                    failure_signal: level.failure_signal || '',
+                    prerequisite: level.prerequisite || null,
+                    review_frequency: level.review_frequency || null,
+                    weights: level.weights || null,
+                    instruction: level.instruction || '',
+                    example: level.example || ''
+                };
+            }
+
+            function adaptDomainsToDepartments(base100) {
+                // BASE100_FRAMEWORK stores domains as an object keyed by ID;
+                // BASE100_2026 (legacy) stores them as an array — handle both.
+                const raw = base100?.domains;
+                const sourceDomains = Array.isArray(raw) ? raw : (raw ? Object.values(raw) : []);
+                const domainMap = new Map(sourceDomains.map((domain) => [domain.id, domain]));
+
+                return DASHBOARD_DOMAIN_ORDER.map((domainId) => {
+                    const sourceDomain = domainMap.get(domainId);
+                    const meta = DASHBOARD_DOMAIN_META[domainId];
+
+                    if (!sourceDomain || !meta) return null;
+
+                    return {
+                        id: meta.legacyId,
+                        sourceId: sourceDomain.id,
+                        symbol: meta.symbol,
+                        color: DOMAIN_COLORS[sourceDomain.id] || '#64748b',
+                        name: sourceDomain.name,
+                        summary: sourceDomain.purpose || '',
+                        icon: meta.icon,
+                        desc: sourceDomain.description || '',
+                        direction: sourceDomain.direction || null,
+                        levels: (sourceDomain.levels || [])
+                            .filter((level) => level.level >= 1 && level.level <= 10)
+                            .sort((a, b) => a.level - b.level)
+                            .map(adaptDashboardLevel)
+                    };
+                }).filter(Boolean);
+            }
+
+            const dashboardFramework = typeof BASE100_FRAMEWORK !== 'undefined' ? BASE100_FRAMEWORK : window.BASE100_FRAMEWORK;
+            const departments = adaptDomainsToDepartments(dashboardFramework);
+
+            // --- STATE ---
+            // null = unselected, 0 = Level 0 (Plan Only), 1-10 = maturity levels
+            let currentScores = new Array(departments.length || 10).fill(null);
+            let strategicContext = { ...defaultStrategicContext };
+            let activeDeptIndex = 0;
+            let radarChart;
+            let effortChart;
+
+            // --- DOM ELEMENTS ---
+            const deptNav = document.getElementById('dept-nav');
+            const levelList = document.getElementById('level-list');
+            const activeTitle = document.getElementById('active-title');
+            const activeIcon = document.getElementById('active-icon');
+            const activeDesc = document.getElementById('active-desc');
+            const activeScoreDisplay = document.getElementById('active-score-display');
+            const headerTotalScore = document.getElementById('header-total-score');
+            const goalSelect = document.getElementById('goal-select');
+            const constraintSelect = document.getElementById('constraint-select');
+            const cashSelect = document.getElementById('cash-select');
+            const analystContent = document.getElementById('analyst-content');
+            const exitContentWrapper = document.getElementById('exit-content-wrapper');
+            const exitLockOverlay = document.getElementById('exit-lock-overlay');
+            const exitLockMessage = document.getElementById('exit-lock-message');
+            const valCurrent = document.getElementById('val-multiplier-current');
+            const valPotential = document.getElementById('val-multiplier-potential');
+            const goalJourneyNote = document.getElementById('goal-journey-note');
+
+            // --- INIT ---
+            function init() {
+                if (!departments.length) {
+                    console.error('BASE100_FRAMEWORK data could not be loaded for discovery.');
+                    activeTitle.innerText = 'Dashboard data unavailable';
+                    activeDesc.innerText = 'Could not load the 2026 BASE-100 domains.';
+                    activeScoreDisplay.innerText = '0 / 10';
+                    analystContent.innerHTML = '<p class="text-sm leading-relaxed text-red-600">The dashboard could not load <strong class="text-red-700">assets/js/base100-framework.js</strong>.</p>';
+                    return;
+                }
+
+                // Order matters: Check URL -> Load Local -> Render -> Calculate
+                checkUrlParams(); 
+                loadScores(); 
+                loadContext();
+                syncContextInputs();
+                bindContextInputs();
+                
+                renderNav();
+                renderLevelPicker(0);
+                initRadarChart();
+                initEffortChart();
+                
+                // Force calculation immediately to update header/charts
+                updateTotalScore(); 
+                runAnalystLogic(); 
+                updateRadarChart(); 
+            }
+
+            function normalizeGoal(goal) {
+                if (strategicGoals[goal]) return goal;
+                if (goal === 'growth') return 'foundation';
+                if (goal === 'stability') return 'autonomy';
+                return defaultStrategicContext.goal;
+            }
+
+            function normalizeConstraint(constraint) {
+                if (constraintModes[constraint]) return constraint;
+                if (constraint === 'delivery') return 'supply';
+                return defaultStrategicContext.constraint;
+            }
+
+            function normalizeCash(cash) {
+                if (cashModes[cash]) return cash;
+                if (cash === 'cash') return 'tight';
+                return defaultStrategicContext.cash;
+            }
+
+            // --- PERSISTENCE ---
+            function checkUrlParams() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const sharedScores = urlParams.get('s');
+                const sharedGoal = urlParams.get('g');
+                const sharedConstraint = urlParams.get('c');
+                const sharedCash = urlParams.get('k');
+                const legacyPressure = urlParams.get('p');
+                let hasShareParams = false;
+
+                if(sharedScores) {
+                    try {
+                        const parsed = sharedScores.split(',').map(Number);
+                        if(parsed.length === departments.length) {
+                            currentScores = parsed;
+                            hasShareParams = true;
+                        }
+                    } catch(e) { console.error("Invalid share link"); }
+                }
+
+                if(sharedGoal) {
+                    strategicContext.goal = normalizeGoal(sharedGoal);
+                    hasShareParams = true;
+                }
+
+                if(sharedConstraint) {
+                    strategicContext.constraint = normalizeConstraint(sharedConstraint);
+                    hasShareParams = true;
+                }
+
+                if(sharedCash) {
+                    strategicContext.cash = normalizeCash(sharedCash);
+                    hasShareParams = true;
+                }
+
+                if(legacyPressure) {
+                    if (legacyPressure === 'cash') strategicContext.cash = 'tight';
+                    if (legacyPressure === 'delivery') strategicContext.constraint = 'supply';
+                    hasShareParams = true;
+                }
+
+                if(hasShareParams) {
+                    saveScores();
+                    saveContext();
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            }
+
+            function loadScores() {
+                // Only load from local if we didn't just load from URL (currentScores would be all null)
+                if(currentScores.every(s => s === null)) {
+                    const saved = localStorage.getItem('base100_scores');
+                    if(saved) {
+                        const parsed = JSON.parse(saved);
+                        if(Array.isArray(parsed) && parsed.length === departments.length) {
+                            currentScores = parsed;
+                        }
+                    }
+                }
+            }
+            function saveScores() {
+                localStorage.setItem('base100_scores', JSON.stringify(currentScores));
+            }
+
+            function loadContext() {
+                const saved = JSON.parse(localStorage.getItem('base100_context') || '{}');
+                strategicContext = {
+                    goal: normalizeGoal(saved.goal),
+                    constraint: normalizeConstraint(saved.constraint || saved.pressure),
+                    cash: normalizeCash(saved.cash || saved.pressure)
+                };
+            }
+
+            function saveContext() {
+                localStorage.setItem('base100_context', JSON.stringify(strategicContext));
+            }
+
+            function syncContextInputs() {
+                goalSelect.value = strategicContext.goal;
+                constraintSelect.value = strategicContext.constraint;
+                cashSelect.value = strategicContext.cash;
+            }
+
+            function bindContextInputs() {
+                goalSelect.onchange = (event) => {
+                    strategicContext.goal = event.target.value;
+                    saveContext();
+                    runAnalystLogic();
+                };
+
+                constraintSelect.onchange = (event) => {
+                    strategicContext.constraint = event.target.value;
+                    saveContext();
+                    runAnalystLogic();
+                };
+
+                cashSelect.onchange = (event) => {
+                    strategicContext.cash = event.target.value;
+                    saveContext();
+                    runAnalystLogic();
+                };
+            }
+
+            // --- RENDER NAV ---
+            function renderNav() {
+                deptNav.innerHTML = '';
+                departments.forEach((dept, index) => {
+                    const btn = document.createElement('button');
+                    const isActive = index === activeDeptIndex;
+                    const score = currentScores[index];
+
+                    let statusDotClass = 'bg-slate-300';
+                    let scoreDisplay = '-';
+                    if(score !== null) {
+                        scoreDisplay = score === 0 ? 'Plan' : `${score}/10`;
+                        if(score === 0) statusDotClass = 'bg-blue-400';
+                        else if(score > 0 && score <= 3) statusDotClass = 'bg-red-500';
+                        else if(score > 3 && score <= 6) statusDotClass = 'bg-amber-500';
+                        else if(score >= 7) statusDotClass = 'bg-green-500';
+                    }
+
+                    btn.className = `dept-card w-full text-left px-4 py-3 flex items-center justify-between group ${isActive ? 'active' : 'hover:bg-slate-50'}`;
+                    btn.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full ${statusDotClass} shrink-0"></div>
+                            <i class="${dept.icon} w-5 text-center ${isActive ? 'text-[#ff4d00]' : 'text-slate-400'}"></i>
+                            <div>
+                                <div class="text-sm font-bold ${isActive ? 'text-slate-900' : 'text-slate-700'}">${dept.name}</div>
+                            </div>
+                        </div>
+                        <div class="text-xs font-bold ${score !== null ? 'text-slate-700' : 'text-slate-300'} bg-white border border-slate-100 px-2 py-1 rounded">
+                            ${scoreDisplay}
+                        </div>
+                    `;
+                    btn.onclick = () => {
+                        activeDeptIndex = index;
+                        renderNav();
+                        renderLevelPicker(index);
+                    };
+                    deptNav.appendChild(btn);
+                });
+            }
+
+            // --- RENDER PICKER ---
+            function renderLevelPicker(index) {
+                const dept = departments[index];
+                const currentLevel = currentScores[index];
+
+                activeTitle.innerText = dept.name;
+                activeDesc.innerText = dept.desc;
+                activeIcon.className = `${dept.icon} text-2xl text-slate-900`;
+                const displayLevel = currentLevel === null ? '-' : (currentLevel === 0 ? 'Plan' : `${currentLevel} / 10`);
+                activeScoreDisplay.innerText = displayLevel;
+
+                levelList.innerHTML = '';
+
+                // Plan card — driven by the domain's direction block (pre-Level 1)
+                const dir = dept.direction;
+                if (dir) {
+                    const isSelected = currentLevel === 0;
+                    const card = document.createElement('div');
+                    card.className = `level-card p-4 rounded-lg border-2 ${isSelected ? 'selected shadow-md' : ''}`;
+                    card.style.cssText = isSelected
+                        ? `background:${dept.color}12; border-color:${dept.color}`
+                        : `background:#f8fafc; border-color:#cbd5e1`;
+                    card.innerHTML = `
+                        <div class="flex items-start gap-3">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border"
+                                style="${isSelected ? `background:${dept.color}; color:#fff; border-color:${dept.color}` : `background:#f1f5f9; color:#64748b; border-color:#cbd5e1`}">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 1 1 0 000 2H3a1 1 0 00-1 1v10a1 1 0 001 1h14a1 1 0 001-1V6a1 1 0 00-1-1h-3a1 1 0 000-2 2 2 0 00-2-2H4zm9 2H7v8h6V7z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <h4 class="text-sm font-bold text-slate-900 leading-tight">${dir.name}</h4>
+                                    <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded uppercase tracking-wider" style="background:${dept.color}20; color:${dept.color}">Plan</span>
+                                </div>
+                                <p class="text-xs font-medium mb-1" style="color:${dept.color}">Strategic Foundation · Pre-Level 1</p>
+                                <p class="text-xs text-slate-600 leading-relaxed">${dir.minimum_standard || dir.purpose || ''}</p>
+                                ${dir.questions_to_answer && dir.questions_to_answer.length ? `
+                                <div class="mt-2 pt-2 border-t border-slate-200">
+                                    <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-1">Key Questions</p>
+                                    <p class="text-xs text-slate-600 italic">${dir.questions_to_answer[0]}</p>
+                                </div>` : ''}
+                            </div>
+                        </div>
+                    `;
+                    card.onclick = () => {
+                        if (currentScores[index] !== 0) {
+                            currentScores[index] = 0;
+                            saveScores();
+                        }
+                        renderNav(); renderLevelPicker(index); updateRadarChart(); updateTotalScore(); runAnalystLogic();
+                    };
+                    levelList.appendChild(card);
+                    if (isSelected) setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50);
+                }
+
+                // Levels 1-9
+                for (let i = 1; i <= 9; i++) {
+                    const lvlData = dept.levels[i - 1]; // levels array is now 0-indexed (level 1 at index 0)
+                    if (!lvlData) continue;
+                    const isSelected = i === currentLevel;
+                    const isPassed = currentLevel !== null && i < currentLevel;
+
+                    const card = document.createElement('div');
+                    card.className = `level-card p-4 rounded-lg bg-white ${isSelected ? 'selected shadow-md' : ''} ${isPassed ? 'passed' : ''}`;
+
+                    // Show checkmark for passed levels, number for current/future
+                    let badgeContent = '';
+                    if (isPassed) {
+                        badgeContent = '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>';
+                    } else {
+                        badgeContent = i;
+                    }
+
+                    card.innerHTML = `
+                        <div class="flex items-start gap-3">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border ${isSelected ? 'bg-slate-900 text-white border-slate-900' : isPassed ? 'bg-green-100 text-green-700 border-green-300' : 'bg-slate-50 text-slate-500 border-slate-200'}">
+                                ${badgeContent}
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900 leading-tight mb-1">${lvlData.headline}</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed">${lvlData.audit_binary}</p>
+                            </div>
+                        </div>
+                    `;
+
+                    card.onclick = () => {
+                        if (currentScores[index] !== i) {
+                            currentScores[index] = i;
+                            saveScores();
+                        }
+                        renderNav(); renderLevelPicker(index); updateRadarChart(); updateTotalScore(); runAnalystLogic();
+                    };
+                    levelList.appendChild(card);
+                    if (isSelected) setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50);
+                }
+
+                // Level 10 card (Mastery) — levels array is 0-indexed after filter, so level 10 = index 9
+                const level10Data = dept.levels[9];
+                if (level10Data && level10Data.level === 10) {
+                    const isSelected = currentLevel === 10;
+                    const isPassed = currentLevel >= 10;
+                    const card = document.createElement('div');
+                    card.className = `level-card p-4 rounded-lg bg-white ${isSelected ? 'selected shadow-md' : ''}`;
+                    card.innerHTML = `
+                        <div class="flex items-start gap-3">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border ${isSelected ? 'bg-slate-900 text-white border-slate-900' : isPassed ? 'bg-green-100 text-green-700 border-green-300' : 'bg-slate-50 text-slate-500 border-slate-200'}">
+                                10
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900 leading-tight mb-1">${level10Data.headline}</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed">${level10Data.audit_binary}</p>
+                            </div>
+                        </div>
+                    `;
+                    card.onclick = () => {
+                        if (currentScores[index] !== 10) {
+                            currentScores[index] = 10;
+                            saveScores();
+                        }
+                        renderNav(); renderLevelPicker(index); updateRadarChart(); updateTotalScore(); runAnalystLogic();
+                    };
+                    levelList.appendChild(card);
+                    if (isSelected) setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50);
+                }
+            }
+
+            function updateTotalScore() {
+                // Sum only levels 1-10 (exclude null and Level 0)
+                const total = currentScores.reduce((sum, score) => {
+                    if (score === null || score === 0) return sum;
+                    return sum + score;
+                }, 0);
+                headerTotalScore.innerHTML = `${total} <span class="text-slate-400 text-lg">/ 100</span>`;
+            }
+
+            // --- ANALYST LOGIC ---
+            function getAuditStats() {
+                // Count departments with any selection (null = unselected, 0+ = selected)
+                const scoredEntries = departments
+                    .map((dept, index) => ({ dept, index, score: currentScores[index] }))
+                    .filter(entry => entry.score !== null);
+
+                // For calculations, only use levels 1-10 (exclude Level 0)
+                const scoredScores = scoredEntries
+                    .filter(entry => entry.score > 0)
+                    .map(entry => entry.score);
+
+                const total = currentScores.reduce((sum, score) => {
+                    if (score === null || score === 0) return sum;
+                    return sum + score;
+                }, 0);
+
+                const completionCount = scoredEntries.length;
+                const isComplete = completionCount === departments.length;
+                const avg = scoredScores.length ? scoredScores.reduce((sum, score) => sum + score, 0) / scoredScores.length : 0;
+                const min = scoredScores.length ? Math.min(...scoredScores) : 0;
+                const max = scoredScores.length ? Math.max(...scoredScores) : 0;
+
+                return { total, completionCount, isComplete, avg, min, max, deviation: scoredScores.length ? max - min : 0, scoredEntries };
+            }
+
+            function getStage(avg) {
+                if (avg < 3) return { label: 'Founder-Led', description: 'The business still depends heavily on founder intervention. Stabilize the basics before chasing sophistication.' };
+                if (avg < 5.5) return { label: 'Stabilizing', description: 'Core practices exist, but performance is still uneven and too dependent on people remembering things.' };
+                if (avg < 7.5) return { label: 'Systemizing', description: 'The business can scale, but weaker handoffs and controls still cap speed and consistency.' };
+                return { label: 'Transfer-Ready', description: 'The business is becoming governable, repeatable, and materially easier to transfer.' };
+            }
+
+            function getTierKey(score) {
+                if (score <= 2) return 't1';
+                if (score <= 4) return 't2';
+                if (score <= 6) return 't3';
+                if (score <= 8) return 't4';
+                return 't5';
+            }
+
+            function formatDepartmentList(entries) {
+                const names = entries.map(entry => entry.dept.name);
+                if (names.length <= 1) return names[0] || '';
+                if (names.length === 2) return `${names[0]} and ${names[1]}`;
+                return `${names.slice(0, -1).join(', ')}, and ${names[names.length - 1]}`;
+            }
+
+            function monthsToRange(months) {
+                if (months <= 3) return { label: '0-3 Months', width: '92%', tone: 'bg-slate-800' };
+                if (months <= 6) return { label: '3-6 Months', width: '82%', tone: 'bg-slate-700' };
+                if (months <= 9) return { label: '6-9 Months', width: '70%', tone: 'bg-slate-700' };
+                if (months <= 12) return { label: '9-12 Months', width: '58%', tone: 'bg-slate-600' };
+                if (months <= 18) return { label: '12-18 Months', width: '44%', tone: 'bg-slate-500' };
+                if (months <= 24) return { label: '18-24 Months', width: '30%', tone: 'bg-slate-500' };
+                return { label: '24-36+ Months', width: '18%', tone: 'bg-slate-400' };
+            }
+
+            function runPriorityEngine(stats) {
+                const goalConfig = strategicGoals[strategicContext.goal];
+                const constraintConfig = constraintModes[strategicContext.constraint];
+                const cashConfig = cashModes[strategicContext.cash];
+                const engineKey = goalConfig.engineKey;
+
+                const candidates = stats.scoredEntries.map(entry => {
+                    const playbook = priorityPlaybooks[entry.dept.id];
+                    const gapToPerfect = 10 - entry.score;
+                    const gapToAverage = Math.max(0, stats.avg - entry.score);
+                    const floorDistance = entry.score - stats.min;
+                    const floorBonus = floorDistance === 0 ? 18 : floorDistance === 1 ? 9 : floorDistance === 2 ? 4 : 0;
+                    const objectiveMultiplier = playbook.weights[engineKey]
+                        + (constraintConfig.adjustments[entry.dept.id] || 0)
+                        + (cashConfig.adjustments[entry.dept.id] || 0);
+
+                    let tagBonus = 0;
+                    if (strategicContext.goal === 'foundation' && playbook.tags.includes('revenue') && entry.score <= Math.ceil(stats.avg)) tagBonus += 1.5;
+                    if (strategicContext.goal === 'autonomy' && (playbook.tags.includes('control') || playbook.tags.includes('transfer'))) tagBonus += 1.5;
+                    if (strategicContext.goal === 'exit' && playbook.tags.includes('transfer')) tagBonus += 2;
+                    if (strategicContext.constraint === 'demand' && playbook.tags.includes('revenue')) tagBonus += 1.5;
+                    if (strategicContext.constraint === 'supply' && playbook.tags.includes('delivery')) tagBonus += 1.5;
+                    if (strategicContext.cash !== 'stable' && entry.dept.id === 'finance') tagBonus += strategicContext.cash === 'critical' ? 2.5 : 1.5;
+
+                    const priorityScore = Number((((gapToPerfect * 4) + (gapToAverage * 5) + floorBonus) * objectiveMultiplier + tagBonus).toFixed(2));
+
+                    return {
+                        ...entry,
+                        playbook,
+                        priorityScore,
+                        isFloorConstraint: floorDistance === 0
+                    };
+                }).sort((a, b) => b.priorityScore - a.priorityScore || a.score - b.score);
+
+                return {
+                    goalConfig,
+                    constraintConfig,
+                    cashConfig,
+                    primary: candidates[0],
+                    secondary: candidates.find(candidate => candidate.dept.id !== candidates[0]?.dept.id),
+                    candidates
+                };
+            }
+
+            function getSystemWatchout(stats, engine) {
+                const scoreById = departments.reduce((map, dept, index) => {
+                    const score = currentScores[index];
+                    map[dept.id] = score === null ? 0 : score;
+                    return map;
+                }, {});
+
+                const standoutEntries = stats.scoredEntries
+                    .filter(entry => entry.score > 0)
+                    .filter(entry => entry.score >= stats.avg + 2 && entry.score >= stats.min + 3);
+
+                if (strategicContext.cash === 'critical' && scoreById.finance > 0 && scoreById.finance <= 4) {
+                    return {
+                        label: 'Cash fragility',
+                        text: 'Cash is under real pressure while Finance is still early. Protect weekly cash visibility before taking on new bets or complexity.',
+                        tone: 'red'
+                    };
+                }
+
+                if (standoutEntries.length > 0 && stats.deviation >= 4) {
+                    return {
+                        label: 'Comfort zone risk',
+                        text: `${formatDepartmentList(standoutEntries)} are well ahead of the rest. That can feel like strength, but the business still moves at the pace of ${engine.primary.dept.name}.`,
+                        tone: 'amber'
+                    };
+                }
+
+                if (scoreById.sales > 0 && scoreById.innovation > 0 && scoreById.sales >= scoreById.innovation + 3) {
+                    return {
+                        label: 'Demand outrunning offer',
+                        text: `Sales is ${scoreById.sales - scoreById.innovation} levels ahead of Product & Innovation. Tighten the offer before adding more demand.`,
+                        tone: 'amber'
+                    };
+                }
+
+                if (scoreById.sales > 0 && scoreById.operations > 0 && scoreById.sales >= scoreById.operations + 3) {
+                    return {
+                        label: 'Demand outrunning delivery',
+                        text: `Sales is ${scoreById.sales - scoreById.operations} levels ahead of Operations. More demand may create chaos until delivery capacity catches up.`,
+                        tone: 'amber'
+                    };
+                }
+
+                if (scoreById.sales > 0 && scoreById.success > 0 && scoreById.sales >= scoreById.success + 3) {
+                    return {
+                        label: 'Retention risk',
+                        text: `Customer Success is lagging Sales by ${scoreById.sales - scoreById.success} levels. Growth quality will suffer if renewals and support do not catch up.`,
+                        tone: 'amber'
+                    };
+                }
+
+                if ((scoreById.innovation >= 7 || scoreById.brand >= 7) && stats.min <= 5 && (scoreById.innovation >= stats.avg + 2 || scoreById.brand >= stats.avg + 2)) {
+                    return {
+                        label: 'Distraction risk',
+                        text: 'The business may be tempted by new offers, channels, or side bets before the core engine is strong enough. Keep the main business dependable first.',
+                        tone: 'amber'
+                    };
+                }
+
+                if (scoreById.leadership > 0 && scoreById.leadership <= 4 && stats.avg >= 5) {
+                    return {
+                        label: 'Founder dependency',
+                        text: 'The business is progressing, but too many decisions still rely on one person. That will slow stability, autonomy, and exit readiness.',
+                        tone: 'amber'
+                    };
+                }
+
+                if (stats.completionCount >= 6 && stats.avg >= 4.5 && stats.avg <= 6.5 && stats.deviation <= 2) {
+                    return {
+                        label: 'Plateau risk',
+                        text: 'You have moved beyond early chaos, but the business is not yet strong. Avoid spreading effort across many upgrades at once and push one weak area clearly higher.',
+                        tone: 'slate'
+                    };
+                }
+
+                if (strategicContext.cash === 'tight' && scoreById.finance > 0 && scoreById.finance <= 4) {
+                    return {
+                        label: 'Cash visibility risk',
+                        text: 'Cash is tight while Finance is still early. Tighten weekly cash forecasting before making bigger bets.',
+                        tone: 'amber'
+                    };
+                }
+
+                if (engine.secondary) {
+                    return {
+                        label: 'Next support move',
+                        text: `After ${engine.primary.dept.name}, the next supporting move is ${engine.secondary.dept.name} (${engine.secondary.score}/10).`,
+                        tone: 'slate'
+                    };
+                }
+
+                return {
+                    label: 'Balance note',
+                    text: 'Keep raising the current weak link before you invest more in already-stronger areas.',
+                    tone: 'slate'
+                };
+            }
+
+            function getDisciplineNote(engine, watchout) {
+                if (watchout.label === 'Comfort zone risk' || watchout.label === 'Distraction risk') {
+                    return `Do not add new channels, new offers, or side-business bets until ${engine.primary.dept.name} is stronger.`;
+                }
+
+                if (watchout.label === 'Demand outrunning delivery' || strategicContext.constraint === 'supply') {
+                    return 'Do not push harder on sales until delivery quality, handoffs, and capacity are steadier.';
+                }
+
+                if (watchout.label === 'Demand outrunning offer') {
+                    return 'Do not buy more lead volume until the offer is easier to sell and easier to deliver repeatedly.';
+                }
+
+                if (strategicContext.cash === 'critical') {
+                    return 'Do not take long-payback bets, expansion hires, or optional complexity until cash visibility improves.';
+                }
+
+                if (strategicContext.goal === 'exit') {
+                    return 'Do not rely on founder-only fixes. Build ownership, controls, and documentation that survive you.';
+                }
+
+                if (strategicContext.goal === 'autonomy') {
+                    return 'Do not stay the daily answer to every issue. Replace repeated founder intervention with simple ownership and review rhythms.';
+                }
+
+                return `Do not split focus across many departments at once. Raise ${engine.primary.dept.name} first, then move to ${engine.secondary ? engine.secondary.dept.name : 'the next weakest area'}.`;
+            }
+
+            function getJourneyEstimate(stats, engine, stage) {
+                const goal = engine.goalConfig;
+                const primaryDept = engine.primary.dept;
+                const primaryScore = engine.primary.score;
+
+                // Calculate effort to move primary department to next level
+                let primaryEffort = 0;
+                let primaryNextLevel = primaryScore + 1;
+                if (primaryScore < 10) {
+                    const nextLevelData = primaryDept.levels.find(l => l.level === primaryNextLevel);
+                    if (nextLevelData && nextLevelData.weights) {
+                        const w = nextLevelData.weights;
+                        // Effort = (complexity + time_to_implement) / 2, scaled by cost factor
+                        primaryEffort = ((w.complexity + w.time_to_implement) / 2) * (1 + w.direct_cost / 10);
+                    }
+                }
+
+                // Calculate total effort and current progress for all departments
+                // Journey spans from Level 0 to Level 10 (11 levels total)
+                let totalEffort = 0;
+                let currentMetrics = { complexity: 0, time: 0, cost: 0, impact: 0 };
+                let targetMetrics = { complexity: 0, time: 0, cost: 0, impact: 0 };
+
+                departments.forEach((dept, index) => {
+                    const currentScore = currentScores[index];
+                    if (currentScore === null) return; // Skip unselected
+
+                    // Add current level metrics (from Level 0 to current level)
+                    for (let level = 0; level <= currentScore; level++) {
+                        const levelData = dept.levels.find(l => l.level === level);
+                        if (levelData && levelData.weights) {
+                            const w = levelData.weights;
+                            currentMetrics.complexity += w.complexity;
+                            currentMetrics.time += w.time_to_implement;
+                            currentMetrics.cost += w.direct_cost;
+                            currentMetrics.impact += w.impact;
+                        }
+                    }
+
+                    // Calculate target level (always at least goal.targetFloor, max 10)
+                    const targetLevel = Math.max(goal.targetFloor, 10);
+
+                    // Add target metrics (from Level 0 to target level)
+                    for (let level = 0; level <= targetLevel; level++) {
+                        const levelData = dept.levels.find(l => l.level === level);
+                        if (levelData && levelData.weights) {
+                            const w = levelData.weights;
+                            targetMetrics.complexity += w.complexity;
+                            targetMetrics.time += w.time_to_implement;
+                            targetMetrics.cost += w.direct_cost;
+                            targetMetrics.impact += w.impact;
+                        }
+                    }
+
+                    // Calculate effort needed to reach target (from current+1 to target)
+                    const startLevel = currentScore + 1;
+                    for (let level = startLevel; level <= targetLevel; level++) {
+                        const levelData = dept.levels.find(l => l.level === level);
+                        if (levelData && levelData.weights) {
+                            const w = levelData.weights;
+                            const levelEffort = ((w.complexity + w.time_to_implement) / 2) * (1 + w.direct_cost / 10);
+                            totalEffort += levelEffort;
+                        }
+                    }
+                });
+
+                // Calculate progress percentages for each metric (0-100%)
+                const metricProgress = {
+                    impact: targetMetrics.impact > 0 ? Math.min(100, Math.round((currentMetrics.impact / targetMetrics.impact) * 100)) : 0,
+                    complexity: targetMetrics.complexity > 0 ? Math.min(100, Math.round((currentMetrics.complexity / targetMetrics.complexity) * 100)) : 0,
+                    time: targetMetrics.time > 0 ? Math.min(100, Math.round((currentMetrics.time / targetMetrics.time) * 100)) : 0,
+                    cost: targetMetrics.cost > 0 ? Math.min(100, Math.round((currentMetrics.cost / targetMetrics.cost) * 100)) : 0
+                };
+
+                // Normalize effort to months (1 effort point ≈ 0.5 months)
+                const baseMonths = totalEffort * 0.5;
+                const cashPenalty = strategicContext.cash === 'critical' ? 1.5 : strategicContext.cash === 'tight' ? 1.2 : 1.0;
+                const months = Math.max(3, Math.round(baseMonths * cashPenalty));
+                const timeline = monthsToRange(months);
+
+                // Calculate overall progress
+                const avgProgress = Math.min(1, stats.avg / goal.targetAvg);
+                const floorProgress = Math.min(1, stats.min / goal.targetFloor);
+                const progress = Math.max(8, Math.min(100, Math.round(((avgProgress * 0.65) + (floorProgress * 0.35)) * 100)));
+
+                let nextMilestone = `Lift ${engine.primary.dept.name} to level ${primaryNextLevel} (effort: ${Math.round(primaryEffort)}/10).`;
+                if (stats.min >= goal.targetFloor && stats.avg < goal.targetAvg) {
+                    nextMilestone = `Raise the overall operating average to about ${goal.targetAvg}/10 without creating a new weak spot.`;
+                }
+                if (stats.min >= goal.targetFloor && stats.avg >= goal.targetAvg) {
+                    nextMilestone = strategicContext.goal === 'exit'
+                        ? 'Protect transferability by removing one more founder-only dependency and tightening documentation.'
+                        : 'Protect consistency and keep removing founder or key-person dependency.';
+                }
+
+                return {
+                    progress,
+                    timeline,
+                    nextMilestone,
+                    primaryEffort: Math.round(primaryEffort),
+                    totalEffort: Math.round(totalEffort),
+                    metricProgress,
+                    summary: `You are currently in the ${stage.label} stage. With focused work on ${engine.primary.dept.name}, you are roughly ${timeline.label.toLowerCase()} away from ${goal.destination}.`
+                };
+            }
+
+            function resetGoalPathEstimate() {
+                valCurrent.innerText = 'Early';
+                valPotential.innerText = strategicGoals[strategicContext.goal].shortLabel;
+                goalJourneyNote.innerText = 'Complete all 10 departments for a more accurate estimate.';
+            }
+
+            function runAnalystLogic() {
+                const stats = getAuditStats();
+
+                // Check if 100% is reached - show congratulations
+                if (stats.total === 100) {
+                    exitLockOverlay.classList.add('hidden');
+                    exitContentWrapper.classList.remove('blurred-content');
+                    analystContent.innerHTML = `
+                        <div class="text-center py-8">
+                            <div class="text-6xl mb-4">🎉</div>
+                            <h2 class="text-3xl font-bold text-slate-900 mb-2">Congratulations!</h2>
+                            <p class="text-lg text-slate-700 mb-4">You've reached 100/100 across all departments.</p>
+                            <p class="text-base text-slate-600 leading-relaxed max-w-md mx-auto">
+                                Your business is operating at full potential across all critical areas.
+                                <strong>There's nothing else to do.</strong> Enjoy life and celebrate this achievement!
+                            </p>
+                            <div class="mt-6 pt-6 border-t border-slate-200">
+                                <p class="text-sm text-slate-500">Keep reviewing regularly to maintain this excellence.</p>
+                            </div>
+                        </div>
+                    `;
+                    // Update progress bars to 100%
+                    document.getElementById('progress-impact').innerText = '100%';
+                    document.getElementById('bar-impact').style.width = '100%';
+                    document.getElementById('progress-complexity').innerText = '100%';
+                    document.getElementById('bar-complexity').style.width = '100%';
+                    document.getElementById('progress-time').innerText = '100%';
+                    document.getElementById('bar-time').style.width = '100%';
+                    document.getElementById('progress-cost').innerText = '100%';
+                    document.getElementById('bar-cost').style.width = '100%';
+                    return;
+                }
+
+                // Check if at least one department is selected
+                if (stats.completionCount === 0) {
+                    exitLockOverlay.classList.remove('hidden');
+                    exitContentWrapper.classList.add('blurred-content');
+                    exitLockMessage.innerText = 'Score departments to unlock guidance';
+                    analystContent.innerHTML = `
+                        <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Getting started</div>
+                        <p class="mt-1 text-2xl font-semibold tracking-tight text-slate-900">0/10 departments scored</p>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-700"><strong class="text-slate-900">Start here.</strong> Pick a department you know well and select a level to begin. BASE-100 will identify your lowest-scoring area and guide your next move.</p>
+                    `;
+                    resetGoalPathEstimate();
+                    return;
+                }
+
+                // Warn if not all departments are scored
+                if (stats.completionCount < 10) {
+                    exitLockOverlay.classList.remove('hidden');
+                    exitContentWrapper.classList.add('blurred-content');
+                    const needed = 10 - stats.completionCount;
+                    exitLockMessage.innerText = `Score ${needed} more department${needed === 1 ? '' : 's'} for complete analysis`;
+                    const progressLabel = `${stats.completionCount}/10 departments scored`;
+                    const rangeLabel = stats.completionCount > 0 ? `Current range: ${stats.min}/10 to ${stats.max}/10` : 'Start by scoring the departments you know best.';
+                    analystContent.innerHTML = `
+                        <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Partial analysis</div>
+                        <p class="mt-1 text-2xl font-semibold tracking-tight text-slate-900">${progressLabel}</p>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-700"><strong class="text-slate-900">Early read.</strong> Score the remaining ${needed} department${needed === 1 ? '' : 's'} to confirm your lowest-scoring area and get a more accurate estimate. Until then, BASE-100 is still identifying your priority.</p>
+                        <p class="mt-3 text-xs leading-relaxed text-slate-500">Current total: ${stats.total}/100 · ${rangeLabel}</p>
+                    `;
+                    resetGoalPathEstimate();
+                    return;
+                }
+
+                const engine = runPriorityEngine(stats);
+                const stage = getStage(stats.avg);
+                const watchout = getSystemWatchout(stats, engine);
+                const journey = getJourneyEstimate(stats, engine, stage);
+                const missingCount = departments.length - stats.completionCount;
+
+                // Get the primary department's current level data
+                const primaryDept = engine.primary.dept;
+                const primaryScore = engine.primary.score;
+                const primaryLevelData = primaryDept.levels.find(l => l.level === primaryScore);
+
+                const priorityWhy = engine.primary.isFloorConstraint
+                    ? `It is one of your lowest-scoring areas at ${engine.primary.score}/10. ${engine.primary.playbook.why[engine.goalConfig.engineKey]}`
+                    : `At ${engine.primary.score}/10 it is still close enough to the bottom of the system to slow the whole business. ${engine.primary.playbook.why[engine.goalConfig.engineKey]}`;
+                const disciplineNote = getDisciplineNote(engine, watchout);
+                const provisionalHtml = stats.isComplete
+                    ? ''
+                    : `<p class="text-xs leading-relaxed text-amber-700">Early read: ${stats.completionCount}/10 departments scored. Score the remaining ${missingCount} to confirm your lowest-scoring area and get a more accurate estimate.</p>`;
+
+                // Format weights for display
+                let weightsHtml = '';
+                if (primaryLevelData && primaryLevelData.weights) {
+                    const w = primaryLevelData.weights;
+                    weightsHtml = `
+                        <div class="grid grid-cols-4 gap-2 mt-2">
+                            <div class="bg-slate-50 p-2 rounded text-center">
+                                <div class="text-[10px] font-semibold text-slate-500 uppercase">Impact</div>
+                                <div class="text-lg font-bold text-slate-900">${w.impact}<span class="text-xs text-slate-400 font-normal">/10</span></div>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded text-center">
+                                <div class="text-[10px] font-semibold text-slate-500 uppercase">Complexity</div>
+                                <div class="text-lg font-bold text-slate-900">${w.complexity}<span class="text-xs text-slate-400 font-normal">/10</span></div>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded text-center">
+                                <div class="text-[10px] font-semibold text-slate-500 uppercase">Time</div>
+                                <div class="text-lg font-bold text-slate-900">${w.time_to_implement}<span class="text-xs text-slate-400 font-normal">/10</span></div>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded text-center">
+                                <div class="text-[10px] font-semibold text-slate-500 uppercase">Cost</div>
+                                <div class="text-lg font-bold text-slate-900">${w.direct_cost}<span class="text-xs text-slate-400 font-normal">/10</span></div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                exitLockOverlay.classList.add('hidden');
+                exitContentWrapper.classList.remove('blurred-content');
+
+                analystContent.innerHTML = `
+                    ${provisionalHtml}
+                    <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Main focus now</div>
+                    <p class="mt-1 text-2xl font-semibold tracking-tight text-slate-900">${engine.primary.dept.name}</p>
+                    <p class="mt-1 text-sm font-medium text-[#ff4d00]">${engine.primary.playbook.label} · Level ${engine.primary.score}/10 today</p>
+
+                    <div class="mt-4 space-y-4 border-t border-slate-200 pt-4">
+                        <div>
+                            <span class="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-slate-500">Highest leverage activity from here and now towards your goal</span>
+                            <p class="text-sm leading-relaxed text-slate-700">${primaryLevelData ? primaryLevelData.observation : 'No data available'}</p>
+                        </div>
+
+                        <div>
+                            <span class="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-slate-500">Evidence + Review Frequency</span>
+                            <p class="text-sm leading-relaxed text-slate-700"><strong>${primaryLevelData ? primaryLevelData.milestone_evidence : 'N/A'}</strong></p>
+                            <p class="text-xs text-slate-500 mt-1">Review every ${primaryLevelData && primaryLevelData.review_frequency ? primaryLevelData.review_frequency : '?'} ${primaryLevelData && primaryLevelData.review_frequency === 1 ? 'year' : 'times per year'}</p>
+                        </div>
+
+                        <div>
+                            <span class="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-slate-500">Effort & Prerequisites</span>
+                            ${weightsHtml}
+                            ${primaryLevelData && primaryLevelData.prerequisite ? `<p class="text-xs text-slate-600 mt-2"><strong>Prerequisite:</strong> ${primaryLevelData.prerequisite}</p>` : ''}
+                        </div>
+
+                        <div>
+                            <span class="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-slate-500">Failure Signal</span>
+                            <p class="text-sm leading-relaxed text-red-700"><strong>Watch for:</strong> ${primaryLevelData ? primaryLevelData.failure_signal : 'No data available'}</p>
+                        </div>
+
+                        <div class="pt-2 border-t border-slate-200">
+                            <p class="text-sm leading-relaxed text-slate-700"><span class="mb-1 block text-[11px] font-semibold uppercase tracking-wider text-slate-500">Why now</span>${priorityWhy}</p>
+                        </div>
+                    </div>
+                `;
+
+                valCurrent.innerText = stage.label;
+                valPotential.innerText = engine.goalConfig.shortLabel;
+
+                // Update journey progress bars
+                document.getElementById('progress-impact').innerText = `${journey.metricProgress.impact}%`;
+                document.getElementById('bar-impact').style.width = `${journey.metricProgress.impact}%`;
+
+                document.getElementById('progress-complexity').innerText = `${journey.metricProgress.complexity}%`;
+                document.getElementById('bar-complexity').style.width = `${journey.metricProgress.complexity}%`;
+
+                document.getElementById('progress-time').innerText = `${journey.metricProgress.time}%`;
+                document.getElementById('bar-time').style.width = `${journey.metricProgress.time}%`;
+
+                document.getElementById('progress-cost').innerText = `${journey.metricProgress.cost}%`;
+                document.getElementById('bar-cost').style.width = `${journey.metricProgress.cost}%`;
+
+                goalJourneyNote.innerText = `Next milestone: ${journey.nextMilestone}${stats.isComplete ? '' : ' This is still a provisional estimate until all 10 departments are scored.'}`;
+            }
+
+            // --- CHARTS ---
+            function initRadarChart() {
+                const ctx = document.getElementById('radar-chart').getContext('2d');
+                // Convert null to 0 for chart display
+                const chartData = currentScores.map(s => s === null ? 0 : s);
+                radarChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: departments.map(d => d.name),
+                        datasets: [{
+                            label: 'Maturity', data: chartData,
+                            backgroundColor: 'rgba(15, 23, 42, 0.12)', borderColor: 'rgba(15, 23, 42, 0.9)',
+                            pointBackgroundColor: '#ff4d00', pointBorderColor: '#fff', borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false, responsive: true,
+                        scales: { r: { min: 0, max: 10, ticks: { display: false, stepSize: 2 }, grid: { color: '#e2e8f0' }, pointLabels: { font: { size: 11, weight: 'bold' }, color: '#334155' } } },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+            function updateRadarChart() {
+                const chartData = currentScores.map(s => s === null ? 0 : s);
+                radarChart.data.datasets[0].data = chartData;
+                radarChart.update();
+            }
+
+            function initEffortChart() {
+                const ctx = document.getElementById('effort-chart').getContext('2d');
+                effortChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+                        datasets: [{ label: 'Effort', data: [2, 4, 7, 11, 18, 29, 47, 75, 120, 192], backgroundColor: '#94a3b8', borderRadius: 4 }]
+                    },
+                    options: { maintainAspectRatio: false, responsive: true, scales: { x: { grid: { display: false } }, y: { display: false } }, plugins: { legend: { display: false } } }
+                });
+            }
+
+            init();
+        });
+    </script>
+
+    <!-- Newsletter Subscribe (Popup) -->
+    <div id="subscribe-popup-container"></div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Load header, footer, and framework data -->
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/base100-framework.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../partials/subscribe.js"></script>
+</body>
+</html>

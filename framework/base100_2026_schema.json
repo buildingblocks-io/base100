@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://base100.org/schemas/base100_2026.schema.json",
+  "title": "BASE100 Domain Standard Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "language",
+    "domains"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/domain"
+      }
+    }
+  },
+  "$defs": {
+    "frequency": {
+      "type": "integer",
+      "enum": [1, 2, 4, 12, 52, 250]
+    },
+    "weights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "impact",
+        "complexity",
+        "time_to_implement",
+        "direct_cost"
+      ],
+      "properties": {
+        "impact": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "complexity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "time_to_implement": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "direct_cost": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        }
+      }
+    },
+    "direction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "purpose",
+        "required_outputs",
+        "primary_owner",
+        "minimum_standard",
+        "review_frequency",
+        "questions_to_answer"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_outputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "primary_owner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "minimum_standard": {
+          "type": "string",
+          "minLength": 1
+        },
+        "review_frequency": {
+          "$ref": "#/$defs/frequency"
+        },
+        "questions_to_answer": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "level": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level",
+        "headline",
+        "plain_english",
+        "observation",
+        "why_it_matters",
+        "audit_binary",
+        "evidence",
+        "evidence_example",
+        "example",
+        "false_positive_signals",
+        "failure_signals",
+        "prerequisite",
+        "review_frequency",
+        "weights"
+      ],
+      "properties": {
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "headline": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plain_english": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_it_matters": {
+          "type": "string",
+          "minLength": 1
+        },
+        "audit_binary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_example": {
+          "type": "string",
+          "minLength": 1
+        },
+        "example": {
+          "type": "string",
+          "minLength": 1
+        },
+        "false_positive_signals": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "failure_signals": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "prerequisite": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[A-Z]{2}\\.([1-9]|10)$"
+            }
+          ]
+        },
+        "review_frequency": {
+          "$ref": "#/$defs/frequency"
+        },
+        "weights": {
+          "$ref": "#/$defs/weights"
+        }
+      }
+    },
+    "domain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "purpose",
+        "cxo_persona",
+        "description",
+        "direction",
+        "levels"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "LD",
+            "PR",
+            "BM",
+            "RS",
+            "OP",
+            "CS",
+            "TC",
+            "TI",
+            "FR",
+            "AI"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cxo_persona": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "$ref": "#/$defs/direction"
+        },
+        "levels": {
+          "type": "array",
+          "minItems": 10,
+          "maxItems": 10,
+          "items": {
+            "$ref": "#/$defs/level"
+          }
+        }
+      }
+    }
+  }
+}

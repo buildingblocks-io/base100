@@ -1,0 +1,257 @@
+{
+  "id": "PI",
+  "name": "Product & Innovation",
+  "purpose": "Define what the company sells, validate that it solves a real problem, and build the capability to improve it continuously.",
+  "cxo_persona": "Chief Product Officer",
+  "description": "How the company defines its product, organizes its product knowledge, standardizes what it sells and how it builds, measures whether the product actually works for customers, and develops the systematic capability to keep getting better. A mature product domain means the company innovates on evidence, not instinct, and the product improves whether the founder is involved or not. Metric names and examples should be adapted to the business model. The principles apply equally to services, SaaS, physical products, and marketplaces.",
+  "direction": {
+    "name": "Product Direction",
+    "purpose": "Define what value the company creates for customers, who it is for, and how that value will be maintained and improved over time through a structured, evidence-driven process.",
+    "required_outputs": [
+      "customer_problem_statement",
+      "ideal_customer_profile",
+      "product_value_proposition",
+      "core_offer_definition",
+      "product_success_metrics",
+      "product_improvement_process",
+      "innovation_principles",
+      "product_review_rhythm"
+    ],
+    "primary_owner": "Chief Product Officer",
+    "contributors": ["CEO", "marketing_lead", "sales_lead", "customer_success_lead", "technology_lead"],
+    "minimum_standard": "One written product direction exists that clearly defines the problem solved, the target customer, the specific outcome the customer should achieve, and how the product will be improved over time.",
+    "review_frequency": 4,
+    "questions_to_answer": [
+      "What specific problem does the product solve, stated in the exact words a frustrated customer would use to describe it?",
+      "Who is the ideal customer, described precisely enough that a salesperson can disqualify a non-fit in under two minutes?",
+      "What measurable outcome should the customer achieve, and by when after purchase?",
+      "What would make a customer choose this over doing nothing, and over the most credible alternative?",
+      "Does the current pricing model reflect the full value the product delivers, and which customer segment is underpriced?",
+      "How does customer feedback currently flow into product decisions, and how fast does a signal become a change?",
+      "What are the three metrics that prove the product is working, and what triggers a formal product intervention when they decline?",
+      "What would make the current product obsolete in three years, and is anyone building that already?"
+    ]
+  },
+  "levels": [
+    {
+      "level": 1,
+      "headline": "Customer Problem Defined",
+      "plain_english": "The company has a written statement of the problem it solves, in the customer's own words, that the whole team agrees on.",
+      "observation": "Ask three people in this company what problem the product solves. At Level 1, they all give the same answer, and they can show you where it is written down. The statement uses language a frustrated customer would use, not internal jargon. It describes a specific situation, a specific consequence, and a specific type of person it happens to.",
+      "why_it_matters": "Every product decision, every sales conversation, and every marketing message flows from a shared understanding of the problem being solved. A problem statement written in company language instead of customer language is a silent source of product drift. When the team disagrees on the problem, they build different things and nobody notices until customers stop buying.",
+      "audit_binary": "Is there a written customer problem statement in the customer's own language, agreed by leadership, that every team member can recite consistently, and has it been validated against at least three real customer conversations in the past six months?",
+      "evidence": "Customer Problem Statement with Validation Record",
+      "evidence_example": "A written 2 to 3 sentence statement describing who experiences the problem, what the specific situation is, and what the cost or consequence is. Plus a record of at least three customer conversations in the past six months confirming the statement still resonates, with direct quotes where available.",
+      "example": "Agency founders with 5 to 15 staff spend 6 to 10 hours per week inside client delivery work they should have delegated. This prevents them from working on the business, creates a revenue ceiling, and makes every holiday feel like a liability. Validated in four customer interviews last quarter. All four recognized the framing immediately without prompting.",
+      "false_positive_signals": [
+        "The problem statement is written in the company's technical or marketing language rather than words a frustrated customer would actually say.",
+        "The statement has not been tested with a real customer in more than six months and is assumed to still be accurate."
+      ],
+      "failure_signals": [
+        "Customers read the product description and say it does not quite describe their situation, or they are not sure it is for them.",
+        "Sales teams spend the first part of every discovery call explaining what the problem is rather than confirming the customer already feels it."
+      ],
+      "prerequisite": null,
+      "review_frequency": 2,
+      "weights": {"impact": 10, "complexity": 2, "time_to_implement": 2, "direct_cost": 1}
+    },
+    {
+      "level": 2,
+      "headline": "Product Knowledge Organized",
+      "plain_english": "All important product information lives in one place that any team member can find without asking the founder.",
+      "observation": "At Level 2, there is a product knowledge base that holds everything the company knows about its product and its customers: the problem statement, the ideal customer profile, the value proposition, past customer research, competitive observations, and the rationale behind past product decisions. A new team member can join and understand the product context in a day without a single briefing call.",
+      "why_it_matters": "Product knowledge that lives in the founder's head leaves with the founder. Every time a team member has to ask what the product is for, who it serves, or why a past decision was made, the company is paying a tax on disorganized information. Organized product knowledge is the foundation that makes every downstream product activity faster and less dependent on one person.",
+      "audit_binary": "Is there a single product knowledge repository containing the problem statement, ideal customer profile, value proposition, at least five customer research records, a competitive overview, and a log of past product decisions, accessible to every team member and updated within the past 90 days?",
+      "evidence": "Product Knowledge Repository",
+      "evidence_example": "A shared folder, wiki, or document containing: the problem statement, ICP, value proposition, research notes from at least five customer conversations, a competitive landscape summary, and a product decision log with at least five entries. Last updated within 90 days.",
+      "example": "A product wiki with six sections: Problem, Customer, Offer, Research, Competitors, and Decision Log. The Research section holds notes from 18 customer conversations organized by theme. The Decision Log has 12 entries from the past year, each showing the decision, the reasoning, and the expected outcome. Any new hire reads it on day one.",
+      "false_positive_signals": [
+        "A product document was created once during the company's early days and has not been updated since, making it a historical artifact rather than a working resource.",
+        "Product knowledge exists across multiple tools with no single authoritative location, requiring the founder or product lead to be asked when something is unclear."
+      ],
+      "failure_signals": [
+        "New team members spend their first two weeks piecing together product context from conversations and old emails rather than finding it in a single source.",
+        "The team cannot explain why a significant product decision was made six months ago because no record exists."
+      ],
+      "prerequisite": "PI.1",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 2, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 3,
+      "headline": "Named Product Owner",
+      "plain_english": "One named person is responsible for product decisions and can answer the question: what are we building and why?",
+      "observation": "At Level 3, there is a named product owner who is accountable for what gets built and why. They do not need to be a professional product manager. In a small company, this might be the founder explicitly naming themselves until they can hand it over. What matters is that one person owns product decisions, has visibility into customer feedback and product performance, and can answer the question of what the company is building next and why, without hesitation.",
+      "why_it_matters": "Without a named product owner, product decisions default to whoever shouts loudest. Sales pushes for features that close deals. The founder changes priorities based on the last client call. Developers build what feels interesting. Nobody is wrong individually. But the product ends up pulled in every direction simultaneously. One named owner does not need to be right about everything. They need to be accountable for making a call.",
+      "audit_binary": "Is there one named person accountable for product decisions who can demonstrate current visibility into customer feedback and product performance, and who made at least three documented product decisions in the past 90 days?",
+      "evidence": "Product Ownership Assignment with Decision Records",
+      "evidence_example": "A written role assignment naming the product owner, plus a product decision log showing at least three decisions made by that person in the past 90 days, each with a rationale.",
+      "example": "The Head of Product is named as product owner in the accountability chart. They run the weekly product review, have access to customer feedback reports and product usage data, and made three documented decisions last quarter: deprioritized one roadmap item after customer feedback showed low demand, added a new onboarding step after churn analysis revealed a gap, and rejected a sales-requested feature because it served one client rather than the broader ICP.",
+      "false_positive_signals": [
+        "A product manager holds the title but every significant product decision still requires the founder to weigh in before it is confirmed.",
+        "The named product owner has the accountability but lacks access to customer feedback or product performance data, so they are making decisions blind."
+      ],
+      "failure_signals": [
+        "Different team members give different answers when asked what the product priority is this quarter and why.",
+        "Product decisions are made reactively, driven by the most recent client complaint or the loudest internal voice, with no named person filtering them."
+      ],
+      "prerequisite": "PI.2",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 3, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 4,
+      "headline": "Standardized Offer and Build Process",
+      "plain_english": "The company sells one clearly defined offer that every customer receives, and product improvements follow a repeatable process.",
+      "observation": "Two things are standardized at Level 4. First, the offer: a written document defines exactly what is included, what is excluded, how it is delivered, how long it takes, and what the customer has at the end. Every customer receives this same scope. Second, the process: a written workflow defines how a product improvement moves from idea to release, who approves each step, and what the minimum quality bar is before something reaches a customer.",
+      "why_it_matters": "A company with an undefined offer reinvents its product on every sale. Margins are invisible, delivery is inconsistent, and operations cannot scale because every delivery is bespoke. A company with no build process ships whatever is ready, breaks things for existing customers, and has no way to learn what works because improvements are never tested consistently. Standardizing both is what converts a founder-led product into a company-owned one.",
+      "audit_binary": "Is the core offer documented with explicit inclusions, exclusions, delivery process, timeline, and price, delivered consistently to at least three recent customers without material scope changes, and is there a written product improvement process showing how ideas move from input to release?",
+      "evidence": "Core Offer Definition and Product Improvement Process Document",
+      "evidence_example": "A written offer document listing inclusions, exclusions, delivery steps, timeline, and price, confirmed as delivered consistently to at least three recent customers. Plus a written product improvement process showing each step from idea intake to release, with named owners and approval points.",
+      "example": "The offer document for the 90-Day Operating System: 10 structured sessions over 12 weeks, includes accountability chart, three department SOPs, 90-day scorecard, and weekly meeting rhythm setup. Excludes software implementation, recruitment, and financial consulting. Price: 12,000 fixed. Delivered by any trained consultant using the delivery playbook. Improvement process: ideas submitted to the product log, reviewed monthly by the product owner, prioritized against outcome metrics, approved items scoped by the product owner, built or drafted, reviewed by one senior team member, released with a client communication template. Six steps, two approval points, one release owner.",
+      "false_positive_signals": [
+        "An offer is described on the website but every sale involves significant custom scoping before the contract is signed, making the published offer a starting point for negotiation rather than the actual product.",
+        "A build process exists on paper but new features regularly skip steps under deadline pressure, making the process descriptive rather than enforced."
+      ],
+      "failure_signals": [
+        "Delivery teams receive different briefs for every client because scope was negotiated differently at sale each time.",
+        "A product improvement reached a customer and broke something for existing users because no review step caught the dependency."
+      ],
+      "prerequisite": "PI.3",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 5, "time_to_implement": 5, "direct_cost": 3}
+    },
+    {
+      "level": 5,
+      "headline": "Product Outcome Metrics",
+      "plain_english": "The company tracks at least three metrics that measure whether customers are succeeding, not whether the team is busy.",
+      "observation": "At Level 5, product performance is measured by what customers achieve, not by what the team ships. The specific metrics depend on the business model: for a service business this might be activation rate, 90-day retention, and outcome achievement rate; for a marketplace it might be listing activation, repeat transaction rate, and buyer satisfaction. All three have numeric targets. All three are reviewed monthly. A metric declining for two consecutive months triggers a documented product response.",
+      "why_it_matters": "Output metrics, such as features shipped, updates released, and bugs fixed, measure how busy the product team is. Outcome metrics measure whether the product is actually working. A product team that ships 40 updates a quarter while retention is declining is building faster in the wrong direction. Outcome metrics are the only reliable signal of whether the product deserves the price it charges.",
+      "audit_binary": "Are at least three product outcome metrics tracked monthly with numeric targets, reviewed in a fixed monthly meeting, and has a metric declining for two consecutive months triggered a documented product response in the past six months?",
+      "evidence": "Product Metrics Dashboard with Monthly Review Records and Intervention Log",
+      "evidence_example": "Monthly metrics reports for at least three consecutive months showing at least three outcome metrics with targets, actuals, and trend. Plus at least one documented product intervention triggered by a metric declining for two consecutive months.",
+      "example": "For a consulting business: activation rate, defined as percentage of clients completing all onboarding milestones within 14 days, target 80%; 90-day retention rate, target 88%; outcome achievement rate, defined as percentage of clients reporting their target outcome achieved at the 90-day review, target 72%. Reviewed on the first Monday of each month. Last month, outcome achievement dropped to 64% for the second month running. Intervention triggered: product owner reviewed 12 client delivery records, identified a pattern in session 4, and updated the session guide within two weeks.",
+      "false_positive_signals": [
+        "The product team tracks features shipped, releases, and bug counts as their primary performance metrics, with no measure of whether customers are succeeding.",
+        "Outcome metrics are displayed on a dashboard but declining numbers have never triggered any documented product response."
+      ],
+      "failure_signals": [
+        "The product team cannot answer whether customers are more or less successful with the product than they were six months ago.",
+        "Churn is rising but the product team's quarterly priorities are not connected to the churn data."
+      ],
+      "prerequisite": "TI.5",
+      "review_frequency": 12,
+      "weights": {"impact": 9, "complexity": 6, "time_to_implement": 5, "direct_cost": 3}
+    },
+    {
+      "level": 6,
+      "headline": "Proactive Product Management",
+      "plain_english": "The company collects structured customer signals before problems become churn, and plans product improvements at least one quarter ahead.",
+      "observation": "Two proactive mechanisms exist at Level 6. First, a structured feedback process collects signals from customers at defined points in their journey, not just when something goes wrong. Results are reviewed monthly and linked to roadmap decisions. Where possible, customers who gave feedback are told what changed as a result. Second, a rolling roadmap plans improvements at least 90 days ahead, is visible to the team, and has a change log showing why priorities shifted when they did.",
+      "why_it_matters": "Reactive product management means the company learns about problems when customers complain or cancel. By then, trust is already damaged. A structured feedback loop catches signals earlier. A rolling roadmap prevents the product from lurching between whatever was requested last. Together they shift product management from firefighting to steering.",
+      "audit_binary": "Is structured customer feedback collected at defined journey points at least monthly, reviewed in a fixed meeting, linked to at least one roadmap decision in the past 90 days, and is there a rolling roadmap covering at least the next 90 days with a change log recording every reprioritization and its reason?",
+      "evidence": "Feedback Review Log with Decision Links and Rolling Roadmap with Change Log",
+      "evidence_example": "Monthly feedback summaries for at least three consecutive months, each showing the collection method, response volume, top themes, and a log entry linking the feedback to a roadmap decision. Plus a roadmap document updated within 30 days, visible to the team, with a change log containing at least two entries.",
+      "example": "A 5-question survey sent automatically at day 30 and at project completion. Reviewed the first Monday of each month. Last month: seven clients cited unclear guidance after session three. Outcome: onboarding checklist updated and sent proactively at session two. Those seven clients received a follow-up message explaining the change. Roadmap: maintained in the project system, visible to the full team, reviewed monthly. Last change log entry: moved automated reporting to Q3 because feedback showed clients value the live review call more than the report itself. Decision recorded with rationale.",
+      "false_positive_signals": [
+        "Feedback surveys are sent and stored but nobody reviews them or acts on them, and customers never hear what changed as a result of their input.",
+        "A roadmap document exists but has not been updated in more than 45 days and the change log has no entries, meaning priorities shifted without being recorded."
+      ],
+      "failure_signals": [
+        "The same customer complaints appear in feedback for two or more consecutive months without a documented product response.",
+        "The team is surprised by a product problem that structured early signals would have caught three months earlier."
+      ],
+      "prerequisite": "PI.5",
+      "review_frequency": 12,
+      "weights": {"impact": 9, "complexity": 6, "time_to_implement": 6, "direct_cost": 2}
+    },
+    {
+      "level": 7,
+      "headline": "Cross-Domain Product Integration",
+      "plain_english": "Product formally connects to customer success, sales, marketing, and technology through shared artifacts and regular integration points.",
+      "observation": "At Level 7, the product function does not operate in isolation. Four integration points exist, each backed by a real artifact used in the past quarter. Customer success shares outcome data and churn signals that feed the roadmap. Sales shares objection themes and offer feedback that inform the offer definition. Marketing reviews the value proposition against what actually converts, not just what sounds good internally. Technology shares build feasibility and technical constraint data before items are committed to the roadmap.",
+      "why_it_matters": "The most expensive product failures are cross-domain failures. A product that is technically excellent but described incorrectly in marketing will not sell. A product that sells well but sets expectations delivery cannot meet will churn. A product team that receives no churn data from customer success will keep improving the wrong things. Integration points convert domain-specific knowledge into shared decisions, and shared decisions produce better outcomes than four functions optimizing independently.",
+      "audit_binary": "Do documented integration artifacts connect PI to CS, RS, BM, and TI, with evidence that each artifact was used to inform a product decision in the past quarter?",
+      "evidence": "Cross-Domain Product Integration Artifacts: CS Outcome Report, RS Offer Feedback Log, BM Message Validation Record, TI Feasibility Input",
+      "evidence_example": "Four artifacts, each with evidence of use in the past quarter: a customer success outcome and churn signal report used in a roadmap review, a sales objection and offer feedback log reviewed before the last offer update, a marketing message validation record showing the value proposition was tested against conversion data, and a technology feasibility note for at least one roadmap item confirmed before it was committed.",
+      "example": "CS integration: monthly outcome report from the customer success lead showing goal achievement rates by client segment, reviewed by the product owner at the monthly product meeting. Three roadmap items in the past quarter were directly traceable to signals in this report. RS integration: a quarterly offer feedback session with the sales lead covering the top five objections and any scope questions that came up during sales conversations. BM integration: value proposition reviewed against the past quarter's conversion data before the website copy was updated. TI integration: a written feasibility note from the technology lead for every roadmap item above a defined complexity threshold, submitted before the item is confirmed in the roadmap.",
+      "false_positive_signals": [
+        "Product and customer success have a good working relationship and talk regularly, but no artifact exists showing how outcome data formally feeds the roadmap.",
+        "The product owner attends a marketing meeting once per quarter but no structured message validation process or artifact exists."
+      ],
+      "failure_signals": [
+        "Marketing is describing the product using language the product team recognizes as outdated, but no formal review point exists to catch and correct it.",
+        "A roadmap item was built and released but the technology team had flagged a feasibility concern informally that was never formally reviewed."
+      ],
+      "prerequisite": "PI.6",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 3}
+    },
+    {
+      "level": 8,
+      "headline": "Structured Experimentation",
+      "plain_english": "Every significant product change is tested with a written hypothesis and a pre-defined success criterion before it reaches all customers.",
+      "observation": "At Level 8, the company has a defined experimentation protocol. Any product change above an agreed impact threshold requires a written experiment brief before it is built: a hypothesis, a test group, a success criterion defined before results are known, and a timeline. Results are logged. The decision to roll out, iterate, or abandon is made against the pre-defined criterion, not against how the team feels about the result. Findings feed back into the product knowledge base and update the roadmap.",
+      "why_it_matters": "Shipping to all customers simultaneously makes every significant product change an irreversible bet. An experiment converts that bet into a test with limited downside. Over time, a company that runs structured experiments learns faster and wastes less than one that ships and hopes. The pre-defined success criterion is the most important element. Defining success after seeing the results is not experimentation. It is rationalization.",
+      "audit_binary": "Is there a documented experimentation protocol that has been applied to at least two product changes in the past six months, each with a written hypothesis, a defined test group, a success criterion defined before results were known, and a recorded outcome and rollout decision?",
+      "evidence": "Product Experimentation Log",
+      "evidence_example": "An experimentation log with at least two entries from the past six months, each showing: the change tested, the hypothesis, the test group and selection method, the pre-defined success criterion, the result, and the rollout decision made.",
+      "example": "Experiment: adding a structured mid-program check-in call at week six. Hypothesis: clients who receive a week-six check-in will show a 10 percentage point improvement in outcome achievement at 90 days. Test group: next 20 new clients, randomly selected. Success criterion: outcome achievement rate for test group above 82% versus current baseline of 71%. Timeline: 90 days. Result: test group achieved 79%. Below the threshold. Decision: week-six call not made mandatory. Learning logged: timing may matter more than the call itself. Follow-up experiment planned for week four.",
+      "false_positive_signals": [
+        "The team tries things with some clients and not others informally, but no written hypothesis or success criterion exists, making it observation rather than experimentation.",
+        "Success criteria are described after the results are known, allowing the team to declare any result a success by adjusting what they were looking for."
+      ],
+      "failure_signals": [
+        "A significant product change was released to all customers and then reversed within 60 days because it did not work as expected, a problem a test group would have caught.",
+        "The team cannot cite the specific evidence that any product improvement in the past year achieved its intended effect."
+      ],
+      "prerequisite": "PI.7",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 7, "direct_cost": 4}
+    },
+    {
+      "level": 9,
+      "headline": "Independent Product Leadership",
+      "plain_english": "A dedicated product leader owns the roadmap and runs product reviews independently. The product does not stall when the founder is unavailable.",
+      "observation": "At Level 9, a named product leader, not the founder, owns the product roadmap. They lead the monthly product review, are accountable for the outcome metrics, and have documented authority to add, remove, or reprioritize roadmap items without founder approval. The founder receives a quarterly product summary but does not attend monthly sessions. Product velocity does not change when the founder is focused elsewhere.",
+      "why_it_matters": "Founder-controlled product development is the most common product bottleneck in growing companies. Every roadmap decision that requires the founder creates a queue. A product leader with real authority decouples innovation speed from the founder's schedule. It also signals something important to the team: the product is a company capability, not a founder preference.",
+      "audit_binary": "Is there a named product leader with documented roadmap authority who has run at least three consecutive monthly product reviews without founder involvement, and made at least two roadmap-level decisions, meaning additions, removals, or sequence changes, independently and on record?",
+      "evidence": "Product Leadership Authority Document with Independent Review Records and Decision Log",
+      "evidence_example": "A written role description granting roadmap authority, records of at least three consecutive monthly product reviews without the founder present, and a decision log showing at least two roadmap-level decisions made and logged independently.",
+      "example": "The Head of Product owns the roadmap. The founder attends the quarterly product strategy review only. In the past three monthly reviews: two features were deprioritized based on low engagement data, one new item was added after a customer success signal, and one experiment was launched. All four decisions are in the product decision log with rationale. The founder was informed in the monthly summary, not consulted before the decisions were made.",
+      "false_positive_signals": [
+        "A product manager holds the title but escalates every roadmap decision to the founder, who makes the real call informally before the product manager announces it.",
+        "The founder does not attend product reviews but the product leader messages the founder afterward for validation before implementing anything."
+      ],
+      "failure_signals": [
+        "Product velocity slows noticeably when the founder is traveling or focused on another part of the business.",
+        "The product team waits for the founder's view before committing to a roadmap decision, even when the product leader has the formal authority to decide."
+      ],
+      "prerequisite": "TC.6",
+      "review_frequency": 2,
+      "weights": {"impact": 9, "complexity": 8, "time_to_implement": 8, "direct_cost": 5}
+    },
+    {
+      "level": 10,
+      "headline": "Institutional Innovation Engine",
+      "plain_english": "The company runs a self-sustaining product improvement system that produces measurable gains in customer outcomes year over year, without founder involvement.",
+      "observation": "At Level 10, all product systems are running together and producing compound results. Customer insight is collected continuously. Experiments run on a quarterly cycle. The roadmap is governed and maintained. Outcome metrics are improving year over year. Product leadership is independent. An external product review challenges the product strategy at least once per year, similar to how an advisory board challenges business strategy. The founder receives an annual product report. They do not produce it.",
+      "why_it_matters": "An innovation engine is a compounding asset. Each cycle of insight, experiment, and improvement builds on the last. A company with a working innovation engine does not depend on founder inspiration or individual brilliance. It produces better products systematically. This is the difference between a company that has a product and a company that has an innovation capability. An acquirer pays a premium for the second one.",
+      "audit_binary": "Has the product innovation system, covering customer insight, experimentation, a governed roadmap, and outcome metrics, operated independently of the founder for at least four consecutive quarters, with measurable improvement in at least two product outcome metrics compared to the prior year or the baseline established at system launch, and has an external product review been conducted in the past 12 months?",
+      "evidence": "Annual Product Innovation Report with External Review Record",
+      "evidence_example": "An annual report showing: number of customer insight sessions conducted, experiments run and their outcomes, roadmap decisions made and logged, year-over-year or baseline-versus-current change in at least two outcome metrics, and a record of founder non-involvement across all four quarters. Plus a record of an external product review conducted by at least one person outside the company.",
+      "example": "A product team of three runs 12 customer interviews per year, four quarterly experimentation cycles, a maintained three-quarter roadmap reviewed monthly, and a product metrics dashboard. Year over year: activation rate improved from 74% to 83%, outcome achievement from 68% to 77%. An external product advisor reviewed the product strategy in October and produced three written challenges. The product owner responded to each in writing within two weeks. The founder read the annual report. They had no involvement in producing it and made no changes to its conclusions.",
+      "false_positive_signals": [
+        "A product team exists and ships regularly but cannot demonstrate measurable improvement in customer outcome metrics from one year to the next.",
+        "The innovation system works when the founder is present and attentive but output quality and decision speed decline when their focus shifts."
+      ],
+      "failure_signals": [
+        "Outcome metrics have been flat or declining for more than two quarters with no documented root cause analysis or formal product response.",
+        "Competitors are releasing meaningful improvements at a pace the company cannot explain or match, and the team has no structured process for diagnosing why."
+      ],
+      "prerequisite": "PI.9",
+      "review_frequency": 1,
+      "weights": {"impact": 10, "complexity": 9, "time_to_implement": 9, "direct_cost": 7}
+    }
+  ]
+}

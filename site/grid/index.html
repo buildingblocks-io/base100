@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The BASE-100 2026 knowledge base: the full 10x10 grid of highest-leverage actions across all business domains and maturity levels.">
+    <meta name="keywords" content="BASE-100 grid, business maturity grid, knowledge base, 10x10 framework, 2026 standard">
+    <meta name="author" content="BASE-100 Institute">
+    <title>The BASE-100 Grid | BASE-100</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <!-- BASE_URL for shared components -->
+    <script>window.BASE_URL = '../../';</script>
+</head>
+<body class="flex min-h-screen flex-col bg-slate-50 text-slate-900">
+    <div id="header-container"></div>
+
+    <main class="flex-grow">
+        <section class="border-b border-slate-200 bg-white px-6 pb-12 pt-32">
+            <div class="mx-auto max-w-7xl">
+                <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+                    <div>
+                        <div id="grid-eyebrow" class="mb-4 text-xs font-mono uppercase tracking-[0.3em] text-slate-500">Knowledge Base / Rev. 2026</div>
+                        <h1 class="text-5xl font-bold text-slate-900">The BASE-100 Grid.</h1>
+                        <p class="mt-6 max-w-3xl text-xl leading-relaxed text-slate-600">This is the shared 10×10 reference model behind the analyst. Each cell shows the highest-leverage action for that domain and maturity level in the active revision.</p>
+                    </div>
+                    <div class="flex flex-col gap-3 sm:flex-row">
+                        <a href="../discovery/" class="inline-flex items-center justify-center gap-2 bg-slate-900 px-6 py-3 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-[#ff4d00]">
+                            <i class="fa-solid fa-user-doctor"></i> Open the Analyst
+                        </a>
+                        <a href="../domains/" class="inline-flex items-center justify-center gap-2 border border-slate-300 px-6 py-3 text-xs font-bold uppercase tracking-wide text-slate-700 transition hover:border-[#ff4d00] hover:text-[#ff4d00]">
+                            <i class="fa-solid fa-layer-group"></i> View the 10 Domains
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 py-8 bg-slate-50">
+            <div class="mb-5 flex flex-wrap items-center gap-3 text-xs text-slate-500 px-6">
+                <span id="grid-summary" class="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 font-semibold uppercase tracking-wider text-slate-600">110 cells · 10 domains · 11 levels</span>
+                <span>Click any cell to explore the full instruction, evidence, and examples.</span>
+            </div>
+            <div class="overflow-x-auto border-t border-slate-200 bg-white">
+                <div id="knowledge-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Newsletter Subscribe (Popup) -->
+    <div id="subscribe-popup-container"></div>
+
+    <div id="footer-container"></div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/base100-framework.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../partials/subscribe.js"></script>
+    <script>
+        let currentModal = null;
+        const glossary = (window.BASE100_FRAMEWORK && window.BASE100_FRAMEWORK.meta && window.BASE100_FRAMEWORK.meta.definitions) || {};
+        // Muted, professional domain colors (new IDs from JSON source)
+        const DOMAIN_COLORS = {
+            LD: '#4f6fa8',
+            PI: '#6b5fa0',
+            BM: '#a4577d',
+            RS: '#2d7a5e',
+            OD: '#b05252',
+            CS: '#3d7fa0',
+            TC: '#a07730',
+            TI: '#5259a3',
+            FR: '#2e8070',
+            AI: '#7448a8'
+        };
+
+        function getDomainColor(domain) {
+            return domain?.color || DOMAIN_COLORS[domain?.id] || '#64748b';
+        }
+
+        // Helper: Apply glossary tooltips to text
+        function applyGlossaryTooltips(text) {
+            if (!text) return text;
+
+            // Sort terms by length (longest first) to avoid partial matches
+            const sortedTerms = Object.keys(glossary).sort((a, b) => b.length - a.length);
+
+            let result = text;
+            const replacements = [];
+
+            sortedTerms.forEach(term => {
+                // Escape special regex characters in the term
+                const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                // Match whole words only, case-insensitive
+                const regex = new RegExp(`\\b${escapedTerm}\\b`, 'gi');
+
+                // Only process if the term actually exists in the text
+                if (!regex.test(result)) return;
+
+                // Escape the definition to prevent HTML injection
+                const definition = glossary[term]
+                    .replace(/&/g, '&amp;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;');
+
+                result = result.replace(regex, (match) => {
+                    const token = `%%GLOSSARY_${replacements.length}%%`;
+                    replacements.push(`<span class="glossary-term" data-definition="${definition}">${match}</span>`);
+                    return token;
+                });
+            });
+
+            replacements.forEach((replacement, index) => {
+                result = result.replaceAll(`%%GLOSSARY_${index}%%`, replacement);
+            });
+
+            return result;
+        }
+
+        // Helper: Create metric bars
+        function createMetricBar(label, value, color = '#64748b') {
+            const bars = Array(Math.round(value)).fill('█').join('');
+            return `
+                <div class="flex flex-col gap-1">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-semibold text-slate-700">${label}</span>
+                        <span class="text-sm font-bold" style="color:${color}">${value}/10</span>
+                    </div>
+                    <div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+                        <div class="h-full rounded-full transition-all" style="width:${value * 10}%; background:${color}"></div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Modal for Plan / Direction block
+        function openDirectionModal(domain) {
+            if (currentModal) currentModal.remove();
+            const dir = domain.direction;
+            if (!dir) return;
+
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm';
+            modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
+            const closeHandler = (e) => {
+                if (e.key === 'Escape') { modal.remove(); document.removeEventListener('keydown', closeHandler); }
+            };
+            document.addEventListener('keydown', closeHandler);
+
+            const content = document.createElement('div');
+            content.className = 'max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl bg-white shadow-2xl';
+
+            const hdr = document.createElement('div');
+            hdr.className = 'sticky top-0 border-b-2 px-8 py-6 bg-gradient-to-br from-white to-slate-50';
+            hdr.style.borderColor = domain.color;
+            hdr.innerHTML = `
+                <div class="flex items-start justify-between gap-4">
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="h-3 w-3 rounded-full shadow-sm" style="background:${domain.color}"></span>
+                            <span class="text-xs font-mono uppercase tracking-[0.2em] font-bold" style="color:${domain.color}">${domain.id} · PLAN</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">${dir.name}</h2>
+                        <p class="mt-1 text-sm text-slate-600 leading-relaxed">${dir.purpose}</p>
+                    </div>
+                    <button onclick="this.closest('.fixed').remove()" class="text-slate-400 hover:text-slate-600 transition hover:scale-110 flex-shrink-0">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+                <div class="flex items-center justify-between pt-3 border-t border-slate-200 mt-3">
+                    <span class="inline-block px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider" style="background:${domain.color}20; color:${domain.color}">Strategic Plan · Pre-Level 1</span>
+                    <div class="text-xs text-slate-500 font-mono">Owner: ${dir.primary_owner || domain.name}</div>
+                </div>
+            `;
+
+            const body = document.createElement('div');
+            body.className = 'px-8 py-6 space-y-5';
+
+            // Minimum standard
+            if (dir.minimum_standard) {
+                body.innerHTML += `
+                    <div class="rounded-lg border-2 p-5" style="border-color:${domain.color}; background:${domain.color}08">
+                        <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color:${domain.color}">Minimum Standard</p>
+                        <p class="text-sm font-medium text-slate-800 leading-relaxed">${dir.minimum_standard}</p>
+                    </div>
+                `;
+            }
+
+            // Questions to answer
+            if (dir.questions_to_answer && dir.questions_to_answer.length) {
+                body.innerHTML += `
+                    <div class="rounded-xl p-6 shadow-sm border border-slate-100" style="background:${domain.color}08">
+                        <h3 class="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2 uppercase tracking-wider">
+                            <i class="fa-solid fa-circle-question" style="color:${domain.color}"></i> Questions to Answer
+                        </h3>
+                        <ul class="space-y-3">
+                            ${dir.questions_to_answer.map(q => `
+                                <li class="flex gap-3 items-start">
+                                    <span class="flex-shrink-0 mt-0.5 font-bold text-base" style="color:${domain.color}">→</span>
+                                    <span class="text-sm text-slate-700 leading-relaxed">${q}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // Required outputs
+            if (dir.required_outputs && dir.required_outputs.length) {
+                body.innerHTML += `
+                    <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+                        <h4 class="text-sm font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-slate-600"></i> Required Outputs
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${dir.required_outputs.map(o => `<span class="px-2 py-1 rounded text-xs font-mono font-semibold border" style="border-color:${domain.color}40; color:${domain.color}; background:${domain.color}0a">${o.replace(/_/g,' ')}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Contributors
+            if (dir.contributors && dir.contributors.length) {
+                body.innerHTML += `
+                    <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+                        <h4 class="text-sm font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-users text-slate-600"></i> Contributors
+                        </h4>
+                        <p class="text-sm text-slate-600">${dir.contributors.join(' · ')}</p>
+                    </div>
+                `;
+            }
+
+            content.appendChild(hdr);
+            content.appendChild(body);
+            modal.appendChild(content);
+            document.body.appendChild(modal);
+            currentModal = modal;
+        }
+
+        // Modal for Levels 1-10
+        function openLevelModal(domain, level) {
+            if (currentModal) currentModal.remove();
+
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm';
+            modal.onclick = (e) => {
+                if (e.target === modal) modal.remove();
+            };
+
+            const closeHandler = (e) => {
+                if (e.key === 'Escape') {
+                    modal.remove();
+                    document.removeEventListener('keydown', closeHandler);
+                }
+            };
+            document.addEventListener('keydown', closeHandler);
+
+            const content = document.createElement('div');
+            content.className = 'max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl bg-white shadow-2xl';
+
+            const header = document.createElement('div');
+            header.className = 'sticky top-0 border-b-2 px-8 py-6 bg-gradient-to-br from-white to-slate-50';
+            header.style.borderColor = domain.color;
+            header.innerHTML = `
+                <div class="relative pr-12">
+                    <button onclick="this.closest('.fixed').remove()" class="absolute right-0 top-0 text-slate-400 hover:text-slate-600 transition hover:scale-110">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                    <div class="mb-3 flex flex-wrap items-center gap-2">
+                        <span class="h-3 w-3 rounded-full shadow-sm" style="background:${domain.color}"></span>
+                        <span class="text-xs font-mono uppercase tracking-[0.2em] font-bold" style="color:${domain.color}">${domain.id}-${level.level}</span>
+                        <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide" style="background:${domain.color}15; color:${domain.color}">Level ${level.level}</span>
+                    </div>
+                    <h2 class="text-2xl font-bold leading-tight text-slate-900">${domain.name}</h2>
+                    <p class="mt-1 max-w-3xl text-xs text-slate-600">${domain.description}</p>
+                    <div class="mt-4 border-t border-slate-200 pt-4">
+                        <h3 class="text-lg font-semibold leading-snug text-slate-900">${level.headline}</h3>
+                    </div>
+                </div>
+            `;
+
+            const body = document.createElement('div');
+            body.className = 'px-8 py-6 space-y-5';
+
+            // 1. AUDIT BINARY - Big opening question (sets the tone)
+            body.innerHTML += `
+                <div class="rounded-lg border-2 p-5" style="border-color:${domain.color}; background:${domain.color}05">
+                    <p class="text-base font-semibold text-slate-900">${level.audit_binary}</p>
+                    <p class="text-xs text-slate-500 mt-2 uppercase tracking-wide">If false, complete this level first</p>
+                </div>
+            `;
+
+            // 2. OBSERVATION - "Do This" (MAIN ATTENTION GRABBER - LARGE & BOLD)
+            if (level.observation) {
+                body.innerHTML += `
+                    <div class="rounded-2xl p-6 shadow-md" style="background:linear-gradient(135deg, ${domain.color} 0%, ${domain.color}dd 100%); border: 1px solid ${domain.color}">
+                        <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70">Do This</p>
+                        <p class="text-2xl font-bold leading-relaxed text-white">${applyGlossaryTooltips(level.observation)}</p>
+                    </div>
+                `;
+            }
+
+            // CONTEXT: Weights + Prerequisite (supporting information - compact, one line)
+            if (level.weights || level.prerequisite) {
+                body.innerHTML += `
+                    <div class="grid items-stretch gap-4 md:grid-cols-[minmax(0,1fr)_220px]">
+                        ${level.weights ? `
+                            <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                                <p class="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-600">Estimates</p>
+                                <div class="grid grid-cols-4 gap-3">
+                                    <div class="text-center">
+                                        <div class="text-xs text-slate-400 mb-1">Impact</div>
+                                        <div class="text-2xl font-bold text-slate-900">${level.weights.impact}<span class="text-xs text-slate-400 ml-0.5">/10</span></div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-xs text-slate-400 mb-1">Complexity</div>
+                                        <div class="text-2xl font-bold text-slate-900">${level.weights.complexity}<span class="text-xs text-slate-400 ml-0.5">/10</span></div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-xs text-slate-400 mb-1">Time</div>
+                                        <div class="text-2xl font-bold text-slate-900">${level.weights.time_to_implement}<span class="text-xs text-slate-400 ml-0.5">/10</span></div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-xs text-slate-400 mb-1">Cost</div>
+                                        <div class="text-2xl font-bold text-slate-900">${level.weights.direct_cost}<span class="text-xs text-slate-400 ml-0.5">/10</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        ` : ''}
+                        ${level.prerequisite ? `
+                            <div class="rounded-lg border bg-white p-4" style="border-color:${domain.color}30">
+                                <p class="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-600">Prerequisite</p>
+                                <div class="flex h-[calc(100%-1.5rem)] items-center rounded-md" style="background:${domain.color}10">
+                                    <p class="w-full px-3 py-3 text-center text-lg font-mono font-bold" style="color:${domain.color}">${level.prerequisite}</p>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }
+
+            // 3. EVIDENCE + REVIEW FREQUENCY - Requirements to advance
+            if (level.evidence || level.review_frequency) {
+                body.innerHTML += `
+                    <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+                        <h4 class="text-sm font-semibold text-slate-900 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-up text-emerald-600"></i> To Advance to Next Level
+                        </h4>
+                        ${level.evidence ? `
+                            <div class="mb-4">
+                                <p class="text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2">Evidence Required</p>
+                                <p class="text-sm text-slate-700 leading-relaxed">${applyGlossaryTooltips(level.evidence)}</p>
+                            </div>
+                        ` : ''}
+                        ${level.review_frequency ? `
+                            <div class="pt-4 border-t border-slate-200">
+                                <p class="text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2">Review Frequency</p>
+                                <p class="text-sm font-bold text-slate-900">${level.review_frequency}x per year</p>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }
+
+            // 4. FAILURE SIGNAL - What to watch for
+            if (level.failure_signal) {
+                body.innerHTML += `
+                    <div class="rounded-lg border-l-4 border-l-amber-400 p-6 bg-amber-50">
+                        <h4 class="text-sm font-semibold text-amber-900 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-exclamation text-amber-600"></i> Watch For
+                        </h4>
+                        <p class="text-sm leading-relaxed text-amber-800">${applyGlossaryTooltips(level.failure_signal)}</p>
+                    </div>
+                `;
+            }
+
+            // ADDITIONAL CONTEXT (optional)
+            // Instruction - What to do (optional, for Levels 1-10)
+            if (level.instruction) {
+                body.innerHTML += `
+                    <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="text-sm font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full" style="background:${domain.color}"></span> What to Do
+                        </h3>
+                        <p class="text-sm leading-relaxed text-slate-700">${applyGlossaryTooltips(level.instruction)}</p>
+                    </div>
+                `;
+            }
+
+            // Example - Real-world context
+            if (level.example) {
+                body.innerHTML += `
+                    <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="text-sm font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-book text-slate-600"></i> Real-World Example
+                        </h3>
+                        <p class="text-sm text-slate-700 italic leading-relaxed">"${applyGlossaryTooltips(level.example)}"</p>
+                    </div>
+                `;
+            }
+
+            content.appendChild(header);
+            content.appendChild(body);
+            modal.appendChild(content);
+            document.body.appendChild(modal);
+            currentModal = modal;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const fw = window.BASE100_FRAMEWORK;
+            const root = document.getElementById('knowledge-grid');
+            if (!fw || !root) return;
+            // Domains are keyed by ID in BASE100_FRAMEWORK; convert to array
+            const domains = Object.values(fw.domains).map((domain) => ({
+                ...domain,
+                color: getDomainColor(domain)
+            }));
+
+            // Update page metadata from JSON
+            const revision = (fw.meta && fw.meta.framework && fw.meta.framework.revision) || '2026';
+            document.getElementById('grid-eyebrow').textContent = `Knowledge Base / Rev. ${revision}`;
+            // Plan column + levels 1-10 per domain
+            const totalCells = domains.length * 11;
+            document.getElementById('grid-summary').textContent = `${totalCells} cells · ${domains.length} domains · Plan + 10 levels`;
+
+            const table = document.createElement('table');
+            table.className = 'w-full border-collapse text-left align-top';
+
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            headerRow.className = 'bg-white border-b-2 border-slate-300';
+            headerRow.innerHTML = '<th class="sticky left-0 top-0 z-20 border-r border-slate-200 bg-white px-6 py-5 text-xs font-semibold uppercase tracking-wider text-slate-700">Domain</th>';
+
+            // Plan column header
+            const planTh = document.createElement('th');
+            planTh.className = 'border-r border-slate-200 px-4 py-5 text-center text-xs font-semibold uppercase tracking-wider text-slate-700 min-w-[130px] bg-slate-50';
+            planTh.innerHTML = `<span class="block text-[10px] text-slate-500 font-normal">Pre-Level 1</span><span class="mt-1 block text-lg font-bold text-slate-900">Plan</span>`;
+            headerRow.appendChild(planTh);
+
+            // Levels 1-10
+            const levelHeaders = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            levelHeaders.forEach((level) => {
+                const th = document.createElement('th');
+                th.className = 'border-r border-slate-200 px-4 py-5 text-center text-xs font-semibold uppercase tracking-wider text-slate-700 min-w-[120px]';
+                th.innerHTML = `<span class="block text-[10px] text-slate-500 font-normal">Level</span><span class="mt-1 block text-lg font-bold text-slate-900">${level}</span>`;
+                headerRow.appendChild(th);
+            });
+
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement('tbody');
+            domains.forEach((domain) => {
+                const row = document.createElement('tr');
+                row.className = 'border-b border-slate-200 hover:bg-slate-50 transition';
+
+                // Domain label (sticky left column)
+                const labelCell = document.createElement('th');
+                labelCell.className = 'sticky left-0 z-10 border-r border-slate-200 bg-white px-6 py-6 align-top hover:bg-slate-50 transition';
+                labelCell.innerHTML = `
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="h-3 w-3 rounded-full shadow-sm" style="background:${domain.color}"></span>
+                        <span class="text-xs font-mono font-bold uppercase tracking-[0.2em]" style="color:${domain.color}">${domain.id}</span>
+                    </div>
+                    <div class="text-sm font-semibold text-slate-900">${domain.name}</div>
+                    <div class="mt-1 text-xs text-slate-500">${domain.purpose}</div>
+                `;
+                row.appendChild(labelCell);
+
+                // Plan / Direction cell
+                const planCell = document.createElement('td');
+                planCell.className = 'border-r border-slate-200 px-4 py-4 align-top cursor-pointer hover:bg-slate-100 transition relative group min-w-[130px] bg-slate-50/60';
+                if (domain.direction) {
+                    const dir = domain.direction;
+                    planCell.onclick = () => openDirectionModal(domain);
+                    planCell.innerHTML = `
+                        <div class="flex flex-col h-full">
+                            <div class="inline-block px-2 py-1 rounded text-[10px] font-semibold uppercase tracking-wider mb-2" style="background:${domain.color}20; color:${domain.color}">Plan</div>
+                            <div class="text-xs font-semibold text-slate-900 mb-2">${dir.name}</div>
+                            <p class="text-[11px] text-slate-600 line-clamp-3 flex-grow">${dir.minimum_standard || dir.purpose || ''}</p>
+                            <div class="mt-2 text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition">Click to expand</div>
+                        </div>
+                    `;
+                } else {
+                    planCell.innerHTML = '<div class="text-xs text-slate-300">-</div>';
+                }
+                row.appendChild(planCell);
+
+                // Level 1–10 cells
+                levelHeaders.forEach((levelNum) => {
+                    const level = domain.levels.find(l => l.level === levelNum);
+                    const cell = document.createElement('td');
+                    cell.className = 'border-r border-slate-200 px-4 py-4 align-top cursor-pointer hover:bg-slate-100 transition relative group min-w-[120px]';
+
+                    if (level) {
+                        cell.onclick = () => openLevelModal(domain, level);
+                        const impactColor = level.weights && level.weights.impact >= 8 ? '#ff4d00' : '#64748b';
+                        const preview = level.observation || level.instruction || '';
+                        cell.innerHTML = `
+                            <div class="flex flex-col h-full">
+                                <div class="text-xs font-semibold text-slate-900 mb-2">${level.headline}</div>
+                                <p class="text-[11px] text-slate-600 line-clamp-2 flex-grow">${preview}</p>
+                                <div class="flex items-center gap-2 mt-2">
+                                    <span class="inline-block h-1.5 w-1.5 rounded-full" style="background:${impactColor}"></span>
+                                    <span class="text-[10px] font-semibold" style="color:${impactColor}">Impact ${level.weights?.impact || '—'}</span>
+                                </div>
+                                <div class="mt-2 text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition">Click to expand</div>
+                            </div>
+                        `;
+                    } else {
+                        cell.innerHTML = '<div class="text-xs text-slate-300">-</div>';
+                    }
+                    row.appendChild(cell);
+                });
+
+                tbody.appendChild(row);
+            });
+
+            table.appendChild(tbody);
+            root.appendChild(table);
+
+            // Add fade-in animation to rows
+            const rows = tbody.querySelectorAll('tr');
+            rows.forEach((row, idx) => {
+                row.style.animation = `fadeIn 0.6s ease-out ${idx * 30}ms forwards`;
+                row.style.opacity = '0';
+            });
+        });
+
+    </script>
+</body>
+</html>

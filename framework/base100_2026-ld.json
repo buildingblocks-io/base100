@@ -1,0 +1,257 @@
+{
+  "id": "LD",
+  "name": "Leadership & Direction",
+  "purpose": "Set the direction, make the decisions, and hold every function accountable to a shared goal.",
+  "cxo_persona": "Chief Executive Officer",
+  "description": "How the organization is led, how strategy turns into action, and how decisions get made consistently regardless of who is in the room. A mature leadership domain means the company moves in one direction, learns from experience, and eventually runs itself.",
+  "direction": {
+    "name": "Strategic Direction",
+    "purpose": "The living leadership blueprint of the company. It defines why the business exists, where it is going, which opportunities it will refuse, and how leaders make trade-offs. It gets updated as the business learns and grows.",
+    "required_outputs": [
+      "mission",
+      "vision",
+      "core_values",
+      "strategic_angle",
+      "current_priorities",
+      "decision_rights",
+      "leadership_structure",
+      "review_rhythm"
+    ],
+    "primary_owner": "Chief Executive Officer",
+    "contributors": ["Founder", "Executive Team", "Board or Advisors"],
+    "minimum_standard": "One current written leadership direction document exists that defines why the business exists, where it is going, what it values, how it wins, what it will refuse, and how leaders make trade-offs.",
+    "review_frequency": 4,
+    "questions_to_answer": [
+      "What specific problem does this business exist to solve, and for exactly whom?",
+      "What must be true about the company in 3 years for the 10-year vision to still be believable?",
+      "Which customers, markets, and opportunities will be actively refused, and why?",
+      "What is the single constraint that, if removed today, would most accelerate the company?",
+      "What is the unique strategic angle that makes this company the obvious choice for the ideal customer?",
+      "Who has the authority to approve what, and at what threshold does a decision escalate?",
+      "How will the leadership team know if the current strategy is wrong, and what would trigger a change?",
+      "What must the founder stop doing in the next 12 months for the company to grow?"
+    ]
+  },
+  "levels": [
+    {
+      "level": 1,
+      "headline": "Current Priority Defined",
+      "plain_english": "The company has one written goal for the next 90 days that every team member can see and repeat.",
+      "observation": "Walk into this business and ask three different people what the company is focused on right now. At Level 1, they all give the same answer, and they can point to where it is written down. One priority. One owner. Visible to everyone.",
+      "why_it_matters": "A team without a shared priority optimizes for different things simultaneously. Progress fragments. Effort cancels out. A single written priority is the cheapest and fastest leadership tool available, and most companies skip it.",
+      "audit_binary": "Is there one written 90-day company priority, visible to every team member today, with a named owner and at least one measurable outcome?",
+      "evidence": "Quarterly Priority Document",
+      "evidence_example": "A written 90-day objective pinned in the team workspace, referenced in at least one meeting in the past two weeks, with a named owner and 3 to 5 measurable outcomes listed.",
+      "example": "A one-page document titled 'Q3 Priority' with one company goal, one named owner, and four success metrics. It sits at the top of the company's shared workspace and gets referenced at the start of every weekly meeting.",
+      "false_positive_signals": [
+        "A list of five to eight priorities is presented as equally important, with no single primary focus identified.",
+        "The priority exists in the founder's notes or head but has never been shared with the team in writing."
+      ],
+      "failure_signals": [
+        "Three team members give three different answers when asked what the company is focused on this quarter.",
+        "The team is reacting to daily fires with no articulated direction beyond this week."
+      ],
+      "prerequisite": null,
+      "review_frequency": 4,
+      "weights": {"impact": 10, "complexity": 1, "time_to_implement": 1, "direct_cost": 1}
+    },
+    {
+      "level": 2,
+      "headline": "Strategic Information Organized",
+      "plain_english": "All important company direction information lives in one place that anyone on the team can find.",
+      "observation": "At Level 2, there is one document or folder that serves as the company's strategic home base. It holds the mission, the values, the current priorities, recent leadership decisions, and anything else the team needs to understand where the company is going. Nobody hunts through old emails or asks the founder to remember what was decided.",
+      "why_it_matters": "Strategic information scattered across emails, chats, and memory is not really available. It exists in theory and disappears in practice. Organizing it in one place is the first step toward a company that can operate without the founder being the sole source of institutional memory.",
+      "audit_binary": "Is there one central location containing the company mission, values, current priorities, and a log of recent leadership decisions, accessible to every team member and updated within the past 90 days?",
+      "evidence": "Company Direction Repository",
+      "evidence_example": "A shared document, folder, or wiki page containing: mission statement, core values, current 90-day priority, and at least 10 recent leadership decisions with dates and owners. Last updated within 90 days.",
+      "example": "A shared folder called 'Company Direction' containing: a one-page mission and values document, the current quarterly priority sheet, and a running decision log with entries from the past 6 months. Every team member has the link bookmarked.",
+      "false_positive_signals": [
+        "A direction document was created 18 months ago but has not been updated since and no longer reflects current reality.",
+        "Information exists across multiple tools with no single authoritative source, requiring the founder to be asked when something is unclear."
+      ],
+      "failure_signals": [
+        "New team members spend their first week piecing together what the company stands for from conversations rather than finding it in a written source.",
+        "Leadership decisions made 3 months ago cannot be recalled or located by anyone on the team."
+      ],
+      "prerequisite": "LD.1",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 2, "time_to_implement": 2, "direct_cost": 1}
+    },
+    {
+      "level": 3,
+      "headline": "Named Function Owners",
+      "plain_english": "Every core business function has one named person responsible for it. Not a team. One person.",
+      "observation": "An accountability chart exists and is current. Every core function of the business has exactly one name next to it. Leadership can look at this chart and immediately know who owns what, who to hold accountable when something fails, and who decides what.",
+      "why_it_matters": "Shared ownership is no ownership. When two people own the same function, neither acts with full accountability. One named owner per function is the minimum condition for delegation to work at any scale.",
+      "audit_binary": "Is there a current accountability chart with exactly one named owner per core business function, updated within the past 90 days and used to resolve ownership disputes when they arise?",
+      "evidence": "Functional Accountability Chart",
+      "evidence_example": "A one-page chart showing every core function with a single name per box, no shared entries, updated within 90 days. Core functions include at minimum: leadership, product, marketing, sales, operations, finance, people, and technology.",
+      "example": "A one-page accountability map reviewed every quarter. Each function has one box with one name. At the last team meeting, a task fell between marketing and operations. The chart was opened, the owner was identified in 30 seconds, and the conversation moved on.",
+      "false_positive_signals": [
+        "An org chart exists showing reporting lines but not who owns each function and its outcomes.",
+        "The chart lists two co-owners for any function, even temporarily while a role is being filled."
+      ],
+      "failure_signals": [
+        "When a critical task is missed, the team debates whose responsibility it was rather than immediately knowing.",
+        "The founder is the default owner of more than two functions because no one else has been clearly assigned."
+      ],
+      "prerequisite": "LD.2",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 3, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 4,
+      "headline": "Standardized Leadership Rhythm",
+      "plain_english": "Leadership meets on a fixed weekly schedule with the same agenda every time, and every decision gets written down.",
+      "observation": "A weekly leadership meeting happens at the same time every week. The agenda never changes. Decisions made in the meeting are recorded with a named owner and a deadline. At the start of the following week, those decisions are reviewed first. The meeting does not require the founder to call it.",
+      "why_it_matters": "Without a fixed rhythm, leadership runs on the founder's mood and availability. Decisions evaporate. The same problems get rediscussed. A standardized meeting with a written record creates the institutional memory that allows the company to move forward without everything depending on one person.",
+      "audit_binary": "Has the leadership team met weekly on a fixed schedule with the same agenda for at least 12 consecutive weeks, with written minutes recording every decision, its owner, and its deadline?",
+      "evidence": "Leadership Meeting Minutes Archive",
+      "evidence_example": "At least 12 consecutive weekly meeting records, each containing the date, standard agenda items, decisions made, named owner per decision, and a deadline. Stored in the central direction repository.",
+      "example": "Every Monday at 9am, a 30-minute leadership meeting follows five fixed items: scorecard review, priority update, blockers raised, decisions required this week, and carry-forward from last week. Minutes are published to the shared folder within two hours. The meeting runs whether the founder is present or not.",
+      "false_positive_signals": [
+        "Meetings happen weekly but the agenda changes every time and decisions are not recorded anywhere.",
+        "The founder makes all real decisions in individual one-on-ones after the group meeting, making the group meeting ceremonial."
+      ],
+      "failure_signals": [
+        "The same problem is discussed in three consecutive meetings without a recorded decision or named owner.",
+        "Team members cannot recall what was decided in last week's leadership meeting when asked."
+      ],
+      "prerequisite": "LD.3",
+      "review_frequency": 52,
+      "weights": {"impact": 8, "complexity": 4, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 5,
+      "headline": "Metric-Based Accountability",
+      "plain_english": "Every function owner has a number they are responsible for, and they report on it every month.",
+      "observation": "Each person who owns a function also owns at least one numeric KPI. Actual versus target is reported in writing at the monthly leadership meeting. Missing a target requires a written explanation and a corrective plan. The founder is no longer the only judge of whether things are going well.",
+      "why_it_matters": "Opinion-based management does not scale. When performance is judged subjectively, feedback is political and accountability is personal. Numeric ownership makes performance objective, makes coaching specific, and removes the founder as the sole arbiter of what is working.",
+      "audit_binary": "Does every function owner have at least one numeric target assigned by name, with written actual-versus-target reported at the monthly leadership meeting for at least three consecutive months?",
+      "evidence": "Monthly Leadership Scorecard",
+      "evidence_example": "Three consecutive monthly scorecards showing every function owner's name, their KPI, their target, their actual result, the variance, and a written note explaining any gap and what changes next month.",
+      "example": "A one-page monthly scorecard. Sales lead owns closed revenue of 40K per month. Operations lead owns delivery time under 18 days. Customer success lead owns retention above 94%. Each reports actual versus target with one line on any gap and what changes next month. Reviewed in the first 10 minutes of the monthly leadership meeting.",
+      "false_positive_signals": [
+        "A shared dashboard exists with many metrics but no single name is attached to each number as its owner.",
+        "Metrics are reviewed monthly but missing targets produce no required explanation or corrective plan."
+      ],
+      "failure_signals": [
+        "Function owners check with the founder before making decisions that their KPI ownership should make obvious.",
+        "There is no written record of why a target was missed or what changed the following month."
+      ],
+      "prerequisite": "LD.4",
+      "review_frequency": 12,
+      "weights": {"impact": 9, "complexity": 5, "time_to_implement": 4, "direct_cost": 2}
+    },
+    {
+      "level": 6,
+      "headline": "Data-Driven Decision Making",
+      "plain_english": "Every major leadership decision is supported by written evidence before it is approved, and the decision is logged with the data used.",
+      "observation": "Before any major decision is approved, a short written data brief exists summarizing the relevant evidence. The decision, the data used, the expected outcome, and the owner are logged in a searchable register. Leadership can open that register and explain the reasoning behind their last ten major decisions.",
+      "why_it_matters": "Decisions made without evidence are guesses. Guesses made by the loudest voice in the room are politics. A data brief requirement before major decisions reduces bias, prevents the same mistakes from being made twice, and creates the institutional memory that future leaders need to understand why things are the way they are.",
+      "audit_binary": "Are all major strategic decisions logged in a written register showing the decision, the data used, the owner, and the expected outcome, with at least six entries from the past six months?",
+      "evidence": "Leadership Decision Log with Data References",
+      "evidence_example": "A shared decision register with at least six entries from the past six months, each containing: the decision made, the date, the owner, the evidence or data referenced, and the expected outcome to review in a future meeting.",
+      "example": "A shared decision log where every major choice, such as a new hire, a pricing change, a new service line, or entering a new market, is recorded with a link to the supporting data. Reviewed quarterly to check whether the expected outcomes materialized. Last entry: pricing increase to 9,500, supported by margin analysis showing 61% gross margin below the 65% target.",
+      "false_positive_signals": [
+        "A dashboard is maintained and looks impressive but is never referenced in actual decision records.",
+        "The decision log exists but contains only minor operational decisions while major strategic choices are made informally."
+      ],
+      "failure_signals": [
+        "The same strategic mistake is made twice because there is no record of what was tried before and why it failed.",
+        "Leadership cannot produce the evidence behind a major decision when asked by an investor or advisor."
+      ],
+      "prerequisite": "TI.5",
+      "review_frequency": 12,
+      "weights": {"impact": 8, "complexity": 6, "time_to_implement": 5, "direct_cost": 3}
+    },
+    {
+      "level": 7,
+      "headline": "Cross-Domain Leadership Integration",
+      "plain_english": "Leadership connects all functions through shared goals, a cross-domain review rhythm, and decision rules that every function uses.",
+      "observation": "Leadership does not just manage functions in isolation. At Level 7, there is a quarterly company-wide review where all domain owners present their metrics together, cross-domain dependencies are surfaced, and shared priorities are agreed. Decision rules exist that all functions follow, so that conflicts between domains are resolved by a documented principle rather than an escalation to the founder.",
+      "why_it_matters": "A company where each function optimizes independently produces local wins and systemic losses. Sales overpromises because it has no connection to operations capacity. Marketing generates the wrong leads because it has no feedback from sales. Leadership integration is the connective tissue that makes the whole system perform better than the sum of its parts.",
+      "audit_binary": "Is there a documented quarterly cross-domain review where all function owners present together, shared priorities are agreed, and at least one cross-domain conflict in the past six months was resolved using a written decision rule rather than founder escalation?",
+      "evidence": "Quarterly Cross-Domain Review Minutes and Decision Rules Document",
+      "evidence_example": "Records from the past two quarterly cross-domain reviews showing all function owners present, shared metrics reviewed, cross-domain topics discussed, and agreed actions. Plus a decision rules document with at least three principles used to resolve domain conflicts without founder involvement.",
+      "example": "A quarterly company review held the third week of each quarter. All function owners present their domain scorecard. Cross-domain items, such as a mismatch between sales pipeline and operations capacity, are flagged and resolved in the meeting using a written priority framework. Last quarter: sales wanted to close two large clients simultaneously but operations flagged a capacity constraint. The decision rule, prioritize delivery quality over short-term revenue, resolved it in 20 minutes without the founder being asked.",
+      "false_positive_signals": [
+        "A quarterly all-hands meeting exists where results are presented but no cross-domain conflicts are surfaced or resolved.",
+        "Decision rules exist on paper but every real cross-domain conflict still escalates to the founder for resolution."
+      ],
+      "failure_signals": [
+        "Functions regularly optimize for their own metrics in ways that damage another function's performance, with no mechanism to surface or resolve it.",
+        "The founder is the only person who can resolve disagreements between two function owners."
+      ],
+      "prerequisite": "LD.5",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 4}
+    },
+    {
+      "level": 8,
+      "headline": "Systematic Strategy Improvement",
+      "plain_english": "The leadership team reviews its own decisions and strategy on a fixed cycle and improves based on what it learns.",
+      "observation": "Once per quarter, the leadership team reviews its major decisions from the prior quarter against their expected outcomes. What worked? What did not? What assumption was wrong? The findings update the strategic direction document. Twice per year, an external group of experienced operators challenges the strategy and leadership must respond in writing to every challenge raised.",
+      "why_it_matters": "A leadership team that does not examine its own decisions is accumulating unexamined assumptions. Markets change, customers change, and strategies that worked at 1M revenue fail at 5M. The external challenge element is critical because internal teams develop blind spots that feel like convictions. A written response requirement ensures challenges are taken seriously rather than politely heard and forgotten.",
+      "audit_binary": "Has the leadership team conducted a quarterly decision retrospective for the past two quarters with documented findings that updated the strategy, and has an external group challenged the strategy at least twice in the past 12 months with written leadership responses to each challenge?",
+      "evidence": "Quarterly Decision Retrospective Reports and External Challenge Session Minutes",
+      "evidence_example": "Two quarterly retrospective reports showing decisions reviewed, outcomes versus expectations, and at least one strategic update made as a result. Plus two external challenge session records from the past 12 months, each showing the challenges raised and written leadership responses.",
+      "example": "Each quarter, the leadership team spends 90 minutes reviewing the top five decisions from the prior quarter. For each decision: was the expected outcome achieved? If not, what assumption was wrong? Last quarter: the assumption that a new pricing tier would attract larger clients was wrong. Clients cited the price, not the tier. Strategy updated: introduce a payment plan option. External challenge session held in May and November with three experienced operators who do not work for the company. All challenges documented and responded to in writing within two weeks.",
+      "false_positive_signals": [
+        "Retrospectives happen informally in leadership conversations but no findings are documented or used to update strategy.",
+        "An advisory board exists but sessions are presentations to supportive advisors who rarely raise genuine challenges."
+      ],
+      "failure_signals": [
+        "The leadership team is surprised by a market development that a structured retrospective would have flagged six months earlier.",
+        "The same strategic assumption has been wrong twice with no record of the lesson being learned."
+      ],
+      "prerequisite": "LD.6",
+      "review_frequency": 4,
+      "weights": {"impact": 7, "complexity": 7, "time_to_implement": 6, "direct_cost": 5}
+    },
+    {
+      "level": 9,
+      "headline": "Founder-Independent Operations",
+      "plain_english": "The business runs at full capacity without the founder for at least 30 days, and there is a trained successor for every key leadership role.",
+      "observation": "Two things are true at Level 9. First, the business has operated for a documented 30-day period at full capacity without any founder contact, and the team can describe the systems that made that possible. Second, a succession matrix exists with a named, partially trained backup for every key leadership role. Each backup has completed defined development activities, not just been identified on paper.",
+      "why_it_matters": "Founder independence and succession are both expressions of the same principle: the business is a system, not a person. A business where the founder cannot leave for 30 days is not yet an asset. A business where no leader has a trained backup is one resignation away from a crisis. Both conditions must be true for the leadership domain to be genuinely independent.",
+      "audit_binary": "Is there documented evidence of the business operating at full capacity for a continuous 30-day period without founder contact, and does a current succession matrix name a partially trained successor for every key leadership role?",
+      "evidence": "30-Day Founder Absence Log and Succession Matrix with Development Records",
+      "evidence_example": "A log from a completed 30-day period showing normal operations maintained with no founder involvement, plus a succession matrix for all key roles showing named successors with their readiness level and at least one completed development activity each.",
+      "example": "The founder spent 30 days fully offline. The operations log shows: delivery on time, all approvals made by designated owners, two client escalations resolved by the customer success lead using the documented protocol, no founder contact of any kind. On return, the team produced a one-page note describing which systems they relied on. Succession matrix: COO backup is the operations lead, readiness level 2, has run two monthly operations reviews independently. Sales director backup is the senior account manager, readiness level 1, currently shadowing all pipeline reviews.",
+      "false_positive_signals": [
+        "The founder was physically absent for 30 days but responded to messages within hours every day when the team reached out.",
+        "Successors are named in a document but have never taken on any expanded responsibility or development activity."
+      ],
+      "failure_signals": [
+        "Revenue or quality declines measurably within two weeks of the founder stepping back from daily involvement.",
+        "Any single leadership departure would leave a function with no internal candidate capable of covering the role for more than a week."
+      ],
+      "prerequisite": "LD.7",
+      "review_frequency": 2,
+      "weights": {"impact": 10, "complexity": 8, "time_to_implement": 9, "direct_cost": 5}
+    },
+    {
+      "level": 10,
+      "headline": "Governance-Led Institution",
+      "plain_english": "The company runs through a documented governance system, not through individuals. Major decisions have been made and recorded by that system without the founder.",
+      "observation": "A governance constitution exists and is actively used. It defines who can approve what, how strategic reviews work, how leadership disagreements are resolved, and how succession is triggered. The proof that it is active, not aspirational, is a decision log showing at least three significant decisions made by the governance system without founder involvement in the past 12 months.",
+      "why_it_matters": "An institution is a company that is larger than the person who built it. When decisions flow from a documented system rather than from an individual, the company becomes transferable, independently valuable, and fundable at institutional multiples. A governance document that has never produced a decision is not governance. It is a document.",
+      "audit_binary": "Does the company have a current governance constitution covering authority levels, decision rights, escalation paths, review rhythms, and succession logic, with at least three significant decisions documented as made by the governance system without founder involvement in the past 12 months?",
+      "evidence": "Company Governance Constitution and Independent Decision Log",
+      "evidence_example": "A current governance constitution reviewed within the past 12 months, plus a decision log showing at least three significant decisions from the past year, each identifying the decision, the governance process used, and the approving party, with no founder involvement recorded.",
+      "example": "The governance constitution defines four authority levels with spend thresholds, a structured process for strategic decisions above a defined impact level, a conflict resolution protocol between function owners, and a succession trigger procedure. Last year the executive committee approved a new market entry under their defined authority. The COO hired a senior operations manager within their hiring authority. The commercial committee approved a new pricing tier. None required founder sign-off. All three are in the decision log.",
+      "false_positive_signals": [
+        "A governance document exists but every significant decision still involves a call or message to the founder before it is finalized.",
+        "The governance system has been documented for a year but has never been used to produce a recorded decision."
+      ],
+      "failure_signals": [
+        "A prospective acquirer cannot find evidence of independent governance and discounts the valuation on the grounds of founder dependency.",
+        "The governance constitution has not been reviewed or updated in more than 18 months, suggesting it describes the past rather than governing the present."
+      ],
+      "prerequisite": null,
+      "review_frequency": 1,
+      "weights": {"impact": 10, "complexity": 10, "time_to_implement": 10, "direct_cost": 8}
+    }
+  ]
+}

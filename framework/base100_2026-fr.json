@@ -1,0 +1,257 @@
+{
+  "id": "FR",
+  "name": "Finance & Risk",
+  "purpose": "Maintain financial control, visibility, and long-term economic stability of the business.",
+  "cxo_persona": "Chief Financial Officer",
+  "description": "How the company records its financial activity, organizes and reports its financial position, manages cash, plans ahead, and builds the financial controls that make the numbers trustworthy. A mature finance and risk domain means leadership makes decisions from accurate, timely financial data, the company never runs out of cash by surprise, and the financial system can be handed to any external party and stand up to scrutiny without the founder having to explain it.",
+  "direction": {
+    "name": "Financial Strategy and Risk Management",
+    "purpose": "Define how the company manages financial health, allocates capital, protects itself from financial and operational risks, and provides leadership with the financial visibility needed to make confident strategic decisions.",
+    "required_outputs": [
+      "revenue_model_and_unit_economics",
+      "cost_structure_and_drivers",
+      "financial_reporting_model",
+      "cash_management_strategy",
+      "annual_budget_process",
+      "rolling_forecast_model",
+      "risk_management_framework",
+      "financial_review_rhythm"
+    ],
+    "primary_owner": "Chief Financial Officer",
+    "contributors": ["CEO", "revenue_lead", "operations_lead"],
+    "minimum_standard": "One documented financial model exists explaining how the company earns money, spends money, tracks cash, and manages financial risk, reviewed at least quarterly.",
+    "review_frequency": 4,
+    "questions_to_answer": [
+      "What is the gross margin on the core product, and is it improving or deteriorating quarter over quarter?",
+      "How many months of cash runway does the company have today, and what is the earliest date at which that number becomes a constraint?",
+      "What are the three largest cost lines, and what would it take to reduce each of them by 20%?",
+      "What financial risk, if it materialized today, would most threaten the company's ability to operate?",
+      "At what revenue level does the company become structurally profitable, and how far is it from that level?",
+      "How accurate have the financial forecasts been in the past four quarters, and what assumptions were consistently wrong?",
+      "What would a bank, investor, or acquirer need to see to have full confidence in the financial position, and can the company produce it today?",
+      "What are the payment terms with the top five clients, and is the accounts receivable aging creating any cash flow risk?"
+    ]
+  },
+  "levels": [
+    {
+      "level": 1,
+      "headline": "Accurate Financial Records",
+      "plain_english": "Every transaction the company makes is recorded accurately in an accounting system and reconciled within 30 days of the period end.",
+      "observation": "At Level 1, the company's financial records reflect reality. Every sale, every expense, every payment in and out is recorded in an accounting system, not a personal spreadsheet. The books are reconciled monthly: bank statements match accounting records, and any discrepancy is investigated and resolved before the next month begins. Leadership can ask what the company earned and spent last month and receive an accurate answer from the system within minutes.",
+      "why_it_matters": "Every financial decision the company makes, from pricing to hiring to investment, rests on the assumption that the numbers are accurate. A company operating from an unreconciled spreadsheet is making decisions based on an approximation that may be significantly wrong. Accurate financial records are not an accounting obligation. They are the foundation of every commercial decision the company will ever make.",
+      "audit_binary": "Are all transactions recorded in an accounting system, with bank statements reconciled and books closed within 30 days of each month end, for the past six consecutive months?",
+      "evidence": "Accounting System Records with Reconciliation Log",
+      "evidence_example": "An accounting system showing complete transaction records for the past six months, with a reconciliation log confirming bank statements were matched and books closed within 30 days of each month end. No unreconciled items older than 30 days.",
+      "example": "All income and expenses are entered into the accounting system by the bookkeeper within five business days of the transaction. Month-end close happens by the 15th of the following month. The reconciliation log shows the close date for each of the past six months. Last month's close: completed on the 12th. No unreconciled items. Leadership can pull the income statement for any of the past six months in under two minutes.",
+      "false_positive_signals": [
+        "Transactions are tracked in a spreadsheet that is kept roughly current, but it has never been reconciled against the actual bank statements and may be missing transactions.",
+        "An accounting system is in use but month-end close happens quarterly rather than monthly, leaving leadership three months behind on the actual financial position for most of the year."
+      ],
+      "failure_signals": [
+        "Leadership cannot state last month's revenue and expenses without checking with the bookkeeper or accountant first, because no current records are accessible to them.",
+        "A discrepancy between the accounting records and the bank balance has existed for more than 30 days and has not been investigated."
+      ],
+      "prerequisite": null,
+      "review_frequency": 12,
+      "weights": {"impact": 10, "complexity": 2, "time_to_implement": 2, "direct_cost": 2}
+    },
+    {
+      "level": 2,
+      "headline": "Monthly Financial Statements Organized",
+      "plain_english": "The profit and loss statement, balance sheet, and cash position for the past three months are accessible to leadership in one place without requesting them.",
+      "observation": "At Level 2, financial statements are produced monthly and stored in a location that leadership can access without asking. The P&L shows revenue, costs, and net result for each month. The balance sheet shows assets, liabilities, and equity. The cash position shows the current bank balance. All three are available for at least the past three months. A founder preparing for a bank meeting, an investor call, or a leadership discussion can pull the numbers themselves in under five minutes.",
+      "why_it_matters": "Financial statements that exist only on the accountant's computer or are produced only when someone requests them are not available to the company in any meaningful sense. Monthly statements in an accessible location convert financial reporting from a service that someone provides to a resource that leadership uses. The regularity matters as much as the accessibility. Quarterly statements leave three months of unknowns between each look. Monthly statements make the trend visible and make surprises rare.",
+      "audit_binary": "Are monthly P&L statements, balance sheets, and cash position reports for the past six months stored in a single accessible location, available to leadership without requesting them from the bookkeeper or accountant?",
+      "evidence": "Monthly Financial Statement Archive",
+      "evidence_example": "A shared folder or financial system containing monthly P&L, balance sheet, and cash position reports for at least the past six months, with each report dated and accessible to leadership without an intermediary.",
+      "example": "A shared finance folder containing a subfolder for each month. Each subfolder holds three documents: the monthly P&L, the balance sheet, and a one-page cash summary. Produced by the bookkeeper by the 15th of the following month and uploaded immediately. The folder is bookmarked by the CEO and the operations lead. The last time anyone requested a financial report verbally rather than pulling it themselves was seven months ago.",
+      "false_positive_signals": [
+        "Monthly statements are produced by the accountant and exist in their system, but leadership receives them only when they ask or when a tax deadline approaches.",
+        "A P&L is produced monthly but the balance sheet and cash position are only available quarterly, leaving two of the three essential financial views invisible for most of the year."
+      ],
+      "failure_signals": [
+        "Leadership discovers a financial problem, such as a cost overrun or a margin compression, three months after it began because statements are not reviewed monthly.",
+        "A bank or investor meeting requires the finance team to scramble to produce statements that should be routinely available, because no organized archive exists."
+      ],
+      "prerequisite": "FR.1",
+      "review_frequency": 12,
+      "weights": {"impact": 9, "complexity": 2, "time_to_implement": 2, "direct_cost": 2}
+    },
+    {
+      "level": 3,
+      "headline": "Named Finance Owner and Cash Flow Visibility",
+      "plain_english": "One person is accountable for the company's financial health, and the cash position, 90-day cash projection, and months of runway are reviewed every month.",
+      "observation": "At Level 3, two things are true. One named person owns the financial function and can answer, at any moment, what the current cash position is, how many months of runway the company has, and what the top three cost drivers are. They do not need to be a CFO. In a small company this might be the founder explicitly accepting accountability while they build the function. And a monthly cash review covers three numbers: current cash balance, expected cash in and out over the next 90 days, and the resulting runway in months. These three numbers are reviewed in the first leadership meeting of every month.",
+      "why_it_matters": "Cash flow is the oxygen of the business. Revenue and profit are important, but a profitable company can still run out of cash if its collection cycles are too long or its costs hit before its revenue arrives. A company that does not know its runway is a company that can be surprised into a crisis. Reviewing these three numbers monthly takes 10 minutes and is the single most valuable financial habit a founder can build.",
+      "audit_binary": "Is there one named person accountable for the financial function who can state the current cash position, 90-day projection, and months of runway without preparation, and are these three numbers reviewed in the first leadership meeting of every month with a written record for each of the past three months?",
+      "evidence": "Finance Ownership Assignment and Monthly Cash Review Records",
+      "evidence_example": "A written ownership assignment naming the finance owner. Monthly cash review records for the past three months, each showing: current cash balance, 90-day projected inflows and outflows, projected closing cash, and months of runway at current burn rate.",
+      "example": "The CEO owns the finance function for now with the bookkeeper as their operational support. Monthly cash review: current cash 183,000 euros. Expected inflows next 90 days: 94,000 euros from three signed contracts and one renewal due. Expected outflows: 112,000 euros from payroll, contractor fees, software, rent, and tax. Projected cash in 90 days: 165,000 euros. Runway at current burn: 11.4 months. Reviewed at the first Monday meeting of each month and recorded in the finance folder.",
+      "false_positive_signals": [
+        "The current bank balance is known because the founder checks it regularly, but no 90-day projection exists and the concept of runway has never been formally calculated.",
+        "Cash flow is reviewed when someone asks about it or when a large payment is due, rather than as a fixed monthly rhythm with a written record."
+      ],
+      "failure_signals": [
+        "The company has run short of cash unexpectedly in the past 12 months because no forward projection revealed the gap before it occurred.",
+        "When asked how many months of runway the company has, leadership gives an answer based on a rough mental estimate rather than a recent calculation."
+      ],
+      "prerequisite": "FR.2",
+      "review_frequency": 12,
+      "weights": {"impact": 10, "complexity": 3, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 4,
+      "headline": "Standardized Financial Process",
+      "plain_english": "The company operates with an annual budget agreed before the year begins and a consistent month-end close process that runs the same way every month.",
+      "observation": "At Level 4, two standards govern how financial information is produced. The annual budget is prepared before each financial year begins, covering planned revenue and expenditure by category and month. It is the standard against which actual performance is compared throughout the year. The month-end close process follows the same steps in the same order by the same deadline every month, owned by the finance function and not dependent on whoever has time. Both standards mean that financial information is produced consistently rather than variably.",
+      "why_it_matters": "A budget converts business goals into financial commitments. Without one, spending decisions are reactive and performance has no agreed benchmark to measure against. The month-end close process matters because inconsistent closing means inconsistent quality of financial information. A company that closes the books by the 15th in some months and the last day of the following month in others does not have monthly financial visibility. It has occasional financial visibility. Standardizing both creates the reliability that makes financial management possible.",
+      "audit_binary": "Is there a current annual budget covering planned revenue and expenditure by month, produced before the financial year began, reviewed quarterly against actuals, and does a written month-end close process exist that has been followed within the same five-day window for each of the past six months?",
+      "evidence": "Annual Budget with Quarterly Variance Reviews and Month-End Close Process Document with Timing Records",
+      "evidence_example": "A budget document covering the current financial year with monthly breakdowns of planned revenue and expenditure by category. Quarterly variance reviews comparing actuals to budget. A month-end close process document showing the steps and deadline. Close timing records for the past six months confirming the deadline was met each time.",
+      "example": "Annual budget prepared each December for the following year. Covers: monthly revenue targets by service line, payroll costs by role, contractor budget, technology spend, marketing budget, and overhead. Reviewed against actuals in the first week of each new quarter. Last quarter review: revenue 4% ahead of budget, gross margin 1.2% behind budget due to higher contractor costs than planned. Month-end close process: seven steps, owner is the bookkeeper, deadline is the 12th of the following month. Past six months: closed on the 10th, 11th, 12th, 9th, 13th, and 11th. All within the agreed window.",
+      "false_positive_signals": [
+        "An annual budget was created at the start of the year but has not been reviewed against actuals since January, making it a historical artifact rather than an active management tool.",
+        "Month-end close happens whenever the bookkeeper gets to it, ranging from the 10th to the 25th of the following month depending on how busy they are, making the timing of financial visibility unpredictable."
+      ],
+      "failure_signals": [
+        "The company has no annual budget and spending decisions are made based on current cash balance rather than a planned allocation, meaning cost discipline is reactive rather than intentional.",
+        "Significant variances from plan have occurred in multiple budget categories without any documented review or corrective action, suggesting the budget exists but is not used as a management tool."
+      ],
+      "prerequisite": "FR.3",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 4, "time_to_implement": 4, "direct_cost": 1}
+    },
+    {
+      "level": 5,
+      "headline": "Financial Performance Metrics",
+      "plain_english": "The company tracks at least five financial health metrics monthly beyond revenue, including gross margin, operating margin, and accounts receivable days.",
+      "observation": "At Level 5, the company measures financial health rather than just financial activity. Five metrics are tracked monthly at minimum. Gross margin: what percentage of revenue remains after direct costs. Operating margin: what percentage remains after all operating costs. Revenue growth rate: month-over-month and year-over-year. Accounts receivable days: how many days on average does it take to collect cash after invoicing. Runway: months of operating capacity at the current net burn rate. All five have numeric targets. All are reviewed in the monthly finance meeting. A metric declining for two consecutive months triggers a documented investigation.",
+      "why_it_matters": "Revenue alone is the most misleading financial metric a company can track. A business with growing revenue and shrinking gross margin is growing its way toward insolvency. A business with strong margins and a 90-day average collection period may have a cash crisis while appearing profitable. Gross margin trend is the single most important financial signal for a service or product business: it shows whether the core business model is becoming more or less efficient over time. The other metrics together reveal whether the company is collecting its money, managing its costs, and sustaining its operations.",
+      "audit_binary": "Are at least five financial health metrics, including gross margin, operating margin, revenue growth rate, accounts receivable days, and runway, tracked monthly with numeric targets, reviewed in a fixed monthly meeting, and has a metric declining for two consecutive months triggered a documented investigation in the past six months?",
+      "evidence": "Financial Metrics Dashboard with Monthly Review Records and Investigation Log",
+      "evidence_example": "Monthly financial metrics reports for at least three consecutive months showing at least five metrics with targets, actuals, and trend. At least one documented investigation triggered by a metric declining for two consecutive months.",
+      "example": "Monthly financial metrics reviewed on the first Monday of each month. Gross margin: 63%, target 65%, declined for two months. Investigation opened: bookkeeper reviewed direct cost entries and found that three subcontractor invoices had been categorized as direct costs in months when they should have been overhead. Reclassified. Gross margin recalculated at 66.2%. No structural margin issue. Operating margin: 21%, target 20%. Revenue growth rate: 8% month-over-month, target 5%. AR days: 34 days, target below 40. Runway: 10.8 months, target above 9.",
+      "false_positive_signals": [
+        "Revenue, expenses, and net profit are tracked monthly but no ratios or health metrics are calculated, meaning the company knows its financial results but not its financial condition.",
+        "Gross margin is calculated annually as part of the tax process but never tracked monthly, meaning margin compression can run for a full year before anyone notices the trend."
+      ],
+      "failure_signals": [
+        "The company discovers its gross margin has been declining for six months only when the annual accounts are prepared, because no monthly metric tracking existed to surface the trend earlier.",
+        "Accounts receivable aging has extended to 60 or 70 days without triggering any collection action or management concern, because the metric is not being tracked."
+      ],
+      "prerequisite": "TI.5",
+      "review_frequency": 12,
+      "weights": {"impact": 9, "complexity": 5, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 6,
+      "headline": "Rolling Financial Forecast and Risk Register",
+      "plain_english": "The company maintains a 12-month rolling financial forecast updated quarterly and a risk register identifying the top financial and operational risks with a mitigation plan for each.",
+      "observation": "At Level 6, finance looks forward rather than backward. A 12-month rolling forecast is updated each quarter based on current actuals, known pipeline, confirmed contracts, and planned costs. It projects revenue, expenses, and cash position month by month for the next 12 months. A risk register runs alongside it: at minimum 10 identified risks covering financial, operational, market, and compliance categories. Each risk has a likelihood rating, an impact rating, a named mitigation owner, and a mitigation action. Both are reviewed by leadership quarterly.",
+      "why_it_matters": "A budget tells the company what it planned. A forecast tells the company what it now expects. The difference between the two, updated quarterly, is the most useful financial planning tool available. It answers the question every founder needs to answer continuously: if things keep going the way they are going, where will we be in six months? The risk register addresses the other half of that question: what could derail the forecast, and what is the company doing about it? Together they convert financial management from a rearview mirror into a windscreen.",
+      "audit_binary": "Is there a 12-month rolling financial forecast updated within the past 90 days based on current actuals and pipeline, and does a risk register exist with at least 10 identified risks each having a likelihood rating, impact rating, named mitigation owner, and mitigation action, reviewed by leadership in the past quarter?",
+      "evidence": "Rolling Financial Forecast with Update History and Risk Register with Quarterly Review Record",
+      "evidence_example": "A financial forecast document showing 12 months of projected revenue, expenses, and cash position, with an update log showing it was revised within the past 90 days based on current data. A risk register with at least 10 risks, each showing likelihood, impact, owner, and mitigation action, with a record of leadership review in the past quarter.",
+      "example": "Rolling forecast: updated in October based on Q3 actuals and current pipeline. Projects revenue of 2.4M euros for the next 12 months, up from 2.2M in the July update. Three scenarios modeled: base case 2.4M, downside if the two largest renewal contracts are lost 1.9M, upside if the pipeline converts at 10% above current rate 2.7M. Cash position in all three scenarios remains above six months of runway. Risk register: 12 risks identified. Top risk: revenue concentration, two clients represent 38% of total revenue, rated high likelihood and high impact. Mitigation: active client diversification target of top two clients representing less than 25% by year end, owned by the sales lead. Reviewed in the Q3 leadership meeting last month.",
+      "false_positive_signals": [
+        "An annual budget exists and is used, but no rolling forecast is maintained between annual planning cycles, leaving the company operating from a plan that becomes more obsolete with each passing month.",
+        "A risk register was created 12 months ago and lists the same risks with the same mitigations that have never been actioned, revealing it is a compliance document rather than a management tool."
+      ],
+      "failure_signals": [
+        "The company is surprised by a financial shortfall that a current rolling forecast would have predicted three months in advance, because the forecast is updated annually rather than quarterly.",
+        "A significant business risk materializes and leadership says they knew about it, but no risk register entry exists showing it was formally identified, assessed, or mitigated."
+      ],
+      "prerequisite": "FR.5",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 6, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 7,
+      "headline": "Cross-Domain Financial Integration",
+      "plain_english": "Finance formally connects to revenue, operations, people, and technology through shared data that makes unit economics, budget performance, and investment decisions evidence-based.",
+      "observation": "At Level 7, finance does not operate as an isolated reporting function. Four integration points exist. Revenue and sales receives a joint quarterly unit economics review covering LTV:CAC, payback period, and gross margin by customer segment, informing pricing and sales investment decisions. Operations receives actual cost-of-delivery data that makes the gross margin calculation accurate and enables pricing to reflect true unit economics rather than estimates. People receives a total people cost analysis covering salary, benefits, and overhead cost per head compared to budget, informing hiring and compensation decisions. Technology receives an ROI review of automation investments measuring time saved against cost, confirming that technology investment is producing financial returns.",
+      "why_it_matters": "Finance without cross-domain integration produces accurate reports of the past. Finance with cross-domain integration shapes the future. When the unit economics review shows that a customer segment is unprofitable, sales stops pursuing it. When cost-of-delivery data shows that a service line has a 40% margin rather than the assumed 60%, pricing changes. When the people cost analysis shows that the company is above budget on headcount costs, hiring decisions are made more deliberately. Each integration point converts financial data from a historical record into a current decision input.",
+      "audit_binary": "Do documented integration artifacts connect FR to RS, OD, TC, and TI, with evidence that each artifact was used to inform a business decision in the past quarter?",
+      "evidence": "Cross-Domain Financial Integration Artifacts: Unit Economics Review with RS, Cost-of-Delivery Report with OD, People Cost Analysis with TC, and Technology ROI Review with TI",
+      "evidence_example": "Four artifacts, each with evidence of use in the past quarter: a unit economics review shared with the sales lead showing LTV:CAC and margin by segment, a cost-of-delivery report shared with the operations lead showing actual gross margin per service line, a people cost analysis showing total cost per head versus budget, and a technology investment ROI review.",
+      "example": "RS integration: a quarterly unit economics review presented jointly with the sales lead. Q3 findings: enterprise clients generate an LTV:CAC of 5.8:1 and a gross margin of 71%. SME clients generate an LTV:CAC of 2.4:1 and a gross margin of 52%. Decision: sales targeting adjusted to prioritize enterprise segment. OD integration: actual delivery cost per project calculated monthly and shared with the operations lead. Q3 finding: average cost per project is 3,200 euros against an assumed 2,800 euros, compressing margin by 5%. Investigation opened into why actual costs exceed assumptions. TC integration: total people cost analysis showing that the team is 8% above the headcount budget following two hires that were made slightly above the planned salary range. Freeze on further hiring until Q1 budget is set. TI integration: quarterly review of automation investments. The five workflows built in Q2 are saving an estimated 28 hours per month at an average blended cost of 65 euros per hour, generating an estimated 1,820 euros per month in saved time against a one-time build cost of 4,200 euros. Payback period: 2.3 months.",
+      "false_positive_signals": [
+        "Finance produces accurate reports that all domains can access, but no joint review sessions exist and the data does not formally feed decisions in other domains beyond general awareness.",
+        "Unit economics have been calculated once at a company level but have never been broken down by customer segment or service line, leaving pricing and sales targeting decisions based on blended averages rather than segment-specific data."
+      ],
+      "failure_signals": [
+        "Pricing has not been reviewed in 18 months despite delivery costs having increased, because no integration point exists between finance and operations to surface the margin compression.",
+        "The sales team is pursuing a customer segment that finance knows is unprofitable at current pricing, but no formal unit economics review connects the two functions."
+      ],
+      "prerequisite": "FR.6",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 2}
+    },
+    {
+      "level": 8,
+      "headline": "Financial Controls and External Review",
+      "plain_english": "The company operates documented financial controls covering authorization, segregation of duties, and reconciliation, and has completed an external financial review in the past 24 months.",
+      "observation": "At Level 8, the financial system is designed to catch and prevent errors and fraud, not just to report results. Financial controls define: which spend amounts require whose approval, that no single person can both authorize and execute a payment, that bank accounts are reconciled by one person and reviewed by a different person, and that the books are reviewed quarterly by someone not involved in producing them. An external financial review, whether a full audit or an independent accountant's review, has been completed in the past 24 months with findings documented and addressed.",
+      "why_it_matters": "Financial controls are what make the numbers trustworthy, not just accurate. A company where the same person approves spending, makes the payment, and reconciles the account has a structural risk regardless of the integrity of the people involved. Controls are not about distrust. They are about designing a system that protects the company and its stakeholders from the consequences of errors, judgment lapses, and the rare but real threat of fraud. An external review is the independent proof that the controls are working and the numbers can be trusted.",
+      "audit_binary": "Are documented financial controls in place covering expenditure authorization levels, segregation of payment duties, and independent reconciliation review, and has an external financial review been completed in the past 24 months with all identified issues resolved?",
+      "evidence": "Financial Controls Policy and External Financial Review Report with Remediation Records",
+      "evidence_example": "A written financial controls policy covering authorization thresholds, segregation of duties, and reconciliation procedures. An external financial review or audit report from within the past 24 months. Records confirming all findings from that review have been addressed.",
+      "example": "Financial controls policy: expenses below 500 euros: team member authority. Between 500 and 5,000 euros: department lead approval. Between 5,000 and 25,000 euros: CFO or equivalent approval. Above 25,000 euros: CEO and CFO joint approval. Payments are executed by the bookkeeper but authorized by the finance owner, never the same person. Bank reconciliation is performed by the bookkeeper monthly and reviewed by the CEO or CFO before the books are closed. External review: an independent accountant reviewed the financial statements and controls in March. Two findings: one minor categorization inconsistency corrected, one missing authorization record for a payment in December retroactively documented and process updated to prevent recurrence. Both findings resolved and confirmed by the reviewer.",
+      "false_positive_signals": [
+        "A financial controls policy exists in writing but the founder routinely approves and executes their own expense claims without a second review, undermining the segregation principle in the most visible way possible.",
+        "The company has never had an external financial review because it has always been too small, despite having revenue above 1M euros and external investors or lenders who rely on the financial statements."
+      ],
+      "failure_signals": [
+        "A payment error or an unauthorized expense is discovered only during the annual accounting process months after it occurred, because no reconciliation review existed to catch it sooner.",
+        "An investor or bank requests audited or independently reviewed financial statements and the company cannot produce them, creating a delay in a time-sensitive process."
+      ],
+      "prerequisite": "FR.7",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 7, "time_to_implement": 6, "direct_cost": 5}
+    },
+    {
+      "level": 9,
+      "headline": "Independent Finance Leadership",
+      "plain_english": "Finance is led by a dedicated or fractional CFO who owns reporting, forecasting, controls, and external relationships without founder involvement.",
+      "observation": "At Level 9, a named finance leader, whether internal or fractional, owns the full financial function. They produce and present the monthly financial summary, maintain the rolling forecast, manage the risk register, oversee the controls process, manage the relationship with the external accountant and auditor, and make financial decisions up to a defined threshold without the founder. The founder receives the monthly financial summary and reviews the quarterly forecast, but does not prepare financial information, manage banking relationships, or approve routine financial decisions.",
+      "why_it_matters": "Founder-managed finances are a common and significant valuation risk. When the founder is the person who understands the numbers, produces the reports, and manages the bank, the financial function is founder-dependent in the most fundamental way. An acquirer or investor who discovers this treats it the same way they treat any other key-person dependency: as a risk that reduces the multiple they are willing to pay. A dedicated finance leader converts financial management from a founder skill into a company capability.",
+      "audit_binary": "Is there a named finance leader, internal or fractional, who produces the monthly financial summary, maintains the rolling forecast, and manages external financial relationships independently, with at least four consecutive months of leadership review conducted without the founder preparing or presenting the financial information?",
+      "evidence": "Finance Leadership Authority Document with Independent Review Records",
+      "evidence_example": "A written authority document naming the finance leader and their decision threshold. Records of at least four consecutive monthly financial reviews where the finance leader presented independently. A record of external financial relationships managed by the finance leader rather than the founder.",
+      "example": "A fractional CFO engaged for three days per month. Owns: monthly financial close oversight, production of the leadership financial summary, rolling forecast maintenance, risk register updates, and the bank relationship. Decision authority: up to 10,000 euros per transaction without founder approval. Last four monthly summaries: all presented by the fractional CFO at the leadership meeting without founder preparation. The CEO reviewed the summary and asked questions but did not produce any of the content. Banking: the fractional CFO manages the bank relationship and made the last two credit facility renewal discussions independently. The founder was informed of the outcome but was not part of the conversations.",
+      "false_positive_signals": [
+        "A bookkeeper or accountant handles the financial records independently, but all financial interpretation, decision-making, and external relationships are still managed by the founder, meaning operational finance is delegated but strategic finance is not.",
+        "A fractional CFO is engaged for advice but the founder still produces the monthly financial summary and presents it to the team, making the engagement advisory rather than ownership-level."
+      ],
+      "failure_signals": [
+        "The company's bank, accountant, or investor calls the founder directly for financial information because they have no relationship with anyone else in the financial function.",
+        "A financial decision that falls within normal business operations requires waiting for the founder's return from travel because no defined authority level exists for the finance function."
+      ],
+      "prerequisite": "TC.6",
+      "review_frequency": 2,
+      "weights": {"impact": 9, "complexity": 8, "time_to_implement": 7, "direct_cost": 6}
+    },
+    {
+      "level": 10,
+      "headline": "Institutional Financial System",
+      "plain_english": "The company operates a complete, governed financial system with clean audited accounts, independent CFO leadership, and financial documentation that any investor, lender, or acquirer can trust without the founder explaining it.",
+      "observation": "At Level 10, all financial systems are running together under independent leadership and external validation. Accurate records close monthly. Statements are organized and accessible. Cash flow is reviewed monthly. A budget governs spending. Financial health metrics are tracked. A rolling forecast and risk register are active. Cross-domain financial integration is live. Controls are in place. An external audit is completed annually. The fractional or dedicated CFO presents the annual financial governance report to the advisory board. An investor, lender, or acquirer can conduct financial due diligence on this company without requiring the founder to explain the numbers.",
+      "why_it_matters": "Institutional financial governance is the proof that the company is a business, not a personal enterprise. When every financial figure can be traced to a reconciled accounting system, every decision can be traced to an authorization log, and every risk is documented with an owner and a mitigation, the financial function has become an institutional asset rather than a founder skill. This is what allows the company to raise debt, attract investment, and be sold at a multiple that reflects the real value of the business rather than the personal credibility of the person who built it.",
+      "audit_binary": "Has the financial function operated without founder involvement in reporting, forecasting, or external relationships for at least four consecutive quarters, has an annual external audit been completed in the past 12 months with a clean or minor-findings opinion, and can a complete financial due diligence package be produced within five business days without founder involvement?",
+      "evidence": "Annual Financial Governance Report with External Audit Record and Due Diligence Package Readiness Confirmation",
+      "evidence_example": "An annual financial governance report covering: monthly close performance, financial metrics trend, forecast accuracy, risk register status, controls compliance, and external audit outcome. An external audit report from within the past 12 months. A confirmation from the finance leader that a standard due diligence package can be produced within five business days.",
+      "example": "Annual financial governance report. Monthly close: completed within 12 days in 11 of 12 months. Financial metrics: gross margin stable at 64%, operating margin improved from 18% to 23% over the year. Forecast accuracy: average 7% variance from actuals across four quarters. Risk register: 12 risks tracked, two resolved, three new risks added. Controls: no authorization breaches, all reconciliations completed independently, two segregation of duties improvements implemented. External audit: completed in November, clean opinion, two immaterial findings both resolved within 30 days. Due diligence readiness: the fractional CFO confirmed a standard data room can be populated within three business days. Founder involvement: zero financial decisions, presentations, or external relationship interactions in the past 14 months. Report presented to the advisory board in December.",
+      "false_positive_signals": [
+        "The financial system is well-managed and controls are in place, but the annual audit has only been completed once and the company has returned to reviewing accounts independently rather than maintaining an annual external audit cycle.",
+        "Financial governance looks strong internally but an investor who requests due diligence materials still receives a call from the founder who explains the numbers rather than a clean package from the finance function."
+      ],
+      "failure_signals": [
+        "A potential acquirer begins financial due diligence and the process stalls because financial records are not in a format that can be shared directly, or because key financial context exists only in the founder's memory.",
+        "The external audit produces a qualified opinion or significant findings for a second consecutive year, suggesting the underlying financial controls or records do not yet meet an institutional standard."
+      ],
+      "prerequisite": "FR.9",
+      "review_frequency": 1,
+      "weights": {"impact": 10, "complexity": 9, "time_to_implement": 9, "direct_cost": 7}
+    }
+  ]
+}

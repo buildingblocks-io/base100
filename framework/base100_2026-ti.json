@@ -1,0 +1,257 @@
+{
+  "id": "TI",
+  "name": "Technology & Infrastructure",
+  "purpose": "Provide the systems, data, and automation that allow the company to operate efficiently, make decisions from evidence, and scale without proportional increases in manual work.",
+  "cxo_persona": "Chief Technology Officer",
+  "description": "How the company selects, manages, integrates, and evolves its technology stack, from the basic inventory of tools through to a connected data platform that supports every other domain. Technology and infrastructure is the only domain whose maturity directly enables the measurement level of every other domain. TI.5, the business intelligence dashboard level, appears as a prerequisite across leadership, product, brand, revenue, operations, and customer success because dashboards are what converts activity into visible, manageable performance.",
+  "direction": {
+    "name": "Technology and Infrastructure Strategy",
+    "purpose": "Define how technology supports the company's operations, data visibility, automation, and long-term scalability, and how the technology stack evolves deliberately as the company grows.",
+    "required_outputs": [
+      "system_inventory",
+      "data_management_model",
+      "access_control_policy",
+      "integration_architecture",
+      "automation_program",
+      "business_intelligence_framework",
+      "security_and_monitoring_model",
+      "technology_roadmap"
+    ],
+    "primary_owner": "Chief Technology Officer",
+    "contributors": ["CEO", "operations_lead", "product_lead", "finance_lead"],
+    "minimum_standard": "One documented technology strategy exists covering the system inventory, data management approach, access control policy, and a 12-month technology roadmap reviewed at least quarterly.",
+    "review_frequency": 4,
+    "questions_to_answer": [
+      "What systems run the business today, and which three would cause the most damage if they failed for 48 hours?",
+      "Where does every category of critical business data live, and who has access to it?",
+      "What manual work is performed repeatedly each week that technology could eliminate, and what is the estimated cost of not automating it?",
+      "How would the company know if a mission-critical system started degrading before a failure occurred?",
+      "What technology decisions made in the past 12 months are creating technical debt that will need to be resolved in the next 12?",
+      "If the company doubled in size next year, which systems would break first and what would it take to prevent that?",
+      "How would the company respond if its most critical system was unavailable for a full business day?",
+      "What proprietary data is the company collecting that could become a competitive asset, and is it being organized and protected accordingly?"
+    ]
+  },
+  "levels": [
+    {
+      "level": 1,
+      "headline": "System Inventory Documented",
+      "plain_english": "Every software tool the company uses is listed in one document with its purpose, owner, and cost.",
+      "observation": "At Level 1, a system inventory exists. It lists every software tool the company uses, what it is used for, who owns it, what it costs per month, and who has access to it. The inventory covers every category: communication, project management, CRM, accounting, file storage, HR, design, and any specialized tools. It reflects the actual stack today, not an aspirational one. Nothing is missing because nobody thought to add it.",
+      "why_it_matters": "A company that cannot list its technology tools cannot manage them. It cannot control security because it does not know which systems hold sensitive data. It cannot control cost because subscriptions accumulate unnoticed. It cannot plan integrations because the map does not exist. The system inventory is not a technology exercise. It is the minimum act of organizational hygiene that makes every subsequent technology decision possible.",
+      "audit_binary": "Is there a current written system inventory listing every software tool in use with its purpose, primary owner, monthly cost, and who has access, updated within the past six months?",
+      "evidence": "System Inventory Document",
+      "evidence_example": "A document or spreadsheet listing every tool with at minimum: tool name, category, primary use case, named owner, monthly or annual cost, and the team or individuals with access. Updated within the past six months.",
+      "example": "A 14-row inventory covering: CRM, project management, accounting, communication, email, file storage, design, e-signature, invoicing, payments, marketing automation, HR records, video conferencing, and password management. Each row shows the tool name, what it is used for, who owns the subscription, the monthly cost, and which team members have access. Reviewed every six months. Last update added two tools that had been added informally and billed to personal credit cards.",
+      "false_positive_signals": [
+        "An IT person or the founder knows which tools are in use, but no written inventory exists that another team member could find and read without asking anyone.",
+        "An inventory was created 18 months ago and has not been updated since, meaning four tools have been added and one has been cancelled without being recorded."
+      ],
+      "failure_signals": [
+        "Leadership cannot immediately state the company's monthly technology spend or the number of active software subscriptions without manually checking bank statements.",
+        "A team member leaves and the offboarding process reveals access to three tools that nobody knew they had because no inventory tracked it."
+      ],
+      "prerequisite": null,
+      "review_frequency": 2,
+      "weights": {"impact": 7, "complexity": 1, "time_to_implement": 1, "direct_cost": 1}
+    },
+    {
+      "level": 2,
+      "headline": "Critical Data Centralized",
+      "plain_english": "Every category of critical business data lives in a shared company system, not on personal drives or in individual email inboxes.",
+      "observation": "At Level 2, critical business records have a designated shared home. Customer data lives in the CRM or equivalent, not in individual contact lists. Financial records live in the accounting system, not in personal spreadsheets. Contracts live in a shared folder or document management system, not in the sales lead's inbox. Operational documents live in the shared workspace, not on the founder's laptop. Any team member with the right access can find any critical record without asking anyone.",
+      "why_it_matters": "Data that lives on personal drives or in individual inboxes is not company data in any meaningful sense. It exists at the pleasure of the individual who holds it. When that person is sick, on holiday, or leaving the company, the data disappears from the company's view until they return or until someone asks for it. Centralizing critical data is the first act of converting individual information into a company asset, and it is the prerequisite for every subsequent data integration and business intelligence capability.",
+      "audit_binary": "Is there a written data map showing where each category of critical business data lives, confirmed that no critical records exist only on personal drives or in individual inboxes, with at least one named backup accessor for every data category?",
+      "evidence": "Data Location Map with Backup Access Confirmation",
+      "evidence_example": "A document listing each critical data category, the system it lives in, who has primary access, and who has backup access. Confirmation that the last three employee departures did not result in any critical data becoming inaccessible.",
+      "example": "Data map: customer records live in the CRM, accessible to the sales team and leadership. Financial records live in the accounting system, accessible to the finance lead and CEO. Contracts live in a shared legal folder, accessible to the operations lead and CEO. Project files live in the project management tool, accessible to the full delivery team. No critical category has fewer than two people with access. When the previous sales lead left, all customer data remained fully accessible through the CRM. No data was held in personal email or local files.",
+      "false_positive_signals": [
+        "A CRM exists and is used but the sales lead maintains a personal Excel file as their primary working list because the CRM is not kept current, making the personal file the real source of truth.",
+        "Contracts are stored in a shared folder but the most recent six months of contracts live in the sales lead's email drafts because nobody moved them over."
+      ],
+      "failure_signals": [
+        "When a team member leaves, a period of scrambling follows to recover data from their personal drive or email before their account is closed.",
+        "Different team members report different figures when asked a straightforward data question because each is pulling from their own local copy rather than a shared authoritative source."
+      ],
+      "prerequisite": "TI.1",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 3, "time_to_implement": 3, "direct_cost": 2}
+    },
+    {
+      "level": 3,
+      "headline": "Named Technology Owner and Access Control",
+      "plain_english": "One person is accountable for the technology stack, and a written policy controls who can access which systems and ensures access is removed within 24 hours when someone leaves.",
+      "observation": "At Level 3, two things are true. One named person owns technology: they are accountable for the system inventory, the security of the stack, and any technology decision above a defined cost threshold. They do not need to be a developer. In a small company this could be the most technically capable team member or a fractional advisor. And a written access control policy defines which roles access which systems, at what permission level, and what the procedure is when someone joins or leaves. The last three employee departures had all system access removed within 24 hours.",
+      "why_it_matters": "Access control is not an IT administration task. It is a basic security and liability management obligation. A former employee with active access to the CRM, accounting system, or file storage is a security risk and potentially a legal liability. A company that manages access through informal requests and memory is relying on nobody forgetting to do something important. A written policy with a named owner converts access management from a hope into a system.",
+      "audit_binary": "Is there one named person accountable for the technology stack, a written access control policy defining system access by role and the offboarding procedure, and evidence that the last three employee departures had all system access removed within 24 hours?",
+      "evidence": "Technology Ownership Assignment, Access Control Policy, and Offboarding Access Removal Records",
+      "evidence_example": "A written ownership assignment naming the technology owner. An access control policy listing each system, the roles with access, and the permission levels. Records from the last three employee departures confirming all system access was removed within 24 hours.",
+      "example": "Technology owner: the operations lead, accountable for the system inventory and any technology spend above 500 euros per month. Access control policy: four roles defined. Full access: CEO and operations lead. Sales access: CRM and communication tools only. Delivery access: project management, file storage, and design tools only. Finance access: accounting system and payment tools only. Offboarding procedure: a 12-item checklist run by the operations lead within 24 hours of any departure, covering access removal from every system in the inventory. Last three departures: access fully removed on the day of departure in all three cases, confirmed in the offboarding log.",
+      "false_positive_signals": [
+        "Access is managed informally by whoever set up each tool, with no written policy and no single person accountable, meaning access removal depends on whoever remembers to do it.",
+        "An access control policy exists in writing but has not been updated in 12 months and does not reflect the current team composition or the tools added since it was written."
+      ],
+      "failure_signals": [
+        "A departed employee still has active access to one or more company systems more than 48 hours after their last day, discovered during a routine audit.",
+        "A current employee has access to a system they do not need for their role because nobody thought to restrict permissions when they changed roles six months ago."
+      ],
+      "prerequisite": "TI.2",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 3, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 4,
+      "headline": "Systems Integrated and Routine Tasks Automated",
+      "plain_english": "Core systems share data automatically without manual re-entry, and at least five high-frequency repetitive tasks have been replaced by automated workflows.",
+      "observation": "At Level 4, two standardizations exist. Integration: when a deal is closed in the CRM, the invoice is created automatically in accounting. When a contract is signed, a project card opens in the project management tool. Data entered once flows to wherever it is needed without a human carrying it. Automation: at least five tasks that were previously done manually by a person, such as sending a reminder email, generating a weekly report, or adding a new client to a communication list, now run automatically through a workflow tool. Every automated task has a documented owner and is tested quarterly.",
+      "why_it_matters": "Manual data re-entry between systems is the most visible sign of an unintegrated technology stack. It wastes time, introduces errors, and creates the data inconsistencies that make metrics untrustworthy. Every hour spent copying data from one system to another is an hour that compounds: the same person performs the same task every week, every month, every year. Automation does not need to be sophisticated to be valuable. A workflow that sends a reminder email automatically saves the same 10 minutes it saved the first time, every single time it runs, forever.",
+      "audit_binary": "Are at least three core system pairs integrated so that data entered in one system flows automatically to the other without manual re-entry, and are at least five previously manual high-frequency tasks now automated through documented workflows with a named owner each?",
+      "evidence": "Integration Architecture Document and Automation Workflow Library",
+      "evidence_example": "A document or diagram showing at least three system integrations with a description of what data flows and how. A list of at least five automated workflows showing: the task automated, the tool used, the trigger, the estimated time saved per month, and the named owner.",
+      "example": "Integrations: CRM to accounting, a closed deal automatically creates a draft invoice with client name, amount, and payment terms pre-filled. Project management to communication tool, a new project card sends a welcome message to the client via email. E-signature to file storage, a signed contract is automatically saved to the correct client folder. Automations: weekly pipeline report generated and emailed to the sales lead every Monday morning, saving 45 minutes per week. New client added to the onboarding email sequence automatically when marked active in the CRM, saving 15 minutes per client. Overdue invoice reminder sent automatically at day seven and day 14, saving 20 minutes per reminder per client. Monthly metrics dashboard refreshed and distributed automatically, saving 90 minutes per month. New team member added to all standard communication channels automatically when created in the HR system, saving 20 minutes per hire.",
+      "false_positive_signals": [
+        "Integration tools are subscribed to and connected but the automations are broken or unreliable, so team members have learned to perform the manual task anyway as a backup, running both the manual and automated version simultaneously.",
+        "One or two automations exist but the majority of repetitive tasks are still performed manually because nobody has prioritized mapping and automating them."
+      ],
+      "failure_signals": [
+        "Team members spend significant time each week manually copying data between systems that could be integrated, because no integration has been set up.",
+        "Data inconsistencies between systems are a known ongoing problem, with different numbers reported by different tools because there is no single authoritative data flow."
+      ],
+      "prerequisite": "TI.3",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 6, "time_to_implement": 6, "direct_cost": 3}
+    },
+    {
+      "level": 5,
+      "headline": "Business Intelligence Dashboards",
+      "plain_english": "Leadership can see the state of the business across all key metrics in one place, updated automatically, without pulling a manual report.",
+      "observation": "At Level 5, a business intelligence layer exists. Key metrics from every operational domain are visible in one place or through a set of connected dashboards: revenue pipeline, delivery performance, customer health, team capacity, financial position, and marketing activity. The data is updated automatically from the underlying systems. Leadership can look at the dashboard on any morning and see whether the business is on track without asking anyone to prepare a report. This is the level that makes data-driven decisions possible, and it is why TI.5 is a prerequisite for measurement across every other domain.",
+      "why_it_matters": "A company that makes decisions from last month's manually assembled spreadsheet is not a data-driven company. It is a company that aspires to be data-driven once someone finds the time to prepare the data. Business intelligence dashboards convert that aspiration into a reality by making the current state of the business continuously visible. Every other domain's ability to be measured, managed, and improved depends on data being visible without effort. This is TI's contribution to every other domain in the framework.",
+      "audit_binary": "Is there a business intelligence layer, whether a single dashboard or a connected set, showing at minimum the key metrics from revenue, operations, customer success, and finance, updated automatically from source systems, and actively used in leadership decision-making at least weekly?",
+      "evidence": "Business Intelligence Dashboard with Active Usage Records",
+      "evidence_example": "A dashboard or connected set of dashboards showing metrics from at least four domains, updated automatically from integrated source systems. Records or observations confirming leadership references the dashboard at least weekly rather than requesting manual reports.",
+      "example": "A connected dashboard showing six panels. Revenue: pipeline value, this month's closed revenue vs. target, and lead volume by channel. Operations: active project count, average delivery time vs. target, and capacity utilization. Customer success: monthly churn rate, NPS score, and number of clients at amber or red health status. Finance: current cash balance, accounts receivable outstanding, and gross margin this month. People: open roles and days open, and voluntary attrition rate rolling 12 months. Technology: system uptime for the three critical tools. Refreshed every morning from integrated source systems. Reviewed by the leadership team every Monday morning. The last time a manual report was requested was the month before this dashboard was built.",
+      "false_positive_signals": [
+        "Dashboards exist in each system separately, such as a CRM dashboard, an accounting dashboard, and a project management dashboard, but no single view exists that shows the state of the whole business in one place.",
+        "A business intelligence tool is subscribed to and connected, but the dashboards are not actively used in leadership meetings because nobody trusted the data quality when it was first set up and the habit never formed."
+      ],
+      "failure_signals": [
+        "Leadership requests a manual summary or report before every significant meeting because no automated view of business performance exists that can be trusted.",
+        "Different team members report different figures for the same metric because each is pulling from their own domain's system rather than a shared authoritative dashboard."
+      ],
+      "prerequisite": "TI.4",
+      "review_frequency": 12,
+      "weights": {"impact": 9, "complexity": 6, "time_to_implement": 6, "direct_cost": 4}
+    },
+    {
+      "level": 6,
+      "headline": "Proactive System Monitoring and Security",
+      "plain_english": "Mission-critical systems are monitored for uptime and performance, security events are detected and logged, and a documented incident response procedure exists for every critical system failure.",
+      "observation": "At Level 6, the technology stack watches itself. Uptime monitoring alerts the technology owner within minutes if any mission-critical system goes offline. Performance monitoring detects degradation before users notice. A security monitoring tool logs unauthorized access attempts, unusual login patterns, and policy violations. And a written incident response plan exists for the top three most likely failure scenarios: what the team does, in what order, with which contacts, when a critical system fails. Proactive monitoring means the company finds out about system problems before customers do.",
+      "why_it_matters": "Discovering a system failure when a team member tries to use the system and finds it down is reactive monitoring. By that point, the failure has already been affecting the business for an unknown period and users are already frustrated. Proactive monitoring converts system health from a reactive discovery into a managed metric. The incident response plan matters because a system failure handled without a plan is slower, more stressful, and more damaging than one handled with one. Both uptime and security monitoring together address the two most common sources of technology disruption.",
+      "audit_binary": "Is uptime monitoring active for at least three mission-critical systems with alerts configured to notify the technology owner within 10 minutes of a failure, is a security monitoring tool logging access events, and does a written incident response plan exist for the top three critical failure scenarios, tested in the past 12 months?",
+      "evidence": "System Monitoring Configuration Records, Security Event Log, and Incident Response Plan with Test Record",
+      "evidence_example": "Configuration records showing uptime monitoring is active for mission-critical systems with sub-10-minute alert thresholds. A security event log showing access events being captured. A written incident response plan for at least three failure scenarios, with a record of the most recent test or tabletop exercise.",
+      "example": "Uptime monitoring: three systems monitored with five-minute check intervals. CRM, accounting system, and project management tool. Any downtime triggers an immediate alert to the technology owner's phone and email. Last month: one alert triggered for a brief CRM outage at 6am on a Sunday. Resolved within 40 minutes before the working day began. Security monitoring: a security information tool logs all login events. Unusual login pattern from an unfamiliar IP address flagged last quarter, investigated, confirmed to be a team member working while traveling. No breach. Incident response plan: written procedures for three scenarios. CRM unavailable for more than two hours: manual pipeline tracking in a shared spreadsheet, vendor contacted within 15 minutes. Accounting system unavailable: payments delayed, vendor contacted, leadership notified. File storage unavailable: backup access via secondary cloud storage. Tabletop exercise conducted in March: all three scenarios walked through, two gaps identified and resolved.",
+      "false_positive_signals": [
+        "A monitoring tool subscription exists but alerts are configured with hour-long check intervals rather than minute-level intervals, meaning a failure could run for 59 minutes before detection.",
+        "An incident response plan was written last year and described as available, but when asked, the technology owner cannot recall where it is stored or whether it has been updated since."
+      ],
+      "failure_signals": [
+        "A system failure is discovered by a team member trying to use the system rather than by a monitoring alert, revealing that monitoring either does not exist or did not trigger.",
+        "A security incident reveals that login events were not being logged, meaning the company cannot determine how long unauthorized access occurred or what was accessed."
+      ],
+      "prerequisite": "TI.5",
+      "review_frequency": 12,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 4}
+    },
+    {
+      "level": 7,
+      "headline": "Cross-Domain Technology Integration",
+      "plain_english": "Technology provides formal data feeds to every other business domain, making the business intelligence dashboard the living nerve center of the company.",
+      "observation": "At Level 7, technology is not just infrastructure. It is the connective tissue between every domain. The business intelligence dashboard is expanded to serve each function specifically: leadership sees cross-domain performance at a glance, product sees customer usage and outcome data, marketing sees lead attribution and channel performance, sales sees pipeline metrics in real time, operations sees delivery capacity and quality metrics, customer success sees health scores and engagement signals, people sees attrition and performance trends, and finance sees cash position and margin data. Every domain's data flows into the shared platform and each domain can pull its specific view without requesting anything from technology.",
+      "why_it_matters": "Technology and infrastructure is unique in the BASE100 framework. Every other domain's Level 7 integration requires a relationship with other domains. TI's Level 7 integration means that technology has built the data infrastructure that makes every other domain's integration possible. A company where each domain extracts its data manually and independently is a company where the same data effort is repeated ten times. A company with a connected data platform does that work once and distributes the results to every function simultaneously.",
+      "audit_binary": "Does the business intelligence platform provide a specific, automatically updated data view for at least six business domains, with evidence that each domain owner actively uses their view to make decisions rather than requesting manual data from the technology team?",
+      "evidence": "Cross-Domain Dashboard Architecture Document with Domain Usage Records",
+      "evidence_example": "A document showing the dashboard architecture and which data feeds each domain view. Records or observations from the past quarter confirming that at least six domain owners actively reference their dashboard view in meetings or decisions rather than requesting manual reports.",
+      "example": "The business intelligence platform has eight domain-specific views. Leadership view: company-wide scorecard updated daily. Product view: feature adoption, activation rate, and outcome achievement rate updated weekly from the product database. Marketing view: leads by channel, cost per lead, and content engagement updated daily from the CRM and marketing tools. Sales view: pipeline value, close rate, and cycle time updated daily from the CRM. Operations view: delivery time, capacity utilization, and quality check pass rate updated weekly from the project management system. Customer success view: NPS, churn rate, and health scores updated weekly. People view: open roles, attrition rate, and eNPS updated monthly from the HR system. Finance view: cash position, accounts receivable, and gross margin updated daily from accounting. Each domain owner opens their view in their Monday morning domain review. The technology team received zero manual data requests in the past quarter.",
+      "false_positive_signals": [
+        "A single shared dashboard exists showing company-wide metrics but each domain still pulls its own data manually for its internal reviews because the shared dashboard does not show the domain-specific detail they need.",
+        "Domain-specific views exist but are built by each domain independently using different tools and different data sources, creating inconsistency rather than a connected platform."
+      ],
+      "failure_signals": [
+        "Domain owners still request custom data pulls from the technology team because the standard dashboards do not cover the metrics they need for their own domain management.",
+        "The same metric is reported with different figures by two different domain dashboards because each is sourcing it from a different system without a single authoritative data feed."
+      ],
+      "prerequisite": "TI.6",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 8, "time_to_implement": 8, "direct_cost": 5}
+    },
+    {
+      "level": 8,
+      "headline": "Systematic Technology Improvement",
+      "plain_english": "The technology stack improves through a documented quarterly audit cycle, a maintained 12-month roadmap, and a tracked technical debt register.",
+      "observation": "At Level 8, technology evolves deliberately rather than reactively. A quarterly technology audit reviews the system inventory for redundancy, underuse, and risk. Redundant tools are cancelled. Underused tools are either trained on or replaced. New risks identified since the last audit are added to the risk register. The 12-month technology roadmap is updated based on the audit findings and the company's growth plans. A technical debt register tracks known limitations, workarounds, and aging systems that will need to be addressed, preventing the accumulation of invisible risk.",
+      "why_it_matters": "Technical debt is not a developer problem. It is a business risk that compounds silently. A system that is five years old and no longer supported by the vendor is a security vulnerability. A workaround that two team members use to compensate for a broken integration is a key-person dependency. A tool that costs 300 euros per month and is used by one person twice per year is a budget drain. None of these are visible without a regular audit. The technology roadmap is what converts that visibility into planned action rather than eventual crisis.",
+      "audit_binary": "Has a documented technology audit been conducted in the past quarter covering the full system inventory for redundancy, underuse, and risk, is there a current 12-month technology roadmap updated based on the most recent audit, and does a technical debt register exist with at least five items tracked with priority levels and resolution timelines?",
+      "evidence": "Quarterly Technology Audit Report, 12-Month Technology Roadmap, and Technical Debt Register",
+      "evidence_example": "A technology audit report from the past quarter showing: systems reviewed, redundancies found, underused tools identified, risks flagged, and decisions made. A 12-month roadmap showing planned technology investments and changes with quarterly timing. A technical debt register with at least five items, each showing: the issue, the business risk it creates, the priority level, and the planned resolution timeline.",
+      "example": "Q3 technology audit: 14 systems reviewed. Two redundancies found: two communication tools with overlapping use cases, one cancelled saving 180 euros per month. One underused tool: the design tool was used by only one person, subscription changed to a seat license. Two risks flagged: the accounting system is three major versions behind current and the vendor ends support in eight months. Added to roadmap for upgrade in Q1. Technical debt register: five items. Item one, the CRM integration to accounting breaks occasionally and requires manual reconciliation once a week, priority high, target resolution Q4 by replacing with a more reliable integration tool. Item two, file naming conventions are inconsistent across the team making search unreliable, priority medium, target resolution Q2 through a naming convention SOP.",
+      "false_positive_signals": [
+        "The technology stack has not been formally reviewed in more than 12 months but the technology owner describes it as stable, meaning there is no active audit cycle and risks are accumulating without detection.",
+        "A technology roadmap exists as a wish list of desirable upgrades but is not connected to the audit cycle or the company's growth plans, making it aspirational rather than operational."
+      ],
+      "failure_signals": [
+        "A technology tool fails or is discontinued by the vendor and the company is caught by surprise, revealing that no audit cycle was monitoring the support and end-of-life status of the stack.",
+        "The same workaround has been in use for more than 12 months without being addressed, suggesting no technical debt register exists to make it visible and prioritized."
+      ],
+      "prerequisite": "TI.7",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 7, "direct_cost": 5}
+    },
+    {
+      "level": 9,
+      "headline": "Independent Technology Leadership",
+      "plain_english": "Technology is led by a dedicated or fractional technology leader who owns the stack, the roadmap, and all technology decisions without founder involvement.",
+      "observation": "At Level 9, a named technology leader, whether internal or fractional, owns the technology function with real authority. They manage the system inventory, maintain the access control policy, oversee the monitoring and incident response systems, run the quarterly technology audit, update the roadmap, and make technology purchase decisions up to a defined budget threshold without consulting the founder. They present a technology summary to leadership quarterly. Technology decisions are not made by whoever is most technically capable in the room on any given day.",
+      "why_it_matters": "Technology decisions made without a dedicated owner accumulate in the worst possible way. Each individual decision may seem reasonable at the time, but without someone accountable for the overall architecture, the stack becomes a collection of tools chosen by different people for different reasons that do not work well together. A technology leader provides strategic coherence to technology investment, catches risks that others miss because they are looking at individual tools rather than the whole picture, and prevents the founder from becoming the default technology decision-maker by absence of anyone else.",
+      "audit_binary": "Is there a named technology leader, internal or fractional, with documented authority over technology decisions up to a defined budget threshold, who has run at least two consecutive quarterly technology reviews without founder involvement and made at least three technology decisions independently in the past six months?",
+      "evidence": "Technology Leadership Authority Document with Independent Review Records and Decision Log",
+      "evidence_example": "A written authority document naming the technology leader and their decision threshold. Records of at least two consecutive quarterly technology reviews led by that person without founder attendance. A decision log showing at least three technology decisions made independently in the past six months.",
+      "example": "A fractional CTO engaged for two days per month owns the technology function. Authority up to 2,000 euros per month in technology spend without founder approval. Led the Q2 and Q3 technology audits independently. Q2 decisions: cancelled two redundant subscriptions saving 340 euros per month, upgraded the CRM plan to add automation capacity, and initiated a security monitoring tool procurement. Q3 decisions: approved the migration to a new integrated accounting and payroll system, updated the incident response plan based on a near-miss event, and commissioned the technical debt resolution of the broken CRM-to-accounting integration. The founder reviewed the quarterly technology summary both times but did not attend the audit sessions or provide input before the decisions were made.",
+      "false_positive_signals": [
+        "A developer on the team handles technology questions and is informally considered the technology lead, but has no formal authority, no documented responsibility, and no structured review cycle.",
+        "A fractional CTO is engaged for advice but all technology decisions still require founder approval before implementation, making the engagement advisory rather than ownership-level."
+      ],
+      "failure_signals": [
+        "Technology decisions stall when the founder is unavailable because no one else has the authority to approve them.",
+        "The technology stack has grown in an incoherent direction over the past 12 months because different team members made individual tool decisions without a coherent owner reviewing the overall architecture."
+      ],
+      "prerequisite": "TC.6",
+      "review_frequency": 2,
+      "weights": {"impact": 8, "complexity": 8, "time_to_implement": 7, "direct_cost": 6}
+    },
+    {
+      "level": 10,
+      "headline": "Institutional Technology Platform",
+      "plain_english": "The company operates a governed, monitored, and continuously improved technology platform that supports every domain, passes an annual external security audit, and would survive a complete change of ownership without disruption.",
+      "observation": "At Level 10, all technology systems are running together and producing compound results. The stack is documented, integrated, automated, monitored, and improving through a quarterly audit cycle. Business intelligence serves every domain. The technology leader operates independently. And the entire platform is subject to an annual external security audit that validates access control, data management, incident response, and system resilience. The result is a technology infrastructure that an acquirer, investor, or new management team could step into and operate without any founder or founder-adjacent knowledge transfer.",
+      "why_it_matters": "Technology infrastructure is one of the most underappreciated elements of enterprise value in a small or mid-market company. An acquirer who discovers undocumented systems, uncontrolled access, no incident response capability, and a technology debt register full of unresolved risks will discount the business accordingly. An acquirer who finds a documented stack, clean access control, active monitoring, a current roadmap, and an external security audit on file will have confidence in the reliability of the operational infrastructure they are buying. Technology maturity at Level 10 is not about complexity. It is about governance.",
+      "audit_binary": "Has the technology function operated without founder involvement for at least four consecutive quarters, does an annual external security audit exist from the past 12 months confirming access control, data management, and incident response meet defined standards, and are all technology systems documented, monitored, and governed under the technology leader's independent authority?",
+      "evidence": "Annual Technology Governance Report with External Security Audit Record",
+      "evidence_example": "An annual technology governance report covering: system inventory status, integration architecture, automation program savings, business intelligence coverage, security monitoring summary, quarterly audit findings and outcomes, technical debt register status, and technology roadmap completion. An external security audit report from the past 12 months with findings and any remediation actions taken.",
+      "example": "Annual technology governance report. System inventory: 16 tools, all documented, two consolidated versus prior year. Integration architecture: nine active integrations, all tested quarterly. Automation program: 12 automated workflows saving an estimated 28 hours per month versus manual execution. Business intelligence: eight domain views active and used weekly. Security monitoring: 847 events logged, zero confirmed breaches, one suspicious pattern investigated and cleared. Quarterly audits completed in Q1, Q2, Q3, Q4 with findings documented. Technical debt register: seven items at start of year, five resolved, two new items added, net reduction. Technology roadmap: eight of ten planned Q1 to Q3 initiatives completed. External security audit completed in September by an independent security firm. Findings: two medium-risk items identified, both remediated within 30 days. One recommendation adopted: multi-factor authentication extended to all tools, not just email. Founder involvement: zero technology decisions in the past 14 months.",
+      "false_positive_signals": [
+        "The technology platform is sophisticated and well-managed but the technology leader is effectively the sole person who understands the full architecture, meaning their departure would create the same knowledge vacuum the platform was meant to prevent.",
+        "An external security audit was completed but the findings included unresolved high-risk items that are still open, meaning the audit exists but the platform has not yet met the standard it should represent."
+      ],
+      "failure_signals": [
+        "A prospective acquirer's technology due diligence identifies undocumented systems, unresolved access control gaps, or no incident response capability, leading to a risk discount in the valuation.",
+        "The external security audit has not been repeated since the first one was done two years ago, meaning the security posture has evolved but has not been independently validated."
+      ],
+      "prerequisite": "TI.9",
+      "review_frequency": 1,
+      "weights": {"impact": 10, "complexity": 9, "time_to_implement": 9, "direct_cost": 7}
+    }
+  ]
+}

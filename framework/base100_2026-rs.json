@@ -1,0 +1,257 @@
+{
+  "id": "RS",
+  "name": "Revenue & Sales",
+  "purpose": "Convert market demand into predictable, scalable, and healthy revenue through a system that works independently of any individual.",
+  "cxo_persona": "Chief Revenue Officer",
+  "description": "How the company qualifies prospects, manages the pipeline, closes deals, forecasts revenue, and builds a revenue organization that grows without founder dependence. The framework is model-neutral and applies equally to transactional, retainer, subscription, and project-based revenue models. The goal is not just more revenue but healthier revenue: predictable, well-distributed, and with a sustainable and improving ratio of customer lifetime value to acquisition cost.",
+  "direction": {
+    "name": "Revenue Strategy",
+    "purpose": "Define how the company consistently converts demand into revenue, what the unit economics of that conversion are, how revenue risk is managed, and how the sales system evolves from founder-led to institutionally scalable.",
+    "required_outputs": [
+      "revenue_model_definition",
+      "pricing_strategy_and_exceptions_policy",
+      "sales_process_with_stage_exit_criteria",
+      "qualification_criteria",
+      "pipeline_management_method",
+      "revenue_targets_and_concentration_limits",
+      "sales_compensation_model",
+      "revenue_review_rhythm"
+    ],
+    "primary_owner": "Chief Revenue Officer",
+    "contributors": ["CEO", "marketing_lead", "finance_lead", "product_lead", "customer_success_lead"],
+    "minimum_standard": "One written revenue strategy exists defining the revenue model, pricing, the sales process with stage-exit criteria, qualification criteria, and monthly targets, reviewed at least quarterly.",
+    "review_frequency": 4,
+    "questions_to_answer": [
+      "What is the revenue model, and is there an opportunity to convert one-time revenue into recurring revenue that has not yet been captured?",
+      "What is the current LTV:CAC ratio, what is the payback period, and are both improving or deteriorating quarter over quarter?",
+      "What is the maximum acceptable revenue concentration for a single client, and does the current portfolio comply?",
+      "At what exact point in a sales conversation does a prospect become genuinely likely to close, and how consistently can the team identify that moment?",
+      "What does a salesperson need to believe, know, and be able to do independently by day 60, and does the current onboarding reliably produce that?",
+      "What is the handoff protocol from sales to delivery, and what promises are salespeople currently making that delivery cannot keep?",
+      "What would a better-funded competitor need to do to take the top 10 clients, and how exposed is the company right now?",
+      "What is the single sales metric that, if improved by 20%, would have the largest compounding impact on annual revenue?"
+    ]
+  },
+  "levels": [
+    {
+      "level": 1,
+      "headline": "Pricing Defined",
+      "plain_english": "The company has a written price that every sales conversation starts from, with a clear rule for who can authorize a discount.",
+      "observation": "Walk into any sales conversation in this company and the price is the same starting point every time. It is written down, available to every salesperson, and treated as the anchor, not the opening bid. When a client pushes back on price, the salesperson knows exactly how far they can move without asking anyone, and knows exactly who they need to call if they want to go further. Every exception is logged.",
+      "why_it_matters": "When pricing exists only in the founder's head or is negotiated fresh on every call, three things happen. Clients who compare notes discover inconsistencies and trust erodes. Salespeople learn that the published price is negotiable and start discounting preemptively. And margins become invisible because every deal is priced differently. A written price with an exception policy is the most basic act of turning revenue into a system rather than a series of individual negotiations.",
+      "audit_binary": "Is pricing documented in a current written document that every salesperson starts from, and is there a written exception policy naming who can authorize discounts at defined thresholds, with all exceptions logged in a central system?",
+      "evidence": "Pricing Document and Exception Authorization Policy with Exception Log",
+      "evidence_example": "A current pricing document listing all tiers or packages with prices, inclusions, and conditions. A written exception policy specifying authorization thresholds and named approvers. An exception log in the CRM or equivalent showing all discounts granted in the past 90 days with the approver and reason recorded.",
+      "example": "Standard: 8,500 euros. Professional: 12,000 euros. Enterprise: custom, minimum 18,000 euros. Discounts up to 10%: salesperson authority, logged in CRM. Between 10% and 20%: sales lead approval required, logged with reason. Above 20%: CEO approval required, logged with written rationale. Every salesperson opens every pricing conversation from this document. Last quarter: four exceptions logged, three approved, one rejected.",
+      "false_positive_signals": [
+        "A pricing document exists on the website but the founder negotiates every significant deal from a different starting point, making the document a public-facing decoration rather than an internal operating standard.",
+        "Pricing is documented but no exception policy exists, so discounts are granted based on whoever asks most persistently or has the best relationship with the founder."
+      ],
+      "failure_signals": [
+        "Two clients who bought the same product in the same month are paying materially different prices with no documented rationale for the difference.",
+        "Salespeople quote a price lower than the standard rate before the client has raised any objection, because they have learned the real price is whatever it takes to close."
+      ],
+      "prerequisite": "PI.3",
+      "review_frequency": 2,
+      "weights": {"impact": 10, "complexity": 2, "time_to_implement": 2, "direct_cost": 1}
+    },
+    {
+      "level": 2,
+      "headline": "Pipeline Centralized",
+      "plain_english": "Every lead and active deal lives in one central system that leadership can read at any moment without asking a salesperson.",
+      "observation": "At Level 2, the pipeline is a company asset, not a collection of personal assets. Every lead is logged from first contact. Every active deal has a stage, a value, an expected close date, and a last-touch date, all in one system. A salesperson who leaves tomorrow does not take the pipeline with them. Leadership can open the system on any day and read the full picture without scheduling a briefing.",
+      "why_it_matters": "A pipeline that lives in spreadsheets, notebooks, or salespeople's email inboxes is not a company pipeline. It is a set of personal pipelines that happen to be working for the company right now. The moment any of those people leaves, is sick, or goes on holiday, the visibility disappears. Centralizing the pipeline is the foundational act of making revenue a company-owned capability rather than an individual-owned one.",
+      "audit_binary": "Is every active lead and deal recorded in a single central system with current stage, value, expected close date, and last-touch date, updated within the past seven days, and can leadership access a complete pipeline view without requesting information from any individual salesperson?",
+      "evidence": "Centralized Pipeline Registry with Recency Audit",
+      "evidence_example": "A CRM or equivalent system showing every active lead and deal with stage, value, expected close date, and last activity date. A recency audit confirming all entries were updated within the past seven days.",
+      "example": "A CRM with 24 active deals. Every Monday morning, salespeople spend 15 minutes updating their entries. Any deal without a logged activity in seven days triggers an automatic flag to the sales lead. Leadership opens the pipeline view every Monday before the weekly meeting. The last time anyone requested a manual pipeline summary was four months ago because the system now makes that conversation unnecessary.",
+      "false_positive_signals": [
+        "A CRM subscription exists but salespeople update their entries only in the days before the monthly review meeting, giving leadership one accurate snapshot per month surrounded by three weeks of stale data.",
+        "The CRM contains all deals but expected close dates are never updated, so 60% of deals show close dates that have already passed with no explanation."
+      ],
+      "failure_signals": [
+        "When a salesperson is sick or leaves, leadership cannot reconstruct their active pipeline without going through their email and calendar.",
+        "Leadership must ask each salesperson individually to understand the current pipeline state before any revenue conversation can happen."
+      ],
+      "prerequisite": "RS.1",
+      "review_frequency": 52,
+      "weights": {"impact": 9, "complexity": 2, "time_to_implement": 2, "direct_cost": 2}
+    },
+    {
+      "level": 3,
+      "headline": "Revenue Owned and Qualified",
+      "plain_english": "One person is accountable for whether the company hits its revenue target, and there are written criteria that determine which prospects deserve selling time.",
+      "observation": "Two things are true at Level 3. First, one named person owns the monthly revenue number. Not the founder and the sales manager jointly. One person. When the target is missed, there is no ambiguity about who owns the explanation and the corrective plan. Second, written qualification criteria define which leads enter the active pipeline. The criteria are specific enough that two different salespeople evaluating the same prospect independently reach the same pass or fail conclusion. A pipeline full of hope is not a pipeline. It is a wish list.",
+      "why_it_matters": "Without a named revenue owner, revenue is everyone's responsibility and therefore no one's. Without qualification criteria, salespeople fill the pipeline to look productive rather than to reflect genuine probability. Both conditions together create the same outcome: missed targets with no clear explanation and no clear owner. Named ownership and qualification criteria together convert revenue from an event into a managed outcome.",
+      "audit_binary": "Is there one named person accountable for the monthly revenue target, and are there written qualification criteria specific enough that two salespeople evaluating the same lead independently reach the same pass or fail conclusion, applied consistently to every deal currently in the active pipeline?",
+      "evidence": "Revenue Ownership Assignment and Qualification Criteria Document with Pipeline Audit",
+      "evidence_example": "A written document or role assignment naming the revenue owner with their target. A qualification criteria document with binary pass or fail criteria. Evidence that every deal currently in the active pipeline meets the minimum qualification standard.",
+      "example": "Revenue owner: Head of Sales, accountable for 180,000 euros per month. Qualification criteria: confirmed budget in range, decision-maker confirmed on a call, problem matches the ICP definition, timeline under six months. Any lead missing two or more criteria moves to a nurture list rather than the active pipeline. Last pipeline audit: three deals moved to nurture after failing the timeline criterion. Pipeline cleaned from 31 to 28 active deals.",
+      "false_positive_signals": [
+        "Revenue responsibility is shared between the founder and a sales manager, so when targets are missed, accountability is diffuse and the conversation about why becomes a negotiation rather than a diagnosis.",
+        "Qualification criteria exist but are written in qualitative language such as good fit or seems interested, making consistent application impossible across different salespeople."
+      ],
+      "failure_signals": [
+        "Pipeline volume grows month over month but closed revenue does not, because unqualified deals are filling the system and creating false confidence in the forecast.",
+        "When the revenue target is missed, no single person owns the explanation and the corrective plan without being asked by the founder."
+      ],
+      "prerequisite": "RS.2",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 3, "time_to_implement": 3, "direct_cost": 1}
+    },
+    {
+      "level": 4,
+      "headline": "Standardized Sales Process",
+      "plain_english": "The company has a written sales process where every stage has a defined action and a specific exit criterion, and every active deal is staged correctly against it.",
+      "observation": "A sales process without stage-exit criteria is a list of labels, not a process. At Level 4, every stage has three things: what the salesperson does at that stage, what information must be confirmed before moving forward, and what specific customer action or evidence is required to advance the deal. A manager can look at any deal in the pipeline and verify in under two minutes whether it belongs in the stage it is sitting in, or whether it is parked there out of optimism.",
+      "why_it_matters": "Stage-exit criteria are what make coaching specific rather than motivational. Without them, a manager can only say work harder on that deal. With them, a manager can say that deal is in Stage 3 but the proposal was never explicitly requested by the prospect. That is a Stage 2 deal. Go back and close that gap before you invest more time. That conversation is only possible when the criteria exist in writing and are enforced consistently.",
+      "audit_binary": "Is there a written sales process where each stage has a defined salesperson action and a specific exit criterion, and does every deal in the active pipeline sit in the correct stage based on those criteria, verifiable in a pipeline audit conducted within the past 30 days?",
+      "evidence": "Sales Process Document with Stage-Exit Criteria and Pipeline Conformance Record",
+      "evidence_example": "A sales process document with named stages and binary exit criteria per stage. A pipeline audit record from the past 30 days confirming every active deal is correctly staged, with any incorrectly staged deals identified and corrected.",
+      "example": "Stage 1, Qualified: ICP criteria confirmed. Exit criterion is a discovery call booked and attended. Stage 2, Discovery complete: problem, budget, timeline, and decision-maker confirmed in writing in the CRM. Exit criterion is a proposal explicitly requested by the prospect. Stage 3, Proposal sent: written proposal delivered within 48 hours of request. Exit criterion is a follow-up call booked within five business days. Stage 4, Decision pending: verbal or written intent received. Exit criterion is contract sent. Stage 5, Closed won or lost: contract signed or formal decline documented. Last pipeline audit found two deals sitting in Stage 3 that had never received an explicitly requested proposal. Both moved back to Stage 2.",
+      "false_positive_signals": [
+        "A sales process document exists but stage advancement is based on the salesperson's feeling about the deal rather than the documented exit criteria, meaning the stages reflect optimism rather than reality.",
+        "The pipeline contains deals that have been in the same stage for more than twice the average sales cycle length with no recorded activity, because no exit criterion is forcing a decision."
+      ],
+      "failure_signals": [
+        "Two salespeople describe the company's sales process differently when asked to walk through it step by step, revealing that the written process is not the actual process.",
+        "Deals regularly skip stages or sit in early stages for months, suggesting the process exists on paper but is not enforced in day-to-day selling."
+      ],
+      "prerequisite": "RS.3",
+      "review_frequency": 4,
+      "weights": {"impact": 9, "complexity": 4, "time_to_implement": 4, "direct_cost": 1}
+    },
+    {
+      "level": 5,
+      "headline": "Sales Outcome Metrics and Unit Economics",
+      "plain_english": "The company tracks at least four outcome metrics monthly and has calculated its LTV:CAC ratio, because scaling a revenue model you have not measured is how companies grow their way into trouble.",
+      "observation": "At Level 5, sales performance is measured by outcomes, not activity. Four metrics are tracked monthly at minimum: lead-to-opportunity conversion rate, opportunity-to-close rate, average deal size, and average sales cycle length. All four have numeric targets. All four are reviewed in a fixed monthly meeting. A metric declining for two consecutive months triggers a documented investigation. And the LTV:CAC ratio is calculated, documented, and has a defined target. The minimum acceptable ratio is 3:1. Below that, the payback period can exceed the average client relationship length, meaning the company is paying more to acquire clients than those clients will ever return.",
+      "why_it_matters": "Activity metrics measure effort. A salesperson who makes 100 calls and closes two deals is less effective than one who makes 30 calls and closes eight. Outcome metrics measure effectiveness and make coaching specific. The LTV:CAC ratio answers the most important question in any revenue operation: is acquiring each customer creating or destroying value? A company that does not know this ratio is scaling a model it has not validated. If the ratio is below 3:1 and the company is adding salespeople, it is accelerating the problem.",
+      "audit_binary": "Are at least four sales outcome metrics tracked monthly with numeric targets, reviewed in a fixed monthly meeting, has a declining metric triggered a documented investigation in the past six months, and is the LTV:CAC ratio calculated, documented with a defined target, and currently above 3:1?",
+      "evidence": "Sales Metrics Dashboard with Monthly Review Records, Investigation Log, and LTV:CAC Calculation",
+      "evidence_example": "Monthly sales metrics reports for at least three consecutive months showing four outcome metrics with targets, actuals, and trend. At least one documented investigation triggered by a metric declining for two consecutive months. A written LTV:CAC calculation showing the inputs, the ratio, and the trend over at least two quarters.",
+      "example": "Monthly metrics reviewed on the first Monday of each month. Lead-to-opportunity rate: 34%, target 35%. Win rate: 38%, target 40%, missed two months. Investigation opened: discovery call recordings reviewed, pattern found that proposals were sent before budget was confirmed in 40% of lost deals. Process updated to require budget confirmation as a Stage 2 exit criterion. LTV:CAC calculation: average contract value 24,000 euros per year, average client retention 2.1 years, gross margin 62%. LTV equals 31,248 euros. Fully loaded CAC including salesperson time, marketing spend, and onboarding cost: 6,800 euros. Ratio: 4.6:1. Target: maintain above 4:1.",
+      "false_positive_signals": [
+        "Activity metrics such as calls made, emails sent, and LinkedIn messages are tracked and presented as sales performance data with no conversion or outcome figures alongside them.",
+        "An LTV:CAC ratio has been calculated once as a planning exercise but is not tracked quarterly or used in any hiring, pricing, or channel decision."
+      ],
+      "failure_signals": [
+        "The LTV:CAC ratio has never been calculated. The company is adding salespeople and marketing spend without knowing whether acquiring each customer creates or destroys value.",
+        "The ratio is below 3:1 and there is no documented plan to correct it. The company is building pipeline on an acquisition model that does not yet pay for itself."
+      ],
+      "prerequisite": "TI.5",
+      "review_frequency": 12,
+      "weights": {"impact": 9, "complexity": 6, "time_to_implement": 5, "direct_cost": 3}
+    },
+    {
+      "level": 6,
+      "headline": "Proactive Revenue Management",
+      "plain_english": "The company produces a monthly revenue forecast from pipeline data and uses it during the month to intervene in at-risk deals before the month closes.",
+      "observation": "There are two types of revenue management. The first type discovers the revenue number at month end and reacts to it. The second type produces a forecast from pipeline data at the start of the month, reviews it at mid-month, identifies which specific deals are at risk of slipping, and intervenes before the month is over. At Level 6, the company does the second type. The forecast is not a reporting exercise. It is a steering mechanism.",
+      "why_it_matters": "A forecast that is only consulted at month end is a postmortem, not a planning tool. The value of forecasting is in what it enables during the month. When a weighted pipeline review on day 15 shows that two deals flagged as 70% probability have not been contacted in eight days, a sales leader who intervenes that day can still save the month. A sales leader who discovers the same information on day 31 cannot. Variance analysis is the learning mechanism: each gap between forecast and actual is a lesson about which stage probabilities are wrong and which deal types slip.",
+      "audit_binary": "Is a revenue forecast produced monthly from pipeline stage probabilities, used during the month to trigger specific interventions in at-risk deals, and is there a documented variance analysis for each of the past three months identifying the specific cause of the gap and the calibration applied to the following month?",
+      "evidence": "Monthly Revenue Forecast with Mid-Month Intervention Records and Variance Analysis",
+      "evidence_example": "Three consecutive monthly forecasts showing: pipeline-weighted revenue estimate, mid-month intervention records for at-risk deals, actual result, variance amount and percentage, specific cause of variance, and the calibration applied to the next month's probability weightings.",
+      "example": "Month 3 forecast: 187,000 euros weighted from pipeline. Mid-month review on day 15: two Stage 4 deals flagged as at-risk because no contact was logged in eight days. Sales lead called both clients that afternoon. One re-engaged and closed by day 28. One confirmed slipping to the following month. Actual result: 164,000 euros. Variance: minus 23,000. Root cause: enterprise deals in Stage 4 are being assigned 70% probability but historical data shows they close at 45% because legal review adds two to four weeks. Calibration: enterprise Stage 4 probability reduced to 45% from the following month. Next forecast immediately more conservative on that deal type.",
+      "false_positive_signals": [
+        "A forecast is produced each month and presented at the month-end review, but it is never used during the month to trigger any action. It describes what happened rather than shaping what will happen.",
+        "Forecast variance is acknowledged each month but attributed to external factors or luck rather than a specific pipeline or process cause being identified and corrected."
+      ],
+      "failure_signals": [
+        "Forecast accuracy is consistently worse than 25% off actuals across multiple months with no improvement trend, indicating the pipeline stage data is not reliable enough to forecast from.",
+        "The finance team refuses to use the sales forecast as a planning input for cash flow or hiring because it has been wrong too many times without a credible explanation."
+      ],
+      "prerequisite": "RS.4",
+      "review_frequency": 12,
+      "weights": {"impact": 8, "complexity": 6, "time_to_implement": 5, "direct_cost": 2}
+    },
+    {
+      "level": 7,
+      "headline": "Cross-Domain Revenue Integration",
+      "plain_english": "Sales formally connects to marketing, delivery, customer success, and finance through shared artifacts that are used in real decisions every quarter.",
+      "observation": "At Level 7, revenue does not operate in isolation. Four integration points exist. Marketing shares lead quality data showing which sources convert and why, which informs channel and targeting decisions. Operations receives a completed handoff checklist from sales before any project begins, ensuring what was sold matches what is delivered. Customer success feeds churn signals and expansion opportunities back to sales, creating a closed loop between retention and acquisition. Finance and sales review unit economics jointly each quarter, making budget and hiring decisions on shared data rather than separate assumptions.",
+      "why_it_matters": "The most expensive revenue failures happen at domain boundaries. Sales overpromises to close and delivery is set up to fail. Marketing optimizes for lead volume rather than lead quality because no one tells them which sources actually convert. Customer success sees churn signals that sales could act on for expansion, but the information never crosses the boundary. Each of these failures is preventable with a formal integration point. Without the integration, four functions optimize individually and produce outcomes none of them would have chosen deliberately.",
+      "audit_binary": "Do documented integration artifacts connect RS to BM, OD, CS, and FR, with evidence that each artifact was used to inform a decision in the past quarter?",
+      "evidence": "Cross-Domain Revenue Integration Artifacts: Lead Quality Report, Sales-to-Delivery Handoff Checklist, CS Revenue Signal Record, and Joint Unit Economics Review",
+      "evidence_example": "Four artifacts, each with evidence of use in the past quarter: a lead quality report shared with marketing showing conversion rates by source and ICP match, a completed sales-to-delivery handoff checklist for at least three recent clients, a record of customer success churn or expansion signals reviewed by the sales lead, and minutes from a joint sales-finance unit economics review.",
+      "example": "BM integration: a monthly lead quality report sent to the marketing owner showing conversion rate by channel and ICP match score. Last quarter this report caused the marketing team to shift budget away from direct outreach after data showed content-sourced leads convert at 2.3 times the rate of outbound leads. OD integration: a 12-item handoff checklist completed by sales and countersigned by the delivery lead before any project begins, covering scope confirmed, promises made to client, key contacts, and agreed timeline. CS integration: a monthly one-page report from the customer success lead flagging expansion opportunities and early churn signals, reviewed by the sales lead each month. Two expansion deals last quarter originated from this report. FR integration: a quarterly 30-minute meeting with the finance lead reviewing LTV:CAC, payback period, and margin by deal type.",
+      "false_positive_signals": [
+        "Sales and marketing have good communication and meet regularly, but no structured lead quality artifact exists and conversion data does not formally influence marketing channel or content decisions.",
+        "A handoff process is described in the sales training but no completed handoff checklist exists for any recent client, meaning the handoff happens informally and inconsistently."
+      ],
+      "failure_signals": [
+        "Delivery teams regularly receive clients with scope expectations that differ from what operations was briefed on, because the sales-to-delivery handoff is informal and relies on memory.",
+        "Marketing continues investing in channels based on lead volume data while sales is privately aware that leads from certain sources rarely close, but no artifact exists to communicate that back."
+      ],
+      "prerequisite": "RS.6",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 3}
+    },
+    {
+      "level": 8,
+      "headline": "Systematic Sales Improvement",
+      "plain_english": "The company runs a formal win and loss analysis on every significant deal and uses the findings to update the sales playbook every quarter.",
+      "observation": "At Level 8, the sales function learns from its own data. Every deal above a defined size threshold is reviewed after closing, whether won or lost. Findings are aggregated quarterly into a written analysis covering why deals were won, why deals were lost, which objections appeared most frequently, and at which stage the most deals were lost. Those findings update the sales playbook directly. The playbook is not a document written once. It is a living record of what has actually worked in this market with this product at this price point, revised every quarter.",
+      "why_it_matters": "A sales team that does not examine its losses is paying tuition on the same lessons repeatedly. Win and loss analysis converts anecdotal experience into institutional knowledge. When the playbook is updated from actual deal evidence each quarter, it gets more accurate over time. When it is not, it slowly becomes a description of how the company used to sell rather than how it sells now. The connection between analysis and playbook update is the critical step. Analysis without a changed behavior is just reporting.",
+      "audit_binary": "Is a win and loss analysis conducted on every deal above a defined threshold, aggregated into a quarterly findings report, and has that report produced at least two documented changes to the sales playbook or qualification criteria in the past six months?",
+      "evidence": "Win and Loss Analysis Reports with Playbook Update Log",
+      "evidence_example": "Quarterly win and loss analysis reports for at least two consecutive quarters, each showing deals analyzed, win reasons, loss reasons, top objections, and stage where most deals were lost. A playbook update log showing at least two changes made based on the findings, with the specific finding that prompted each change.",
+      "example": "Q3 win and loss analysis: 24 deals analyzed, 9 won, 15 lost. Win reasons: strong ROI case cited in 8 of 9 wins, founder referral cited in 6 of 9. Loss reasons: competitor offered a payment plan option in 7 of 15 losses, proposal took more than five days in 5 of 15 losses. Playbook update 1: ROI calculation template added to the proposal stage, required for all deals above 10,000 euros. Playbook update 2: 48-hour proposal delivery standard added as a formal commitment, with a calendar block system to support it. Both changes tracked in the playbook update log with the source finding noted.",
+      "false_positive_signals": [
+        "Post-deal conversations happen informally after significant wins or losses, but findings are not documented or aggregated, making them anecdotes rather than a learning system.",
+        "A win and loss log exists but findings have never produced a documented change to the playbook, qualification criteria, or coaching approach. The analysis is happening but the learning is not."
+      ],
+      "failure_signals": [
+        "The same objections appear in lost deals for two or more consecutive quarters with no documented change to how the sales team handles them.",
+        "The sales playbook has not been updated in more than six months despite win and loss data being available, suggesting the analysis is not connected to the playbook in practice."
+      ],
+      "prerequisite": "RS.7",
+      "review_frequency": 4,
+      "weights": {"impact": 8, "complexity": 7, "time_to_implement": 6, "direct_cost": 3}
+    },
+    {
+      "level": 9,
+      "headline": "Founder and Key-Person Independent Revenue",
+      "plain_english": "The entire sales function operates without the founder and without dependency on any single salesperson, with no client above 25% of revenue and LTV:CAC above 3:1.",
+      "observation": "Independence at Level 9 has two dimensions and both must be true. First, founder independence: the founder has not been involved in a pipeline review, a deal strategy conversation, or a pricing decision for at least two consecutive quarters. Second, key-person independence: no single salesperson is responsible for more than 40% of closed revenue. If the top performer left tomorrow, the system would absorb the loss without a crisis. Revenue concentration is also within policy: no single client accounts for more than 25% of total revenue, and LTV:CAC is above 3:1 before the company scales headcount further.",
+      "why_it_matters": "A sales function that works without the founder but collapses if the top salesperson leaves has not achieved independence. It has transferred the dependency. True independence means the system produces results regardless of which specific individuals are currently in the roles. Revenue concentration matters for the same reason: a business where one client represents 30% of revenue is not a scalable sales system. It is one client relationship away from a significant problem. And LTV:CAC above 3:1 is the gate that must be cleared before scaling makes economic sense.",
+      "audit_binary": "Has the entire sales function operated without founder involvement for at least two consecutive quarters, with no single salesperson above 40% of closed revenue, no single client above 25% of total revenue, and LTV:CAC above 3:1?",
+      "evidence": "Sales Independence Record with Revenue Concentration Report",
+      "evidence_example": "A record of sales leadership activity for two consecutive quarters confirming no founder involvement in deal reviews, deal coaching, or closing decisions. A revenue concentration report showing no salesperson above 40% of closed revenue and no client above 25% of total revenue. The current LTV:CAC calculation confirming the ratio is above 3:1.",
+      "example": "Q2 and Q3: Head of Sales ran all pipeline reviews, managed three salespeople independently, supervised or closed all 51 deals. Founder reviewed the monthly revenue summary only. Salesperson concentration: top performer closed 34% of revenue, within the 40% limit. Client concentration: largest client represents 19% of revenue, within the 25% limit. LTV:CAC: 4.3:1, stable from prior quarter. No founder involvement in any deal decision documented across both quarters.",
+      "false_positive_signals": [
+        "The founder is not in pipeline reviews but is still the relationship owner for the three largest clients, meaning the revenue base is operationally independent but relationally founder-dependent.",
+        "No single salesperson dominates closed revenue, but the sales leader is so central to the function that their departure would be the equivalent of a founder departure in terms of disruption."
+      ],
+      "failure_signals": [
+        "LTV:CAC is below 3:1 and the company is adding salespeople anyway. It is scaling the cost of acquiring customers faster than the economics can support.",
+        "A single salesperson departure would reduce monthly closed revenue by more than 30% with no system or pipeline capable of redistributing the workload."
+      ],
+      "prerequisite": "TC.6",
+      "review_frequency": 2,
+      "weights": {"impact": 9, "complexity": 9, "time_to_implement": 8, "direct_cost": 7}
+    },
+    {
+      "level": 10,
+      "headline": "Institutional Revenue Engine",
+      "plain_english": "The company operates a self-governing revenue system that produces predictable, growing, and healthy revenue independently of the founder, with LTV:CAC above 4:1 and forecast accuracy within 15%.",
+      "observation": "At Level 10, the revenue system is complete and self-sustaining. Pricing is documented and enforced. The pipeline is centralized and current. A named owner holds the revenue target. The process has stage-exit criteria and is audited regularly. Outcome metrics and LTV:CAC are reviewed monthly. Forecasting happens mid-month and drives interventions. Cross-domain integrations are active. Win and loss analysis updates the playbook every quarter. Leadership is independent. And all of this is documented in an annual revenue governance report reviewed by an external party, confirming the system would survive a full change of ownership without disruption.",
+      "why_it_matters": "Predictable, founder-independent, well-distributed revenue with a 4:1 or better LTV:CAC is the financial proof of a transferable business. An acquirer, investor, or lender looking at this company does not just see a revenue number. They see a system that will continue producing that revenue after the current team changes. That is what converts a revenue number into a valuation multiple. A ratio above 4:1 means the company is creating meaningful value with every customer it acquires, and improving that ratio over time means the system is getting better, not just bigger.",
+      "audit_binary": "Has the revenue system operated without founder involvement for at least four consecutive quarters, with LTV:CAC above 4:1, forecast accuracy within 15% in each quarter, no client above 25% of total revenue, no salesperson above 40% of closed revenue, and has the system been documented in an annual revenue governance report reviewed by at least one external party?",
+      "evidence": "Annual Revenue Governance Report with External Review Record",
+      "evidence_example": "An annual report showing: quarterly revenue results and trend, forecast accuracy per quarter, LTV:CAC and payback period trend, revenue concentration by client and by salesperson, ramp performance for new hires in the period, win and loss summary, and a record of founder non-involvement across all four quarters. Reviewed and signed by at least one external advisor or board member.",
+      "example": "Annual revenue governance report. Revenue grew from 2.1 million to 2.8 million euros, up 33%. Forecast accuracy: Q1 93%, Q2 88%, Q3 94%, Q4 91%, all within the 15% target. LTV:CAC: 4.7:1, up from 4.1:1 the prior year. Payback period: 7.2 months. Largest client: 19% of revenue. Top salesperson: 34% of closed revenue. Four new hires onboarded, all reached 80% of quota by day 62. Win rate improved from 34% to 41% following the Q2 playbook update. Report reviewed by an advisory board member who flagged one concentration risk in the enterprise segment. Action plan documented. Founder last involved in a sales decision: 18 months ago.",
+      "false_positive_signals": [
+        "Revenue is growing strongly and operational metrics are all healthy, but LTV:CAC is below 4:1. The engine is producing volume but not yet compounding value at an institutional rate.",
+        "The revenue system is fully documented and operationally independent, but the three largest clients are personally connected to the founder. Revenue transferability depends on relationship transition, not system transition."
+      ],
+      "failure_signals": [
+        "LTV:CAC is below 4:1 or has declined for two consecutive quarters. The revenue engine is growing in volume while deteriorating in quality.",
+        "A prospective acquirer's due diligence identifies revenue concentration, founder-dependent client relationships, or forecast unreliability as grounds for a valuation discount."
+      ],
+      "prerequisite": "RS.9",
+      "review_frequency": 1,
+      "weights": {"impact": 10, "complexity": 9, "time_to_implement": 9, "direct_cost": 8}
+    }
+  ]
+}
