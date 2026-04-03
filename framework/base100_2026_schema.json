@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://base100.org/schemas/base100_2026.schema.json",
+  "$id": "https://base100.org/schemas/base100_2026_3.schema.json",
   "title": "BASE100 Domain Standard Schema",
   "type": "object",
   "additionalProperties": false,
@@ -29,7 +29,14 @@
   "$defs": {
     "frequency": {
       "type": "integer",
-      "enum": [1, 2, 4, 12, 52, 250]
+      "enum": [
+        1,
+        2,
+        4,
+        12,
+        52,
+        250
+      ]
     },
     "weights": {
       "type": "object",
@@ -231,10 +238,10 @@
           "type": "string",
           "enum": [
             "LD",
-            "PR",
+            "PI",
             "BM",
             "RS",
-            "OP",
+            "OD",
             "CS",
             "TC",
             "TI",

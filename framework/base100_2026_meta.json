@@ -3,9 +3,9 @@
     "id": "BASE-100",
     "name": "BASE-100",
     "full_name": "BASE-100 Global Standard for Business Maturity",
-    "revision": "2026.1",
-    "schema_version": "3.0",
-    "status": "draft",
+    "revision": "2026.3",
+    "schema_version": "1.3",
+    "status": "final",
     "language": "en",
     "copyright": "2026 BASE-100 Institute",
     "authors": [
@@ -15,7 +15,7 @@
     "about": "The Open Standard for Business Maturity"
   },
   "framework_description": {
-    "summary": "BASE-100 is an open, human-readable and machine-readable standard for measuring business maturity. It maps a company across 10 universal business domains and 11 maturity levels, from Level 0 to Level 10, creating a total score from 0 to 100.",
+    "summary": "BASE-100 is an open, human-readable and machine-readable standard for measuring business maturity. It maps a company across 10 universal business domains and 10 maturity levels, from Level 1 to Level 10, creating a total score from 0 to 100.",
     "purpose": "The purpose of BASE-100 is to help founders, operators, investors, advisors, and AI agents identify the current maturity of a business, detect its main constraint, and follow a clear path toward a more scalable, predictable, and transferable company.",
     "core_thesis": "A business is not just a creative project. It is also an engineered system. Most of the work required to run a valuable company is universal, measurable, and improvable.",
     "design_principle": "BASE-100 standardizes the universal operating core of a company so that leadership can focus on the differentiated edge where true market advantage is created.",
@@ -68,7 +68,8 @@
         "Market and technology shifts"
       ],
       "backward_compatibility_goal": "High, unless a definition is no longer defensible or useful."
-    }
+    },
+    "revision_cycle": "annual"
   },
   "philosophy": {
     "operating_beliefs": [
@@ -115,7 +116,7 @@
   },
   "definitions": {
     "business": "A legal and operational entity that creates and delivers value in exchange for money.",
-    "domain": "One of the 10 universal areas of business operation measured by the framework.",
+    "domain": "One of the 10 universal areas of business operation measured by the framework. Each domain has a two-letter code where each letter represents one of the two words in the domain name.",
     "cell": "The intersection of one domain and one maturity level.",
     "level": "A maturity state from 0 to 10 within a domain.",
     "maturity": "The degree to which a business activity is designed, organized, measured, improved, and independent of specific individuals.",
@@ -139,19 +140,15 @@
   "maturity_model": {
     "scale_name": "BASE-100 maturity scale",
     "level_range": {
-      "min": 0,
+      "min": 1,
       "max": 10
     },
     "total_possible_score": 100,
-    "scoring_unit": "One point per validated cell level per domain",
-    "interpretation": "Each domain is scored from 0 to 10. Total maturity is the sum of all 10 domain scores.",
+    "scoring_unit": "One point per validated level per domain. Each domain scores from 0 (no levels validated) to 10 (all levels validated). Total score is the sum across all 10 domains.",
+    "interpretation": "Each domain is scored from 0 to 10 based on how many levels have been validated with current evidence. Total maturity is the sum of all 10 domain scores, ranging from 0 to 100.",
     "important_note": "A high total score does not cancel out a critical weakness in a core domain."
   },
   "universal_level_logic": {
-    "0": {
-      "name": "Designed",
-      "definition": "The domain has a written design, intent, and success definition."
-    },
     "1": {
       "name": "Defined",
       "definition": "The core object, process, or rule exists in basic written form."
@@ -194,12 +191,12 @@
     }
   },
   "stage_model": {
-    "note": "Stages are descriptive groupings of typical business maturity, not hard requirements by size.",
+    "note": "Stages are descriptive groupings of typical business maturity, not hard requirements by size. Level 0 has been retired from formal scoring and is now represented informally by the direction document in each domain.",
     "stages": {
       "discovery": {
         "stage_order": 1,
-        "base100_levels": "0-2",
-        "base100_score": "0-20",
+        "base100_levels": "1-2",
+        "base100_score": "1-20",
         "universal_terms": [
           "Discovery",
           "Search",
@@ -343,11 +340,10 @@
     "cell_result_types": [
       "pass",
       "fail",
-      "partial",
       "not_applicable"
     ],
-    "binary_rule": "Each cell should be written so the main audit question can be answered yes or no.",
-    "partial_use": "Partial may be used internally during drafting, but the published standard should aim for pass/fail clarity.",
+    "binary_rule": "Each cell is written so the audit question can be answered yes or no. Pass requires current verifiable evidence. Fail means evidence is absent, outdated, or does not meet the standard.",
+    "partial_use": "Partial is available as an internal working status during an assessment but is not a valid published result. Every cell in a published audit is pass, fail, or not_applicable.",
     "review_frequencies": {
       "1": "Annual",
       "2": "Twice per year",
@@ -368,8 +364,8 @@
       "evidence",
       "evidence_example",
       "example",
-      "common_fake_good",
-      "failure_signal",
+      "false_positive_signals",
+      "failure_signals",
       "prerequisite",
       "review_frequency",
       "weights"
@@ -384,8 +380,8 @@
       "evidence": "Name of the required artifact.",
       "evidence_example": "What acceptable evidence looks like in practice.",
       "example": "A 90% best-practice implementation example that can be copied without naming brands.",
-      "common_fake_good": "A misleading version that looks mature but is not.",
-      "failure_signal": "Observable real-world sign that the level is not actually achieved.",
+      "false_positive_signals": "An array of 2 descriptions of situations that look like the level is achieved but are not. Each entry describes a specific observable false-pass condition.",
+      "failure_signals": "An array of 2 to 3 descriptions of observable real-world conditions that indicate the level has not been achieved. Each entry describes what a visitor would see or hear on a typical working day.",
       "prerequisite": "The cell or condition that should exist first, or null if none.",
       "review_frequency": "Numeric review frequency code.",
       "weights": "Relative implementation profile for prioritization."
@@ -407,7 +403,9 @@
     "rule_7": "Every level must align with the universal level logic.",
     "rule_8": "Avoid industry-specific assumptions unless clearly marked.",
     "rule_9": "Avoid magic numbers unless they are broadly defensible or explicitly illustrative.",
-    "rule_10": "Level 10 should be aspirational but still defensible."
+    "rule_10": "Level 10 should be aspirational but still defensible.",
+    "rule_11": "Write in a direct, human tone. No em-dashes. Vary sentence length. Observations describe what a visitor sees on a working Tuesday, not abstract principles.",
+    "rule_12": "Each domain level must align with the universal level logic sequence: L1 Defined, L2 Organized, L3 Owned, L4 Standardized, L5 Measured, L6 Proactive, L7 Integrated, L8 Improving, L9 Independent, L10 Transferable."
   },
   "implementation_guidance": {
     "recommended_usage_order": [
@@ -447,15 +445,80 @@
   ],
   "future_domain_structure": {
     "domain_count": 10,
-    "expected_domain_fields": [
+    "domain_ids": [
+      "LD",
+      "PI",
+      "BM",
+      "RS",
+      "OD",
+      "CS",
+      "TC",
+      "TI",
+      "FR",
+      "AI"
+    ],
+    "required_domain_fields": [
       "id",
       "name",
       "purpose",
       "cxo_persona",
       "description",
+      "direction",
       "levels"
     ],
-    "placeholder": "Domains to be completed one by one in later revisions."
+    "status": "All 10 domains completed in Revision 2026.3."
   },
-  "domains": []
+  "domains": [],
+  "domain_registry": [
+    {
+      "id": "LD",
+      "name": "Leadership & Direction",
+      "cxo": "Chief Executive Officer"
+    },
+    {
+      "id": "PI",
+      "name": "Product & Innovation",
+      "cxo": "Chief Product Officer"
+    },
+    {
+      "id": "BM",
+      "name": "Brand & Market",
+      "cxo": "Chief Marketing Officer"
+    },
+    {
+      "id": "RS",
+      "name": "Revenue & Sales",
+      "cxo": "Chief Revenue Officer"
+    },
+    {
+      "id": "OD",
+      "name": "Operations & Delivery",
+      "cxo": "Chief Operating Officer"
+    },
+    {
+      "id": "CS",
+      "name": "Customer Success & Retention",
+      "cxo": "Chief Customer Officer"
+    },
+    {
+      "id": "TC",
+      "name": "Talent & Culture",
+      "cxo": "Chief People Officer"
+    },
+    {
+      "id": "TI",
+      "name": "Technology & Infrastructure",
+      "cxo": "Chief Technology Officer"
+    },
+    {
+      "id": "FR",
+      "name": "Finance & Risk",
+      "cxo": "Chief Financial Officer"
+    },
+    {
+      "id": "AI",
+      "name": "Assets & IP",
+      "cxo": "Chief Executive Officer"
+    }
+  ]
 }
