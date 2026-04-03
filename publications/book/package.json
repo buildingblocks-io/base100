@@ -1,0 +1,11 @@
+{
+  "name": "base100-book",
+  "private": true,
+  "scripts": {
+    "build": "node build.js --framework ../../framework",
+    "build:html": "node build.js --framework ../../framework --no-pdf"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.2.0"
+  }
+}
